@@ -39,19 +39,20 @@ curl -LsSf https://astral.sh/uv/install.sh | sh   # macOS / Linux (or: brew inst
 git clone https://github.com/<you>/daily_tokens && cd daily_tokens
 cp config.example.json config.json                # set "host" to an alias like mac-a
 
-# 3. Collect and render
+# 3. Set up the environment and run
+uv sync                                           # one-time: provisions the pinned Python + .venv
 ./scripts/run.sh collect --all                    # backfill everything ccusage still has
 ./scripts/run.sh render                           # build every chart locally
 ```
 
-**How uv is used here.** There is no venv and nothing to install: both scripts are zero-dependency, single-file [PEP 723](https://peps.python.org/pep-0723/) scripts. `run.sh` finds uv and executes them as `uv run --python $(cat .python-version) <script>`, which pins the interpreter to `.python-version` — so your terminal, the launchd job at 00:30, and CI all run the exact same Python instead of whatever `python3` happens to be ambient. You can also call the scripts directly:
+**How uv is used here.** This is a standard uv project: `pyproject.toml` declares the (empty — everything is stdlib) dependency set, `.python-version` pins the interpreter, and `uv.lock` is committed. `uv sync` materialises that into `.venv`, and `uv run` re-syncs automatically whenever the lockfile changes — so your terminal, the launchd job at 00:30, and CI all run the exact same Python instead of whatever `python3` happens to be ambient. `run.sh` is a thin wrapper over the same thing (it survives launchd's minimal `PATH`); calling uv directly works too:
 
 ```bash
-uv run --python "$(cat .python-version)" scripts/collect.py --all
-uv run --python "$(cat .python-version)" scripts/render.py
+uv run scripts/collect.py --all
+uv run scripts/render.py
 ```
 
-(The explicit `--python` matters: `uv run` does not honour `.python-version` for PEP 723 scripts on its own.) No uv at all? `run.sh` falls back to plain `python3` (≥ 3.9) automatically — the fallback is a real path, not a courtesy.
+No uv at all? `run.sh` falls back to plain `python3` (≥ 3.9) automatically — the scripts have zero dependencies, so the fallback is a real path, not a courtesy.
 
 Then schedule it (macOS):
 
@@ -164,7 +165,8 @@ Two machines never write the same path, so there is no merge conflict to resolve
 
 ```
 config.example.json          copy to config.json, set your host alias
-.python-version              interpreter pin (uv)
+pyproject.toml, uv.lock      uv project: zero dependencies, locked anyway
+.python-version              interpreter pin (3.12, provisioned by uv)
 scripts/
   run.sh                     entry point: uv if present, python3 otherwise
   collect.py                 ccusage → data/<host>/<date>.json

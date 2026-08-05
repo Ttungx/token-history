@@ -9,10 +9,11 @@
 # `python3` was Anaconda 3.11 in the terminal but /usr/bin/python3 3.9 under
 # launchd — the classic "works when I test it, misbehaves at 00:30" split.
 #
-# So: prefer `uv run`, which pins the interpreter to .python-version and is
-# identical on every machine. Fall back to a plain python3 when uv is absent —
-# the scripts are standard-library-only and 3.9-compatible, so the fallback is a
-# real path, not a courtesy. Nobody is forced to install uv to use a fork.
+# So: prefer `uv run` in project mode, which provisions the interpreter pinned
+# by .python-version (via pyproject.toml + uv.lock) and is identical on every
+# machine. Fall back to a plain python3 when uv is absent — the scripts are
+# standard-library-only and 3.9-compatible, so the fallback is a real path, not
+# a courtesy. Nobody is forced to install uv to use a fork.
 set -eu
 
 HERE=$(cd -- "$(dirname -- "$0")" && pwd)
@@ -36,14 +37,11 @@ for candidate in "${UV_BIN:-}" "$(command -v uv 2>/dev/null || true)" \
 done
 
 if [ -n "$UV" ]; then
-    # `--python` must be explicit. Verified on uv 0.6.5: neither `--project .`
-    # nor running from the repo root makes `uv run` honour .python-version for a
-    # PEP 723 script — both silently inherit whatever python3 is ambient, which
-    # defeats the entire point of this wrapper.
-    if [ -r "$REPO/.python-version" ]; then
-        exec "$UV" run --quiet --python "$(cat "$REPO/.python-version")" "$SCRIPT" "$@"
-    fi
-    exec "$UV" run --quiet "$SCRIPT" "$@"
+    # Project mode: `--project` points uv at pyproject.toml, so it provisions
+    # the .python-version interpreter and syncs .venv on its own. (This is why
+    # the scripts carry no PEP 723 header — with one, uv would switch to script
+    # mode, which ignores .python-version; verified on uv 0.6.5.)
+    exec "$UV" run --quiet --project "$REPO" "$SCRIPT" "$@"
 fi
 
 PY=""

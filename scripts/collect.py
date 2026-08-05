@@ -1,8 +1,4 @@
 #!/usr/bin/env python3
-# /// script
-# requires-python = ">=3.9"
-# dependencies = []
-# ///
 """Collect local AI coding CLI token usage via ccusage and persist it to this repo.
 
 Why this exists: Claude Code deletes session transcripts older than

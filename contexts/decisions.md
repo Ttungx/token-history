@@ -92,6 +92,13 @@ Desktop + VSCode + CLI + Mobile 全部计入。理由：共用同一份 ChatGPT 
 
 ⚠️ 实测坑（uv 0.6.5）：**`uv run` 不会自动读 `.python-version`** —— `--project .` 和在 repo 根目录裸跑都静默继承环境里的 python。必须显式传 `--python`，否则整个 wrapper 的目的落空。
 
+**已修订（2026-08-05 晚）：改为 repo 级 uv 项目。** 用户要求 `pyproject.toml + uv sync / uv run` 的标准 uv 工作流：
+
+- 新增 `pyproject.toml`（`requires-python >=3.9`、零依赖、`[tool.uv] package = false` —— 脚本仓不是可安装包）+ 提交 `uv.lock`
+- **PEP 723 头从两个脚本里移除** —— 带着它 `uv run` 会切到 script 模式，而 script 模式不读 `.python-version`；**项目模式原生尊重 `.python-version`**（实测 uv 0.6.5 自动取到 3.12），上面的 `--python` 坑不再适用
+- `run.sh` 改为 `uv run --project "$REPO"`；python3 兜底保留（脚本仍 stdlib-only、3.9 兼容，D2 可 fork 性不变）
+- CI 从 setup-python 换成 `astral-sh/setup-uv` + `uv run scripts/render.py`
+
 ### D8. 图表：默认 30 根日柱，不是周柱
 
 原计划 16 周周柱。实际渲染后用户判断「16 周的 bar plot 不那么直观」。30 天窗口下周聚合只剩 4~5 根粗柱，比 30 根细柱更难读，也丢掉了日节奏。

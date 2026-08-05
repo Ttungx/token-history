@@ -10,6 +10,8 @@ on:
     paths:
       - 'data/**'
       - 'scripts/render.py'
+      - 'pyproject.toml'
+      - 'uv.lock'
       - '.github/workflows/render.yml'
   workflow_dispatch:
 
@@ -27,12 +29,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - uses: astral-sh/setup-uv@v5
         with:
-          python-version-file: '.python-version'
+          enable-cache: true
 
       - name: Render
-        run: python3 scripts/render.py
+        run: uv run scripts/render.py
 
       - name: Commit charts
         run: |
