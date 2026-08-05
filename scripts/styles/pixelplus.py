@@ -330,52 +330,63 @@ ORANGE = "#d06a41"   # validated light-mode Claude accent (see render.THEME)
 BLUE = "#4382c9"     # validated light-mode Codex accent
 
 
-def _badge(label, value, value_bg, value_fg, icons, aria, generated, shadow_text):
-    u = 2
-    body_h = 22                       # + 2px drop shadow = 24 total
-    x = 10
+def _badge(label, value, value_bg, value_fg, icons, aria, generated,
+           shadow_text, small=False):
+    if small:
+        # compact twin: 1px glyph cells (5x7px caps), 17px outline + 1px
+        # shadow = 18px total, just under the 20px shields height
+        u, oh, sh = 1, 17, 1
+        n1, n2 = 3, 1
+        pad_x, icon_gap, seg_gap, vpad, right_pad = 6, 4, 6, 5, 4
+        rect_y, rect_h, ty = 3, 11, 5
+    else:
+        u, oh, sh = 2, 22, 2          # 22px outline + 2px shadow = 24 total
+        n1, n2 = 4, 2
+        pad_x, icon_gap, seg_gap, vpad, right_pad = 10, 6, 9, 7, 6
+        rect_y, rect_h, ty = 3, 16, 4
+    total_h = oh + sh
+    x = pad_x
     icon_w = 0
     for pat, _, iu in icons:
         icon_w = max(icon_w, len(pat[0]) * iu)
-    if icons:
-        x_label = x + icon_w + 6
-    else:
-        x_label = x
+    x_label = x + icon_w + icon_gap if icons else x
     lw = _pw(label, u)
-    vx = x_label + lw + 9             # value segment start
+    vx = x_label + lw + seg_gap       # value segment start
     tw = _pw(value, u)
-    vw = tw + 14
-    w = vx + vw + 6                   # total width incl. 2px shadow overhang
+    vw = tw + 2 * vpad
+    w = vx + vw + right_pad           # total width incl. shadow overhang
 
     out = []
     add = out.append
-    add('<svg xmlns="http://www.w3.org/2000/svg" width="{}" height="24" '
-        'viewBox="0 0 {} 24" role="img" aria-label="{}">'.format(
-            w, w, render.esc(aria)))
+    add('<svg xmlns="http://www.w3.org/2000/svg" width="{}" height="{}" '
+        'viewBox="0 0 {} {}" role="img" aria-label="{}">'.format(
+            w, total_h, w, total_h, render.esc(aria)))
     add("<title>{}</title>".format(render.esc(aria)))
     add("<!-- generated {} -->".format(render.esc(generated)))
     add('<g shape-rendering="crispEdges">')
     # hard offset shadow, then the light outline, then the dark body
-    add('<path fill="{}" d="{}"/>'.format(INK, _stair(2, 2, w - 2, body_h, 4, 2)))
-    add('<path fill="{}" d="{}"/>'.format(EDGE, _stair(0, 0, w - 2, body_h, 4, 2)))
-    add('<path fill="{}" d="{}"/>'.format(INK, _stair(1, 1, w - 4, body_h - 2, 4, 2)))
+    add('<path fill="{}" d="{}"/>'.format(INK, _stair(sh, sh, w - sh, oh, n1, n2)))
+    add('<path fill="{}" d="{}"/>'.format(EDGE, _stair(0, 0, w - sh, oh, n1, n2)))
+    add('<path fill="{}" d="{}"/>'.format(
+        INK, _stair(1, 1, w - sh - 2, oh - 2, n1, n2)))
     # value segment: plain rect inset in the dark body; the body's stair
     # corners around it carry the pixel look
-    add('<rect fill="{}" x="{}" y="3" width="{}" height="16"/>'.format(
-        value_bg, vx, vw))
+    add('<rect fill="{}" x="{}" y="{}" width="{}" height="{}"/>'.format(
+        value_bg, vx, rect_y, vw, rect_h))
     # icon(s)
     for pat, fill, iu in icons:
         ih = len(pat) * iu
-        iy = (body_h - ih) // 2
+        iy = (oh - ih) // 2
         add('<g fill="{}">{}</g>'.format(
             fill, _rects_svg(_sprite_rects(pat, x, iy, iu))))
     # label text (bitmap, light on dark)
-    add('<g fill="{}">{}</g>'.format(PAPER, _rects_svg(_prects(x_label, 4, label, u))))
+    add('<g fill="{}">{}</g>'.format(PAPER, _rects_svg(_prects(x_label, ty, label, u))))
     # value text (bitmap), with a 1px dark drop for pop on the color field
     if shadow_text:
         add('<g fill="{}" fill-opacity=".3">{}</g>'.format(
-            INK, _rects_svg(_prects(vx + 7, 5, value, u))))
-    add('<g fill="{}">{}</g>'.format(value_fg, _rects_svg(_prects(vx + 7, 4, value, u))))
+            INK, _rects_svg(_prects(vx + vpad, ty + 1, value, u))))
+    add('<g fill="{}">{}</g>'.format(
+        value_fg, _rects_svg(_prects(vx + vpad, ty, value, u))))
     add("</g>")
     add("</svg>")
     return "".join(out)
@@ -393,27 +404,34 @@ def _build_badges(days, generated):
     avg_s = render.compact_tokens(st["avg"])
     streak_s = "{} DAY{}".format(st["streak"], "" if st["streak"] == 1 else "S")
 
-    badges = [
-        ("badge/pixel-tokens-30d.svg",
-         _badge("TOKENS 30D", hero, ORANGE, PAPER,
-                [(DUO_A, ORANGE, 6), (DUO_B, BLUE, 6)],
-                "Tokens, last 30 days: {}".format(hero), generated, True)),
-        ("badge/pixel-api-30d.svg",
-         _badge("API 30D", cost_s, BLUE, PAPER, [(COIN, SAND, 2)],
-                "API-equivalent value, last 30 days: {}".format(cost_s),
-                generated, True)),
-        ("badge/pixel-today.svg",
-         _badge("TODAY", today_s, ORANGE, PAPER, [(BOLT, PAPER, 2)],
-                "Tokens today: {}".format(today_s), generated, True)),
-        ("badge/pixel-avg.svg",
-         _badge("AVG/DAY", avg_s, BLUE, PAPER, [(BARS, PAPER, 2)],
-                "Average tokens per active day: {}".format(avg_s),
-                generated, True)),
-        ("badge/pixel-streak.svg",
-         _badge("STREAK", streak_s, SAND, INK, [(HEART, ORANGE, 2)],
-                "Active-day streak: {}".format(streak_s.title()),
-                generated, False)),
+    # (slug, label, value, value_bg, value_fg, big icons, small icons,
+    #  aria, shadow_text) - small icons are simplified where 1px sprites
+    # would turn to noise; the duo cluster and heart survive the scale.
+    specs = [
+        ("tokens-30d", "TOKENS 30D", hero, ORANGE, PAPER,
+         [(DUO_A, ORANGE, 6), (DUO_B, BLUE, 6)],
+         [(DUO_A, ORANGE, 3), (DUO_B, BLUE, 3)],
+         "Tokens, last 30 days: {}".format(hero), True),
+        ("api-30d", "API 30D", cost_s, BLUE, PAPER,
+         [(COIN, SAND, 2)], [],
+         "API-equivalent value, last 30 days: {}".format(cost_s), True),
+        ("today", "TODAY", today_s, ORANGE, PAPER,
+         [(BOLT, PAPER, 2)], [(BOLT, PAPER, 1)],
+         "Tokens today: {}".format(today_s), True),
+        ("avg", "AVG/DAY", avg_s, BLUE, PAPER,
+         [(BARS, PAPER, 2)], [],
+         "Average tokens per active day: {}".format(avg_s), True),
+        ("streak", "STREAK", streak_s, SAND, INK,
+         [(HEART, ORANGE, 2)], [(HEART, ORANGE, 1)],
+         "Active-day streak: {}".format(streak_s.title()), False),
     ]
+    badges = []
+    for slug, label, value, vbg, vfg, big_ic, sm_ic, aria, shad in specs:
+        badges.append(("badge/pixel-{}.svg".format(slug), _badge(
+            label, value, vbg, vfg, big_ic, aria, generated, shad)))
+    for slug, label, value, vbg, vfg, big_ic, sm_ic, aria, shad in specs:
+        badges.append(("badge/pixel-{}-sm.svg".format(slug), _badge(
+            label, value, vbg, vfg, sm_ic, aria, generated, shad, small=True)))
     return badges
 
 

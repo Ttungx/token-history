@@ -14,17 +14,15 @@
 
 <img src="./charts/badge/tokens-30d.svg" alt="tokens over the last 30 days"> <img src="./charts/badge/api-equiv-30d.svg" alt="API-equivalent value over the last 30 days"> <img src="./charts/badge/streak.svg" alt="active-day streak">
 
-<img src="./charts/badge/pixel-tokens-30d.svg" alt="pixel badge: tokens over the last 30 days"> <img src="./charts/badge/pixel-api-30d.svg" alt="pixel badge: API-equivalent value"> <img src="./charts/badge/pixel-streak.svg" alt="pixel badge: active-day streak">
+<img src="./charts/badge/pixel-tokens-30d-sm.svg" alt="pixel badge: tokens over the last 30 days"> <img src="./charts/badge/pixel-api-30d-sm.svg" alt="pixel badge: API-equivalent value"> <img src="./charts/badge/pixel-streak-sm.svg" alt="pixel badge: active-day streak">
 
 </div>
 
 **Copy this repo and every chart on this page becomes yours** — a self-updating gallery of SVG charts and badges rendered from your own usage, ready to embed in a GitHub profile README, a blog, or anywhere an `<img>` tag works. The recording matters as much as the flex: AI coding tools keep usage data only on your disk and quietly expire it — transcripts, artifacts, whole trajectories — so history you don't persist is history you lose. This repo snapshots the numbers into git every day before that happens. Claude Code and Codex are simply the first two sources; the collector rides on ccusage, and support for more models and data feeds is on the roadmap.
 
-The repo keeps a day-by-day history; the two headline charts show the last 30 days, and every render also produces [an entire gallery of other styles](#chart-gallery) across daily, weekly, and monthly granularity.
+The repo keeps a day-by-day history; the headline chart shows the last 30 days, and every render also produces [an entire gallery of other styles](#chart-gallery) across daily, weekly, and monthly granularity.
 
-<img src="./charts/tokens.svg" width="880" alt="Daily token usage, stacked by source">
-
-<img src="./charts/cost.svg" width="880" alt="Daily API-equivalent value, stacked by source">
+<img src="./charts/day/pixel-tokens.svg" width="880" alt="Daily token usage as pixel-art bars: one square per 10M tokens, Claude orange stacked under Codex blue">
 
 📊 **[Full numbers → SUMMARY.md](./SUMMARY.md)** · day-by-day history in [`data/`](./data)
 
@@ -37,86 +35,88 @@ The repo keeps a day-by-day history; the two headline charts show the last 30 da
 - [How it stays correct](#how-it-stays-correct)
 - [Layout](#layout)
 - [Design notes](#design-notes)
+- [Thanks](#thanks)
 - [License](#license)
 
 ---
 
 ## Why this exists
 
-Claude Code deletes session transcripts older than `cleanupPeriodDays` — **30 days by default**. Every tool that reports your usage, [`ccusage`](https://github.com/ccusage/ccusage) included, reads those transcripts. So your history isn't archived anywhere; it's on a rolling 30-day delete, and once a day falls off the edge no tool can recover it.
+<img src="./assets/why.png" width="880" alt="Pixel illustration: on the left a terminal's token stream dissolves into a trash bin; on the right the tokens are stacked safely inside a vault, beneath a framed rising chart">
 
-This repo snapshots the numbers into git before that happens. Three times a day, on each machine, idempotently.
-
-It is **not** another usage parser. ccusage already does that job well and supports ~15 different coding CLIs. This adds the four things ccusage deliberately doesn't do:
-
-| | |
-|---|---|
-| **Persist** | daily JSON in git, immune to local cleanup |
-| **Merge** | several machines into one timeline |
-| **Render** | a whole gallery of chart styles, regenerated automatically |
-| **Serve** | a stable URL you reference once and never touch again |
+1. **Usage data disappears.** AI coding tools keep it only on your disk, on a rolling delete. What you don't persist, you lose — permanently.
+2. **The record is becoming reputation.** A verifiable, day-by-day history of how much you actually build with AI is worth owning. Git makes it permanent — and yours.
+3. **Visualized, it goes anywhere.** Once rendered to SVG, your usage can be embedded in any README, blog, or site — and this repo ships a whole gallery of good-looking styles to pick from.
 
 ## Quick start
 
-**Prerequisites:** Node (for `npx ccusage`) and [uv](https://docs.astral.sh/uv/).
+> [!IMPORTANT]
+> **Fork first.** This repo holds *my* data — you need your own copy to push *yours* into. Cloning this repo directly gives you nowhere to commit.
 
-```bash
-# 1. Install uv, if you don't have it yet
-curl -LsSf https://astral.sh/uv/install.sh | sh   # macOS / Linux (or: brew install uv)
+### 🤖 For agents (recommended)
 
-# 2. Clone and configure
-git clone https://github.com/keli-wen/token-history && cd token-history
-cp config.example.json config.json                # set "host" to an alias like mac-a
+Hand your coding agent — Claude Code, Codex, whatever you drive — this one link and say *"set this up on my machine"*:
 
-# 3. Set up the environment and run
-uv sync                                           # one-time: provisions the pinned Python + .venv
-./scripts/run.sh collect --all                    # backfill everything ccusage still has
-./scripts/run.sh render                           # build every chart locally
+```
+https://raw.githubusercontent.com/keli-wen/token-history/master/SETUP.md
 ```
 
-**How uv is used here.** This is a standard uv project: `pyproject.toml` declares the (empty — everything is stdlib) dependency set, `.python-version` pins the interpreter, and `uv.lock` is committed. `uv sync` materialises that into `.venv`, and `uv run` re-syncs automatically whenever the lockfile changes — so your terminal, the launchd job at 00:30, and CI all run the exact same Python instead of whatever `python3` happens to be ambient. `run.sh` is a thin wrapper over the same thing (it survives launchd's minimal `PATH`); calling uv directly works too:
+[`SETUP.md`](./SETUP.md) walks the agent through fork → configure → backfill → render → schedule → first push, with verification steps at each stage.
+
+### 🧑 For humans
+
+**Prerequisites:** Node (for `npx ccusage`) and [uv](https://docs.astral.sh/uv/) (`curl -LsSf https://astral.sh/uv/install.sh | sh` — no uv? plain `python3` ≥ 3.9 works too).
 
 ```bash
-uv run scripts/collect.py --all
-uv run scripts/render.py
-```
+# 1. Fork this repo on GitHub (button top-right), then clone YOUR fork
+git clone https://github.com/<your-username>/token-history && cd token-history
+cp config.example.json config.json     # set "host" to a neutral alias like mac-a
 
-No uv at all? `run.sh` falls back to plain `python3` (≥ 3.9) automatically — the scripts have zero dependencies, so the fallback is a real path, not a courtesy.
+# 2. Backfill, render, publish
+uv sync                                # one-time: provisions the pinned Python + .venv
+./scripts/run.sh collect --all         # grab everything ccusage still has
+./scripts/run.sh render                # build every chart locally
+git add -A && git commit -m "first snapshot" && git push
 
-Then schedule it (macOS):
-
-```bash
+# 3. Keep it running (macOS)
 ./scripts/install-launchd.sh           # 00:30 / 12:00 / 21:00 + every login
 ```
 
-Not on macOS, or prefer a different trigger? The collector is fully self-contained, idempotent, and backfills its own gaps — so **anything** that calls it periodically works: cron, a systemd timer, a line in your shell profile, or running it by hand. The scheduler is not load-bearing.
+Not on macOS, or prefer a different trigger? The collector is self-contained, idempotent, and backfills its own gaps — anything periodic works: cron, a systemd timer, or running it by hand. The scheduler is not load-bearing.
+
+<details>
+<summary><b>How uv is used here</b></summary>
+
+This is a standard uv project: `pyproject.toml` declares the (empty — everything is stdlib) dependency set, `.python-version` pins the interpreter, and `uv.lock` is committed. `uv sync` materialises that into `.venv`, and `uv run` re-syncs automatically — so your terminal, the launchd job at 00:30, and CI all run the exact same Python instead of whatever `python3` happens to be ambient. `run.sh` is a thin wrapper over the same thing (it survives launchd's minimal `PATH`); `uv run scripts/render.py` works directly too. Without uv, `run.sh` falls back to plain `python3` (≥ 3.9) — zero dependencies makes that a real path, not a courtesy.
+
+</details>
 
 To show the charts elsewhere, reference the raw URLs:
 
 ```markdown
-![tokens](https://raw.githubusercontent.com/<you>/token-history/master/charts/tokens.svg)
-![cost](https://raw.githubusercontent.com/<you>/token-history/master/charts/cost.svg)
+![tokens](https://raw.githubusercontent.com/<your-username>/token-history/master/charts/tokens.svg)
+![cost](https://raw.githubusercontent.com/<your-username>/token-history/master/charts/cost.svg)
 ```
 
 The URL is stable — no cache-busting query, no write access to your profile repo, nothing to maintain. The tradeoff is that GitHub's CDN may serve a slightly stale image for a few hours. With one data point per day that is invisible.
 
 ## Chart gallery
 
-Every run renders **every** style below — the same data, eleven ways. This section is deliberately fully expanded: it doubles as a catalog to pick from and as a live test of how each SVG actually behaves inside GitHub's README renderer (light/dark via `prefers-color-scheme`, CSS load animations, font fallbacks). In practice you'd embed just one or two in your own profile README:
+Every run renders **every** style below — the same data, over a dozen ways. This section is deliberately fully expanded: it doubles as a catalog to pick from and as a live test of how each SVG actually behaves inside GitHub's README renderer (light/dark via `prefers-color-scheme`, CSS load animations, font fallbacks). In practice you'd embed just one or two in your own profile README:
 
 ```markdown
-![usage](https://raw.githubusercontent.com/<you>/token-history/master/charts/day/card.svg)
+![usage](https://raw.githubusercontent.com/<your-username>/token-history/master/charts/day/card.svg)
 ```
 
 `charts/tokens.svg` and `charts/cost.svg` remain stable aliases of the daily bars, so existing embeds never break. Colors and type follow Anthropic's palette (orange = Claude Code, blue = Codex), tuned per mode to pass a color-vision-deficiency check.
 
 ### Daily
 
-**`charts/day/bar-tokens.svg`** — the headline chart (alias: `charts/tokens.svg`)
+**`charts/day/bar-tokens.svg`** — flat daily bars (also published as `charts/tokens.svg`, the stable legacy URL)
 
 <img src="./charts/day/bar-tokens.svg" width="880" alt="Daily token usage, stacked by source">
 
-**`charts/day/bar-cost.svg`** — same bars, API-equivalent dollars (alias: `charts/cost.svg`)
+**`charts/day/bar-cost.svg`** — the same bars in API-equivalent dollars (also published as `charts/cost.svg`)
 
 <img src="./charts/day/bar-cost.svg" width="880" alt="Daily API-equivalent value, stacked by source">
 
@@ -186,6 +186,10 @@ Every run renders **every** style below — the same data, eleven ways. This sec
 
 <img src="./charts/badge/pixel-tokens-30d.svg" alt="pixel badge: tokens over the last 30 days"> <img src="./charts/badge/pixel-api-30d.svg" alt="pixel badge: API-equivalent value"> <img src="./charts/badge/pixel-today.svg" alt="pixel badge: tokens today"> <img src="./charts/badge/pixel-avg.svg" alt="pixel badge: daily average"> <img src="./charts/badge/pixel-streak.svg" alt="pixel badge: active-day streak">
 
+…and an 18px small variant of each (`badge/pixel-*-sm.svg`) that sits inline with regular shields badges:
+
+<img src="./charts/badge/pixel-tokens-30d-sm.svg" alt="small pixel badge: tokens 30d"> <img src="./charts/badge/pixel-api-30d-sm.svg" alt="small pixel badge: API-equivalent"> <img src="./charts/badge/pixel-today-sm.svg" alt="small pixel badge: today"> <img src="./charts/badge/pixel-avg-sm.svg" alt="small pixel badge: daily average"> <img src="./charts/badge/pixel-streak-sm.svg" alt="small pixel badge: streak">
+
 ## How multi-host works
 
 Each machine reads **only its own local logs** and writes to its own directory:
@@ -236,6 +240,12 @@ Everything non-obvious in here has a written reason — measured on real data, n
 - [`decisions.md`](./contexts/decisions.md) — what was chosen and why
 - [`data-sources.md`](./contexts/data-sources.md) — schemas, dedup, retention, the ccusage version story
 - [`pipeline-and-scheduling.md`](./contexts/pipeline-and-scheduling.md) — layout, idempotency, git, launchd, chart constraints
+
+## Thanks
+
+All parsing credit goes to [**ccusage**](https://github.com/ccusage/ccusage) — the de-facto standard for reading local AI-CLI usage logs, supporting ~15 coding CLIs. This repo deliberately does not second-guess it; it adds the persistence, merging, and charts on top.
+
+**Contributions welcome** — new data sources and new chart styles alike. A style is a single drop-in module in [`scripts/styles/`](./scripts/styles) exposing `build_all(days, generated)`; see the existing ones for the contract.
 
 ## License
 

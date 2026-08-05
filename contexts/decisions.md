@@ -161,3 +161,13 @@ User decisions (2026-08-05, fourth round):
 - **Pixel icon**: `assets/icon.svg` (+ deterministic generator `assets/gen_icon.py`) — a minted pixel coin die-struck with a rising bar chart, blue peak cap; theme-aware, crisp at 96px and 32px. Shown atop the README header.
 - **SUMMARY.md stays**: user asked whether it is necessary; kept as the charts' accessibility table twin (colour-blind/screen-reader/text-only path) at zero maintenance cost.
 - **GitHub topics set**: ai-coding, ccusage, claude-code, codex, data-visualization, github-profile, profile-readme, svg-charts, token-usage, usage-tracking.
+
+### D15. Fork-first onboarding, agent setup link, simplified "why", pixel-sm badges
+
+User decisions (2026-08-05, fifth round):
+
+- **Quick start is fork guidance** — cloning the canonical repo gives no push target, so the human path starts with "fork, then clone YOUR fork". A `> [!IMPORTANT]` callout states why.
+- **Agent-first onboarding, highlighted above the human path**: a single raw link to `SETUP.md` — a step-by-step agent instruction file (fork → configure → backfill → render → schedule → push, each with a verification) meant to be handed to Claude Code/Codex verbatim.
+- **README hero shows ONE chart** — the pixel bar chart — replacing the tokens+cost pair (too duplicative up top). `charts/tokens.svg`/`cost.svg` remain rendered as stable URLs.
+- **"Why this exists" reduced to three points** (data disappears → persist; the record is becoming reputation; visualized it goes anywhere, many styles provided) plus a codex-imagegen pixel banner (`assets/why.png`: terminal→trash dissolving vs vault+framed chart). The ccusage detail paragraphs and the Persist/Merge/Render/Serve table were cut; ccusage credit moved to a new **Thanks** section, which also states contributions are welcome (styles are drop-in modules).
+- **Pixel badges: small variant added, big one unchanged** — `badge/pixel-*-sm.svg`, 18px total (1px glyph cells), sits at/under shields' 20px; README header now uses the -sm set.
