@@ -141,3 +141,13 @@ User decisions (2026-08-05, evening round):
 - **All durable contexts are written in English** from now on (this file included; translated 2026-08-05).
 - **Chart styles are drop-in plugins**: `scripts/styles/*.py`, each exposing `build_all(days, generated) -> [(relpath, svg)]`, auto-discovered by `render.py`. A broken plugin does not take the core charts down but fails CI loudly. First four plugins — pixel (8-bit), terminal (ASCII session), sketch (xkcd hand-drawn, deterministic seeded wobble), badge (shields.io-faithful set under `charts/badge/`) — were each built and visually verified in both color modes by a dedicated subagent.
 - **README got a centered header with badges (CI / uv / Python / zero-deps / MIT + three self-rendered shields), a Contents TOC, and the gallery stays fully expanded** including the new styles. A `LICENSE` file (MIT) now exists to back the badge.
+
+### D13. Sell fork-first, position generally, styles cut across formats
+
+User decisions (2026-08-05, third round):
+
+- **Positioning is general, not Claude/Codex-limited**: the pitch is "never lose your AI-coding history" — Claude Code and Codex are merely the *first* sources, with more models/data feeds explicitly on the roadmap. Repo description and README hero rewritten accordingly.
+- **README opens by selling the fork**: first paragraph states you can copy the repo and get your own self-updating SVGs for a profile or anywhere, and stresses that unpersisted artifacts/trajectories get expired — persistence is the point.
+- **"Honest notes" section removed**; its two load-bearing facts (API-equivalent ≠ spend; nothing identifying recorded) became bullets under "How it stays correct". The 31% ccusage note lives only in contexts now.
+- **Styles are skins that cut across formats**, not one-chart-one-style: the pixel language now also covers the stat card (`day/pixel-card.svg`, bitmap-font game HUD) and a badge set (`badge/pixel-*.svg`, stair-cornered arcade chips). Future styles should consider the full format matrix (bars / card / calendar / badges).
+- Clone command in Quick start uses the canonical `keli-wen/token-history` rather than a `<you>` placeholder.

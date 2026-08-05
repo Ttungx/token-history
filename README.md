@@ -2,7 +2,7 @@
 
 # token-history
 
-**A durable, self-updating record of how much AI coding I actually use —<br>persisted to git daily, charted a dozen ways, ready for a GitHub profile README.**
+**Never lose your AI-coding history —<br>snapshot it to git daily, chart it a dozen ways, show it anywhere.**
 
 [![Render charts](https://github.com/keli-wen/token-history/actions/workflows/render.yml/badge.svg?branch=master)](https://github.com/keli-wen/token-history/actions/workflows/render.yml)
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
@@ -14,7 +14,9 @@
 
 </div>
 
-The repo keeps a day-by-day history; the two headline charts show the last 30 days, and every render also produces [a dozen other styles](#chart-gallery) across daily, weekly, and monthly granularity.
+**Copy this repo and every chart on this page becomes yours** — a self-updating gallery of SVG charts and badges rendered from your own usage, ready to embed in a GitHub profile README, a blog, or anywhere an `<img>` tag works. The recording matters as much as the flex: AI coding tools keep usage data only on your disk and quietly expire it — transcripts, artifacts, whole trajectories — so history you don't persist is history you lose. This repo snapshots the numbers into git every day before that happens. Claude Code and Codex are simply the first two sources; the collector rides on ccusage, and support for more models and data feeds is on the roadmap.
+
+The repo keeps a day-by-day history; the two headline charts show the last 30 days, and every render also produces [an entire gallery of other styles](#chart-gallery) across daily, weekly, and monthly granularity.
 
 <img src="./charts/tokens.svg" width="880" alt="Daily token usage, stacked by source">
 
@@ -29,7 +31,6 @@ The repo keeps a day-by-day history; the two headline charts show the last 30 da
 - [Chart gallery](#chart-gallery) — [daily](#daily) · [weekly](#weekly) · [monthly](#monthly) · [badges](#badges)
 - [How multi-host works](#how-multi-host-works)
 - [How it stays correct](#how-it-stays-correct)
-- [Honest notes](#honest-notes)
 - [Layout](#layout)
 - [Design notes](#design-notes)
 - [License](#license)
@@ -60,7 +61,7 @@ It is **not** another usage parser. ccusage already does that job well and suppo
 curl -LsSf https://astral.sh/uv/install.sh | sh   # macOS / Linux (or: brew install uv)
 
 # 2. Clone and configure
-git clone https://github.com/<you>/token-history && cd token-history
+git clone https://github.com/keli-wen/token-history && cd token-history
 cp config.example.json config.json                # set "host" to an alias like mac-a
 
 # 3. Set up the environment and run
@@ -131,6 +132,10 @@ Every run renders **every** style below — the same data, eleven ways. This sec
 
 <img src="./charts/day/pixel-tokens.svg" width="880" alt="Pixel-art daily token bars: stacks of squares, one square per 10M tokens">
 
+**`charts/day/pixel-card.svg`** — the last 30 days as an 8-bit game HUD: a bitmap-font HI-SCORE, Claude vs Codex as player HP bars, cost as a coin counter, one pixel heart per active day
+
+<img src="./charts/day/pixel-card.svg" width="880" alt="Pixel game-HUD stat card: HI-SCORE token total, P1/P2 HP bars for Claude and Codex, coin counter, heart streak">
+
 **`charts/day/terminal-tokens.svg`** — the last 30 days as a terminal session: an htop-style bar per day, a CLI-style `TOTAL` sign-off, and a blinking cursor
 
 <img src="./charts/day/terminal-tokens.svg" width="880" alt="Terminal-style chart: a shell window with one ASCII bar per day, stacked Claude/Codex block glyphs">
@@ -173,6 +178,10 @@ Every run renders **every** style below — the same data, eleven ways. This sec
 
 <img src="./charts/badge/tokens-today.svg" alt="tokens today"> <img src="./charts/badge/tokens-30d.svg" alt="tokens over the last 30 days"> <img src="./charts/badge/api-equiv-30d.svg" alt="API-equivalent value over the last 30 days"> <img src="./charts/badge/daily-avg.svg" alt="daily average tokens"> <img src="./charts/badge/split-30d.svg" alt="Claude versus Codex share"> <img src="./charts/badge/streak.svg" alt="active-day streak">
 
+**`charts/badge/pixel-*.svg`** — the same stats as stair-cornered 8-bit arcade chips, every glyph pixel-drawn:
+
+<img src="./charts/badge/pixel-tokens-30d.svg" alt="pixel badge: tokens over the last 30 days"> <img src="./charts/badge/pixel-api-30d.svg" alt="pixel badge: API-equivalent value"> <img src="./charts/badge/pixel-today.svg" alt="pixel badge: tokens today"> <img src="./charts/badge/pixel-avg.svg" alt="pixel badge: daily average"> <img src="./charts/badge/pixel-streak.svg" alt="pixel badge: active-day streak">
+
 ## How multi-host works
 
 Each machine reads **only its own local logs** and writes to its own directory:
@@ -194,14 +203,8 @@ Two machines never write the same path, so there is no merge conflict to resolve
 - **Non-destructive for old days.** Beyond 7 days, values may only *grow*. If Claude Code has already cleaned up part of a day, a fresh read returns a smaller number — overwriting would silently corrupt a correct record. A missing day is visible; a shrunken one is not.
 - **Version-stamped.** Every file records the ccusage version that produced it. ccusage v15 under-reported output tokens by ~38% relative to v20; if a future upstream change moves the numbers again, the step in the series will be traceable instead of mysterious.
 - **No empty commits.** Nothing is committed when nothing changed. Costs are rounded on write, so float noise (~1e-13) doesn't manufacture a diff.
-
-## Honest notes
-
-**"Cost" is not money spent.** These are subscription plans. The dollar figure is what the same token usage would cost at published API rates — useful as a measure of value extracted from a subscription, misleading if read as a bill.
-
-**ccusage is the source of truth.** This repo does not second-guess it. Worth knowing: on the machine this was built on, ccusage's Codex total differed by ~31% from an independent parse of the same rollout files. Which is right is unresolved. The Claude side reconciles exactly, field for field.
-
-**Nothing identifying is recorded.** No project names, paths, branches, prompts, or real hostnames — only per-day token counts and model names, under an alias you choose. `config.json` is gitignored so the alias-to-machine mapping stays local.
+- **Honestly labeled.** The dollar figures are API-equivalent value at published rates — what the usage would be worth, not money spent on a subscription plan.
+- **Nothing identifying recorded.** No project names, paths, branches, prompts, or real hostnames — only per-day token counts and model names, under an alias you choose. `config.json` is gitignored so the alias-to-machine mapping stays local.
 
 ## Layout
 
