@@ -4,7 +4,7 @@
 One chart: charts/day/pixel-tokens.svg. Each daily column is a stack of
 discrete square "pixels" on a fixed grid — every pixel is a fixed token
 quantum (chosen from 1/2/5 x 10^n so the tallest day fits the grid), each
-series rounds UP to whole pixels, and the footnote states the quantum, so
+series rounds UP to whole pixels, and the subtitle states the quantum, so
 the quantization is honest. Claude Code fills the column bottom-up first,
 Codex continues in the same grid (Tetris-style row packing), which keeps
 the stacked-bar reading while the last row of a series may hold a single
@@ -127,7 +127,8 @@ def _build_pixel(rows, generated):
                                 rows[-1]["start"].year)
     title = "DAILY TOKENS"
     aria = "Daily token usage, 8-bit pixel chart, {}".format(span)
-    subtitle = "{} / {} TOKENS OVER {} DAYS".format(span, render.compact_tokens(grand), n)
+    subtitle = "{} / {} TOKENS OVER {} DAYS / 1PX = {}".format(
+        span, render.compact_tokens(grand), n, render.compact_tokens(quantum))
 
     out = render.svg_start(W, H, aria, PIXEL_CSS)
     add = out.append
@@ -194,11 +195,8 @@ def _build_pixel(rows, generated):
             'text-anchor="middle">{}</text>'.format(cx, y, render.esc(
                 render.compact_tokens(totals[idx]))))
 
-    foot = ("1 pixel = {} tokens; each series rounds up, so a started pixel counts. "
-            "Faded column = day in progress (blinking cursor). Generated {}".format(
-                render.compact_tokens(quantum), generated))
-    add('<text class="tm" x="28" y="{}" font-size="10.5">{}</text>'.format(
-        H - 14, render.esc(foot)))
+    add('<text class="tm" x="28" y="{}" font-size="10.5">Generated {}</text>'.format(
+        H - 14, generated))
     add("</svg>")
     return "\n".join(out)
 

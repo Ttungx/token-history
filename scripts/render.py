@@ -513,11 +513,8 @@ def build_day_calendar(days, generated):
             i, lx + i * pitch, ly, cell, cell))
     add('<text class="tm" x="{}" y="{}" font-size="10.5">More</text>'.format(lx + 5 * pitch + 4, ly + 10))
 
-    foot = "One cell per day, quartile bins."
-    if partial_today:
-        foot += " Faded = day in progress."
-    add('<text class="tm" x="28" y="{}" font-size="10.5">{} Generated {}</text>'.format(
-        h - 14, esc(foot), generated))
+    add('<text class="tm" x="28" y="{}" font-size="10.5">Generated {}</text>'.format(
+        h - 14, generated))
     add("</svg>")
     return "\n".join(out)
 
@@ -637,9 +634,7 @@ def build_area(rows, generated):
             'text-anchor="middle">{}</text>'.format(x_of(pi), y_of(peak) - 10, compact_tokens(peak)))
     add('</g>')
 
-    foot = ("Total tokens = input + output + cache creation + cache read. "
-            "Bands stack: Claude at the base, Codex above. Generated {}".format(generated))
-    add('<text class="tm" x="28" y="{}" font-size="10.5">{}</text>'.format(h - 14, esc(foot)))
+    add('<text class="tm" x="28" y="{}" font-size="10.5">Generated {}</text>'.format(h - 14, generated))
     add("</svg>")
     return "\n".join(out)
 
@@ -720,8 +715,7 @@ def build_card(rows, generated):
         w - 48 - 155, (1 - share) * 100, compact_tokens(xt)))
     add('</g>')
 
-    add('<text class="tm" x="48" y="{}" font-size="10">Not money spent — subscription usage priced '
-        'at published API rates. Generated {}</text>'.format(h - 10, generated))
+    add('<text class="tm" x="48" y="{}" font-size="10">Generated {}</text>'.format(h - 10, generated))
     add("</svg>")
     return "\n".join(out)
 
@@ -790,9 +784,8 @@ def build_ledger(rows, generated):
         add('<text class="{}" x="{}" y="{:.1f}" font-size="12" text-anchor="end"{}>{}{}</text>'.format(
             cls, value_x, cy + 4, weight, compact_tokens(totals[i]), mark))
 
-    add('<text class="tm" x="{}" y="{}" font-size="10.5">Bars share one scale — the busiest week '
-        'spans the column. * week still in progress, drawn faded. Generated {}</text>'.format(
-            label_x, h - 14, generated))
+    add('<text class="tm" x="{}" y="{}" font-size="10.5">Generated {}</text>'.format(
+        label_x, h - 14, generated))
     add("</svg>")
     return "\n".join(out)
 
@@ -888,11 +881,8 @@ def build_month_page(days, generated):
             i, lx + i * pitch, ly, cell, cell))
     add('<text class="tm" x="{}" y="{}" font-size="10.5">More</text>'.format(lx + 5 * pitch + 4, ly + 10))
 
-    foot = "Fill = total tokens, binned by quartile within the month."
-    if partial_today:
-        foot += " Ringed day still in progress."
-    add('<text class="tm" x="{}" y="{}" font-size="10.5">{} Generated {}</text>'.format(
-        pad, h - 16, esc(foot), generated))
+    add('<text class="tm" x="{}" y="{}" font-size="10.5">Generated {}</text>'.format(
+        pad, h - 16, generated))
     add("</svg>")
     return "\n".join(out)
 
@@ -961,13 +951,15 @@ def load_style_modules():
 
 
 def bar_meta(period, current, generated):
-    """(title, subtitle-format pieces, footnote) shared by all bar charts."""
-    tokens_foot = ("Total tokens = input + output + cache creation + cache read. "
-                   "Current {} in progress, drawn faded. Generated {}".format(current, generated))
-    cost_foot = ("Not money spent — subscription plans priced at published API rates. "
-                 "Current {} in progress, drawn faded. Generated {}".format(current, generated))
-    return ("{} token usage".format(period), tokens_foot,
-            "{} API-equivalent value".format(period), cost_foot)
+    """(title, footnote) x (tokens, cost) shared by all bar charts.
+
+    Footnotes carry ONLY the generated stamp (repo-wide policy): the prose that
+    used to live here (token composition, cost-is-not-spend, faded-means-in-
+    progress) now lives in the README and SUMMARY, not on every chart.
+    """
+    foot = "Generated {}".format(generated)
+    return ("{} token usage".format(period), foot,
+            "{} API-equivalent value".format(period), foot)
 
 
 def bar_pair(rows, period, current, unit, generated, xfmt=None, bar_max=BAR_MAX):

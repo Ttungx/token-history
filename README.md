@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="./assets/icon.svg" width="96" alt="token-history icon: a pixel coin stamped with a rising bar chart">
+
 # token-history
 
 **Never lose your AI-coding history —<br>snapshot it to git daily, chart it a dozen ways, show it anywhere.**
@@ -11,6 +13,8 @@
 ![license: MIT](https://img.shields.io/badge/license-MIT-blue)
 
 <img src="./charts/badge/tokens-30d.svg" alt="tokens over the last 30 days"> <img src="./charts/badge/api-equiv-30d.svg" alt="API-equivalent value over the last 30 days"> <img src="./charts/badge/streak.svg" alt="active-day streak">
+
+<img src="./charts/badge/pixel-tokens-30d.svg" alt="pixel badge: tokens over the last 30 days"> <img src="./charts/badge/pixel-api-30d.svg" alt="pixel badge: API-equivalent value"> <img src="./charts/badge/pixel-streak.svg" alt="pixel badge: active-day streak">
 
 </div>
 

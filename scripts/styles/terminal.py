@@ -212,8 +212,7 @@ def build_terminal(days, generated):
                 sx, sy, FS, render.compact_tokens(peak),
                 rows[peak_idx]["start"].strftime("%m-%d")))
 
-    foot = ("# tokens = input+output+cache · $ = API-equivalent, not spend · "
-            "Generated {}".format(generated))
+    foot = "# Generated {}".format(generated)
     add('<text class="tn" x="{}" y="{}" font-size="{}"><tspan class="im">{}'
         '</tspan></text>'.format(TEXT_X, line(li_foot), FS, render.esc(foot)))
 

@@ -200,7 +200,7 @@ def _stats(days):
 
 # ------------------------------------------------------------------- the card
 
-CARD_W, CARD_H = 880, 272
+CARD_W, CARD_H = 880, 256
 
 CARD_CSS = (
     ".px{shape-rendering:crispEdges}"
@@ -308,12 +308,10 @@ def _build_card(days, generated):
     add('<text class="lbl blink" x="{}" y="218" font-size="11" '
         'text-anchor="end">&#9654; PRESS START</text>'.format(bxe))
 
-    foot = ("HP = TOKEN SHARE / HEART = ACTIVE DAY{} / API-RATE VALUE, NOT "
-            "SPEND / GEN {}".format(
-                " / BLINK = DAY IN PROGRESS" if st["partial"] else "",
-                generated.upper()))
+    # bottom carries only the generated stamp (repo-wide policy)
     add('<text class="lbl" x="44" y="{}" font-size="9" '
-        'style="letter-spacing:1px">{}</text>'.format(h - 22, render.esc(foot)))
+        'style="letter-spacing:1px">GEN {}</text>'.format(
+            h - 20, render.esc(generated.upper())))
     add("</svg>")
     return "\n".join(out)
 
@@ -334,7 +332,7 @@ BLUE = "#4382c9"     # validated light-mode Codex accent
 
 def _badge(label, value, value_bg, value_fg, icons, aria, generated, shadow_text):
     u = 2
-    body_h = 26                       # + 2px drop shadow = 28 total
+    body_h = 22                       # + 2px drop shadow = 24 total
     x = 10
     icon_w = 0
     for pat, _, iu in icons:
@@ -351,8 +349,8 @@ def _badge(label, value, value_bg, value_fg, icons, aria, generated, shadow_text
 
     out = []
     add = out.append
-    add('<svg xmlns="http://www.w3.org/2000/svg" width="{}" height="28" '
-        'viewBox="0 0 {} 28" role="img" aria-label="{}">'.format(
+    add('<svg xmlns="http://www.w3.org/2000/svg" width="{}" height="24" '
+        'viewBox="0 0 {} 24" role="img" aria-label="{}">'.format(
             w, w, render.esc(aria)))
     add("<title>{}</title>".format(render.esc(aria)))
     add("<!-- generated {} -->".format(render.esc(generated)))
@@ -363,7 +361,7 @@ def _badge(label, value, value_bg, value_fg, icons, aria, generated, shadow_text
     add('<path fill="{}" d="{}"/>'.format(INK, _stair(1, 1, w - 4, body_h - 2, 4, 2)))
     # value segment: plain rect inset in the dark body; the body's stair
     # corners around it carry the pixel look
-    add('<rect fill="{}" x="{}" y="4" width="{}" height="18"/>'.format(
+    add('<rect fill="{}" x="{}" y="3" width="{}" height="16"/>'.format(
         value_bg, vx, vw))
     # icon(s)
     for pat, fill, iu in icons:
@@ -372,12 +370,12 @@ def _badge(label, value, value_bg, value_fg, icons, aria, generated, shadow_text
         add('<g fill="{}">{}</g>'.format(
             fill, _rects_svg(_sprite_rects(pat, x, iy, iu))))
     # label text (bitmap, light on dark)
-    add('<g fill="{}">{}</g>'.format(PAPER, _rects_svg(_prects(x_label, 6, label, u))))
+    add('<g fill="{}">{}</g>'.format(PAPER, _rects_svg(_prects(x_label, 4, label, u))))
     # value text (bitmap), with a 1px dark drop for pop on the color field
     if shadow_text:
         add('<g fill="{}" fill-opacity=".3">{}</g>'.format(
-            INK, _rects_svg(_prects(vx + 7, 7, value, u))))
-    add('<g fill="{}">{}</g>'.format(value_fg, _rects_svg(_prects(vx + 7, 6, value, u))))
+            INK, _rects_svg(_prects(vx + 7, 5, value, u))))
+    add('<g fill="{}">{}</g>'.format(value_fg, _rects_svg(_prects(vx + 7, 4, value, u))))
     add("</g>")
     add("</svg>")
     return "".join(out)

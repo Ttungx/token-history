@@ -151,3 +151,13 @@ User decisions (2026-08-05, third round):
 - **"Honest notes" section removed**; its two load-bearing facts (API-equivalent ≠ spend; nothing identifying recorded) became bullets under "How it stays correct". The 31% ccusage note lives only in contexts now.
 - **Styles are skins that cut across formats**, not one-chart-one-style: the pixel language now also covers the stat card (`day/pixel-card.svg`, bitmap-font game HUD) and a badge set (`badge/pixel-*.svg`, stair-cornered arcade chips). Future styles should consider the full format matrix (bars / card / calendar / badges).
 - Clone command in Quick start uses the canonical `keli-wen/token-history` rather than a `<you>` placeholder.
+
+### D14. Clean chart bottoms, pixel refinements, repo metadata
+
+User decisions (2026-08-05, fourth round):
+
+- **Chart bottoms carry only the generated timestamp.** All explanatory footnote prose (token composition, cost-is-not-spend, faded-means-in-progress, scale keys) removed from every chart; load-bearing bits moved up (the pixel chart's "1PX = 10M" quantum now lives in its subtitle) or live in README/SUMMARY only.
+- **Pixel badges sized to the shields idiom**: 24px total (22px body + 2px shadow) next to shields' 20px — "slightly bigger" per user. Pixel badge row also joins the README header under the flat shields row.
+- **Pixel icon**: `assets/icon.svg` (+ deterministic generator `assets/gen_icon.py`) — a minted pixel coin die-struck with a rising bar chart, blue peak cap; theme-aware, crisp at 96px and 32px. Shown atop the README header.
+- **SUMMARY.md stays**: user asked whether it is necessary; kept as the charts' accessibility table twin (colour-blind/screen-reader/text-only path) at zero maintenance cost.
+- **GitHub topics set**: ai-coding, ccusage, claude-code, codex, data-visualization, github-profile, profile-readme, svg-charts, token-usage, usage-tracking.

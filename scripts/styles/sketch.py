@@ -274,11 +274,7 @@ def _build_sketch(rows, generated):
         add('</g>')
 
     # ---- footnote
-    foot = "yes, the robot drew this itself."
-    if partial_last:
-        foot += " * today, still counting."
-    foot += " Generated {}".format(generated)
-    hand_text(28, H - 14, 11, foot, cls="hxm", tilt=0.8)
+    hand_text(28, H - 14, 11, "Generated {}".format(generated), cls="hxm", tilt=0.8)
 
     add("</svg>")
     return "\n".join(out)
