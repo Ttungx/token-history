@@ -1,131 +1,143 @@
-# 已决策
+# Decisions Made
 
-> 状态：grill 完成。日期 2026-08-05。
-> 前置：`data-sources.md`（采集口径）、`pipeline-and-scheduling.md`（管线与调度）。
-> 这里只记**用户拍板的方向性决策**。有实测支撑的技术事实在前两份里。
+> Status: grill complete. Date 2026-08-05.
+> Prerequisites: `data-sources.md` (collection methodology), `pipeline-and-scheduling.md` (pipeline and scheduling).
+> This document only records **user-decided directional decisions**. Technical facts backed by measurement are in the other two documents.
 
-## D1. 产品定位：ccusage 之上的增量层
+## D1. Product Positioning: An Incremental Layer on Top of ccusage
 
-**依赖 ccusage 作为唯一采集层**（用 `@latest`，见下方修订）。本项目的价值 = ccusage **明确不做**的四件事：
+**Depend on ccusage as the sole collection layer** (use `@latest`, see revision below). This project's value = the four things ccusage **explicitly does not do**:
 
-1. 持久化（对抗本地 30 天清理）
-2. 多机合并
-3. 图表自动生成
-4. 稳定 URL
+1. Persistence (counter local 30-day cleanup)
+2. Multi-machine merging
+3. Automatic chart generation
+4. Stable URL
 
-不重复造解析器。理由：ccusage 17.7k★ 日更，已是「解析本地 coding CLI 日志」的事实标准，原生支持 15 种 CLI；fork 本项目的人若用 Gemini/Copilot/OpenCode 等能白拿支持。
+Don't rebuild the parser. Reason: ccusage has 17.7k★, updates daily, and is already the de facto standard for "parsing local coding CLI logs," with native support for 15 CLIs; anyone forking this project who uses Gemini/Copilot/OpenCode etc. gets support for free.
 
-**Claude 侧 v20 已逐字段对账通过**（见 `data-sources.md` §4.4），包括 cost —— v20 报 08-03 为 `$70.7048`，与独立计算的「取 max output + 1h 缓存溢价」修正值完全吻合（v15 报 `$61.86`）。**v20 把 output 少报和 1h 缓存溢价两个问题都修了。**
+**Claude-side v20 has passed field-by-field reconciliation** (see `data-sources.md` §4.4), including cost — v20 reports `$70.7048` for 08-03, which matches exactly the independently computed "take max output + 1h cache surcharge" corrected value (v15 reported `$61.86`). **v20 fixed both the output under-reporting issue and the 1h cache surcharge issue.**
 
-~~⚠️ pin 版本而非 `@latest`~~ **已修订**：用户选 `@latest`，且这个直觉更对 —— v15 那个坑恰恰是因为本机装了一年前的版本再没升过，`@latest` 反而永远拿到上游修复。
-补偿措施：**每个数据文件写入 ccusage 版本号**（`ccusageVersion` 字段）。将来上游行为再变（像 v15→v20 跳 38%），时间序列上的台阶能立刻查出是哪天换的版本。
+~~⚠️ Pin the version rather than `@latest`~~ **Revised**: the user chose `@latest`, and this instinct is actually the better one — the v15 pitfall existed precisely because this machine had a year-old version installed and never upgraded; `@latest` instead always gets upstream fixes.
 
-### D1a. Codex 侧双记 —— ~~已砍~~
+Compensating measure: **write the ccusage version number into every data file** (`ccusageVersion` field). If upstream behavior shifts again in the future (like the v15→v20 38% jump), a step in the time series can be immediately traced to the day the version changed.
 
-曾提议把自研解析器的 Codex 数字作为第二字段并记以兜住 31% 分歧。**用户明确否决**：「只依赖 ccusage，不用自研」。
+### D1a. Codex-Side Dual-Recording — ~~scrapped~~
 
-结果：Codex 数字**默认采信 ccusage**，31% 分歧仍未解且无本地对照物。若将来要查，`data-sources.md` §4.6 里有完整的复现方法和已排除的假设。
+It was once proposed to record the in-house parser's Codex numbers as a second field to cover the 31% discrepancy. **The user explicitly vetoed this**: User: "Only depend on ccusage, don't use the in-house one."
 
-## D2. repo 公开 + 脱敏 + 可 fork
+Result: Codex numbers **default to trusting ccusage**; the 31% discrepancy remains unresolved with no local reference point. If this needs investigating in the future, `data-sources.md` §4.6 has the complete reproduction method and ruled-out hypotheses.
 
-**公开** `github.com/keli-wen/daily_tokens`。
+## D2. Repo Public + Sanitized + Forkable
 
-**脱敏红线**（公开 repo 里绝不能出现）：
-- 项目名 / `cwd` / 文件路径 / git 分支
-- 真实机器名 —— host 用中性别名（`mac-a` / `mac-b`），映射关系不进 repo
+**Public**: `github.com/keli-wen/token-history`.
 
-**可 fork 复用**是显式设计目标，不是附赠。意味着：
-- 无硬编码路径，所有环境相关项进配置文件
-- 通用安装脚本 + 清楚的 setup 文档
-- 别人 fork → 改配置 → 能跑
+**Sanitization red lines** (must never appear in the public repo):
+- Project names / `cwd` / file paths / git branches
+- Real machine names — hosts use neutral aliases (`mac-a` / `mac-b`); the mapping does not go into the repo
 
-## D3. 图表投递：固定 URL，容忍缓存延迟
+**Forkable reuse** is an explicit design goal, not a bonus. This means:
+- No hardcoded paths; all environment-specific items go into a config file
+- A generic install script + clear setup documentation
+- Someone forks → changes the config → it works
 
-`daily_tokens` 里生成固定路径的图，用户在 profile README 引用一次即可，**不需要任何 profile repo 的写权限**。
+## D3. Chart Delivery: Stable URL, Tolerate Cache Delay
 
-接受 `raw.githubusercontent.com` CDN 缓存导致的数小时滞后。理由：数据是日粒度、每天只采 3 次，滞后几小时看不出来；换来的是 fork 者 setup 最简单（零跨 repo 权限）。
+Generate charts at fixed paths inside the repo; the user references them once in their profile README, **requiring no write access to the profile repo whatsoever**.
 
-放弃的方案：Actions 回写 profile README 换 `?v=<sha>`（需要 PAT，fork 者也得各配一个）。
+Accept the multi-hour lag caused by `raw.githubusercontent.com` CDN caching. Reason: data is daily-granularity, collected only 3 times a day, so a lag of a few hours is unnoticeable; in exchange, forkers get the simplest possible setup (zero cross-repo permissions).
 
-## D4. 两张图：tokens + cost USD
+Rejected approach: Actions writing back to the profile README to swap in `?v=<sha>` (requires a PAT, and each forker would have to configure their own).
 
-用户明确要两张。且用户认为「**图好不好看是这类项目热不热门的核心**」—— 视觉质量是一等公民，建的时候按 dataviz 规范认真做。
+## D4. Two Charts: tokens + cost USD
 
-- **堆叠维度按来源（claude / codex），不按 token 类型。** 按类型堆叠会被 `cache_read` 占满 99% 变成纯色柱；按来源堆叠两边量级可比（08-04：Claude ≈ 80.1M，Codex ≈ 113.1M）
-- **cost 必须标注为「API 等价价值」而非实际支出。** 用户是订阅制（本会话撞到过 `session limit · resets 5:20pm`），ccusage 的 `totalCost` 算的是「按 API 价格值多少钱」。这是个更好的 flex（"$200/月订阅榨出 $X 等价用量"），但标签写错就是误导
+The user explicitly wants two charts. The user also holds this view — User: "**Whether the charts look good is the core of whether this kind of project gets popular.**" — visual quality is a first-class citizen; build it carefully following dataviz standards.
 
-## D5. Codex 范围：全算
+- **Stack dimension is by source (claude / codex), not by token type.** Stacking by type would have `cache_read` fill 99% and become a solid-color bar; stacking by source keeps both sides' magnitudes comparable (08-04: Claude ≈ 80.1M, Codex ≈ 113.1M)
+- **Cost must be labeled as "API-equivalent value," not actual spend.** The user is on a subscription plan (this session hit a `session limit · resets 5:20pm`), and ccusage's `totalCost` computes "how much this would be worth at API pricing." This is a better flex ("squeezed $X of API-equivalent usage out of a $200/month subscription"), but a mislabeled tag is misleading
 
-Desktop + VSCode + CLI + Mobile 全部计入。理由：共用同一份 ChatGPT 订阅额度，从「我每天用了多少 AI」的角度本就该合并；且 ccusage v20 默认就这么算，无需过滤逻辑，fork 者行为一致。
+## D5. Codex Scope: Count Everything
 
-（分布参考：Codex Desktop 87.9%、codex_vscode 5.3%、codex_cli_rs 4.6%、CodexMobile 1.3%、其他 0.8%。若当初只算命令行，数字会缩水 ~90%。）
+Desktop + VSCode + CLI + Mobile are all counted. Reason: they share the same ChatGPT subscription quota, and from the perspective of "how much AI did I use today" they should be merged anyway; also, ccusage v20 does this by default, requiring no filter logic, keeping behavior consistent for forkers.
 
-## D6. 明细粒度：天 × host × 来源 × model
+(Distribution reference: Codex Desktop 87.9%, codex_vscode 5.3%, codex_cli_rs 4.6%, CodexMobile 1.3%, other 0.8%. Had only the command line been counted, the number would have shrunk by ~90%.)
 
-**不可逆决策** —— 超过 30 天窗口的历史无法重建，粒度必须一次定对。
+## D6. Detail Granularity: Day × Host × Source × Model
 
-`modelBreakdowns` 是 ccusage 白送的，存下来零成本。将来想画「模型占比变化」「opus 占比趋势」无需重新采集（也采不到了）。体积量级：每天每机几 KB，一年几 MB。
+**Irreversible decision** — history beyond the 30-day window cannot be reconstructed; the granularity must be gotten right the first time.
 
-不做 per-project（即使哈希化）—— 公开 repo 里「项目数量和切换频率」本身也是信息泄露。
+`modelBreakdowns` comes free from ccusage; storing it costs nothing. If we later want to chart "model share changes" or "opus share trend," no re-collection is needed (and it wouldn't be possible anyway). Size order of magnitude: a few KB per machine per day, a few MB per year.
+
+Not doing per-project (even hashed) — in a public repo, "number of projects and switching frequency" is itself an information leak.
 
 ---
 
-## 未问 / 已延后
+## Not Asked / Deferred
 
-| 项 | 为什么可以先放着 |
+| Item | Why it can be left for later |
 |---|---|
-| `<synthetic>` 模型的处理 | 默认**单列一行、不混入真实模型明细、不计入 cost**。可逆，跑起来看到真实占比再调 |
-| 第二台机器的实际环境 | 只勘察了当前这台。另一台的 ccusage 版本、Codex 是否装、路径是否一致都未知 —— 属于部署时的实地问题，不影响设计 |
-| Codex 31% 分歧的根因 | 已按 D1a 双记兜住。查清需读 ccusage v20 的 Rust Codex adapter 源码，是开放式任务，不阻塞上线 |
-| 图表的具体视觉设计 | 实现阶段的事，不是方向性决策 |
-| 首日是否回填 42 天历史 | 显然要 —— 且**越早越好**，06-15~07-04 那批靠父存活豁免苟着，父文件一过期整棵消失 |
+| Handling of the `<synthetic>` model | Default: **its own row, not mixed into real model breakdown, not counted toward cost**. Reversible — adjust once real proportions are visible after running |
+| The second machine's actual environment | Only the current machine has been surveyed. The other machine's ccusage version, whether Codex is installed, and whether paths match are all unknown — this is a field issue for deployment time, not one that affects the design |
+| Root cause of the Codex 31% discrepancy | Covered per D1a's dual-recording. Getting to the bottom of it requires reading ccusage v20's Rust Codex adapter source — an open-ended task that does not block launch |
+| Specific visual design of the charts | Belongs to the implementation phase, not a directional decision |
+| Whether to backfill 42 days of history on day one | Obviously yes — and **the sooner the better**; the 06-15~07-04 batch is only surviving on the parent-alive exemption, and the whole tree disappears the moment the parent file expires |
 
 ---
 
-## 实现阶段追加的决策（2026-08-05）
+## Decisions Added During the Implementation Phase (2026-08-05)
 
-### D7. 运行入口：`uv run` 锁解释器，非 venv
+### D7. Run Entry Point: `uv run` Pins the Interpreter, Not venv
 
-零依赖项目不需要 venv —— 没有包可隔离，只会给 fork 的人多一个会失败的步骤。真问题是**解释器漂移**：本机交互式 shell 是 anaconda 3.11.5，launchd 下是 `/usr/bin/python3` 3.9.6。同一脚本手动测和凌晨自动跑用的不是同一个解释器。
+A zero-dependency project doesn't need venv — there are no packages to isolate, and it would just give forkers one more step that can fail. The real problem is **interpreter drift**: the interactive shell on this machine is anaconda 3.11.5, while under launchd it's `/usr/bin/python3` 3.9.6. The same script, manually tested versus run automatically at 12:30am, doesn't use the same interpreter.
 
-方案：**PEP 723 内联元数据 + `scripts/run.sh`**，uv 在场时按 `.python-version` 锁定，缺席时退化到 `python3`。两条路产出的 SVG 已验证**字节完全一致**。
+Approach: **PEP 723 inline metadata + `scripts/run.sh`** — pins to `.python-version` when uv is present, falls back to `python3` when absent. The SVGs produced by both paths have been verified to be **byte-identical**.
 
-⚠️ 实测坑（uv 0.6.5）：**`uv run` 不会自动读 `.python-version`** —— `--project .` 和在 repo 根目录裸跑都静默继承环境里的 python。必须显式传 `--python`，否则整个 wrapper 的目的落空。
+⚠️ Pitfall found by testing (uv 0.6.5): **`uv run` does not automatically read `.python-version`** — both `--project .` and running bare in the repo root silently inherit the environment's python. `--python` must be passed explicitly, otherwise the whole purpose of the wrapper is defeated.
 
-**已修订（2026-08-05 晚）：改为 repo 级 uv 项目。** 用户要求 `pyproject.toml + uv sync / uv run` 的标准 uv 工作流：
+**Revised (evening of 2026-08-05): changed to a repo-level uv project.** The user asked for the standard uv workflow of `pyproject.toml + uv sync / uv run`:
 
-- 新增 `pyproject.toml`（`requires-python >=3.9`、零依赖、`[tool.uv] package = false` —— 脚本仓不是可安装包）+ 提交 `uv.lock`
-- **PEP 723 头从两个脚本里移除** —— 带着它 `uv run` 会切到 script 模式，而 script 模式不读 `.python-version`；**项目模式原生尊重 `.python-version`**（实测 uv 0.6.5 自动取到 3.12），上面的 `--python` 坑不再适用
-- `run.sh` 改为 `uv run --project "$REPO"`；python3 兜底保留（脚本仍 stdlib-only、3.9 兼容，D2 可 fork 性不变）
-- CI 从 setup-python 换成 `astral-sh/setup-uv` + `uv run scripts/render.py`
+- Added `pyproject.toml` (`requires-python >=3.9`, zero dependencies, `[tool.uv] package = false` — a scripts repo, not an installable package) + committed `uv.lock`
+- **PEP 723 headers removed from both scripts** — keeping them would make `uv run` switch to script mode, and script mode doesn't read `.python-version`; **project mode natively respects `.python-version`** (tested: uv 0.6.5 automatically picks up 3.12), so the `--python` pitfall above no longer applies
+- `run.sh` changed to `uv run --project "$REPO"`; the python3 fallback is kept (scripts remain stdlib-only and 3.9-compatible; D2's forkability is unchanged)
+- CI switched from setup-python to `astral-sh/setup-uv` + `uv run scripts/render.py`
 
-### D8. 图表：默认 30 根日柱，不是周柱
+### D8. Charts: Default to 30 Daily Bars, Not Weekly Bars
 
-原计划 16 周周柱。实际渲染后用户判断「16 周的 bar plot 不那么直观」。30 天窗口下周聚合只剩 4~5 根粗柱，比 30 根细柱更难读，也丢掉了日节奏。
+The original plan was 16 weekly bars. After actually rendering it, the user judged that User: "a 16-week bar plot isn't very intuitive." Under a 30-day window, weekly aggregation leaves only 4-5 thick bars, which is harder to read than 30 thin bars and also loses the daily rhythm.
 
-`--weeks N` 仍可切回周粒度。输出文件名去掉粒度前缀（`charts/tokens.svg` / `charts/cost.svg`），保证 URL 稳定。
+`--weeks N` can still switch back to weekly granularity. Output filenames drop the granularity prefix (`charts/tokens.svg` / `charts/cost.svg`), keeping the URL stable.
 
-### D9. repo 里只保留最近 30 天
+### D9. Repo Keeps Only the Most Recent 30 Days
 
-用户：「不完整的数据我不喜欢」。
+User: "I don't like incomplete data."
 
-⚠️ **需要复核的取舍**：按「两个来源都有数据」这个标准，完整区间其实是 **2026-06-15 起共 52 天**（Claude 起点），不是 30 天。裁到 30 天丢掉了 07-06 之前 21 天的 Claude 数据，而那部分正在 30 天清理倒计时上，**过期后不可恢复**（Codex 那半边随时可补，它无清理机制）。
+⚠️ **A trade-off that needs revisiting**: by the standard of "both sources have data," the complete interval is actually **52 days starting 2026-06-15** (the Claude starting point), not 30 days. Trimming to 30 days discards 21 days of Claude data prior to 07-06, and that portion is on the 30-day cleanup countdown — **unrecoverable once it expires** (the Codex half can be backfilled anytime, since it has no cleanup mechanism).
 
-完整 201 天已备份在 session scratchpad 的 `data-backup/`。改回 52 天是一条命令的事，但**要趁 Claude transcript 还没过期**。
+The full 201 days have been backed up in the session scratchpad's `data-backup/`. Reverting to 52 days is a one-command change, but **it must be done while the Claude transcripts haven't expired yet**.
 
-### D10. 配色与字体:Anthropic 品牌,同色相微调至过校验
+### D10. Colors and Fonts: Anthropic Brand, Same Hue Fine-Tuned to Pass Validation
 
-用户拍板(2026-08-05 grill):
+User's call (2026-08-05 grill):
 
-- **Claude=橙、Codex=蓝**(与最初实现对调)。理由:Claude 是 Anthropic 产品,穿品牌主 accent 橙 #d97757 系;蓝 #6a9bcc 系作 secondary 给 Codex。当时 repo 未推广,切换代价接近零
-- **官方 hex 不逐字节照搬,保色相微调至 dataviz 校验全过**。官方原值的实测失败项:亮色下蓝 #6a9bcc 饱和度低于 chroma floor(发灰)且对表面对比仅 2.85:1;暗色下两色明度都出 [0.48, 0.67] 带
-- 最终值(`validate_palette.js` 全过,改动后必须复验):亮 `#d06a41 / #4382c9`(surface `#faf9f5`,worst CVD ΔE 20.0);暗 `#db7448 / #5b95d6`(surface `#141413`,worst CVD ΔE 18.5)
-- 中性色与表面直接用品牌值:`#141413` / `#faf9f5` / `#b0aea5` / `#e8e6dc`;日历类 ramp 用品牌橙单色阶(明度单调,亮暗各自独立取档)
-- 字体按品牌:标题 Poppins(Arial 兜底)、正文 Lora(Georgia 兜底)。`<img>` 内嵌 SVG 加载不了 webfont,兜底栈就是品牌指定的兜底
+- **Claude = orange, Codex = blue** (swapped from the initial implementation). Reason: Claude is an Anthropic product, so it wears the brand's primary accent orange #d97757 family; the blue #6a9bcc family serves as secondary, for Codex. At the time the repo wasn't yet promoted, so the switching cost was close to zero
+- **The official hex values are not copied byte-for-byte; hue is preserved while fine-tuning until the dataviz validation fully passes.** Failures found for the official original values: in light mode, blue #6a9bcc's saturation is below the chroma floor (looks grayish) and its contrast against the surface is only 2.85:1; in dark mode, both colors' lightness falls outside the [0.48, 0.67] band
+- Final values (`validate_palette.js` fully passes; must be re-verified after any change): light `#d06a41 / #4382c9` (surface `#faf9f5`, worst CVD ΔE 20.0); dark `#db7448 / #5b95d6` (surface `#141413`, worst CVD ΔE 18.5)
+- Neutral colors and surfaces use brand values directly: `#141413` / `#faf9f5` / `#b0aea5` / `#e8e6dc`; calendar-type ramps use a monochromatic brand-orange scale (monotonic lightness, light and dark modes each with their own independent steps)
+- Fonts follow the brand: headings use Poppins (Arial fallback), body text uses Lora (Georgia fallback). An SVG embedded via `<img>` cannot load webfonts, so the fallback stack is the brand-specified fallback
 
-### D11. README = 全展开的图表 catalog + uv-first 英文教程
+### D11. README = Fully Expanded Chart Catalog + uv-First English Tutorial
 
-- **图库全部展开、不折叠**。README 同时是「别人来挑图的 catalog」和「SVG 在 GitHub README 里实际渲染效果的实验场」。用户自己的用法:profile README 只挑一两张引用
-- 图表按粒度进 `charts/{day,week,month}/`,每粒度多风格(bar / calendar / area / card / ledger),全部每次 render 都重新生成;`charts/tokens.svg` / `cost.svg` 保留为日粒度 bar 的稳定别名(D3/D8 的 URL 承诺不破)
-- Quick start 改 **uv-first**(英文),含 uv 安装与 `uv run --python` 用法;python3 兜底保留(D7 不变)
-- 改完即 commit + push 线上验收(用户确认)
+- **The chart gallery is fully expanded, not collapsed.** The README is simultaneously "a catalog for others to pick charts from" and "a testbed for how SVG actually renders inside a GitHub README." The user's own usage: pick just one or two to reference in the profile README
+- Charts go into `charts/{day,week,month}/` by granularity, with multiple styles per granularity (bar / calendar / area / card / ledger), all regenerated on every render; `charts/tokens.svg` / `cost.svg` are kept as stable aliases for the daily-granularity bar chart (the URL promise from D3/D8 is not broken)
+- Quick start changed to **uv-first** (English), including uv installation and `uv run --python` usage; the python3 fallback is retained (D7 unchanged)
+- Once done, commit + push for live verification (user confirmed)
+</content>
+
+### D12. Rename to `token-history`, master branch, English contexts, style-plugin gallery
+
+User decisions (2026-08-05, evening round):
+
+- **Repo renamed `daily_tokens` → `token-history`** ("ledger" was rejected as not plain enough; the winning criterion was "two easy words that match what the repo does"). GitHub redirects the old URLs; local directory name on disk is unchanged and harmless. launchd label became `com.token-history.collect`; the installer retires the legacy `com.daily-tokens.collect` job on sight so two collectors never run side by side.
+- **Default branch is `master`, not `main`** (user preference). Renamed via the GitHub branches API; all raw-URL examples updated.
+- **All durable contexts are written in English** from now on (this file included; translated 2026-08-05).
+- **Chart styles are drop-in plugins**: `scripts/styles/*.py`, each exposing `build_all(days, generated) -> [(relpath, svg)]`, auto-discovered by `render.py`. A broken plugin does not take the core charts down but fails CI loudly. First four plugins — pixel (8-bit), terminal (ASCII session), sketch (xkcd hand-drawn, deterministic seeded wobble), badge (shields.io-faithful set under `charts/badge/`) — were each built and visually verified in both color modes by a dedicated subagent.
+- **README got a centered header with badges (CI / uv / Python / zero-deps / MIT + three self-rendered shields), a Contents TOC, and the gallery stays fully expanded** including the new styles. A `LICENSE` file (MIT) now exists to back the badge.

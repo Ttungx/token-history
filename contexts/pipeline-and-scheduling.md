@@ -1,125 +1,125 @@
-# 管线与调度：多机采集、幂等写入、git 持久化、README 图表
+# Pipeline and Scheduling: Multi-Machine Collection, Idempotent Writes, git Persistence, README Charts
 
-> 状态：调研完成。日期 2026-08-05。
-> 前置：`data-sources.md`（采集口径与保留期）。
+> Status: research complete. Date 2026-08-05.
+> Prerequisite: `data-sources.md` (collection methodology and retention period).
 
-## 1. 数据文件布局
+## 1. Data File Layout
 
-**推荐：`data/{host}/{YYYY-MM-DD}.json`**
+**Recommended: `data/{host}/{YYYY-MM-DD}.json`**
 
-| 方案 | 跨机冲突 | 幂等难度 | 查询 |
+| Scheme | Cross-machine conflict | Idempotency difficulty | Querying |
 |---|---|---|---|
-| **1. `data/{host}/{date}.json`** | **结构性为零** — 两机永不写同一路径 | 简单：整文件覆盖 = 当天快照 | 需 glob 聚合 |
-| 2. `data/{host}.jsonl` 追加 | 零 | 麻烦：追加不天然支持"覆盖某天" | 单机时序友好 |
-| 3. `data/daily.json` 单文件 | 每次都碰同一文件，最大 | 最差：必须应用层读-合-写 | 最方便 |
-| 4. `data/{date}.json` 含两机 | 每天必冲突一次 | 中：仍需应用层合并 | 方便 |
+| **1. `data/{host}/{date}.json`** | **Structurally zero** — the two machines never write the same path | Simple: overwriting the whole file = the day's snapshot | Needs glob aggregation |
+| 2. `data/{host}.jsonl` append | Zero | Cumbersome: appending doesn't naturally support "overwrite a given day" | Friendly for single-machine time series |
+| 3. `data/daily.json` single file | Touches the same file every time — maximal | Worst: requires application-level read-merge-write | Most convenient |
+| 4. `data/{date}.json` containing both machines | Guaranteed one conflict per day | Medium: still needs application-level merging | Convenient |
 
-选 1 的理由：这是唯一一个把"host 是两个独立写者"从**文件路径结构上**解决掉的方案 —— 不是降低冲突概率，是让同名路径冲突**几何上不可能**。查询不便的代价后置给 Actions（见 §5）。
+Reason for choosing 1: it's the only scheme that resolves "hosts are two independent writers" **structurally, via the file path** — not by lowering the probability of a conflict, but by making a same-path conflict **geometrically impossible**. The query-inconvenience cost is deferred to Actions (see §5).
 
-**`claude` vs `codex` 放内容里当 JSON key，不放路径。** 它俩是同一进程同一次运行采的，**没有冲突维度**，塞进路径只成倍增加文件数换不来安全性。放内容后"host+date 是否采集完整"用一次文件存在性检查就够，未来加第三个源只是加个 key。
-
----
-
-## 2. 幂等写入规则
-
-**统一成一条**：
-
-```
-date ∈ [today−7, today]  →  盲覆盖（overwrite）
-date <  today−7          →  只允许 merge-max（每字段取 max(已存, 新读)，空补有，小不覆盖大）
-```
-
-- 近 7 天数据源本身在演变（当天持续增长、近几天可能被修正），信任新读数是完整快照
-- 7 天前用 merge-max 是安全网，防止"本地 JSONL 被清理导致重算出偏小的数，反而抹掉历史上正确的大值"
-- 正常情况下 per-host watermark 让脚本根本不碰 7 天前；merge-max 只兜"手动回填/重跑历史"
-
-**当天标 `partial`、次日改 `final`** — 值得。多付出的是次日一次有意义的状态转换（不是空 commit），换来消除"这份数据是不是半成品"的永久歧义。下游画图时 partial 的当天点不该被当最终值。
+**`claude` vs `codex` go into the content as JSON keys, not into the path.** They're collected by the same process in the same run — **there's no conflict dimension** — putting them in the path would only multiply the file count without buying any safety. With them in the content, whether "host+date collection is complete" can be checked with a single file-existence check; adding a third source in the future is just adding a key.
 
 ---
 
-## 3. 空 commit 与浮点
+## 2. Idempotent Write Rules
+
+**Unified into one rule**:
+
+```
+date ∈ [today−7, today]  →  blind overwrite
+date <  today−7          →  merge-max only (per field, take max(existing, newly read); fill empty with present, never overwrite larger with smaller)
+```
+
+- The data source itself is still evolving for the last 7 days (the current day keeps growing, recent days may be corrected), so the newly read value is trusted as a complete snapshot
+- Using merge-max for days before that is a safety net, preventing "local JSONL being cleaned up causing a recalculated smaller number to erase a historically correct larger value"
+- Under normal circumstances, the per-host watermark keeps the script from ever touching days before that; merge-max only covers "manual backfill / re-running history"
+
+**Mark the current day `partial`, change it to `final` the next day** — worth it. The extra cost is one meaningful state transition the next day (not an empty commit), in exchange for eliminating the permanent ambiguity of "is this data half-finished." When downstream charting happens, the current-day `partial` point shouldn't be treated as a final value.
+
+---
+
+## 3. Empty Commits and Floating Point
 
 ```bash
 git add -A data/ && git diff --cached --quiet || git commit -m "..."
 ```
 
-`git diff --cached --quiet` 隐含 `--exit-code`（`man git-diff`）：无差异退出 0（`||` 短路，不提交），有差异退出 1。
+`git diff --cached --quiet` implies `--exit-code` (`man git-diff`): exits 0 with no diff (`||` short-circuits, no commit), exits 1 with a diff.
 
-⚠️ **浮点四舍五入必须做在落盘的值本身上**，不能只在比较/hash 阶段临时 round。否则今天 round 后跳过了 commit，明天同样底层数据再算一遍又产出新尾数，规则形同虚设。（本机实测尾数噪音 ~1e-13。）
-
----
-
-## 4. git 冲突处理
-
-**`git pull --rebase` + 重试循环**是社区惯例，但没有官方规范规定重试次数。判断：5 次、退避 2/4/8/16/32s 足够。
-
-**采用 §1 的按 host 分路径后，rebase 阶段几乎永远没有真正的文本冲突** —— 两边从不改同一行，失败只会是 non-fast-forward 的纯 ref 竞争，重试即可无脑解决，不需要写任何冲突解决逻辑。
-
-**`.gitattributes` 的 `merge=union` 不需要用，且有坑**：
-- git 官方文档自己警告："This tends to leave the added lines in the resulting file in **random order**"
-- 同一 host 做 partial→final 修正时，union 会把新旧两行都留下，产生同 date 两条不同数值的记录
-- ⚠️ **GitHub 网页端合并按钮不认 `.gitattributes`** —— 官方回复："GitHub doesn't consider user-defined .gitattributes files"（[community#9288](https://github.com/orgs/community/discussions/9288)）。只在真跑 `git merge`/`git rebase` CLI 时生效。
-
-**push 失败不需要额外的暂存队列** —— git 的本地 commit 本身就是队列：
-
-```
-写文件 → git add → git commit   (不碰网络，几乎不失败)
-        → pull --rebase && push  (这步才可能失败)
-```
-
-所有重试失败时本地 commit 依然完整存在，无数据丢失。下次触发照常 `pull --rebase`（把未推的 commit 一起 rebase）再重推，`git push` 默认会把所有领先 origin 的 commit 一起推上去。**唯一要加的**：连续失败超过 3 个周期时写明显警告日志。
-
-**不建议一开始就上"各机推自己分支 + Actions 合并 main"** —— 那是把小风险（本地 push 竞争）换成大复杂度（多一层依赖 Actions 定时的管道，而 Actions 本身有 §5 的可靠性问题）。只在实测发现直接推送经常失败时才升级。
+⚠️ **Floating-point rounding must be applied to the value itself as it's written to disk**, not just done transiently at the compare/hash stage. Otherwise, if a commit is skipped today after rounding, the same underlying data recomputed tomorrow will produce new trailing digits again, and the rule becomes meaningless. (Trailing-digit noise measured on this machine is ~1e-13.)
 
 ---
 
-## 5. GitHub Actions 的定位
+## 4. git Conflict Handling
 
-**只用来生成派生视图（聚合 / 图表 / README 更新），源数据完整性完全不依赖它按时跑。** Actions 迟到、丢单、连续几天不跑都不影响正确性，只影响图表新鲜度。
+**`git pull --rebase` + a retry loop** is community convention, but there's no official spec dictating the retry count. Judgment call: 5 retries with a 2/4/8/16/32s backoff is sufficient.
 
-官方明确承认的限制：
-- **会延迟**："The `schedule` event can be delayed during periods of high loads"，官方建议**别卡整点**
-- **会丢单**："If the load is sufficiently high enough, some queued jobs may be dropped"
-- **60 天无活动自动禁用** scheduled workflow（只有新 commit 能重置计时器，开 issue/发 release 不算）
-- 只在默认分支的最新 commit 上运行
+**With §1's per-host path split, the rebase stage almost never has a true text conflict** — the two sides never modify the same line; failures are purely non-fast-forward ref races, solvable mindlessly by retrying, with no conflict-resolution logic needed at all.
 
-**递归防护是官方默认行为，不需要 `[skip ci]`**：
+**`.gitattributes`'s `merge=union` is unnecessary, and has pitfalls**:
+- git's own official docs warn: "This tends to leave the added lines in the resulting file in **random order**"
+- When the same host makes a partial→final correction, union would leave both the old and new lines, producing two records with different values for the same date
+- ⚠️ **The GitHub web UI's merge button does not honor `.gitattributes`** — official response: "GitHub doesn't consider user-defined .gitattributes files" ([community#9288](https://github.com/orgs/community/discussions/9288)). It only takes effect when actually running `git merge`/`git rebase` via the CLI.
+
+**A failed push doesn't need an extra staging queue** — a local git commit is itself the queue:
+
+```
+write file → git add → git commit   (doesn't touch the network, almost never fails)
+        → pull --rebase && push  (only this step can fail)
+```
+
+Even when all retries fail, the local commit remains fully intact — no data loss. The next trigger runs `pull --rebase` as usual (rebasing the unpushed commit along with it) and re-pushes; `git push` by default pushes up all commits ahead of origin together. **The only thing to add**: write an obvious warning log when failures persist across more than 3 cycles.
+
+**Not recommended to start out with "each machine pushes its own branch + Actions merges to main"** — that trades a small risk (local push contention) for large complexity (an extra pipeline stage depending on Actions' schedule, which itself has the reliability issues in §5). Only escalate to this if testing shows direct pushes frequently fail.
+
+---
+
+## 5. Positioning of GitHub Actions
+
+**Used only to generate derived views (aggregation / charts / README updates); source data integrity does not depend on it running on time at all.** Actions being late, dropping a run, or not running for several days in a row doesn't affect correctness — only chart freshness.
+
+Limitations officially acknowledged:
+- **Can be delayed**: "The `schedule` event can be delayed during periods of high loads"; officially recommended **not to schedule on the exact hour**
+- **Can drop runs**: "If the load is sufficiently high enough, some queued jobs may be dropped"
+- **Auto-disables after 60 days of inactivity** for scheduled workflows (only a new commit resets the timer; opening an issue/publishing a release doesn't count)
+- Only runs on the latest commit of the default branch
+
+**Recursion protection is official default behavior; `[skip ci]` is not needed**:
 > if a workflow run pushes code using the repository's `GITHUB_TOKEN`, a new workflow will not run even when the repository contains a workflow configured to run when push events occur.
 
-⚠️ 但**本机通过 SSH 推送用的是你自己的身份，不是 `GITHUB_TOKEN`** —— 本机 push **会**正常触发聚合 workflow。这正是想要的，别混淆。
+⚠️ But **this machine's push over SSH uses your own identity, not `GITHUB_TOKEN`** — local pushes **will** normally trigger the aggregation workflow. This is exactly what's wanted — don't confuse the two.
 
-**配额**：public repo 在标准 runner 上**免费无限**；private free 计划每月 2,000 Linux 分钟（macOS 计 10 倍）。每天 3 次 × 1 分钟 ≈ 90 分钟/月，不是瓶颈。
+**Quota**: a public repo on standard runners is **free and unlimited**; the private free plan gets 2,000 Linux minutes/month (macOS counts 10x). 3 times a day × 1 minute ≈ 90 minutes/month — not a bottleneck.
 
 ---
 
-## 6. macOS 调度
+## 6. macOS Scheduling
 
-### 6.1 launchd 的补跑行为
+### 6.1 launchd's Catch-Up Behavior
 
-**睡眠 —— 文档明说**（`man 5 launchd.plist`，本机 macOS 15.6 核验原文）：
+**Sleep — explicitly documented** (`man 5 launchd.plist`, verified against the original text on this machine's macOS 15.6):
 > Unlike cron which skips job invocations when the computer is asleep, launchd will start the job the next time the computer wakes up. **If multiple intervals transpire before the computer is woken, those events will be coalesced into one event** upon wake from sleep.
 
-即错过 N 次，唤醒后只补 **1 次**。
+That is, if N intervals are missed, only **1** catch-up run happens after waking.
 
-**关机 —— 文档沉默**。man page 那段只讲了 sleep。社区实测一致认为关机期间错过就是跳过、不补，直接到下一个预定点。（[Apple Community 5137946](https://discussions.apple.com/thread/5137946)、[Apple Forums 815034](https://developer.apple.com/forums/thread/815034)）
+**Power-off — the documentation is silent.** That man page passage only covers sleep. Community testing consistently concludes that misses during power-off are simply skipped, not caught up, going straight to the next scheduled point. ([Apple Community 5137946](https://discussions.apple.com/thread/5137946), [Apple Forums 815034](https://developer.apple.com/forums/thread/815034))
 
-⚠️ **纠正一个流传很广的错误**：网上常说「`StartCalendarInterval` 隐含 `RunAtLoad`」—— **man page 里没有这句**。真正写"隐含 RunAtLoad"的是 `KeepAlive`。两个键完全独立。
+⚠️ **Correcting a widely circulated error**: it's commonly said online that "`StartCalendarInterval` implies `RunAtLoad`" — **the man page says no such thing**. What actually says "implies RunAtLoad" is `KeepAlive`. The two keys are completely independent.
 
-→ **靠 `RunAtLoad=true` 兜关机场景**（每次加载立即跑一次，因为幂等所以无害；副作用只是调试 bootstrap 时多跑一次）。
+→ **Cover the power-off scenario via `RunAtLoad=true`** (runs once immediately on every load; harmless because of idempotency — the only side effect is one extra run when debugging bootstrap).
 
-**补跑逻辑必须做进脚本自己，不能指望 launchd。**
+**Catch-up logic must be built into the script itself; it cannot be expected of launchd.**
 
-### 6.2 调度频率：维持 00:30 / 12:00 / 21:00，不改每小时
+### 6.2 Schedule Frequency: Keep 00:30 / 12:00 / 21:00, Don't Switch to Hourly
 
-不和稀泥的理由：
-- 每小时能缓解的只是"某个点恰好睡眠/断网"的**瞬时**问题。三个分散的点 + 次日 00:30 + 7 天 watermark 已经能自愈，不丢数据，只丢"当天多个采样点"这种细粒度
-- 每小时**完全解决不了**真正危险的场景 —— 长时间关机。出差关机两天，每小时和每天三次都是全错过，没有本质差别。对症的是 `RunAtLoad` + watermark，已覆盖
-- 代价不为零：24×2 台的调度开销、日志噪音、运行重叠的边界情况
-- 三个时间点大概率承载着业务含义（午间/晚间检查点），换成每小时会让这层语义消失
+Reasons for not splitting the difference:
+- Hourly can only alleviate the **transient** problem of "sleep/network-down at exactly that moment." Three spread-out points + next-day 00:30 + the 7-day watermark already self-heal, losing no data — only losing the fine granularity of "multiple sample points within a day"
+- Hourly **does not solve at all** the truly dangerous scenario — extended power-off. If a machine is powered off for two days while traveling, both hourly and three-times-daily miss everything equally, no fundamental difference. The actual remedy is `RunAtLoad` + watermark, already covered
+- The cost isn't zero: 24×2-machine scheduling overhead, log noise, edge cases from overlapping runs
+- The three time points likely carry business meaning (midday/evening checkpoints); switching to hourly would erase that layer of semantics
 
-### 6.3 TCC / Full Disk Access：**不需要**
+### 6.3 TCC / Full Disk Access: **Not Needed**
 
-本机实测（当前 shell 明确**没有** FDA —— `~/Library/Safari`、`~/Library/Mail` 等 15 个路径全部 `Operation not permitted`）：
+Measured on this machine (the current shell explicitly does **not** have FDA — all 15 paths like `~/Library/Safari`, `~/Library/Mail` return `Operation not permitted`):
 
 ```
 ~/.claude      READABLE
@@ -127,47 +127,47 @@ git add -A data/ && git diff --cached --quiet || git commit -m "..."
 ~/OpenSource   READABLE
 ```
 
-**前提：repo 不能放 `~/Documents` / `~/Desktop` / `~/Downloads` / iCloud Drive / 外置卷 / 网络卷** —— 那些才是 TCC 管的。`/Users/wenkeli/OpenSource/daily_tokens` 安全。
+**Precondition: the repo must not live under `~/Documents` / `~/Desktop` / `~/Downloads` / iCloud Drive / external volumes / network volumes** — those are what TCC actually governs. `/Users/wenkeli/OpenSource/daily_tokens` is safe.
 
-若哪天真需要 FDA：授权对象是**解释器二进制**（`/bin/bash` 或 `node`），不是脚本文件（TCC 无法为文本文件计算 designated requirement）。且 Homebrew 的 `node` 是 **ad-hoc 签名**（CDHash 每次重编都变），`brew upgrade node` 会**静默吊销**授权（[claude-code#55661](https://github.com/anthropics/claude-code/issues/55661)）。又一个"别依赖 FDA"的理由。
+If FDA is ever genuinely needed: the grant target is the **interpreter binary** (`/bin/bash` or `node`), not the script file (TCC cannot compute a designated requirement for a text file). And Homebrew's `node` is **ad-hoc signed** (CDHash changes on every recompile), so `brew upgrade node` will **silently revoke** the grant ([claude-code#55661](https://github.com/anthropics/claude-code/issues/55661)). One more reason to "not rely on FDA."
 
-`man 5 launchd.plist` CAVEATS 原文：
+`man 5 launchd.plist` CAVEATS, original text:
 > Daemons and agents managed by launchd are subject to macOS user privacy protections. Specifying privacy sensitive files and folders in a launchd plist may not have the desired effect, and may prevent the job from running.
 
-### 6.4 git 凭据：**走 SSH**
+### 6.4 git Credentials: **Use SSH**
 
-本机现状（实测）：
-- `~/.gitconfig` 设了 `credential.https://github.com.helper = !/opt/homebrew/bin/gh auth git-credential`，token 在 keyring
-- `~/.ssh/id_rsa` / `id_ed25519` / `id_test` **三把都无 passphrase**
-- `~/.ssh/config` 有 `github.com → ssh.github.com:443`（绕 22 端口封锁）
+Current state on this machine (measured):
+- `~/.gitconfig` has `credential.https://github.com.helper = !/opt/homebrew/bin/gh auth git-credential` set; the token lives in the keyring
+- `~/.ssh/id_rsa` / `id_ed25519` / `id_test` — **all three have no passphrase**
+- `~/.ssh/config` has `github.com → ssh.github.com:443` (working around port 22 being blocked)
 - `ssh -T git@github.com` → `Hi keli-wen!` ✓
 
-**当前的 HTTPS + gh 路径是最脆的**：[cli/cli#13317](https://github.com/cli/cli/issues/13317) —— keychain 读取有 ~3 秒超时，**失败时 `gh` 返回空 token 并继续以未认证身份走下去**，你看到的是莫名其妙的 403 而非凭据错误。
+**The current HTTPS + gh path is the most fragile**: [cli/cli#13317](https://github.com/cli/cli/issues/13317) — keychain reads have a ~3 second timeout, and **on failure, `gh` returns an empty token and continues on as unauthenticated** — what you see is an inexplicable 403, not a credential error.
 
-**SSH 不碰 keychain、不碰 ssh-agent、不碰 TCC、不怕 brew upgrade。**
+**SSH doesn't touch keychain, doesn't touch ssh-agent, doesn't touch TCC, and isn't affected by brew upgrade.**
 
 ```bash
-git -C /Users/wenkeli/OpenSource/daily_tokens remote set-url origin git@github.com:keli-wen/daily_tokens.git
+git -C /Users/wenkeli/OpenSource/daily_tokens remote set-url origin git@github.com:keli-wen/token-history.git
 ```
 
-脚本里显式声明而非依赖继承状态：
+Declare explicitly in the script rather than relying on inherited state:
 ```bash
 export HOME=/Users/wenkeli
 export GIT_SSH_COMMAND='/usr/bin/ssh -F /Users/wenkeli/.ssh/config -o BatchMode=yes -o IdentitiesOnly=yes -i /Users/wenkeli/.ssh/id_rsa'
-export GIT_TERMINAL_PROMPT=0   # 失败快，别挂死
+export GIT_TERMINAL_PROMPT=0   # fail fast, don't hang
 ```
 
-可选加固：给这个 repo 单独生成 ed25519 **deploy key**（写权限），不复用个人 `id_rsa`。
+Optional hardening: generate a dedicated ed25519 **deploy key** (write access) for this repo, instead of reusing the personal `id_rsa`.
 
-### 6.5 其他 macOS 坑
+### 6.5 Other macOS Pitfalls
 
-- **PATH 是 `/usr/bin:/bin:/usr/sbin:/sbin`**（实测本机运行中的 LaunchAgent）。`node`/`gh` 在 `/opt/homebrew/bin`，**必须绝对路径或在 plist 里设 `EnvironmentVariables.PATH`**
-- **`/usr/bin/git` 是 Apple git**，加载 `/Applications/Xcode.app/.../git-core/gitconfig` —— 你的 `credential.helper=osxkeychain` 和 `init.defaultBranch=main` 其实来自那里，不是你的 dotfiles。Xcode 更新会变
-- LaunchAgent 出现在 **系统设置 → 登录项与扩展 → "允许在后台"**，可被误关（关了不删 plist 也不跑）。任务神秘停跑先查这里
-- **不要设 `SessionCreate`** —— 它把 job 扔进新的 audit session，反而脱离 Aqua 的 keychain 上下文
-- LaunchAgent 默认 `Aqua` session，**GUI 登录时才加载**到 `gui/501`。本机 FileVault 开启且无自动登录，所以 job 运行时必然已有人登录过
+- **PATH is `/usr/bin:/bin:/usr/sbin:/sbin`** (measured on this machine's running LaunchAgent). `node`/`gh` live in `/opt/homebrew/bin`, **absolute paths must be used, or `EnvironmentVariables.PATH` set in the plist**
+- **`/usr/bin/git` is Apple's git**, and loads `/Applications/Xcode.app/.../git-core/gitconfig` — your `credential.helper=osxkeychain` and `init.defaultBranch=main` actually come from there, not from your dotfiles. This changes when Xcode updates
+- The LaunchAgent shows up under **System Settings → Login Items & Extensions → "Allow in the Background"**, and can be accidentally toggled off (turning it off doesn't delete the plist, but it stops running). If the job mysteriously stops, check here first
+- **Do not set `SessionCreate`** — it throws the job into a new audit session, which actually detaches it from Aqua's keychain context
+- LaunchAgent defaults to an `Aqua` session, **only loaded into `gui/501` on GUI login**. FileVault is enabled on this machine with no auto-login, so someone must already have logged in by the time the job runs
 
-### 6.6 plist 骨架
+### 6.6 plist Skeleton
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -209,96 +209,97 @@ export GIT_TERMINAL_PROMPT=0   # 失败快，别挂死
 </plist>
 ```
 
-launchd 不做 `~` 展开 —— 所有路径必须绝对。
+launchd does not do `~` expansion — all paths must be absolute.
 
-**macOS 15+ 的正确命令**（man page 标注 `load`/`unload` 为 Legacy，Recommended alternative 是 `bootstrap | bootout | enable | disable`）：
+**The correct commands for macOS 15+** (the man page marks `load`/`unload` as Legacy; the Recommended alternative is `bootstrap | bootout | enable | disable`):
 
 ```bash
-# 安装（改了 plist 必须先 bootout 再 bootstrap，没有 reload）
+# Install (after editing the plist, you must bootout then bootstrap — there is no reload)
 launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.wenkeli.daily-tokens.plist
 
-# 若被"允许在后台"关过，需显式 enable
+# If it was turned off via "Allow in the Background," explicit enable is needed
 launchctl enable gui/$(id -u)/com.wenkeli.daily-tokens
 
-# 立刻手动触发一次（调试）
+# Trigger it manually right now (for debugging)
 launchctl kickstart -k gui/$(id -u)/com.wenkeli.daily-tokens
 
-# 查状态：是否加载、下次触发、上次退出码
+# Check status: whether loaded, next trigger time, last exit code
 launchctl print gui/$(id -u)/com.wenkeli.daily-tokens
 
-# 卸载
+# Uninstall
 launchctl bootout gui/$(id -u)/com.wenkeli.daily-tokens
 ```
 
-调试第一步永远是配 `StandardOutPath` + `StandardErrorPath`。TCC 拒绝表现为 **EPERM**（`Operation not permitted`），POSIX 权限问题是 EACCES，两者要分清。
+Debugging first step is always to configure `StandardOutPath` + `StandardErrorPath`. A TCC denial manifests as **EPERM** (`Operation not permitted`), while a POSIX permission issue is EACCES — these two must be distinguished.
 
 ---
 
-## 7. 现有轮子
+## 7. Existing Solutions
 
-### 7.1 唯一对口的：`Baek-Seunghyun/ai-coding-usage-card`
+### 7.1 The Only Direct Match: `Baek-Seunghyun/ai-coding-usage-card`
 
-- 24★ / 10 fork / MIT，创建 2026-07-15，最近 push 2026-07-23 —— **只有约 3 周历史，非成熟项目**
-- 调 `npx -y ccusage@latest --json`（**不锁版本**）；每设备一份 `cards/devices/<device>.json`；按天取 max 高水位合并
-- 明确**禁止**跨机同步日志目录，处理方式是**按设备分别记账再相加**，不做会话级去重
-- 官方声明**不提供自动 recall/backfill**，但高水位合并有隐式补跑效果
-- 产出 4 种贡献图风格 SVG 提交进 repo，本机 cron/launchd 跑（**不是 Action** —— 云端读不到 `~/.claude`）
-- README 建议多设备错开时间（如 09:37/09:42/09:47）避免 git 冲突
+- 24★ / 10 forks / MIT, created 2026-07-15, last push 2026-07-23 — **only about 3 weeks of history, not a mature project**
+- Calls `npx -y ccusage@latest --json` (**not version-pinned**); one `cards/devices/<device>.json` per device; merges by taking the daily max high-water mark
+- Explicitly **forbids** syncing log directories across machines; its approach is to **account per-device separately then sum**, with no session-level dedup
+- Officially states it **provides no automatic recall/backfill**, but the high-water-mark merge has an implicit catch-up effect
+- Produces 4 contribution-graph-style SVGs committed into the repo, run via local cron/launchd (**not Actions** — the cloud can't read `~/.claude`)
+- The README recommends staggering times across multiple devices (e.g. 09:37/09:42/09:47) to avoid git conflicts
 
-对照本项目需求：跨机合并 ⚠️（是分别记账不是去重）、recall window ⚠️（隐式）、weekly chart ⚠️（是 heatmap 不是周图）、day-to-day 明细 ⚠️（在 snapshot JSON 里，非逐日可读）。
+Against this project's requirements: cross-machine merging ⚠️ (separate accounting, not dedup), recall window ⚠️ (implicit), weekly chart ⚠️ (a heatmap, not a weekly chart), day-to-day detail ⚠️ (inside a snapshot JSON, not day-by-day readable).
 
-**可直接借用**：按天取 max 的高水位合并算法（代码量很小）。
+**Directly reusable**: the daily max high-water-mark merge algorithm (very little code).
 
-### 7.2 其余方向均未找到
+### 7.2 Nothing Found in Any Other Direction
 
-`claude code usage badge` / `claude token usage action` / `codex usage readme` / `claude code usage readme` —— gh search **全部返回空**。
+`claude code usage badge` / `claude token usage action` / `codex usage readme` / `claude code usage readme` — gh search **all returned empty**.
 
-`claude-code-stats` 系（AeternaLabsHQ 29★、dmelo 19★、nermalcat69 5★）、`llm-usage-tracker` 系、以及热门的 `Maciek-roboblog/Claude-Code-Usage-Monitor`（8,590★）、`Iamshankhadeep/ccseva`（800★）—— **全是本机 dashboard/menubar，不写回 git/README**，是另一条产品线。
+The `claude-code-stats` family (AeternaLabsHQ 29★, dmelo 19★, nermalcat69 5★), the `llm-usage-tracker` family, and the popular `Maciek-roboblog/Claude-Code-Usage-Monitor` (8,590★), `Iamshankhadeep/ccseva` (800★) — **are all local dashboards/menubar apps that don't write back to git/README** — a different product line entirely.
 
-**结论：「本机采集 → git 持久化 → README 图表」这个细分只有一家在做，且很不成熟。自建是合理选择。**
+**Conclusion: only one project works on the "local collection → git persistence → README chart" niche, and it's quite immature. Building it in-house is a reasonable choice.**
 
-### 7.3 waka-readme 家族的可借鉴手法
+### 7.3 Techniques Worth Borrowing from the waka-readme Family
 
-`athul/waka-readme` 1,830★（2026-08-01 更新）、`anmol098/waka-readme-stats` 3,976★（2026-08-04 更新）。
+`athul/waka-readme` 1,830★ (updated 2026-08-01), `anmol098/waka-readme-stats` 3,976★ (updated 2026-08-04).
 
-- **README 自动更新**：`<!--START_SECTION:waka-->` … `<!--END_SECTION:waka-->` 标记区间正则整段替换。**这套手法验证了多年、生态成熟，可直接照搬。**
-- **图表形式：ASCII bar chart**，用 `BLOCKS` 环境变量自定义字符（`░▒▓█` / `⣀⣄⣤⣦⣶⣷⣿`）。零依赖、零图床、纯 Markdown 渲染
-- ⚠️ 它们的调度是纯 GitHub Actions（因为读的是 WakaTime **云端 API**），**本项目不能照搬这一点** —— 数据源在本机
+- **Automatic README updates**: the `<!--START_SECTION:waka-->` … `<!--END_SECTION:waka-->` marked region is replaced wholesale via regex. **This technique has been proven for years and the ecosystem is mature — it can be directly copied.**
+- **Chart form: ASCII bar chart**, with characters customized via the `BLOCKS` environment variable (`░▒▓█` / `⣀⣄⣤⣦⣶⣷⣿`). Zero dependencies, zero image hosting, pure Markdown rendering
+- ⚠️ Their scheduling is pure GitHub Actions (because they read the WakaTime **cloud API**) — **this project cannot copy that** — its data source is local
 
 ---
 
-## 8. README 图表渲染的约束
+## 8. Constraints on README Chart Rendering
 
-| 方案 | 结论 |
+| Approach | Conclusion |
 |---|---|
-| **ASCII / emoji bar chart 直写 markdown** | 最稳。零依赖、无缓存问题、无隐私风险。waka-readme 生产验证多年 |
-| **SVG 提交进 repo + `<img>` 引用** | 可行且可控。⚠️ 见下面的缓存坑 |
-| **mermaid `xychart-beta`** | GitHub 原生渲染 mermaid，但内置版本滞后于上游（上游 2026-03 还在修 xychart 标签遮挡）。够用但可控性差 |
-| **quickchart.io 等第三方图床** | 不建议。120 req/min/IP 限流、免费额度 1000 charts/月；且图表配置（含你的用量/花费数据）编码在 URL 里发给对方服务器 |
+| **ASCII / emoji bar chart written directly in markdown** | Most stable. Zero dependencies, no caching issues, no privacy risk. Production-proven for years by waka-readme |
+| **SVG committed into the repo + referenced via `<img>`** | Feasible and controllable. ⚠️ See the caching pitfall below |
+| **mermaid `xychart-beta`** | GitHub renders mermaid natively, but its bundled version lags upstream (upstream was still fixing xychart label occlusion as of 2026-03). Good enough but poorly controllable |
+| **quickchart.io and other third-party chart hosts** | Not recommended. 120 req/min/IP rate limit, free tier of 1000 charts/month; and the chart config (including your usage/spend data) is encoded in the URL and sent to a third-party server |
 
-### 8.1 缓存坑（务必绕）
+### 8.1 Caching Pitfall (must be avoided)
 
-- **camo（`camo.githubusercontent.com`）只代理 GitHub 域外的图片**（shields.io 等）
-- **`raw.githubusercontent.com` 不走 camo，但有自己独立的 CDN 缓存**（社区观察默认 ~5 分钟，个别情况 `Cache-Control: max-age=86400` 即 24 小时）—— 这才是"commit 了新图但页面还是旧的"的真实原因（[community#46773](https://github.com/orgs/community/discussions/46773)、[#46758](https://github.com/orgs/community/discussions/46758)）
-- **唯一可靠绕法**：URL 后拼时间戳或 commit-sha 作 query string（`?v=<sha>`），改变 URL 即改变缓存 key。**不能依赖"等缓存过期"**
+- **camo (`camo.githubusercontent.com`) only proxies images outside the GitHub domain** (shields.io etc.)
+- **`raw.githubusercontent.com` doesn't go through camo, but has its own independent CDN cache** (community observations put the default at ~5 minutes; in some cases `Cache-Control: max-age=86400`, i.e. 24 hours) — this is the real reason for "committed a new image but the page still shows the old one" ([community#46773](https://github.com/orgs/community/discussions/46773), [#46758](https://github.com/orgs/community/discussions/46758))
+- **The only reliable workaround**: append a timestamp or commit-sha as a query string to the URL (`?v=<sha>`); changing the URL changes the cache key. **Cannot rely on "waiting for the cache to expire"**
 
-### 8.2 SVG sanitize 边界
+### 8.2 SVG Sanitize Boundary
 
-- 原始 `<svg>` 标签直接粘进 Markdown 会被 sanitizer 剥 `<script>` 等
-- 但**通过 `<img src="x.svg">` 引用时，SVG 内部的 `<style>`（含 `@keyframes` 动画）会被保留并正常渲染**
-- ⚠️ SVG 内的 `prefers-color-scheme` 跟随**浏览器/系统**颜色偏好，**不跟随 GitHub 站内的明暗主题开关** —— 两者可能不一致
-- GitHub 官方推荐的暗色方案是 `<picture>` + `<source media="(prefers-color-scheme: dark)">` + fallback `<img>`，取代旧的 `#gh-dark-mode-only` fragment 技巧
+- A raw `<svg>` tag pasted directly into Markdown will have `<script>` etc. stripped by the sanitizer
+- But **when referenced via `<img src="x.svg">`, the SVG's internal `<style>` (including `@keyframes` animations) is preserved and renders normally**
+- ⚠️ The `prefers-color-scheme` inside the SVG follows the **browser/system** color preference, **not GitHub's own in-site light/dark theme toggle** — the two may disagree
+- GitHub's officially recommended dark-mode approach is `<picture>` + `<source media="(prefers-color-scheme: dark)">` + a fallback `<img>`, replacing the old `#gh-dark-mode-only` fragment trick
 
 ---
 
-## 9. 数据形态的一个现实问题
+## 9. A Practical Problem with the Data Shape
 
-本机实测（Claude 侧，Asia/Shanghai）：
+Measured on this machine (Claude side, Asia/Shanghai):
 
 ```
 2026-08-04   input 22,160   output 776,447   cache_creation 2,829,605   cache_read 76,486,943
 ```
 
-**`cache_read` 比 `output` 大 100 倍。** 如果 weekly chart 画"total tokens"堆叠柱，**99% 的面积会是 cache_read**，output 那条线根本看不见。
+**`cache_read` is 100x larger than `output`.** If the weekly chart plots stacked bars of "total tokens," **99% of the area will be cache_read**, and the output portion will be essentially invisible.
 
-主指标选什么（total / output / 分开双尺度）是个必须先定的设计决策，不是实现细节。
+Which primary metric to choose (total / output / separate dual scales) is a design decision that must be settled up front — not an implementation detail.
+</content>

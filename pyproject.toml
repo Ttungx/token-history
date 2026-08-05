@@ -1,5 +1,5 @@
 [project]
-name = "daily-tokens"
+name = "token-history"
 version = "1.0.0"
 description = "Persist, merge and chart AI coding token usage (Claude Code + Codex)"
 readme = "README.md"

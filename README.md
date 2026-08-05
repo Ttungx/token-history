@@ -1,6 +1,18 @@
-# daily_tokens
+<div align="center">
 
-A durable, self-updating record of how much AI coding I actually use — and a gallery of charts you can drop into a GitHub profile README.
+# token-history
+
+**A durable, self-updating record of how much AI coding I actually use —<br>persisted to git daily, charted a dozen ways, ready for a GitHub profile README.**
+
+[![Render charts](https://github.com/keli-wen/token-history/actions/workflows/render.yml/badge.svg?branch=master)](https://github.com/keli-wen/token-history/actions/workflows/render.yml)
+[![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
+![Python ≥3.9](https://img.shields.io/badge/python-%E2%89%A53.9-3776AB?logo=python&logoColor=white)
+![dependencies: zero](https://img.shields.io/badge/dependencies-zero-brightgreen)
+![license: MIT](https://img.shields.io/badge/license-MIT-blue)
+
+<img src="./charts/badge/tokens-30d.svg" alt="tokens over the last 30 days"> <img src="./charts/badge/api-equiv-30d.svg" alt="API-equivalent value over the last 30 days"> <img src="./charts/badge/streak.svg" alt="active-day streak">
+
+</div>
 
 The repo keeps a day-by-day history; the two headline charts show the last 30 days, and every render also produces [a dozen other styles](#chart-gallery) across daily, weekly, and monthly granularity.
 
@@ -9,6 +21,18 @@ The repo keeps a day-by-day history; the two headline charts show the last 30 da
 <img src="./charts/cost.svg" width="880" alt="Daily API-equivalent value, stacked by source">
 
 📊 **[Full numbers → SUMMARY.md](./SUMMARY.md)** · day-by-day history in [`data/`](./data)
+
+## Contents
+
+- [Why this exists](#why-this-exists)
+- [Quick start](#quick-start)
+- [Chart gallery](#chart-gallery) — [daily](#daily) · [weekly](#weekly) · [monthly](#monthly) · [badges](#badges)
+- [How multi-host works](#how-multi-host-works)
+- [How it stays correct](#how-it-stays-correct)
+- [Honest notes](#honest-notes)
+- [Layout](#layout)
+- [Design notes](#design-notes)
+- [License](#license)
 
 ---
 
@@ -24,7 +48,7 @@ It is **not** another usage parser. ccusage already does that job well and suppo
 |---|---|
 | **Persist** | daily JSON in git, immune to local cleanup |
 | **Merge** | several machines into one timeline |
-| **Render** | two charts, regenerated automatically |
+| **Render** | a whole gallery of chart styles, regenerated automatically |
 | **Serve** | a stable URL you reference once and never touch again |
 
 ## Quick start
@@ -36,7 +60,7 @@ It is **not** another usage parser. ccusage already does that job well and suppo
 curl -LsSf https://astral.sh/uv/install.sh | sh   # macOS / Linux (or: brew install uv)
 
 # 2. Clone and configure
-git clone https://github.com/<you>/daily_tokens && cd daily_tokens
+git clone https://github.com/<you>/token-history && cd token-history
 cp config.example.json config.json                # set "host" to an alias like mac-a
 
 # 3. Set up the environment and run
@@ -65,8 +89,8 @@ Not on macOS, or prefer a different trigger? The collector is fully self-contain
 To show the charts elsewhere, reference the raw URLs:
 
 ```markdown
-![tokens](https://raw.githubusercontent.com/<you>/daily_tokens/main/charts/tokens.svg)
-![cost](https://raw.githubusercontent.com/<you>/daily_tokens/main/charts/cost.svg)
+![tokens](https://raw.githubusercontent.com/<you>/token-history/master/charts/tokens.svg)
+![cost](https://raw.githubusercontent.com/<you>/token-history/master/charts/cost.svg)
 ```
 
 The URL is stable — no cache-busting query, no write access to your profile repo, nothing to maintain. The tradeoff is that GitHub's CDN may serve a slightly stale image for a few hours. With one data point per day that is invisible.
@@ -76,7 +100,7 @@ The URL is stable — no cache-busting query, no write access to your profile re
 Every run renders **every** style below — the same data, eleven ways. This section is deliberately fully expanded: it doubles as a catalog to pick from and as a live test of how each SVG actually behaves inside GitHub's README renderer (light/dark via `prefers-color-scheme`, CSS load animations, font fallbacks). In practice you'd embed just one or two in your own profile README:
 
 ```markdown
-![usage](https://raw.githubusercontent.com/<you>/daily_tokens/main/charts/day/card.svg)
+![usage](https://raw.githubusercontent.com/<you>/token-history/master/charts/day/card.svg)
 ```
 
 `charts/tokens.svg` and `charts/cost.svg` remain stable aliases of the daily bars, so existing embeds never break. Colors and type follow Anthropic's palette (orange = Claude Code, blue = Codex), tuned per mode to pass a color-vision-deficiency check.
@@ -102,6 +126,18 @@ Every run renders **every** style below — the same data, eleven ways. This sec
 **`charts/day/card.svg`** — hero-number stat card for the last 30 days
 
 <img src="./charts/day/card.svg" width="880" alt="30-day stat card: total tokens, API-equivalent value, peak day, daily average, and the Claude/Codex split">
+
+**`charts/day/pixel-tokens.svg`** — 8-bit pixel bars: every square is 10M tokens on a crisp retro grid, with a blinking cursor on the day still in progress
+
+<img src="./charts/day/pixel-tokens.svg" width="880" alt="Pixel-art daily token bars: stacks of squares, one square per 10M tokens">
+
+**`charts/day/terminal-tokens.svg`** — the last 30 days as a terminal session: an htop-style bar per day, a CLI-style `TOTAL` sign-off, and a blinking cursor
+
+<img src="./charts/day/terminal-tokens.svg" width="880" alt="Terminal-style chart: a shell window with one ASCII bar per day, stacked Claude/Codex block glyphs">
+
+**`charts/day/sketch-tokens.svg`** — an xkcd-style hand-drawn take: two wobbly ink lines, hand-lettered labels, and a scribbled circle around the day the agents took over
+
+<img src="./charts/day/sketch-tokens.svg" width="880" alt="Hand-drawn xkcd-style chart: wobbly Claude and Codex lines with a circled annotation on the peak day">
 
 ### Weekly
 
@@ -130,6 +166,12 @@ Every run renders **every** style below — the same data, eleven ways. This sec
 **`charts/month/calendar-tokens.svg`** — a calendar page for the current month
 
 <img src="./charts/month/calendar-tokens.svg" width="880" alt="Calendar page for the current month, each day shaded and labelled by its token total">
+
+### Badges
+
+**`charts/badge/*.svg`** — live shields.io-style stats, rendered from the same data. Inline-sized: drop any of them on a single line of your profile README.
+
+<img src="./charts/badge/tokens-today.svg" alt="tokens today"> <img src="./charts/badge/tokens-30d.svg" alt="tokens over the last 30 days"> <img src="./charts/badge/api-equiv-30d.svg" alt="API-equivalent value over the last 30 days"> <img src="./charts/badge/daily-avg.svg" alt="daily average tokens"> <img src="./charts/badge/split-30d.svg" alt="Claude versus Codex share"> <img src="./charts/badge/streak.svg" alt="active-day streak">
 
 ## How multi-host works
 

@@ -938,6 +938,28 @@ def write_summary(path, rows, days):
         fh.write("\n".join(lines))
 
 
+def load_style_modules():
+    """Discover scripts/styles/*.py plugins.
+
+    Each plugin exposes build_all(days, generated) -> [(relpath, svg_str), ...]
+    and may `import render` for the shared helpers. Kept as separate files so a
+    new style is one dropped-in module, not a merge into this one.
+    """
+    import importlib.util
+    styles_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "styles")
+    mods = []
+    for path in sorted(glob.glob(os.path.join(styles_dir, "*.py"))):
+        name = os.path.splitext(os.path.basename(path))[0]
+        if name.startswith("_"):
+            continue
+        spec = importlib.util.spec_from_file_location("style_" + name, path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        if hasattr(mod, "build_all"):
+            mods.append((name, mod))
+    return mods
+
+
 def bar_meta(period, current, generated):
     """(title, subtitle-format pieces, footnote) shared by all bar charts."""
     tokens_foot = ("Total tokens = input + output + cache creation + cache read. "
@@ -1032,8 +1054,21 @@ def main():
     write(os.path.join("month", "bar-cost.svg"), m_cost)
     write(os.path.join("month", "calendar-tokens.svg"), build_month_page(days, generated))
 
+    # ---- style plugins (pixel, terminal, sketch, badge, ...)
+    # A broken plugin must not take the core charts down with it, but it must
+    # not pass CI silently either: render everything, then fail loudly.
+    failures = []
+    for name, mod in load_style_modules():
+        try:
+            for rel, svg in mod.build_all(days, generated):
+                write(rel, svg)
+        except Exception as exc:
+            failures.append("{}: {}".format(name, exc))
+
     for rel in written:
         print("wrote {}".format(rel))
+    if failures:
+        raise SystemExit("style plugin failure: " + "; ".join(failures))
 
     summary = os.path.join(REPO_ROOT, "SUMMARY.md")
     write_summary(summary, legacy_rows, days)

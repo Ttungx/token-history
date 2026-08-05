@@ -3,6 +3,6 @@ revision = 1
 requires-python = ">=3.9"
 
 [[package]]
-name = "daily-tokens"
+name = "token-history"
 version = "1.0.0"
 source = { virtual = "." }

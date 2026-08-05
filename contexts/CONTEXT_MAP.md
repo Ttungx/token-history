@@ -1,46 +1,48 @@
 # CONTEXT_MAP
 
-`daily_tokens` 的 durable context 索引。新增 context 时在此登记。
+Durable context index for `token-history` (formerly `daily_tokens`). Register new contexts here.
 
-## 约定
+## Conventions
 
-- 一个文件一个主题，文件名用 kebab-case
-- 每份 context 开头标注**状态**和**日期**
-- 严格区分「实测证明」与「推断」；未解决的事项单列一节，**不要圆过去**
-- 数字必须可复现 —— 给命令或文件路径，不给"大约"
+- One topic per file, filenames use kebab-case
+- Each context starts with a **status** and **date** marker
+- Strictly distinguish "verified by measurement" from "inference"; list unresolved items in their own section — **do not paper over them**
+- Numbers must be reproducible — give the command or file path, not "approximately"
 
-## 索引
+## Index
 
-| 文件 | 主题 | 状态 |
+| File | Topic | Status |
 |---|---|---|
-| [`decisions.md`](./decisions.md) | **用户拍板的方向性决策** —— 产品定位、repo 可见性与脱敏、图表投递、指标、Codex 范围、明细粒度、Anthropic 配色、README catalog 与 uv-first | 完成 |
-| [`data-sources.md`](./data-sources.md) | Claude Code / Codex CLI 本地数据的位置、schema、去重口径、保留期与 recall window、ccusage 各版本状态 | 完成，含 1 项未解决 |
-| [`pipeline-and-scheduling.md`](./pipeline-and-scheduling.md) | 文件布局、幂等规则、git 冲突处理、GitHub Actions 定位、macOS launchd 调度、README 图表渲染约束、现有轮子调研 | 完成 |
+| [`decisions.md`](./decisions.md) | **User-decided directional decisions** — product positioning, repo visibility and sanitization, chart delivery, metrics, Codex scope, detail granularity, Anthropic color scheme, README catalog and uv-first | Complete |
+| [`data-sources.md`](./data-sources.md) | Location, schema, dedup rules, retention period and recall window for Claude Code / Codex CLI local data, ccusage version status | Complete, with 1 unresolved item |
+| [`pipeline-and-scheduling.md`](./pipeline-and-scheduling.md) | File layout, idempotency rules, git conflict handling, GitHub Actions positioning, macOS launchd scheduling, README chart rendering constraints, survey of existing solutions | Complete |
 
-## 项目目标（一句话）
+## Project Goal (one sentence)
 
-两台 macOS 每天 00:30 / 12:00 / 21:00 采集本机 Claude Code + Codex 的 token 用量，幂等地持久化进
-`github.com/keli-wen/daily_tokens`（对抗本地 30 天清理），并在 README 展示 weekly chart。
+Two macOS machines collect local Claude Code + Codex token usage daily at 00:30 / 12:00 / 21:00, idempotently persisting it into
+`github.com/keli-wen/token-history` (to counter local 30-day cleanup), and render a gallery of chart styles for the README.
 
-## 当前未解决
+## Currently Unresolved
 
-0. **repo 只留了 30 天，但"两来源齐全"的完整区间是 52 天** — 见 `decisions.md` D9。
-   多出的 21 天 Claude 数据在清理倒计时上，要补趁早。
-1. **Codex 侧口径分歧 31%** — ccusage v20 报 36,945,083，自研解析器报 53,206,631。谁对未知。
-   见 `data-sources.md` §4.6。已按 `decisions.md` D1a **双记兜住，不阻塞上线**。
-2. **第二台机器的环境未勘察** — ccusage 版本、Codex 是否装、路径是否一致均未知。部署时的实地问题。
+0. **The repo only keeps 30 days, but the full interval where "both sources are complete" is 52 days** — see `decisions.md` D9.
+   The extra 21 days of Claude data are on a cleanup countdown; backfill it early.
+1. **31% discrepancy in Codex-side accounting** — ccusage v20 reports 36,945,083, the in-house parser reports 53,206,631. Which is correct is unknown.
+   See `data-sources.md` §4.6. Per `decisions.md` D1a the in-house parser was vetoed; **ccusage numbers are trusted as-is — not blocking launch**.
+2. **The second machine's environment has not been surveyed** — ccusage version, whether Codex is installed, whether paths match are all unknown. A field issue for deployment time.
 
-（原「主指标未定」「synthetic」「订阅还是 API 计费」三项已在 grill 中解决，见 `decisions.md` D4 与「未问/已延后」。）
+(The original three items — "primary metric undecided," "synthetic," "subscription or API billing" — have been resolved during the grill; see `decisions.md` D4 and "Not asked / deferred.")
 
-## 已定的地基（不再讨论）
+## Settled Foundations (no longer up for discussion)
 
-- Claude 侧：升级 ccusage 到 v20 即可，逐字段对账通过；旧版 v15.7.1 少报 38.93%
-- Codex 侧：累加 `last_token_usage`（非 `total`），按事件 timestamp 分桶，`(ts,in,out)` 文件内去重
-- 两侧字段语义不同：Codex 的 `input_tokens` **包含** cached，Claude 的是分开的
-- 时区固定 **Asia/Shanghai**，写进记录
-- 布局 `data/{host}/{YYYY-MM-DD}.json`，`claude`/`codex` 作 JSON key
-- 幂等：近 7 天盲覆盖，7 天前只 merge-max
+- Claude side: upgrading ccusage to v20 is sufficient; field-by-field reconciliation passes; the old v15.7.1 under-reports by 38.93%
+- Codex side: accumulate `last_token_usage` (not `total`), bucket by event timestamp, dedup within a file by `(ts,in,out)`
+- Field semantics differ between the two sides: Codex's `input_tokens` **includes** cached, Claude's are separate
+- Timezone fixed to **Asia/Shanghai**, written into the record
+- Layout `data/{host}/{YYYY-MM-DD}.json`, `claude`/`codex` as JSON keys
+- Idempotency: blind overwrite for the last 7 days, merge-max only before that
 - watermark **per-host**
-- git 走 **SSH**，脚本内所有可执行文件绝对路径
-- 调度维持 00:30/12:00/21:00 + `RunAtLoad=true`，补跑逻辑做进脚本
-- Actions 只生成派生视图，源数据完整性不依赖它
+- git goes over **SSH**, all executables in the script use absolute paths
+- Scheduling stays at 00:30/12:00/21:00 + `RunAtLoad=true`, catch-up logic is built into the script
+- Actions only generates derived views; source data integrity does not depend on it
+</content>
+</invoke>

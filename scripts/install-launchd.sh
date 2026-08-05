@@ -18,14 +18,17 @@ set -eu
 
 HERE=$(cd -- "$(dirname -- "$0")" && pwd)
 REPO=$(dirname -- "$HERE")
-LABEL=com.daily-tokens.collect
+LABEL=com.token-history.collect
+LEGACY_LABEL=com.daily-tokens.collect     # pre-rename label; cleaned up on sight
 PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
-LOG="$HOME/Library/Logs/daily-tokens.log"
+LOG="$HOME/Library/Logs/token-history.log"
 DOMAIN="gui/$(id -u)"
 
 if [ "${1:-}" = "--uninstall" ]; then
-    launchctl bootout "$DOMAIN/$LABEL" 2>/dev/null || true
-    rm -f "$PLIST"
+    for l in "$LABEL" "$LEGACY_LABEL"; do
+        launchctl bootout "$DOMAIN/$l" 2>/dev/null || true
+        rm -f "$HOME/Library/LaunchAgents/$l.plist"
+    done
     echo "removed $LABEL"
     exit 0
 fi
@@ -93,6 +96,9 @@ cat > "$PLIST" <<PLIST_EOF
 PLIST_EOF
 
 # There is no "reload"; bootout then bootstrap is the supported sequence.
+# Also retire the pre-rename job so two collectors never run side by side.
+launchctl bootout "$DOMAIN/$LEGACY_LABEL" 2>/dev/null || true
+rm -f "$HOME/Library/LaunchAgents/$LEGACY_LABEL.plist"
 launchctl bootout "$DOMAIN/$LABEL" 2>/dev/null || true
 launchctl bootstrap "$DOMAIN" "$PLIST"
 launchctl enable "$DOMAIN/$LABEL"   # in case it was switched off in Login Items

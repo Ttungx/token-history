@@ -10,6 +10,7 @@ on:
     paths:
       - 'data/**'
       - 'scripts/render.py'
+      - 'scripts/styles/**'
       - 'pyproject.toml'
       - 'uv.lock'
       - '.github/workflows/render.yml'

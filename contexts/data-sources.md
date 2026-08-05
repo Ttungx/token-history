@@ -1,52 +1,52 @@
-# 数据源：Claude Code 与 Codex CLI 的本地 token 用量
+# Data Sources: Local Token Usage for Claude Code and Codex CLI
 
-> 状态：调研完成，含 1 项未解决。日期 2026-08-05。
-> 所有数字为 keli-wen 本机（macOS 15.6，Darwin 24.6.0）实测。
+> Status: research complete, with 1 unresolved item. Date 2026-08-05.
+> All numbers are measured on keli-wen's local machine (macOS 15.6, Darwin 24.6.0).
 
 ## 1. Claude Code
 
-### 1.1 文件位置与发现
+### 1.1 File Location and Discovery
 
 ```
-~/.claude/projects/**/*.jsonl        # 递归，含 subagents/
+~/.claude/projects/**/*.jsonl        # recursive, includes subagents/
 ```
 
-- `subagents/` 占 **54% 的 assistant 行**（22,644 / 42,104），且与主会话**零重复**
-  （`isSidechain=true` 的行数恰好等于 subagent 行数，跨"主文件↔subagent 文件"的重复组为 0）
-- 嵌套可达深度 6：`projects/<proj>/<uuid>/subagents/workflows/wf_*/agent-*.jsonl`
-- 环境变量 `CLAUDE_CONFIG_DIR` 支持逗号分隔多路径；设置后**完全替换**默认路径
-  （默认路径为 `${XDG_CONFIG_HOME:-~/.config}/claude` 和 `~/.claude`，两个都存在则都扫）
+- `subagents/` accounts for **54% of assistant lines** (22,644 / 42,104), and has **zero overlap** with the main conversation
+  (the count of lines with `isSidechain=true` exactly equals the count of subagent lines; the number of duplicate groups spanning "main file ↔ subagent file" is 0)
+- Nesting reaches depth 6: `projects/<proj>/<uuid>/subagents/workflows/wf_*/agent-*.jsonl`
+- The environment variable `CLAUDE_CONFIG_DIR` supports comma-separated multiple paths; once set, it **completely replaces** the default paths
+  (the default paths are `${XDG_CONFIG_HOME:-~/.config}/claude` and `~/.claude`; if both exist, both are scanned)
 
-### 1.2 行 schema
+### 1.2 Row Schema
 
-只有 `type == "assistant"` 的行带 usage。相关字段：
+Only rows with `type == "assistant"` carry usage. Relevant fields:
 
-| 路径 | 说明 |
+| Path | Description |
 |---|---|
-| `timestamp` | ISO8601，UTC |
-| `message.id` + `requestId` | 去重键的两半 |
-| `message.model` | 如 `claude-opus-5`、`<synthetic>` |
-| `message.usage.input_tokens` | 与 cache_read **分开计** |
-| `message.usage.output_tokens` | ⚠️ 见 1.3 |
-| `message.usage.cache_creation_input_tokens` | = 下面两项之和 |
+| `timestamp` | ISO8601, UTC |
+| `message.id` + `requestId` | The two halves of the dedup key |
+| `message.model` | e.g. `claude-opus-5`, `<synthetic>` |
+| `message.usage.input_tokens` | Counted **separately** from cache_read |
+| `message.usage.output_tokens` | ⚠️ see 1.3 |
+| `message.usage.cache_creation_input_tokens` | = sum of the two items below |
 | `message.usage.cache_creation.ephemeral_5m_input_tokens` | |
-| `message.usage.cache_creation.ephemeral_1h_input_tokens` | 本机占 cache creation 的 55.6%，**计价更贵** |
+| `message.usage.cache_creation.ephemeral_1h_input_tokens` | Accounts for 55.6% of cache creation on this machine; **priced higher** |
 | `message.usage.cache_read_input_tokens` | |
-| `message.stop_reason` | 真值行非空，占位行为 `None` |
+| `message.stop_reason` | Non-null on the true-value row; `None` on placeholder rows |
 
-本机数据中**不存在 `costUSD` 字段**。
+The `costUSD` field **does not exist** in this machine's data.
 
-### 1.3 关键陷阱：同一次 API 调用被写成多行
+### 1.3 Key Pitfall: A Single API Call Is Written Across Multiple Lines
 
-Claude Code 把一次 API response 的每个 content block 写成一行，共享同一 `message.id` + `requestId`。存在**两种形态**（全库普查，16,144 个唯一组）：
+Claude Code writes each content block of a single API response as its own line, sharing the same `message.id` + `requestId`. There are **two patterns** (from a full-corpus census, 16,144 unique groups):
 
-| 形态 | 组数 | 说明 |
+| Pattern | Group count | Description |
 |---|---|---|
-| 单行 | 2,723 | 无歧义 |
-| 多行且 `output_tokens` 恒定 | 7,207 | 最终 usage 重复写在每行上，取任意一行都对 |
-| 多行且 `output_tokens` 递增 | **6,198** | 前几行是占位小值，最后一行才是真值 |
+| Single line | 2,723 | Unambiguous |
+| Multi-line with constant `output_tokens` | 7,207 | The final usage is repeated on every line; taking any line gives the correct value |
+| Multi-line with increasing `output_tokens` | **6,198** | Earlier lines are small placeholder values; only the last line is the true value |
 
-递增形态的实例（`msg_01BskaBd9EoS9tgW`）：
+An instance of the increasing pattern (`msg_01BskaBd9EoS9tgW`):
 
 ```
 out=3      blocks=['thinking']  content_chars=203,333 (~50,833 tok)  stop=None
@@ -54,39 +54,39 @@ out=3      blocks=['text']      content_chars=117                    stop=None
 out=54,509 blocks=['tool_use']  content_chars=304                    stop=tool_use
 ```
 
-**正确算子：按 `(message.id, requestId)` 分组取 `max(output_tokens)`。**
-`max` 对两种形态都正确；`sum` 会把恒定形态炸成 N 倍（曾见 48 行同值）。
+**Correct operator: group by `(message.id, requestId)` and take `max(output_tokens)`.**
+`max` is correct for both patterns; `sum` would blow up the constant pattern by a factor of N (48 identical-value lines have been observed).
 
-首行 vs max 的全库差距：13,625,367 vs 22,312,654 = **少报 38.93%**。
+First-line vs max, full-corpus gap: 13,625,367 vs 22,312,654 = **under-reports by 38.93%**.
 
-### 1.4 日期归属
+### 1.4 Date Attribution
 
-按 `timestamp` 分桶，**必须固定时区并写进记录**。实测同一天在 `Asia/Shanghai` 与 `UTC` 下成本差 13%。本项目固定 **Asia/Shanghai**。
+Bucketed by `timestamp`; **the timezone must be fixed and recorded**. Testing shows the same day's cost differs by 13% between `Asia/Shanghai` and `UTC`. This project fixes the timezone to **Asia/Shanghai**.
 
-### 1.5 本机现状
+### 1.5 Current State on This Machine
 
-16,144 个唯一组，覆盖 **42 天**，跨度 `2026-06-15 .. 2026-08-05`。
+16,144 unique groups, covering **42 days**, spanning `2026-06-15 .. 2026-08-05`.
 
 ---
 
 ## 2. Codex CLI
 
-### 2.1 文件位置
+### 2.1 File Location
 
 ```
 ~/.codex/sessions/{YYYY}/{MM}/{DD}/rollout-*.jsonl
-~/.codex/archived_sessions/rollout-*.jsonl        # 平铺，必须一起扫
+~/.codex/archived_sessions/rollout-*.jsonl        # flat layout, must be scanned together
 ```
 
-- `archived_sessions` 是**手动归档、move 语义**，与 `sessions/` **零 id 重叠**（179 vs 1049）
-- 归档文件内容完整，`token_count` 事件齐全 — **漏扫会少数据**
-- ⚠️ 二进制含 `local_thread_store_compression` 特性开关，产物 `.jsonl.zst`，outcome 含 `removed`。
-  当前未启用（`.zst` 文件数为 0），但 **glob 应从第一天起同时匹配 `*.jsonl` 和 `*.jsonl.zst`**，
-  否则一旦上游开启会静默漏数据。
+- `archived_sessions` is **manually archived, move semantics**, with **zero id overlap** with `sessions/` (179 vs 1049)
+- Archived file contents are complete, with `token_count` events fully present — **missing this scan means missing data**
+- ⚠️ The binary contains a `local_thread_store_compression` feature flag, whose output is `.jsonl.zst`, with an outcome that includes `removed`.
+  Currently not enabled (`.zst` file count is 0), but **the glob should match both `*.jsonl` and `*.jsonl.zst` from day one**,
+  otherwise data will be silently missed the moment upstream enables it.
 
-### 2.2 事件 schema
+### 2.2 Event Schema
 
-取 `payload.type == "token_count"`：
+Take `payload.type == "token_count"`:
 
 ```json
 {"timestamp":"...","type":"event_msg","payload":{"type":"token_count","info":{
@@ -94,35 +94,35 @@ out=54,509 blocks=['tool_use']  content_chars=304                    stop=tool_u
   "rate_limits":{...}}}
 ```
 
-**`last_token_usage` 是本轮增量，`total_token_usage` 是会话累计。** 实测精确验证：
+**`last_token_usage` is the current turn's delta; `total_token_usage` is the session cumulative total.** Verified exactly by measurement:
 
 ```
 sum(last.output) = 8,537       final total.output = 8,537      ✓
 sum(last.input)  = 2,189,545   final total.input  = 2,189,545  ✓
-total_tokens 单调非递减 ✓        每个事件都带 timestamp ✓
+total_tokens monotonically non-decreasing ✓        every event carries a timestamp ✓
 ```
 
-**正确口径：累加 `last_token_usage`，按每个事件自己的 timestamp 分桶。**
-取会话末尾的 `total` 会把跨天会话整个算到最后一天。
+**Correct method: accumulate `last_token_usage`, bucketed by each event's own timestamp.**
+Taking the `total` at the end of a session would attribute an entire cross-day session to the last day.
 
-### 2.3 与 Claude 的字段语义差异（合并时的陷阱）
+### 2.3 Field Semantic Differences from Claude (a pitfall when merging)
 
-**Codex 的 `input_tokens` 包含 `cached_input_tokens`；Claude 的 `input_tokens` 与 `cache_read_input_tokens` 是分开的。**
+**Codex's `input_tokens` includes `cached_input_tokens`; Claude's `input_tokens` and `cache_read_input_tokens` are separate.**
 
-实测印证（2026-08-01）：我的 `input − cached` = 1,885,144 − 1,722,624 = 162,520，与 ccusage 的 `inputTokens` 完全相等。
+Confirmed by measurement (2026-08-01): my `input − cached` = 1,885,144 − 1,722,624 = 162,520, exactly equal to ccusage's `inputTokens`.
 
-→ 归一化时 Codex 的"非缓存输入" = `input_tokens − cached_input_tokens`。
+→ When normalizing, Codex's "uncached input" = `input_tokens − cached_input_tokens`.
 
-### 2.4 去重
+### 2.4 Deduplication
 
-- **跨文件重复：0**（1233 文件、92,599 事件，按 `(ts, in, out)` 检查）
-- **无 fork replay 问题** — `session_meta` 里根本没有 fork/parent 指针
-- **文件内重复 741 对，全部相邻**（连续两行完全相同）；另 6 对非相邻但值为 `(0,0)`
-- 不去重的膨胀：**0.951%**（53,668,256 vs 53,162,626）
+- **Cross-file duplicates: 0** (1,233 files, 92,599 events, checked by `(ts, in, out)`)
+- **No fork-replay issue** — `session_meta` has no fork/parent pointer at all
+- **741 within-file duplicate pairs, all adjacent** (two consecutive lines identical); another 6 pairs are non-adjacent but with values `(0,0)`
+- Inflation without dedup: **0.951%** (53,668,256 vs 53,162,626)
 
-→ 按 `(timestamp, input_tokens, output_tokens)` 文件内去重即可。
+→ Deduping within a file by `(timestamp, input_tokens, output_tokens)` is sufficient.
 
-### 2.5 originator 分布（全期 output）
+### 2.5 originator Distribution (output over the full period)
 
 | originator | files | out_tokens | share |
 |---|---|---|---|
@@ -134,165 +134,166 @@ total_tokens 单调非递减 ✓        每个事件都带 timestamp ✓
 | codex_exec | 24 | 64,991 | 0.1% |
 | Claude Code | 5 | 19,114 | 0.0% |
 
-**绝大部分用量来自 ChatGPT.app 的 Codex Desktop，不是 CLI。** 这影响"要统计什么"的定义。
+**The vast majority of usage comes from Codex Desktop in ChatGPT.app, not the CLI.** This affects the definition of "what to count."
 
-### 2.6 无清理机制
+### 2.6 No Cleanup Mechanism
 
-`config.toml` 全文无任何 retention/cleanup 键。`sessions/2025-09-04` 的文件（11 个月前）仍完整可读。`session_index.jsonl` 里 666 个 id 在磁盘上**零丢失**。
+`config.toml` contains no retention/cleanup keys anywhere. Files in `sessions/2025-09-04` (11 months old) are still fully readable. All 666 ids in `session_index.jsonl` have **zero losses** on disk.
 
-（`max_rollout_age_days` 存在但属于 `[memories]` 段，是记忆固化时的**读取作用域**，不是删除策略。）
+(`max_rollout_age_days` exists but belongs to the `[memories]` section — it is the **read scope** for memory consolidation, not a deletion policy.)
 
 ---
 
-## 3. 保留期与 recall window
+## 3. Retention Period and Recall Window
 
-### 3.1 Claude Code 的清理机制
+### 3.1 Claude Code's Cleanup Mechanism
 
-- `cleanupPeriodDays` **默认 30 天**，`0` = 禁用
-- 判定依据是**文件 mtime**，从不读文件内容
-- 清理粒度：父 `<uuid>.jsonl` 过期被删时，`rm -rf <uuid>/` 整个目录连根拔起
-- **父存活豁免**：父 transcript 存在且未过期时，其 `subagents/` 树被**完全跳过**，内部文件多老都不删
+- `cleanupPeriodDays` **defaults to 30 days**, `0` = disabled
+- The determination is based on **file mtime**; file contents are never read
+- Cleanup granularity: when the parent `<uuid>.jsonl` expires and is deleted, `rm -rf <uuid>/` removes the entire directory root and all
+- **Parent-alive exemption**: while the parent transcript exists and hasn't expired, its `subagents/` tree is **entirely skipped** — no matter how old the files inside are, they aren't deleted
 
-### 3.2 与本机观测的对账
+### 3.2 Reconciliation with Observed Local Data
 
-表面矛盾：`2026-08-04 − 30d = 2026-07-05`，但机器上有 `2026-06-15` 的文件。
+Apparent contradiction: `2026-08-04 − 30d = 2026-07-05`, yet the machine has files from `2026-06-15`.
 
-已消解：那 166 个老文件**全部在 `subagents/` 里**，父 transcript mtime 是 7/10~7/11（存活）。真正被扫描的顶层 transcript，最老一个是 `2026-07-04T08:05:18Z`；`.last-cleanup`（`2026-08-03T05:55:05Z`）减 30 天 = `2026-07-04T05:55:05Z`，**差 2 小时 10 分，前面一个文件都没有**。30 天边界精确吻合。
+Resolved: those 166 old files are **all inside `subagents/`**, with a parent transcript mtime of 7/10~7/11 (still alive). The oldest top-level transcript actually subject to scanning is `2026-07-04T08:05:18Z`; `.last-cleanup` (`2026-08-03T05:55:05Z`) minus 30 days = `2026-07-04T05:55:05Z`, a **gap of 2 hours 10 minutes, with not a single file before it**. The 30-day boundary matches exactly.
 
-### 3.3 `.last-cleanup` 不是每日限流
+### 3.3 `.last-cleanup` Is Not a Daily Rate Limit
 
-marker 的 24h 新鲜期只能把清理**推迟 10 分钟**（状态机第二次 tick 不复查哨兵）。本机 8/3 当天实测跑了 **3 次**清理。**没有宽限期可吃。**
+The marker's 24h freshness window can only **delay** cleanup by 10 minutes (the state machine's second tick doesn't recheck the sentinel). This machine measured **3** cleanup runs on 8/3 alone. **There is no grace period to rely on.**
 
-（文档说 "deletes at startup"，实际是启动后 5 秒的后台延迟任务 + 用户空闲 60s 门控。文档与代码不一致。）
+(The documentation says "deletes at startup," but it's actually a background task delayed 5 seconds after startup + gated by 60s of user idle time. The documentation and the code disagree.)
 
-### 3.4 硬保证与窗口建议
+### 3.4 Hard Guarantee and Window Recommendation
 
-**推导**：删除谓词是 `mtime < now − 30d`，而文件 mtime ≥ 文件内任何一条消息的时间戳
-⇒ 日历日 D 的记录只存在于 mtime ≥ D 的文件中
-⇒ **任意一天 D 的 Claude 数据，保证在 D 起 30 天内可读。**
+**Derivation**: the deletion predicate is `mtime < now − 30d`, and a file's mtime ≥ the timestamp of any message inside it
+⇒ records for calendar day D exist only in files with mtime ≥ D
+⇒ **for any day D, Claude data is guaranteed readable for 30 days starting from D.**
 
-| 阶段 | 窗口 | 说明 |
+| Phase | Window | Description |
 |---|---|---|
-| 防清理（repo 尚未持久化） | **21 天** | 从 30 扣：截止线非午夜 −1、UTC/CST 时区 −1、另一台机器 `cleanupPeriodDays` 未知 −4、清理随时触发无宽限 −3 |
-| 防漏跑（repo 已持久化） | `clamp(距上次成功运行 + 2, 3, 21)` | **watermark 必须 per-host** — 否则 A 机每天跑会把 B 机的 watermark 推平 |
+| Cleanup avoidance (before persisted to repo) | **21 days** | Deducted from 30: cutoff isn't midnight −1, UTC/CST timezone −1, the other machine's `cleanupPeriodDays` unknown −4, cleanup can trigger anytime with no grace −3 |
+| Missed-run avoidance (already persisted to repo) | `clamp(time since last successful run + 2, 3, 21)` | **watermark must be per-host** — otherwise machine A running daily would flatten machine B's watermark |
 
-Codex 侧无清理约束，窗口只受"防漏跑"驱动。
+The Codex side has no cleanup constraint; the window is driven only by "missed-run avoidance."
 
-### 3.5 比窗口大小更重要的三条
+### 3.5 Three Things More Important Than Window Size
 
-1. **写入非破坏化**：`date < today−7` 的日子只允许**补空和向上修正（merge-max）**，禁止向下覆盖。
-   窗口边缘那天可能"部分文件已过期"，覆盖式写入会把原本正确的数字**改小** —— 漏采看得出来，改小看不出来。
-2. **运行时读实际配置**：`W = min(W, (settings.cleanupPeriodDays ?? 30) − 7)`。
-   合并顺序 managed policy > user settings > 默认 30。另一台机器可能设了更小值，managed settings 还不可见。
-3. **扫描路径要全**（见 1.1 / 2.1）。
+1. **Non-destructive writes**: for days with `date < today−7`, only **filling gaps and correcting upward (merge-max)** is allowed; overwriting downward is forbidden.
+   On the day at the window's edge, "some files may have already expired," and overwrite-style writes would **shrink** an originally correct number — a missed collection is visible, a shrunk number is not.
+2. **Read the actual config at runtime**: `W = min(W, (settings.cleanupPeriodDays ?? 30) − 7)`.
+   Merge order: managed policy > user settings > default 30. The other machine may have set a smaller value, and managed settings aren't even visible yet.
+3. **Scan paths must be complete** (see 1.1 / 2.1).
 
-### 3.6 失效场景
+### 3.6 Failure Scenarios
 
-| 场景 | 是否被 21 天覆盖 |
+| Scenario | Covered by the 21-day window? |
 |---|---|
-| 连续关机 ≤ 21 天 | ✅ |
-| 连续关机 22–30 天 | ⚠️ 靠非破坏化写入兜底 |
-| 连续关机 > 30 天 | ❌ Claude 侧确定性丢失，任何窗口都救不了 |
-| 某机器设了 `cleanupPeriodDays: 14` | ❌ 必须靠 runtime clamp |
-| 用户在 Codex UI 手动 delete 线程 | ❌ 无法防御 |
-| Codex 启用 zstd 压缩 | ❌ 必须靠 glob 兼容 `.zst` |
+| Continuously powered off ≤ 21 days | ✅ |
+| Continuously powered off 22–30 days | ⚠️ Covered as a fallback by non-destructive writes |
+| Continuously powered off > 30 days | ❌ Claude-side data is definitively lost; no window can save it |
+| A machine has `cleanupPeriodDays: 14` set | ❌ Must rely on the runtime clamp |
+| User manually deletes a thread in the Codex UI | ❌ Cannot be defended against |
+| Codex enables zstd compression | ❌ Must rely on the glob supporting `.zst` |
 
 ---
 
-## 4. ccusage 的状态（重要修正）
+## 4. Status of ccusage (important correction)
 
-### 4.1 本机装的是过期版本
+### 4.1 The Version Installed on This Machine Is Out of Date
 
-- 本机：`/opt/homebrew/bin/ccusage` **v15.7.1**（包 mtime 2025-08-06）
-- npm latest：**v20.0.19**（2026-07-27）
-- 仓库已从 `ryoppippi/ccusage` 迁到 **`ccusage/ccusage`**（17,727★，仍在日更）
+- This machine: `/opt/homebrew/bin/ccusage` **v15.7.1** (package mtime 2025-08-06)
+- npm latest: **v20.0.19** (2026-07-27)
+- The repo has migrated from `ryoppippi/ccusage` to **`ccusage/ccusage`** (17,727★, still updated daily)
 
-### 4.2 v15.7.1 确实有 1.3 描述的 bug
+### 4.2 v15.7.1 Does Have the Bug Described in 1.3
 
-受控实验（`CLAUDE_CONFIG_DIR` 指向只含 3 行 `2/2/999` 的夹具）：
+Controlled experiment (`CLAUDE_CONFIG_DIR` pointed at a fixture containing just 3 lines: `2/2/999`):
 
 ```
-v15.7.1 → outputTokens = 2        # 取先遇到的
-逆序 999/2/2 → outputTokens = 999 # 确认是"取第一条"不是"取最小"
+v15.7.1 → outputTokens = 2        # takes whichever is encountered first
+reversed order 999/2/2 → outputTokens = 999 # confirms it's "take the first" not "take the min"
 ```
 
-去重函数 `createUniqueHash = ${message.id}:${requestId}`，全局 `Set`，先查后加。
+The dedup function `createUniqueHash = ${message.id}:${requestId}`, a global `Set`, checks before adding.
 
-### 4.3 上游已修复，且修法与本文 1.3 推导一致
+### 4.3 Upstream Has Already Fixed This, and the Fix Matches the Derivation in §1.3 of This Document
 
-相关 issue 全部已关闭：
-[#705](https://github.com/ccusage/ccusage/issues/705)、[#797](https://github.com/ccusage/ccusage/issues/797)、
-[#866](https://github.com/ccusage/ccusage/issues/866)、[#888](https://github.com/ccusage/ccusage/issues/888)、
-[#901](https://github.com/ccusage/ccusage/issues/901)、[#938](https://github.com/ccusage/ccusage/issues/938)
-（"First-wins dedup keeps partial streaming output_tokens"）。2026-05-17 集中修复。
+All related issues are closed:
+[#705](https://github.com/ccusage/ccusage/issues/705), [#797](https://github.com/ccusage/ccusage/issues/797),
+[#866](https://github.com/ccusage/ccusage/issues/866), [#888](https://github.com/ccusage/ccusage/issues/888),
+[#901](https://github.com/ccusage/ccusage/issues/901), [#938](https://github.com/ccusage/ccusage/issues/938)
+("First-wins dedup keeps partial streaming output_tokens"). Fixed in a batch on 2026-05-17.
 
-当前 `main` 的 `rust/adapters/claude/src/daily.rs`：
+The current `main` branch's `rust/adapters/claude/src/daily.rs`:
 
 ```rust
 if candidate_total != existing_total {
-    return candidate_total > existing_total;   // 取 total token 更大的那条
+    return candidate_total > existing_total;   // take the one with the larger total token count
 }
 ```
 
-### 4.4 v20 与本文算法逐字段对账成功（Claude 侧）
+### 4.4 v20 Reconciles Successfully Field-by-Field with This Document's Algorithm (Claude Side)
 
-| date | v20 out | 本文算法 | v20 in | 本文 | v20 cc | 本文 cc_5m+cc_1h |
+| date | v20 out | this doc's algorithm | v20 in | this doc | v20 cc | this doc cc_5m+cc_1h |
 |---|---|---|---|---|---|---|
 | 08-02 | 220,300 | **220,300** ✓ | 370 | **370** ✓ | 1,454,521 | 348,206+1,106,315 = **1,454,521** ✓ |
 | 08-03 | 237,117 | **237,117** ✓ | 375 | **375** ✓ | 1,586,700 | 169,846+1,416,854 = **1,586,700** ✓ |
 | 08-04 | 776,447 | **776,447** ✓ | 22,160 | **22,160** ✓ | 2,829,605 | 1,864,996+964,609 = **2,829,605** ✓ |
 
-**Claude 侧：升级到 v20 即可，无需自写解析器。**
+**Claude side: upgrading to v20 is sufficient; no need to write a custom parser.**
 
-### 4.5 v20 是个不同的产品
+### 4.5 v20 Is a Different Product
 
-`daily` 现在聚合**所有检测到的 coding CLI**，并有独立子命令：
+`daily` now aggregates **all detected coding CLIs**, and has independent subcommands:
 `claude` / `codex` / `opencode` / `amp` / `droid` / `codebuff` / `hermes` / `pi` / `goose` / `kilo` / `copilot` / `gemini` / `kimi` / `qwen` / `openclaw`
 
-即**原生同时支持 Claude + Codex**，正是本项目所需。
+That is, it **natively supports both Claude and Codex simultaneously**, exactly what this project needs.
 
-### 4.6 ⚠️ 未解决：Codex 侧 v20 与本文算法差 31%
+### 4.6 ⚠️ Unresolved: Codex-Side v20 Differs from This Document's Algorithm by 31%
 
 ```
-ccusage v20:      201 days   out = 36,945,083
-本文算法 live only:     196 days   out = 44,998,756
-本文算法 live+archived: 201 days   out = 53,206,631
+ccusage v20:                          201 days   out = 36,945,083
+this doc's algorithm, live only:      196 days   out = 44,998,756
+this doc's algorithm, live+archived:  201 days   out = 53,206,631
 ```
 
-ccusage 天数与 live+archived 相同（说明它读了归档），但 output 比本文算法**低 31%**，甚至低于只扫 live 的数字。
+ccusage's day count matches live+archived (indicating it reads the archive), but its output is **31% lower** than this document's algorithm — even lower than the live-only scan number.
 
-**已排除的解释**：
-- 归档目录 —— 天数吻合，说明它读了
-- originator 过滤 —— 排除所有 `*vscode*` 后仍有 50.4M，离 36.9M 很远
-- 日内漂移 —— 08-04 是已结束的日子，仍差 52,645
+**Explanations already ruled out**:
+- Archive directory — day counts match, so it is being read
+- originator filtering — even after excluding all `*vscode*`, still 50.4M, far from 36.9M
+- Intra-day drift — 08-04 is a fully-elapsed day, and it still differs by 52,645
 
-**本文算法的自洽证据**：单文件内 `sum(last.output)` 精确等于 `final total.output`。
+**Self-consistency evidence for this document's algorithm**: within a single file, `sum(last.output)` exactly equals `final total.output`.
 
-**谁对未知。** 解决需要读 ccusage v20 的 Rust Codex adapter 源码。在此之前，Codex 侧的数字**不要当作已确定**。
+**Which one is correct is unknown.** Resolving this requires reading ccusage v20's Rust Codex adapter source code. Until then, Codex-side numbers **should not be treated as settled**.
 
-### 4.7 v15.7.1 的其他缺陷（若坚持用旧版才相关）
+### 4.7 Other Defects in v15.7.1 (relevant only if insisting on the old version)
 
-- `--offline` 内置价格表最新只到 `claude-4-opus-20250514`，不含 opus-5 → `totalCost: 0`
-- 默认每次运行都联网下载 LiteLLM 价格表 1.67MB，**无磁盘缓存**
-- **网络失败静默降级**：JSON 模式下 `logger.level=0` 吞掉警告 → stdout 合法 JSON、cost=0、exit 0、stderr 空
-- `--since/--until` 在聚合**之后**才过滤 —— 不省任何 I/O（全量 5.10s vs 单日 5.01s）
-- `ccusage session` 在当前目录布局下已损坏（把 `sessionId` 解析成 `"subagents"` 和项目名）
-- 忽略 `cache_creation.ephemeral_1h_input_tokens` 的溢价（LiteLLM 有 `cache_creation_input_token_cost_above_1hr`）
+- `--offline`'s built-in price table only goes up to `claude-4-opus-20250514`, not including opus-5 → `totalCost: 0`
+- By default, every run downloads the 1.67MB LiteLLM price table over the network, **with no disk cache**
+- **Silent degradation on network failure**: in JSON mode, `logger.level=0` swallows the warning → stdout is valid JSON, cost=0, exit 0, stderr empty
+- `--since/--until` filters only **after** aggregation — saving no I/O at all (full run 5.10s vs single-day 5.01s)
+- `ccusage session` is broken under the current directory layout (it parses `sessionId` as `"subagents"` and the project name)
+- Ignores the surcharge on `cache_creation.ephemeral_1h_input_tokens` (LiteLLM has `cache_creation_input_token_cost_above_1hr`)
 
-### 4.8 稳定性（v15.7.1 实测，v20 未复测）
+### 4.8 Stability (measured on v15.7.1, not re-tested on v20)
 
-- **已结束的日子：byte-identical**，与 `--since` 窗口无关
-- **当天在增长**：几分钟内 `out` 从 268,505 → 268,542
-  → **幂等只能 overwrite by date，不能 append**
-- 浮点求和顺序不稳定：`61.86139775000001` vs `61.861397750000066`（差 ~1e-13）
-  → **四舍五入必须做在落盘的值本身上**，不能只在比较/hash 时临时 round
+- **Fully-elapsed days: byte-identical**, regardless of the `--since` window
+- **The current day keeps growing**: `out` went from 268,505 → 268,542 within a few minutes
+  → **idempotency can only overwrite by date, not append**
+- Floating-point summation order is unstable: `61.86139775000001` vs `61.861397750000066` (difference ~1e-13)
+  → **rounding must be applied to the value itself as it's written to disk**, not just done transiently when comparing/hashing
 
 ---
 
-## 5. 尚未回答
+## 5. Not Yet Answered
 
-1. **Codex 侧 31% 分歧**（4.6）—— 需读 ccusage v20 Rust Codex adapter 源码
-2. v20 是否仍有 4.7 的网络失败静默 cost=0 问题
-3. v20 的 `--since` 是否仍不省 I/O
-4. `<synthetic>` 模型怎么处理（v15 把它排除出 breakdown 但仍计入 totals，导致两者对不上）
-5. Codex 走 ChatGPT 订阅还是 API 计费 —— "成本"维度是否有意义
+1. **The Codex-side 31% discrepancy** (4.6) — requires reading ccusage v20's Rust Codex adapter source code
+2. Whether v20 still has the network-failure silent cost=0 problem from 4.7
+3. Whether v20's `--since` still saves no I/O
+4. How to handle the `<synthetic>` model (v15 excludes it from the breakdown but still counts it in totals, causing the two to not reconcile)
+5. Whether Codex runs on the ChatGPT subscription or API billing — whether the "cost" dimension is even meaningful
+</content>
