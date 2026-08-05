@@ -1,0 +1,80 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-05T09:46:12Z",
+  "date": "2026-08-05",
+  "host": "mac-a",
+  "sources": {
+    "claude": {
+      "cacheCreation": 4579590,
+      "cacheRead": 178483301,
+      "costUSD": 157.201993,
+      "input": 63185,
+      "models": {
+        "claude-fable-5": {
+          "cacheCreation": 447548,
+          "cacheRead": 11032643,
+          "costUSD": 27.702353,
+          "input": 120,
+          "output": 154351,
+          "total": 11634662
+        },
+        "claude-opus-5": {
+          "cacheCreation": 3737327,
+          "cacheRead": 158702791,
+          "costUSD": 126.479817,
+          "input": 58564,
+          "output": 821099,
+          "total": 163319781
+        },
+        "claude-sonnet-5": {
+          "cacheCreation": 394715,
+          "cacheRead": 8747867,
+          "costUSD": 3.019823,
+          "input": 4501,
+          "output": 27446,
+          "total": 9174529
+        }
+      },
+      "output": 1002896,
+      "total": 184128972
+    },
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 102183936,
+      "costUSD": 77.515312,
+      "input": 4387001,
+      "models": {
+        "gpt-5.5": {
+          "cacheCreation": 0,
+          "cacheRead": 5689856,
+          "input": 945857,
+          "modelNameIsFallback": true,
+          "output": 29829,
+          "reasoningOutput": 9645,
+          "total": 6665542
+        },
+        "gpt-5.6-luna": {
+          "cacheCreation": 0,
+          "cacheRead": 10022656,
+          "input": 453905,
+          "output": 49009,
+          "reasoningOutput": 26971,
+          "total": 10525570
+        },
+        "gpt-5.6-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 86471424,
+          "input": 2987239,
+          "output": 308627,
+          "reasoningOutput": 76208,
+          "total": 89767290
+        }
+      },
+      "output": 387465,
+      "reasoningOutput": 112824,
+      "total": 106958402
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
