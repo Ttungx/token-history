@@ -19,7 +19,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 </style>
 <rect class="bg" width="880" height="396"/>
 <text class="tt" x="28" y="36" font-size="17">DAILY TOKENS</text>
-<text class="sub" x="28" y="57" font-size="11">JUL 07 - AUG 05, 2026 / 4.8B TOKENS OVER 30 DAYS / 1PX = 10M</text>
+<text class="sub" x="28" y="57" font-size="11">JUL 07 - AUG 05, 2026 / 5.2B TOKENS OVER 30 DAYS / 1PX = 10M</text>
 <rect class="px s-claude" x="28" y="68" width="8" height="8"/>
 <text class="t2" x="42" y="76" font-size="12" font-family="var(--fm)">Claude Code</text>
 <rect class="px s-codex" x="136" y="68" width="8" height="8"/>
@@ -71,6 +71,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-claude" x="80" y="312" width="8" height="8"/>
 <rect class="px s-codex" x="90" y="312" width="8" height="8"/>
 <rect class="px s-codex" x="80" y="302" width="8" height="8"/>
+<rect class="px s-codex" x="90" y="302" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:18ms">
 <rect class="px s-claude" x="106" y="332" width="8" height="8"/>
@@ -87,6 +88,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-claude" x="142" y="322" width="8" height="8"/>
 <rect class="px s-codex" x="132" y="312" width="8" height="8"/>
 <rect class="px s-codex" x="142" y="312" width="8" height="8"/>
+<rect class="px s-codex" x="132" y="302" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:54ms">
 <rect class="px s-claude" x="158" y="332" width="8" height="8"/>
@@ -106,6 +108,10 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="158" y="262" width="8" height="8"/>
 <rect class="px s-codex" x="168" y="262" width="8" height="8"/>
 <rect class="px s-codex" x="158" y="252" width="8" height="8"/>
+<rect class="px s-codex" x="168" y="252" width="8" height="8"/>
+<rect class="px s-codex" x="158" y="242" width="8" height="8"/>
+<rect class="px s-codex" x="168" y="242" width="8" height="8"/>
+<rect class="px s-codex" x="158" y="232" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:72ms">
 <rect class="px s-claude" x="183" y="332" width="8" height="8"/>
@@ -130,6 +136,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="193" y="242" width="8" height="8"/>
 <rect class="px s-codex" x="183" y="232" width="8" height="8"/>
 <rect class="px s-codex" x="193" y="232" width="8" height="8"/>
+<rect class="px s-codex" x="183" y="222" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:90ms">
 <rect class="px s-claude" x="209" y="332" width="8" height="8"/>
@@ -153,6 +160,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="209" y="242" width="8" height="8"/>
 <rect class="px s-codex" x="219" y="242" width="8" height="8"/>
 <rect class="px s-codex" x="209" y="232" width="8" height="8"/>
+<rect class="px s-codex" x="219" y="232" width="8" height="8"/>
 </g>
 <text class="tm" x="218" y="359" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/12</text>
 <g class="col" style="animation-delay:108ms">
@@ -172,6 +180,8 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="245" y="272" width="8" height="8"/>
 <rect class="px s-codex" x="235" y="262" width="8" height="8"/>
 <rect class="px s-codex" x="245" y="262" width="8" height="8"/>
+<rect class="px s-codex" x="235" y="252" width="8" height="8"/>
+<rect class="px s-codex" x="245" y="252" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:126ms">
 <rect class="px s-claude" x="261" y="332" width="8" height="8"/>
@@ -194,6 +204,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="271" y="252" width="8" height="8"/>
 <rect class="px s-codex" x="261" y="242" width="8" height="8"/>
 <rect class="px s-codex" x="271" y="242" width="8" height="8"/>
+<rect class="px s-codex" x="261" y="232" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:144ms">
 <rect class="px s-claude" x="287" y="332" width="8" height="8"/>
@@ -224,6 +235,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="297" y="212" width="8" height="8"/>
 <rect class="px s-codex" x="287" y="202" width="8" height="8"/>
 <rect class="px s-codex" x="297" y="202" width="8" height="8"/>
+<rect class="px s-codex" x="287" y="192" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:162ms">
 <rect class="px s-claude" x="313" y="332" width="8" height="8"/>
@@ -270,6 +282,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="323" y="132" width="8" height="8"/>
 <rect class="px s-codex" x="313" y="122" width="8" height="8"/>
 <rect class="px s-codex" x="323" y="122" width="8" height="8"/>
+<rect class="px s-codex" x="313" y="112" width="8" height="8"/>
 </g>
 <text class="tm" x="322" y="359" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/16</text>
 <g class="col" style="animation-delay:180ms">
@@ -298,6 +311,8 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="339" y="222" width="8" height="8"/>
 <rect class="px s-codex" x="349" y="222" width="8" height="8"/>
 <rect class="px s-codex" x="339" y="212" width="8" height="8"/>
+<rect class="px s-codex" x="349" y="212" width="8" height="8"/>
+<rect class="px s-codex" x="339" y="202" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:198ms">
 <rect class="px s-claude" x="364" y="332" width="8" height="8"/>
@@ -395,6 +410,12 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="426" y="252" width="8" height="8"/>
 <rect class="px s-codex" x="416" y="242" width="8" height="8"/>
 <rect class="px s-codex" x="426" y="242" width="8" height="8"/>
+<rect class="px s-codex" x="416" y="232" width="8" height="8"/>
+<rect class="px s-codex" x="426" y="232" width="8" height="8"/>
+<rect class="px s-codex" x="416" y="222" width="8" height="8"/>
+<rect class="px s-codex" x="426" y="222" width="8" height="8"/>
+<rect class="px s-codex" x="416" y="212" width="8" height="8"/>
+<rect class="px s-codex" x="426" y="212" width="8" height="8"/>
 </g>
 <text class="tm" x="425" y="359" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/20</text>
 <g class="col" style="animation-delay:252ms">
@@ -423,6 +444,8 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="442" y="222" width="8" height="8"/>
 <rect class="px s-codex" x="452" y="222" width="8" height="8"/>
 <rect class="px s-codex" x="442" y="212" width="8" height="8"/>
+<rect class="px s-codex" x="452" y="212" width="8" height="8"/>
+<rect class="px s-codex" x="442" y="202" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:270ms">
 <rect class="px s-claude" x="468" y="332" width="8" height="8"/>
@@ -448,6 +471,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="468" y="232" width="8" height="8"/>
 <rect class="px s-codex" x="478" y="232" width="8" height="8"/>
 <rect class="px s-codex" x="468" y="222" width="8" height="8"/>
+<rect class="px s-codex" x="478" y="222" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:288ms">
 <rect class="px s-claude" x="494" y="332" width="8" height="8"/>
@@ -468,6 +492,8 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="504" y="262" width="8" height="8"/>
 <rect class="px s-codex" x="494" y="252" width="8" height="8"/>
 <rect class="px s-codex" x="504" y="252" width="8" height="8"/>
+<rect class="px s-codex" x="494" y="242" width="8" height="8"/>
+<rect class="px s-codex" x="504" y="242" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:306ms">
 <rect class="px s-claude" x="520" y="332" width="8" height="8"/>
@@ -482,12 +508,15 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="530" y="292" width="8" height="8"/>
 <rect class="px s-codex" x="520" y="282" width="8" height="8"/>
 <rect class="px s-codex" x="530" y="282" width="8" height="8"/>
+<rect class="px s-codex" x="520" y="272" width="8" height="8"/>
 </g>
 <text class="tm" x="529" y="359" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/24</text>
 <g class="col" style="animation-delay:324ms">
 <rect class="px s-claude" x="546" y="332" width="8" height="8"/>
 <rect class="px s-claude" x="556" y="332" width="8" height="8"/>
 <rect class="px s-codex" x="546" y="322" width="8" height="8"/>
+<rect class="px s-codex" x="556" y="322" width="8" height="8"/>
+<rect class="px s-codex" x="546" y="312" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:342ms">
 <rect class="px s-claude" x="571" y="332" width="8" height="8"/>
@@ -502,7 +531,9 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="581" y="292" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:360ms">
-<rect class="px s-codex" x="597" y="332" width="8" height="8"/>
+<rect class="px s-claude" x="597" y="332" width="8" height="8"/>
+<rect class="px s-codex" x="607" y="332" width="8" height="8"/>
+<rect class="px s-codex" x="597" y="322" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:378ms">
 <rect class="px s-claude" x="623" y="332" width="8" height="8"/>
@@ -521,6 +552,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="649" y="292" width="8" height="8"/>
 <rect class="px s-codex" x="659" y="292" width="8" height="8"/>
 <rect class="px s-codex" x="649" y="282" width="8" height="8"/>
+<rect class="px s-codex" x="659" y="282" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:414ms">
 <rect class="px s-claude" x="675" y="332" width="8" height="8"/>
@@ -533,6 +565,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="685" y="302" width="8" height="8"/>
 <rect class="px s-codex" x="675" y="292" width="8" height="8"/>
 <rect class="px s-codex" x="685" y="292" width="8" height="8"/>
+<rect class="px s-codex" x="675" y="282" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:432ms">
 <rect class="px s-claude" x="701" y="332" width="8" height="8"/>
@@ -547,9 +580,11 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-claude" x="711" y="292" width="8" height="8"/>
 <rect class="px s-codex" x="701" y="282" width="8" height="8"/>
 <rect class="px s-codex" x="711" y="282" width="8" height="8"/>
+<rect class="px s-codex" x="701" y="272" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:450ms">
 <rect class="px s-codex" x="727" y="332" width="8" height="8"/>
+<rect class="px s-codex" x="737" y="332" width="8" height="8"/>
 </g>
 <text class="tm" x="736" y="359" font-size="10.5" text-anchor="middle" font-family="var(--fm)">08/01</text>
 <g class="col" style="animation-delay:468ms">
@@ -572,6 +607,8 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="752" y="252" width="8" height="8"/>
 <rect class="px s-codex" x="762" y="252" width="8" height="8"/>
 <rect class="px s-codex" x="752" y="242" width="8" height="8"/>
+<rect class="px s-codex" x="762" y="242" width="8" height="8"/>
+<rect class="px s-codex" x="752" y="232" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:486ms">
 <rect class="px s-claude" x="778" y="332" width="8" height="8"/>
@@ -583,6 +620,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="778" y="302" width="8" height="8"/>
 <rect class="px s-codex" x="788" y="302" width="8" height="8"/>
 <rect class="px s-codex" x="778" y="292" width="8" height="8"/>
+<rect class="px s-codex" x="788" y="292" width="8" height="8"/>
 </g>
 <g class="col" style="animation-delay:504ms">
 <rect class="px s-claude" x="804" y="332" width="8" height="8"/>
@@ -606,6 +644,8 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="804" y="242" width="8" height="8"/>
 <rect class="px s-codex" x="814" y="242" width="8" height="8"/>
 <rect class="px s-codex" x="804" y="232" width="8" height="8"/>
+<rect class="px s-codex" x="814" y="232" width="8" height="8"/>
+<rect class="px s-codex" x="804" y="222" width="8" height="8"/>
 </g>
 <g class="col wip" style="animation-delay:522ms">
 <rect class="px s-claude" x="830" y="332" width="8" height="8"/>
@@ -637,10 +677,11 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-codex" x="830" y="202" width="8" height="8"/>
 <rect class="px s-codex" x="840" y="202" width="8" height="8"/>
 <rect class="px s-codex" x="830" y="192" width="8" height="8"/>
-<rect class="px s-codex blink" x="840" y="192" width="8" height="8"/>
+<rect class="px s-codex" x="840" y="192" width="8" height="8"/>
+<rect class="px s-codex blink" x="830" y="182" width="8" height="8"/>
 </g>
 <text class="tm" x="839" y="359" font-size="10.5" text-anchor="middle" font-family="var(--fm)">08/05</text>
-<text class="tn" x="373" y="104" font-size="11" font-weight="700" text-anchor="middle">439M</text>
-<text class="tn" x="839" y="184" font-size="11" font-weight="700" text-anchor="middle">291M</text>
-<text class="tm" x="28" y="382" font-size="10.5">Generated 2026-08-05 15:40 UTC</text>
+<text class="tn" x="322" y="104" font-size="11" font-weight="700" text-anchor="middle">440M</text>
+<text class="tn" x="839" y="174" font-size="11" font-weight="700" text-anchor="middle">297M</text>
+<text class="tm" x="28" y="382" font-size="10.5">Generated 2026-08-05 16:38 UTC</text>
 </svg>
