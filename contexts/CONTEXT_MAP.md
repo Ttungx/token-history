@@ -13,7 +13,7 @@
 
 | 文件 | 主题 | 状态 |
 |---|---|---|
-| [`decisions.md`](./decisions.md) | **用户拍板的方向性决策** —— 产品定位、repo 可见性与脱敏、图表投递、指标、Codex 范围、明细粒度 | 完成 |
+| [`decisions.md`](./decisions.md) | **用户拍板的方向性决策** —— 产品定位、repo 可见性与脱敏、图表投递、指标、Codex 范围、明细粒度、Anthropic 配色、README catalog 与 uv-first | 完成 |
 | [`data-sources.md`](./data-sources.md) | Claude Code / Codex CLI 本地数据的位置、schema、去重口径、保留期与 recall window、ccusage 各版本状态 | 完成，含 1 项未解决 |
 | [`pipeline-and-scheduling.md`](./pipeline-and-scheduling.md) | 文件布局、幂等规则、git 冲突处理、GitHub Actions 定位、macOS launchd 调度、README 图表渲染约束、现有轮子调研 | 完成 |
 

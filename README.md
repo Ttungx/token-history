@@ -1,8 +1,8 @@
 # daily_tokens
 
-A durable, self-updating record of how much AI coding I actually use — and a pair of charts you can drop into a GitHub profile README.
+A durable, self-updating record of how much AI coding I actually use — and a gallery of charts you can drop into a GitHub profile README.
 
-The repo keeps a day-by-day history; the charts show the last 30 days.
+The repo keeps a day-by-day history; the two headline charts show the last 30 days, and every render also produces [a dozen other styles](#chart-gallery) across daily, weekly, and monthly granularity.
 
 <img src="./charts/tokens.svg" width="880" alt="Daily token usage, stacked by source">
 
@@ -29,14 +29,29 @@ It is **not** another usage parser. ccusage already does that job well and suppo
 
 ## Quick start
 
-**Prerequisites:** Node (for `npx ccusage`) and either [uv](https://docs.astral.sh/uv/) or any Python ≥ 3.9.
+**Prerequisites:** Node (for `npx ccusage`) and [uv](https://docs.astral.sh/uv/).
 
 ```bash
+# 1. Install uv, if you don't have it yet
+curl -LsSf https://astral.sh/uv/install.sh | sh   # macOS / Linux (or: brew install uv)
+
+# 2. Clone and configure
 git clone https://github.com/<you>/daily_tokens && cd daily_tokens
-cp config.example.json config.json     # set "host" to an alias like mac-a
-./scripts/run.sh collect --all         # backfill everything ccusage still has
-./scripts/run.sh render                # build the charts locally
+cp config.example.json config.json                # set "host" to an alias like mac-a
+
+# 3. Collect and render
+./scripts/run.sh collect --all                    # backfill everything ccusage still has
+./scripts/run.sh render                           # build every chart locally
 ```
+
+**How uv is used here.** There is no venv and nothing to install: both scripts are zero-dependency, single-file [PEP 723](https://peps.python.org/pep-0723/) scripts. `run.sh` finds uv and executes them as `uv run --python $(cat .python-version) <script>`, which pins the interpreter to `.python-version` — so your terminal, the launchd job at 00:30, and CI all run the exact same Python instead of whatever `python3` happens to be ambient. You can also call the scripts directly:
+
+```bash
+uv run --python "$(cat .python-version)" scripts/collect.py --all
+uv run --python "$(cat .python-version)" scripts/render.py
+```
+
+(The explicit `--python` matters: `uv run` does not honour `.python-version` for PEP 723 scripts on its own.) No uv at all? `run.sh` falls back to plain `python3` (≥ 3.9) automatically — the fallback is a real path, not a courtesy.
 
 Then schedule it (macOS):
 
@@ -54,6 +69,66 @@ To show the charts elsewhere, reference the raw URLs:
 ```
 
 The URL is stable — no cache-busting query, no write access to your profile repo, nothing to maintain. The tradeoff is that GitHub's CDN may serve a slightly stale image for a few hours. With one data point per day that is invisible.
+
+## Chart gallery
+
+Every run renders **every** style below — the same data, eleven ways. This section is deliberately fully expanded: it doubles as a catalog to pick from and as a live test of how each SVG actually behaves inside GitHub's README renderer (light/dark via `prefers-color-scheme`, CSS load animations, font fallbacks). In practice you'd embed just one or two in your own profile README:
+
+```markdown
+![usage](https://raw.githubusercontent.com/<you>/daily_tokens/main/charts/day/card.svg)
+```
+
+`charts/tokens.svg` and `charts/cost.svg` remain stable aliases of the daily bars, so existing embeds never break. Colors and type follow Anthropic's palette (orange = Claude Code, blue = Codex), tuned per mode to pass a color-vision-deficiency check.
+
+### Daily
+
+**`charts/day/bar-tokens.svg`** — the headline chart (alias: `charts/tokens.svg`)
+
+<img src="./charts/day/bar-tokens.svg" width="880" alt="Daily token usage, stacked by source">
+
+**`charts/day/bar-cost.svg`** — same bars, API-equivalent dollars (alias: `charts/cost.svg`)
+
+<img src="./charts/day/bar-cost.svg" width="880" alt="Daily API-equivalent value, stacked by source">
+
+**`charts/day/calendar-tokens.svg`** — contribution-style calendar heatmap
+
+<img src="./charts/day/calendar-tokens.svg" alt="Daily token calendar: one cell per day, darker means more tokens">
+
+**`charts/day/area-tokens.svg`** — smoothed stacked area with an animated reveal
+
+<img src="./charts/day/area-tokens.svg" width="880" alt="Daily token flow: stacked area of Claude and Codex tokens">
+
+**`charts/day/card.svg`** — hero-number stat card for the last 30 days
+
+<img src="./charts/day/card.svg" width="880" alt="30-day stat card: total tokens, API-equivalent value, peak day, daily average, and the Claude/Codex split">
+
+### Weekly
+
+**`charts/week/bar-tokens.svg`** — weekly bars
+
+<img src="./charts/week/bar-tokens.svg" width="880" alt="Weekly token usage, stacked by source">
+
+**`charts/week/bar-cost.svg`** — weekly API-equivalent dollars
+
+<img src="./charts/week/bar-cost.svg" width="880" alt="Weekly API-equivalent value, stacked by source">
+
+**`charts/week/ledger-tokens.svg`** — editorial ledger, newest week on top
+
+<img src="./charts/week/ledger-tokens.svg" width="880" alt="Weekly ledger: one row per week with a stacked horizontal bar and the total">
+
+### Monthly
+
+**`charts/month/bar-tokens.svg`** — monthly bars
+
+<img src="./charts/month/bar-tokens.svg" width="880" alt="Monthly token usage, stacked by source">
+
+**`charts/month/bar-cost.svg`** — monthly API-equivalent dollars
+
+<img src="./charts/month/bar-cost.svg" width="880" alt="Monthly API-equivalent value, stacked by source">
+
+**`charts/month/calendar-tokens.svg`** — a calendar page for the current month
+
+<img src="./charts/month/calendar-tokens.svg" width="880" alt="Calendar page for the current month, each day shaded and labelled by its token total">
 
 ## How multi-host works
 
@@ -93,10 +168,11 @@ config.example.json          copy to config.json, set your host alias
 scripts/
   run.sh                     entry point: uv if present, python3 otherwise
   collect.py                 ccusage → data/<host>/<date>.json
-  render.py                  data/ → charts/*.svg + SUMMARY.md (--weeks N for weekly)
+  render.py                  data/ → charts (every style) + SUMMARY.md
   install-launchd.sh         macOS scheduling (--uninstall to remove)
 data/<host>/<date>.json      one file per host per day
-charts/*.svg                 regenerated by CI on every data push
+charts/tokens.svg, cost.svg  the two headline charts (stable URLs)
+charts/{day,week,month}/     the style gallery, all regenerated by CI on every data push
 contexts/                    design decisions and the research behind them
 ```
 

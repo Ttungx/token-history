@@ -105,3 +105,20 @@ Desktop + VSCode + CLI + Mobile 全部计入。理由：共用同一份 ChatGPT 
 ⚠️ **需要复核的取舍**：按「两个来源都有数据」这个标准，完整区间其实是 **2026-06-15 起共 52 天**（Claude 起点），不是 30 天。裁到 30 天丢掉了 07-06 之前 21 天的 Claude 数据，而那部分正在 30 天清理倒计时上，**过期后不可恢复**（Codex 那半边随时可补，它无清理机制）。
 
 完整 201 天已备份在 session scratchpad 的 `data-backup/`。改回 52 天是一条命令的事，但**要趁 Claude transcript 还没过期**。
+
+### D10. 配色与字体:Anthropic 品牌,同色相微调至过校验
+
+用户拍板(2026-08-05 grill):
+
+- **Claude=橙、Codex=蓝**(与最初实现对调)。理由:Claude 是 Anthropic 产品,穿品牌主 accent 橙 #d97757 系;蓝 #6a9bcc 系作 secondary 给 Codex。当时 repo 未推广,切换代价接近零
+- **官方 hex 不逐字节照搬,保色相微调至 dataviz 校验全过**。官方原值的实测失败项:亮色下蓝 #6a9bcc 饱和度低于 chroma floor(发灰)且对表面对比仅 2.85:1;暗色下两色明度都出 [0.48, 0.67] 带
+- 最终值(`validate_palette.js` 全过,改动后必须复验):亮 `#d06a41 / #4382c9`(surface `#faf9f5`,worst CVD ΔE 20.0);暗 `#db7448 / #5b95d6`(surface `#141413`,worst CVD ΔE 18.5)
+- 中性色与表面直接用品牌值:`#141413` / `#faf9f5` / `#b0aea5` / `#e8e6dc`;日历类 ramp 用品牌橙单色阶(明度单调,亮暗各自独立取档)
+- 字体按品牌:标题 Poppins(Arial 兜底)、正文 Lora(Georgia 兜底)。`<img>` 内嵌 SVG 加载不了 webfont,兜底栈就是品牌指定的兜底
+
+### D11. README = 全展开的图表 catalog + uv-first 英文教程
+
+- **图库全部展开、不折叠**。README 同时是「别人来挑图的 catalog」和「SVG 在 GitHub README 里实际渲染效果的实验场」。用户自己的用法:profile README 只挑一两张引用
+- 图表按粒度进 `charts/{day,week,month}/`,每粒度多风格(bar / calendar / area / card / ledger),全部每次 render 都重新生成;`charts/tokens.svg` / `cost.svg` 保留为日粒度 bar 的稳定别名(D3/D8 的 URL 承诺不破)
+- Quick start 改 **uv-first**(英文),含 uv 安装与 `uv run --python` 用法;python3 兜底保留(D7 不变)
+- 改完即 commit + push 线上验收(用户确认)
