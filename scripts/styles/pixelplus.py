@@ -162,8 +162,19 @@ def _stair(x, y, w, h, n1, n2):
 
 HEART = (".XX.XX.", "XXXXXXX", "XXXXXXX", ".XXXXX.", "..XXX..", "...X...")
 HEART_HOLLOW = (".XX.XX.", "X..X..X", "X.....X", ".X...X.", "..X.X..", "...X...")
-COIN = (".XXXXX.", "X.....X", "X..X..X", "X..X..X", "X..X..X",
-        "X..X..X", "X.....X", ".XXXXX.")
+# Two coins, the way the hearts come in two: the badges take the filled 9x9 disc
+# plus a dollar sign printed on its face in a second ink, the HUD card keeps the
+# hollow one because a single muted ink is all it has. Filled for the badges
+# because a 1px rim collapses into a "0" at that scale - which is why the small
+# API badge used to carry no icon at all - and the mark is printed rather than
+# punched because anything knocked out of a coin's middle reads as a Chinese
+# cash coin instead of as money owed.
+COIN = ("...XXX...", ".XXXXXXX.", ".XXXXXXX.", "XXXXXXXXX", "XXXXXXXXX",
+        "XXXXXXXXX", ".XXXXXXX.", ".XXXXXXX.", "...XXX...")
+COIN_MARK = (".........", "....X....", "...XXXX..", "..X.X....", "...XXX...",
+             "....X.X..", "..XXXX...", "....X....", ".........")
+COIN_HOLLOW = (".XXXXX.", "X.....X", "X..X..X", "X..X..X", "X..X..X",
+               "X..X..X", "X.....X", ".XXXXX.")
 BOLT = ("...XX", "..XX.", ".XX..", "XXXXX", "..XX.", ".XX..", "XX...")
 TROPHY = ("XXXXX", "XXXXX", ".XXX.", "..X..", ".XXX.")
 BARS = ("..X..", "..X..", "X.X..", "X.X.X", "X.X.X")
@@ -260,7 +271,7 @@ def _build_card(days, generated):
     _ptext(add, 44, 62, hero, 8, cls="ink")
 
     # coin counter: API-equivalent value
-    _sprite(add, COIN, 44, 138, 2, cls="mut")
+    _sprite(add, COIN_HOLLOW, 44, 138, 2, cls="mut")
     _ptext(add, 66, 141, "$" + cost_s, 3, cls="ink")
     add('<text class="sub" x="{}" y="156" font-size="11">API-EQUIVALENT'
         '</text>'.format(66 + _pw("$" + cost_s, 3) + 12))
@@ -328,6 +339,9 @@ EDGE = "#b0aea5"
 SAND = "#e8e6dc"
 ORANGE = "#d06a41"   # validated light-mode Claude accent (see render.THEME)
 BLUE = "#4382c9"     # validated light-mode Codex accent
+GOLD = "#e3b341"     # coin gold: the one decorative hue outside the theme,
+                     # reserved for the money sprite so the cost badge reads as
+                     # cost rather than as a third series
 
 
 def _badge(label, value, value_bg, value_fg, icons, aria, generated,
@@ -405,15 +419,16 @@ def _build_badges(days, generated):
     streak_s = "{} DAY{}".format(st["streak"], "" if st["streak"] == 1 else "S")
 
     # (slug, label, value, value_bg, value_fg, big icons, small icons,
-    #  aria, shadow_text) - small icons are simplified where 1px sprites
-    # would turn to noise; the duo cluster and heart survive the scale.
+    #  aria, shadow_text) - small icons are dropped where 1px sprites would turn
+    # to noise; the duo cluster, coin and heart survive the scale.
     specs = [
         ("tokens-30d", "TOKENS 30D", hero, ORANGE, PAPER,
          [(DUO_A, ORANGE, 6), (DUO_B, BLUE, 6)],
          [(DUO_A, ORANGE, 3), (DUO_B, BLUE, 3)],
          "Tokens, last 30 days: {}".format(hero), True),
         ("api-30d", "API 30D", cost_s, BLUE, PAPER,
-         [(COIN, SAND, 2)], [],
+         [(COIN, GOLD, 2), (COIN_MARK, PAPER, 2)],
+         [(COIN, GOLD, 1), (COIN_MARK, PAPER, 1)],
          "API-equivalent value, last 30 days: {}".format(cost_s), True),
         ("today", "TODAY", today_s, ORANGE, PAPER,
          [(BOLT, PAPER, 2)], [(BOLT, PAPER, 1)],
