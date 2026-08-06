@@ -97,10 +97,14 @@ PIXEL_CSS = (
 TIER_HOLE = (0, 2, 4)
 
 MODEL_GROUPS = {
+    # The real Claude ladder is fable > opus > sonnet > haiku, but haiku is
+    # effectively unused (0.1% of tokens ever), so it rides in the bottom tier
+    # rather than buying a fourth colour step and texture for a rounding error.
+    # It is named in the legend so the tier never lies about what it contains.
     "claude": (
-        ("claude-fable", "FABLE", ("fable", "haiku")),
+        ("claude-fable", "FABLE", ("fable",)),
         ("claude-opus", "OPUS", ("opus",)),
-        ("claude-sonnet", "SONNET", ("sonnet",)),
+        ("claude-sonnet", "SONNET / HAIKU", ("sonnet", "haiku")),
     ),
     "codex": (
         ("codex-core", "5.5 / SOL", ("gpt-5.5", "gpt-5.6-sol")),
