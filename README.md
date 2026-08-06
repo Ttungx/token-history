@@ -18,25 +18,36 @@
 
 </div>
 
-**Copy this repo and every chart on this page becomes yours** — a self-updating gallery of SVG charts and badges rendered from your own usage, ready to embed in a GitHub profile README, a blog, or anywhere an `<img>` tag works. The recording matters as much as the flex: AI coding tools keep usage data only on your disk and quietly expire it — transcripts, artifacts, whole trajectories — so history you don't persist is history you lose. This repo snapshots the numbers into git every day before that happens. Claude Code and Codex are simply the first two sources; the collector rides on ccusage, and support for more models and data feeds is on the roadmap.
+**Copy this repo and every chart on this page becomes yours.** A GitHub profile already carries two name cards — the contribution graph for how much you code, the star count for what others make of it. Your AI token usage is becoming the third: a day-by-day record of how much you actually build with AI. This repo turns yours into one you own:
+
+- **Snapshots your usage into git, daily.** AI coding tools keep usage data only on your disk and quietly expire it — history you don't persist is history you lose. Every number lands in git before that happens, permanently yours.
+- **Renders a whole gallery of SVG charts and badges** — self-updating, and embeddable in a GitHub profile README, a blog, or anywhere an `<img>` tag works.
+- **Merges every machine and every source.** Multiple hosts combine into one history; Claude Code and Codex are the first two sources (riding on ccusage), with more models and feeds on the roadmap.
+- **Sets itself up through your agent.** Hand Claude Code or Codex [one link](#-for-agents-recommended) and say *"set this up"* — it walks itself from fork to first push.
 
 The repo keeps a day-by-day history; the headline chart shows the last 30 days, and every render also produces [an entire gallery of other styles](#chart-gallery) across daily, weekly, and monthly granularity.
 
 <img src="./charts/day/pixel-tokens.svg" width="880" alt="Daily token usage as pixel-art bars: one square per 10M tokens, Claude orange stacked under Codex blue">
 
-📊 **[Full numbers → SUMMARY.md](./SUMMARY.md)** · day-by-day history in [`data/`](./data)
-
 ## Contents
 
-- [Why this exists](#why-this-exists)
-- [Quick start](#quick-start)
-- [Chart gallery](#chart-gallery) — [daily](#daily) · [weekly](#weekly) · [monthly](#monthly) · [badges](#badges)
-- [How multi-host works](#how-multi-host-works)
-- [How it stays correct](#how-it-stays-correct)
-- [Layout](#layout)
-- [Design notes](#design-notes)
-- [Thanks](#thanks)
-- [License](#license)
+- [token-history](#token-history)
+  - [Contents](#contents)
+  - [Why this exists](#why-this-exists)
+  - [Quick start](#quick-start)
+    - [🤖 For agents (recommended)](#-for-agents-recommended)
+    - [🧑 For humans](#-for-humans)
+  - [Chart gallery](#chart-gallery)
+    - [Badges](#badges)
+    - [Daily](#daily)
+    - [Weekly](#weekly)
+    - [Monthly](#monthly)
+  - [How multi-host works](#how-multi-host-works)
+  - [How it stays correct](#how-it-stays-correct)
+  - [Layout](#layout)
+  - [Design notes](#design-notes)
+  - [Thanks](#thanks)
+  - [License](#license)
 
 ---
 
@@ -45,7 +56,7 @@ The repo keeps a day-by-day history; the headline chart shows the last 30 days, 
 <img src="./assets/why.png" width="880" alt="Pixel illustration: on the left a terminal's token stream dissolves into a trash bin; on the right the tokens are stacked safely inside a vault, beneath a framed rising chart">
 
 1. **Usage data disappears.** AI coding tools keep it only on your disk, on a rolling delete. What you don't persist, you lose — permanently.
-2. **The record is becoming reputation.** A verifiable, day-by-day history of how much you actually build with AI is worth owning. Git makes it permanent — and yours.
+2. **The record is becoming reputation.** The contribution graph and the star count are the name cards developers already show; a day-by-day history of how much you build with AI is next. Git makes it permanent — and yours.
 3. **Visualized, it goes anywhere.** Once rendered to SVG, your usage can be embedded in any README, blog, or site — and this repo ships a whole gallery of good-looking styles to pick from.
 
 ## Quick start
@@ -110,7 +121,25 @@ Every run renders **every** style below — the same data, over a dozen ways. Th
 
 `charts/tokens.svg` and `charts/cost.svg` remain stable aliases of the daily bars, so existing embeds never break. Colors and type follow Anthropic's palette (orange = Claude Code, blue = Codex), tuned per mode to pass a color-vision-deficiency check.
 
+### Badges
+
+**`charts/badge/*.svg`** — live shields.io-style stats, rendered from the same data. Inline-sized: drop any of them on a single line of your profile README.
+
+<img src="./charts/badge/tokens-today.svg" alt="tokens today"> <img src="./charts/badge/tokens-30d.svg" alt="tokens over the last 30 days"> <img src="./charts/badge/api-equiv-30d.svg" alt="API-equivalent value over the last 30 days"> <img src="./charts/badge/daily-avg.svg" alt="daily average tokens"> <img src="./charts/badge/split-30d.svg" alt="Claude versus Codex share"> <img src="./charts/badge/streak.svg" alt="active-day streak">
+
+**`charts/badge/pixel-*.svg`** — the same stats as stair-cornered 8-bit arcade chips, every glyph pixel-drawn:
+
+<img src="./charts/badge/pixel-tokens-30d.svg" alt="pixel badge: tokens over the last 30 days"> <img src="./charts/badge/pixel-api-30d.svg" alt="pixel badge: API-equivalent value"> <img src="./charts/badge/pixel-today.svg" alt="pixel badge: tokens today"> <img src="./charts/badge/pixel-avg.svg" alt="pixel badge: daily average"> <img src="./charts/badge/pixel-streak.svg" alt="pixel badge: active-day streak">
+
+…and an 18px small variant of each (`badge/pixel-*-sm.svg`) that sits inline with regular shields badges:
+
+<img src="./charts/badge/pixel-tokens-30d-sm.svg" alt="small pixel badge: tokens 30d"> <img src="./charts/badge/pixel-api-30d-sm.svg" alt="small pixel badge: API-equivalent"> <img src="./charts/badge/pixel-today-sm.svg" alt="small pixel badge: today"> <img src="./charts/badge/pixel-avg-sm.svg" alt="small pixel badge: daily average"> <img src="./charts/badge/pixel-streak-sm.svg" alt="small pixel badge: streak">
+
 ### Daily
+
+**`charts/day/pixel-card.svg`** — the last 30 days as an 8-bit game HUD: a bitmap-font HI-SCORE, Claude vs Codex as player HP bars, cost as a coin counter, one pixel heart per active day
+
+<img src="./charts/day/pixel-card.svg" width="880" alt="Pixel game-HUD stat card: HI-SCORE token total, P1/P2 HP bars for Claude and Codex, coin counter, heart streak">
 
 **`charts/day/bar-tokens.svg`** — flat daily bars (also published as `charts/tokens.svg`, the stable legacy URL)
 
@@ -139,10 +168,6 @@ Every run renders **every** style below — the same data, over a dozen ways. Th
 **`charts/day/pixel-models.svg`** — the same columns, split by model. Each source keeps its own hue and encodes the tier twice, in lightness *and* in how much of the square is filled — solid, notched, hollow — so the top tier reads even in greyscale (Claude fable › opus › sonnet, Codex 5.5/Sol › Terra › Luna)
 
 <img src="./charts/day/pixel-models.svg" width="880" alt="Pixel-art daily token bars split by model: three orange steps for Claude and three blue steps for Codex, each tier also marked solid, notched or hollow">
-
-**`charts/day/pixel-card.svg`** — the last 30 days as an 8-bit game HUD: a bitmap-font HI-SCORE, Claude vs Codex as player HP bars, cost as a coin counter, one pixel heart per active day
-
-<img src="./charts/day/pixel-card.svg" width="880" alt="Pixel game-HUD stat card: HI-SCORE token total, P1/P2 HP bars for Claude and Codex, coin counter, heart streak">
 
 **`charts/day/terminal-tokens.svg`** — the last 30 days as a terminal session: an htop-style bar per day, a CLI-style `TOTAL` sign-off, and a blinking cursor
 
@@ -179,20 +204,6 @@ Every run renders **every** style below — the same data, over a dozen ways. Th
 **`charts/month/calendar-tokens.svg`** — a calendar page for the current month
 
 <img src="./charts/month/calendar-tokens.svg" width="880" alt="Calendar page for the current month, each day shaded and labelled by its token total">
-
-### Badges
-
-**`charts/badge/*.svg`** — live shields.io-style stats, rendered from the same data. Inline-sized: drop any of them on a single line of your profile README.
-
-<img src="./charts/badge/tokens-today.svg" alt="tokens today"> <img src="./charts/badge/tokens-30d.svg" alt="tokens over the last 30 days"> <img src="./charts/badge/api-equiv-30d.svg" alt="API-equivalent value over the last 30 days"> <img src="./charts/badge/daily-avg.svg" alt="daily average tokens"> <img src="./charts/badge/split-30d.svg" alt="Claude versus Codex share"> <img src="./charts/badge/streak.svg" alt="active-day streak">
-
-**`charts/badge/pixel-*.svg`** — the same stats as stair-cornered 8-bit arcade chips, every glyph pixel-drawn:
-
-<img src="./charts/badge/pixel-tokens-30d.svg" alt="pixel badge: tokens over the last 30 days"> <img src="./charts/badge/pixel-api-30d.svg" alt="pixel badge: API-equivalent value"> <img src="./charts/badge/pixel-today.svg" alt="pixel badge: tokens today"> <img src="./charts/badge/pixel-avg.svg" alt="pixel badge: daily average"> <img src="./charts/badge/pixel-streak.svg" alt="pixel badge: active-day streak">
-
-…and an 18px small variant of each (`badge/pixel-*-sm.svg`) that sits inline with regular shields badges:
-
-<img src="./charts/badge/pixel-tokens-30d-sm.svg" alt="small pixel badge: tokens 30d"> <img src="./charts/badge/pixel-api-30d-sm.svg" alt="small pixel badge: API-equivalent"> <img src="./charts/badge/pixel-today-sm.svg" alt="small pixel badge: today"> <img src="./charts/badge/pixel-avg-sm.svg" alt="small pixel badge: daily average"> <img src="./charts/badge/pixel-streak-sm.svg" alt="small pixel badge: streak">
 
 ## How multi-host works
 
