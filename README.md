@@ -31,25 +31,22 @@ The repo keeps a day-by-day history; the headline chart shows the last 30 days, 
 
 ## Contents
 
-- [token-history](#token-history)
-  - [Contents](#contents)
-  - [Why this exists](#why-this-exists)
-  - [Quick start](#quick-start)
-    - [🤖 For agents (recommended)](#-for-agents-recommended)
-    - [🧑 For humans](#-for-humans)
-  - [Chart gallery](#chart-gallery)
-    - [Badges](#badges)
-    - [Daily](#daily)
-    - [Weekly](#weekly)
-    - [Monthly](#monthly)
-  - [How multi-host works](#how-multi-host-works)
-  - [How it stays correct](#how-it-stays-correct)
-  - [Layout](#layout)
-  - [Design notes](#design-notes)
-  - [Thanks](#thanks)
-  - [License](#license)
-
----
+- [Contents](#contents)
+- [Why this exists](#why-this-exists)
+- [Quick start](#quick-start)
+  - [🤖 For agents (recommended)](#-for-agents-recommended)
+  - [🧑 For humans](#-for-humans)
+- [Chart gallery](#chart-gallery)
+  - [Badges](#badges)
+  - [Daily](#daily)
+  - [Weekly](#weekly)
+  - [Monthly](#monthly)
+- [How multi-host works](#how-multi-host-works)
+- [How it stays correct](#how-it-stays-correct)
+- [Layout](#layout)
+- [Design notes](#design-notes)
+- [Thanks](#thanks)
+- [License](#license)
 
 ## Why this exists
 
