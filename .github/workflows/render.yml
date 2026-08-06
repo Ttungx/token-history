@@ -41,7 +41,11 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add charts
+          # SUMMARY.md too: render.py rewrites it on every run, and staging only
+          # charts/ silently threw that rewrite away — the table sat on its
+          # initial-commit numbers through 8 regenerates, under-reporting Codex
+          # by 390M tokens, while the charts beside it stayed correct.
+          git add charts SUMMARY.md
           if git diff --cached --quiet; then
             echo "charts unchanged"
             exit 0
