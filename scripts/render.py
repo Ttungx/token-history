@@ -107,10 +107,14 @@ def load_days():
         if rec.get("status") == "partial":
             slot["partial"] = True
         for source, payload in (rec.get("sources") or {}).items():
-            agg = slot.setdefault(source, {"total": 0, "costUSD": 0.0})
+            agg = slot.setdefault(source, {"total": 0, "costUSD": 0.0, "models": {}})
             # Hosts are disjoint writers for the same date, so summing is the merge.
             agg["total"] += payload.get("total") or 0
             agg["costUSD"] += payload.get("costUSD") or 0.0
+            for model, model_payload in (payload.get("models") or {}).items():
+                model_agg = agg["models"].setdefault(model, {"total": 0, "costUSD": 0.0})
+                model_agg["total"] += model_payload.get("total") or 0
+                model_agg["costUSD"] += model_payload.get("costUSD") or 0.0
     return days
 
 
@@ -133,8 +137,8 @@ def day_total(payload, metric="total"):
 
 def empty_bucket(start):
     return {"start": start, "partial": False,
-            "claude": {"total": 0, "costUSD": 0.0},
-            "codex": {"total": 0, "costUSD": 0.0}}
+            "claude": {"total": 0, "costUSD": 0.0, "models": {}},
+            "codex": {"total": 0, "costUSD": 0.0, "models": {}}}
 
 
 def fill_buckets(days, buckets, key):
@@ -149,6 +153,11 @@ def fill_buckets(days, buckets, key):
             if source in payload:
                 row[source]["total"] += payload[source]["total"]
                 row[source]["costUSD"] += payload[source]["costUSD"]
+                for model, model_payload in payload[source].get("models", {}).items():
+                    model_agg = row[source]["models"].setdefault(
+                        model, {"total": 0, "costUSD": 0.0})
+                    model_agg["total"] += model_payload.get("total") or 0
+                    model_agg["costUSD"] += model_payload.get("costUSD") or 0.0
     return [buckets[k] for k in sorted(buckets)]
 
 

@@ -136,6 +136,10 @@ Every run renders **every** style below — the same data, over a dozen ways. Th
 
 <img src="./charts/day/pixel-tokens.svg" width="880" alt="Pixel-art daily token bars: stacks of squares, one square per 10M tokens">
 
+**`charts/day/pixel-models.svg`** — the same columns, split by model. Each source keeps its own hue and encodes the tier twice, in lightness *and* in how much of the square is filled — solid, notched, hollow — so the top tier reads even in greyscale (Claude fable › opus › sonnet, Codex 5.5/Sol › Terra › Luna)
+
+<img src="./charts/day/pixel-models.svg" width="880" alt="Pixel-art daily token bars split by model: three orange steps for Claude and three blue steps for Codex, each tier also marked solid, notched or hollow">
+
 **`charts/day/pixel-card.svg`** — the last 30 days as an 8-bit game HUD: a bitmap-font HI-SCORE, Claude vs Codex as player HP bars, cost as a coin counter, one pixel heart per active day
 
 <img src="./charts/day/pixel-card.svg" width="880" alt="Pixel game-HUD stat card: HI-SCORE token total, P1/P2 HP bars for Claude and Codex, coin counter, heart streak">
