@@ -677,12 +677,10 @@ CARD_CSS = (
 
 
 def fmt_hero(value):
-    if value >= 1e9:
-        return "{:.2f}B".format(value / 1e9)
-    if value >= 1e8:
-        return "{:.0f}M".format(value / 1e6)
+    """Hero-number formatting: always B once past a million, so the unit never
+    flips between M and B as usage grows (0.66B stays 0.66B at 1.2B)."""
     if value >= 1e6:
-        return "{:.1f}M".format(value / 1e6)
+        return "{:.2f}B".format(value / 1e9)
     return compact_tokens(value)
 
 
