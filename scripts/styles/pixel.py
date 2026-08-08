@@ -43,7 +43,7 @@ TICK_ROWS = 5         # one y tick every 5 rows = 10 quanta
 
 PAD_L, PAD_R = 76, 28
 PAD_T_PLAIN = 100     # one legend row: the two sources
-PAD_T_SPLIT = 116     # two legend rows: three model tiers per source
+PAD_T_SPLIT = 152     # four legend rows: model tiers per source
 PLOT_H = MAX_ROWS * PITCH                    # 240
 W = render.W                                 # 880
 
@@ -60,16 +60,26 @@ W = render.W                                 # 880
 # can put a Claude and a Codex pixel side by side in the same row.
 MODEL_CSS = (
     "svg{--claude-fable:#9c4a26;--claude-opus:#d06a41;--claude-sonnet:#e59a70;"
-    "--codex-core:#245f9f;--codex-terra:#4382c9;--codex-luna:#78a9dc}"
+    "--codex-core:#245f9f;--codex-terra:#4382c9;--codex-luna:#78a9dc;"
+    "--opencode-flash:#5d46b8;--opencode-other:#a890f5;"
+    "--pi-flash:#1e7d54;--pi-other:#59be8d}"
     "@media (prefers-color-scheme:dark){svg{--claude-fable:#a84c2b;"
     "--claude-opus:#db7448;--claude-sonnet:#f2aa84;--codex-core:#2f70b1;"
-    "--codex-terra:#5b95d6;--codex-luna:#8ab9e8}}"
+    "--codex-terra:#5b95d6;--codex-luna:#8ab9e8;"
+    "--opencode-flash:#a890f5;--opencode-other:#5d46b8;"
+    "--pi-flash:#5bc78f;--pi-other:#1e6e4c}}"
     ".m-claude-fable{fill:var(--claude-fable)}"
     ".m-claude-sonnet{fill:var(--claude-sonnet)}"
     ".m-claude-opus{fill:var(--claude-opus)}"
     ".m-codex-core{fill:var(--codex-core)}"
     ".m-codex-terra{fill:var(--codex-terra)}"
     ".m-codex-luna{fill:var(--codex-luna)}"
+    ".m-opencode-flash{fill:var(--opencode-flash)}"
+    ".m-opencode-other{fill:var(--opencode-other)}"
+    ".m-opencode{fill:var(--opencode)}"
+    ".m-pi-flash{fill:var(--pi-flash)}"
+    ".m-pi-other{fill:var(--pi-other)}"
+    ".m-pi{fill:var(--pi)}"
 )
 
 PIXEL_CSS = (
@@ -110,6 +120,16 @@ MODEL_GROUPS = {
         ("codex-core", "5.5 / SOL", ("gpt-5.5", "gpt-5.6-sol")),
         ("codex-terra", "TERRA", ("terra",)),
         ("codex-luna", "LUNA", ("luna",)),
+    ),
+    # opencode and pi run per-user model names; a generic "flash" tier is as
+    # specific as this machine's data warrants, everything else rides OTHER.
+    "opencode": (
+        ("opencode-flash", "FLASH", ("flash",)),
+        ("opencode-other", "OTHER", ()),
+    ),
+    "pi": (
+        ("pi-flash", "FLASH", ("flash",)),
+        ("pi-other", "OTHER", ()),
     ),
 }
 
@@ -253,12 +273,12 @@ def _source_legend(add, x, y):
 
 
 def _model_legend(add, x, y):
-    """Two compact legend rows make the within-source shade scale explicit."""
-    for row_idx, source in enumerate(("claude", "codex")):
+    """One compact legend row per source makes the within-source shade scale
+    explicit (rows are fed by the same MODEL_GROUPS the pixels use)."""
+    for row_idx, (source, _) in enumerate(render.SERIES):
         cy = y + row_idx * 17
-        label = "CLAUDE" if source == "claude" else "CODEX"
         add('<text class="tm" x="{}" y="{}" font-size="9.5" '
-            'font-family="var(--fm)" letter-spacing="1">{}</text>'.format(x, cy + 9, label))
+            'font-family="var(--fm)" letter-spacing="1">{}</text>'.format(x, cy + 9, source.upper()))
         cursor = x + 62
         for key, model_label, _ in MODEL_GROUPS[source]:
             # the swatch wears the texture too — that is what teaches it

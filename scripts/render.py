@@ -67,6 +67,7 @@ THEME = {
         "surface": "#faf9f5", "primary": "#141413", "secondary": "#53524b",
         "muted": "#8a887f", "grid": "#e8e6dc", "axis": "#cbc8bc",
         "claude": "#d06a41", "codex": "#4382c9",
+        "opencode": "#7c5cd6", "pi": "#2e9e6b",
         "ramp0": "#edeae0", "ramp1": "#f2cdb9", "ramp2": "#e59a70",
         "ramp3": "#d06a41", "ramp4": "#9c4a26",
         "ink3": "#141413", "ink4": "#ffffff",
@@ -75,12 +76,14 @@ THEME = {
         "surface": "#141413", "primary": "#faf9f5", "secondary": "#b0aea5",
         "muted": "#85837a", "grid": "#292824", "axis": "#383630",
         "claude": "#db7448", "codex": "#5b95d6",
+        "opencode": "#8f74e0", "pi": "#3daf7a",
         "ramp0": "#232221", "ramp1": "#4b2b1b", "ramp2": "#8a4526",
         "ramp3": "#cf6a3e", "ramp4": "#f0a37a",
         "ink3": "#141413", "ink4": "#141413",
     },
 }
-SERIES = [("claude", "Claude Code"), ("codex", "Codex")]
+SERIES = [("claude", "Claude Code"), ("codex", "Codex"),
+          ("opencode", "opencode"), ("pi", "pi")]
 # Anthropic typography: Poppins for headings, Lora for body — with the brand's
 # own Arial/Georgia fallbacks, since <img>-embedded SVG cannot load webfonts.
 FONT = 'Poppins,Arial,"Helvetica Neue",sans-serif'
@@ -92,7 +95,7 @@ FONT_MONO = 'ui-monospace,"SF Mono",Menlo,Consolas,monospace'
 
 
 def load_days():
-    """{date: {'claude': {...}, 'codex': {...}, 'partial': bool}} merged over hosts."""
+    """{date: {source: {...}, 'partial': bool}} merged over hosts."""
     days = {}
     for path in sorted(glob.glob(os.path.join(DATA_DIR, "*", "2*.json"))):
         try:
@@ -137,8 +140,7 @@ def day_total(payload, metric="total"):
 
 def empty_bucket(start):
     return {"start": start, "partial": False,
-            "claude": {"total": 0, "costUSD": 0.0, "models": {}},
-            "codex": {"total": 0, "costUSD": 0.0, "models": {}}}
+            **{s: {"total": 0, "costUSD": 0.0, "models": {}} for s, _ in SERIES}}
 
 
 def fill_buckets(days, buckets, key):
@@ -345,7 +347,7 @@ def svg_start(w, h, title, extra_css=""):
     add(".tm{font-family:var(--f);fill:var(--muted);font-variant-numeric:tabular-nums}")
     add(".ts{font-family:var(--fs);fill:var(--primary)}")
     add(".tn{font-family:var(--fm);fill:var(--primary);font-variant-numeric:tabular-nums}")
-    add(".s-claude{fill:var(--claude)}.s-codex{fill:var(--codex)}")
+    add("".join(".s-{}{{fill:var(--{})}}".format(s, s) for s, _ in SERIES))
     add(".r0{fill:var(--ramp0)}.r1{fill:var(--ramp1)}.r2{fill:var(--ramp2)}"
         ".r3{fill:var(--ramp3)}.r4{fill:var(--ramp4)}")
     add(".on3{fill:var(--ink3)}.on4{fill:var(--ink4)}")
@@ -531,36 +533,39 @@ def build_day_calendar(days, generated):
 # --------------------------------------------------- style: stacked area (day)
 
 
-AREA_CSS = (
-    ".ga1{stop-color:var(--claude);stop-opacity:.45}"
-    ".ga2{stop-color:var(--claude);stop-opacity:.05}"
-    ".gb1{stop-color:var(--codex);stop-opacity:.45}"
-    ".gb2{stop-color:var(--codex);stop-opacity:.05}"
-    ".e-claude{stroke:var(--claude);stroke-width:2;fill:none;stroke-linejoin:round}"
-    ".e-codex{stroke:var(--codex);stroke-width:2;fill:none;stroke-linejoin:round}"
-    ".gridd{stroke:var(--grid);stroke-width:1;stroke-dasharray:2 4}"
-    ".dot{stroke:var(--surface);stroke-width:2}"
-    ".rise{animation:rise .9s cubic-bezier(.2,.7,.3,1) both}"
-    "@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}"
-    ".late{animation:fadein .5s ease-out .55s both}"
-    "@keyframes fadein{from{opacity:0}to{opacity:1}}"
-)
+def area_css():
+    """Per-series gradient stops and edge strokes (one band per source)."""
+    css = ["".join(
+        ".g{i}1{{stop-color:var(--{s});stop-opacity:.45}}"
+        ".g{i}2{{stop-color:var(--{s});stop-opacity:.05}}"
+        ".e-{s}{{stroke:var(--{s});stroke-width:2;fill:none;stroke-linejoin:round}}"
+        .format(i=i, s=s) for i, (s, _) in enumerate(SERIES))]
+    css += [
+        ".gridd{stroke:var(--grid);stroke-width:1;stroke-dasharray:2 4}",
+        ".dot{stroke:var(--surface);stroke-width:2}",
+        ".rise{animation:rise .9s cubic-bezier(.2,.7,.3,1) both}",
+        "@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}",
+        ".late{animation:fadein .5s ease-out .55s both}",
+        "@keyframes fadein{from{opacity:0}to{opacity:1}}",
+    ]
+    return "".join(css)
 
 
 def build_area(rows, generated):
-    """Stacked area of daily tokens: Claude as the base band, Codex above it,
-    gradient fills, smoothed edges, an animated reveal, and direct labels on the
-    right edge instead of a floating legend."""
-    pad_l, pad_r, pad_t, pad_b = 76, 128, 92, 52
+    """Stacked area of daily tokens: one smoothed band per source, gradients,
+    an animated reveal, and direct labels on the right edge instead of a
+    floating legend (falling back to even spacing when band midpoints collide)."""
+    pad_l, pad_r, pad_t, pad_b = 76, 152, 92, 52
     plot_h = 236
     h = pad_t + plot_h + pad_b
     n = len(rows)
     plot_w = W - pad_l - pad_r
 
-    claude_v = [r["claude"]["total"] for r in rows]
-    codex_v = [r["codex"]["total"] for r in rows]
-    totals = [c + x for c, x in zip(claude_v, codex_v)]
-    peak = max(totals + [0])
+    vals = {s: [r[s]["total"] for r in rows] for s, _ in SERIES}
+    cum = []
+    for i in range(n):
+        cum.append(sum(vals[s][i] for s, _ in SERIES))
+    peak = max(cum + [0])
     ticks = nice_ticks(peak)
     top = ticks[-1] or 1
 
@@ -570,22 +575,21 @@ def build_area(rows, generated):
     def y_of(value):
         return pad_t + plot_h - (value / float(top)) * plot_h
 
-    claude_pts = [(x_of(i), y_of(claude_v[i])) for i in range(n)]
-    top_pts = [(x_of(i), y_of(totals[i])) for i in range(n)]
+    pts = {s: [(x_of(i), y_of(vals[s][i])) for i in range(n)] for s, _ in SERIES}
+    cum_pts = [(x_of(i), y_of(cum[i])) for i in range(n)]
 
     span = "{} – {}".format(rows[0]["start"].strftime("%b %d, %Y"),
                             rows[-1]["start"].strftime("%b %d, %Y"))
     title = "Daily token flow"
-    subtitle = "{} · {} tokens over {} days".format(span, compact_tokens(sum(totals)), n)
+    subtitle = "{} · {} tokens over {} days".format(span, compact_tokens(sum(cum)), n)
 
-    out = svg_start(W, h, title, AREA_CSS)
+    out = svg_start(W, h, title, area_css())
     add = out.append
 
     add('<defs>')
-    add('<linearGradient id="ga" x1="0" y1="0" x2="0" y2="1">'
-        '<stop offset="0" class="ga1"/><stop offset="1" class="ga2"/></linearGradient>')
-    add('<linearGradient id="gb" x1="0" y1="0" x2="0" y2="1">'
-        '<stop offset="0" class="gb1"/><stop offset="1" class="gb2"/></linearGradient>')
+    for i, (s, _) in enumerate(SERIES):
+        add('<linearGradient id="g{}" x1="0" y1="0" x2="0" y2="1">'
+            '<stop offset="0" class="g{}1"/><stop offset="1" class="g{}2"/></linearGradient>'.format(i, i, i))
     add('</defs>')
 
     add('<text class="ts" x="28" y="32" font-size="20" font-style="italic">{}</text>'.format(esc(title)))
@@ -602,15 +606,20 @@ def build_area(rows, generated):
     add('<line class="axis" x1="{}" y1="{:.1f}" x2="{}" y2="{:.1f}"/>'.format(pad_l, base_y, W - pad_r, base_y))
 
     # bands (animated as one group; resting state is fully visible)
-    claude_area = (smooth_path(claude_pts) +
-                   ' L{:.1f},{:.1f} L{:.1f},{:.1f} Z'.format(claude_pts[-1][0], base_y, claude_pts[0][0], base_y))
-    bottom_rev = smooth_path(list(reversed(claude_pts)))
-    codex_band = smooth_path(top_pts) + ' ' + bottom_rev.replace('M', 'L', 1) + ' Z'
     add('<g class="rise">')
-    add('<path fill="url(#ga)" d="{}"/>'.format(claude_area))
-    add('<path fill="url(#gb)" d="{}"/>'.format(codex_band))
-    add('<path class="e-claude" d="{}"/>'.format(smooth_path(claude_pts)))
-    add('<path class="e-codex" d="{}"/>'.format(smooth_path(top_pts)))
+    lo_pts = None
+    for i, (s, _) in enumerate(SERIES):
+        seg_pts = pts[s]
+        band = smooth_path(seg_pts)
+        if lo_pts is not None:
+            bottom = smooth_path(list(reversed(lo_pts)))
+            band += ' ' + bottom.replace('M', 'L', 1) + ' Z'
+        else:
+            band += ' L{:.1f},{:.1f} L{:.1f},{:.1f} Z'.format(
+                seg_pts[-1][0], base_y, seg_pts[0][0], base_y)
+        add('<path fill="url(#g{})" d="{}"/>'.format(i, band))
+        add('<path class="e-{}" d="{}"/>'.format(s, smooth_path(seg_pts)))
+        lo_pts = seg_pts
     add('</g>')
 
     # x labels
@@ -623,20 +632,30 @@ def build_area(rows, generated):
     # right-edge direct labels (they are the legend: identity is text + swatch dot)
     add('<g class="late">')
     lab_x = W - pad_r + 12
-    y_claude = min(y_of(claude_v[-1] / 2.0), base_y - 24)
-    y_codex = y_of(claude_v[-1] + codex_v[-1] / 2.0)
-    if y_claude - y_codex < 44:
-        y_codex = y_claude - 44
-    for y, source, label, value in ((y_claude, "claude", "Claude Code", claude_v[-1]),
-                                    (y_codex, "codex", "Codex", codex_v[-1])):
-        add('<circle class="s-{} dot" cx="{}" cy="{:.1f}" r="4"/>'.format(source, lab_x, y))
+    # anchor each label at its band's midpoint on the last day; if midpoints
+    # crowd (any gap < 40px or past the plot), spread labels evenly instead
+    label_y, prev = [], None
+    for i, (s, _) in enumerate(SERIES):
+        before = sum(vals[src][-1] for src, _ in SERIES[:i])
+        y = y_of(before + vals[s][-1] / 2.0)
+        prev = y
+        label_y.append(y)
+    tight = any((label_y[i] < pad_t + 8 or label_y[i] > base_y - 8) for i in range(len(label_y)))
+    for i in range(1, len(label_y)):
+        tight = tight or label_y[i - 1] - label_y[i] < 40
+    if tight:
+        m = len(SERIES)
+        step = (base_y - pad_t - 24) / float(m)
+        label_y = [base_y - 16 - step * (i + 0.5) for i in range(m)]
+    for i, ((s, label), y) in enumerate(zip(SERIES, label_y)):
+        add('<circle class="s-{} dot" cx="{}" cy="{:.1f}" r="4"/>'.format(s, lab_x, y))
         add('<text class="t2" x="{}" y="{:.1f}" font-size="12">{}</text>'.format(
             lab_x + 10, y + 4, esc(label)))
         add('<text class="tn" x="{}" y="{:.1f}" font-size="12.5" font-weight="600">{}</text>'.format(
-            lab_x + 10, y + 21, compact_tokens(value)))
+            lab_x + 10, y + 21, compact_tokens(vals[s][-1])))
     # peak label
     if peak > 0:
-        pi = totals.index(peak)
+        pi = cum.index(peak)
         add('<circle class="dot" cx="{:.1f}" cy="{:.1f}" r="3.5" fill="var(--primary)"/>'.format(
             x_of(pi), y_of(peak)))
         add('<text class="t" x="{:.1f}" y="{:.1f}" font-size="11.5" font-weight="600" '
@@ -669,7 +688,7 @@ def fmt_hero(value):
 
 def build_card(rows, generated):
     """Hero-number stat card: the 30-day totals as typography, not marks. The
-    only plot is a thin 100% split bar showing the Claude/Codex share."""
+    only plot is a thin 100% split bar showing each source's share."""
     w, h = 880, 236
     tokens = [sum(r[s]["total"] for s, _ in SERIES) for r in rows]
     total = sum(tokens)
@@ -678,9 +697,7 @@ def build_card(rows, generated):
     peak = max(tokens + [0])
     peak_day = rows[tokens.index(peak)]["start"] if peak else None
     avg = total / float(active) if active else 0
-    ct = sum(r["claude"]["total"] for r in rows)
-    xt = sum(r["codex"]["total"] for r in rows)
-    share = ct / float(ct + xt) if (ct + xt) else 0.0
+    shares = [sum(r[s]["total"] for r in rows) for s, _ in SERIES]
 
     title = "AI coding usage — last 30 days"
     out = svg_start(w, h, title, CARD_CSS)
@@ -709,19 +726,33 @@ def build_card(rows, generated):
         add('<text class="tm" x="{}" y="122" font-size="11">{}</text>'.format(x, esc(sub)))
         add('</g>')
 
-    # 100% split bar
+    # 100% split bar, one segment per source
     bar_x, bar_y, bar_w, bar_h = 48, 176, w - 96, 9
-    cw = max(0.0, bar_w * share - GAP / 2.0)
-    xw = max(0.0, bar_w - cw - GAP)
+    denom = sum(shares)
+    total_seg = sum(s for s in shares if s > 0)
     add('<g class="b" style="animation-delay:320ms">')
-    add('<path class="s-claude" d="{}"/>'.format(cap_path_h(bar_x, bar_y, cw, bar_h, 4.5, 0)))
-    add('<path class="s-codex" d="{}"/>'.format(cap_path_h(bar_x + cw + GAP, bar_y, xw, bar_h, 0, 4.5)))
-    add('<circle class="s-claude" cx="53" cy="203" r="4"/>')
-    add('<text class="t2" x="63" y="207" font-size="12">Claude Code {:.0f}% · {}</text>'.format(
-        share * 100, compact_tokens(ct)))
-    add('<circle class="s-codex" cx="{}" cy="203" r="4"/>'.format(w - 48 - 165))
-    add('<text class="t2" x="{}" y="207" font-size="12">Codex {:.0f}% · {}</text>'.format(
-        w - 48 - 155, (1 - share) * 100, compact_tokens(xt)))
+    x = bar_x
+    for i, ((source, label), value) in enumerate(zip(SERIES, shares)):
+        if total_seg <= 0:
+            break
+        seg = bar_w * value / float(total_seg)
+        seg = max(0.0, seg - (GAP if 0 < i < len(shares) - 1 and value > 0 else 0))
+        cls = "s-" + source
+        add('<path class="{}" d="{}"/>'.format(cls, cap_path_h(
+            x, bar_y, seg, bar_h,
+            4.5 if i == 0 else 0, 4.5 if i == len(shares) - 1 else 0)))
+        x += seg + GAP
+    # labels on fixed slots so neighbouring segments never collide
+    m = len(shares)
+    slot_w = bar_w / float(m)
+    for i, ((source, label), value) in enumerate(zip(SERIES, shares)):
+        if value <= 0:
+            continue
+        cx = bar_x + slot_w * (i + 0.5)
+        pct = 100.0 * value / denom if denom else 0.0
+        add('<circle class="s-{}" cx="{:.1f}" cy="203" r="4"/>'.format(source, cx - 14))
+        add('<text class="t2" x="{:.1f}" y="207" font-size="11" text-anchor="middle">{}</text>'.format(
+            cx + 4, "{} {:.0f}%".format(label, pct)))
     add('</g>')
 
     add('<text class="tm" x="48" y="{}" font-size="10">Generated {}</text>'.format(h - 10, generated))
@@ -905,6 +936,8 @@ def write_summary(path, rows, days):
     A chart must never be the only way to read a value — colour-blind readers,
     screen readers, and anyone on a text-only view need the numbers themselves.
     """
+    heads = ["Starting"] + ["{} tokens".format(l) for _, l in SERIES] + ["Total tokens"] \
+        + ["{} $".format(l) for _, l in SERIES] + ["Total $"]
     lines = [
         "# Summary",
         "",
@@ -913,25 +946,31 @@ def write_summary(path, rows, days):
         "",
         "## By bucket",
         "",
-        "| Starting | Claude tokens | Codex tokens | Total tokens | Claude $ | Codex $ | Total $ |",
-        "|---|--:|--:|--:|--:|--:|--:|",
+        "| {} |".format(" | ".join(heads)),
+        "|{}|".format("|".join("---:" for _ in heads)),
     ]
     for row in reversed(rows):
-        ct, xt = row["claude"]["total"], row["codex"]["total"]
-        cc, xc = row["claude"]["costUSD"], row["codex"]["costUSD"]
+        vals = [row[s]["total"] for s, _ in SERIES]
+        costs = [row[s]["costUSD"] for s, _ in SERIES]
         mark = " *" if row["partial"] else ""
-        lines.append("| {}{} | {:,} | {:,} | {:,} | ${:,.2f} | ${:,.2f} | ${:,.2f} |".format(
-            row["start"].isoformat(), mark, ct, xt, ct + xt, cc, xc, cc + xc))
+        cells = ["{}{}".format(row["start"].isoformat(), mark)]
+        cells += ["{:,}".format(v) for v in vals]
+        cells.append("{:,}".format(sum(vals)))
+        cells += ["${:,.2f}".format(c) for c in costs]
+        cells.append("${:,.2f}".format(sum(costs)))
+        lines.append("| {} |".format(" | ".join(cells)))
     lines += ["", "`*` still in progress.", "", "## Last 30 days", "",
-              "| Date | Claude tokens | Codex tokens | Claude $ | Codex $ |",
-              "|---|--:|--:|--:|--:|"]
+              "| {} |".format(" | ".join(["Date"] + ["{} tokens".format(l) for _, l in SERIES]
+                                          + ["{} $".format(l) for _, l in SERIES])),
+              "|{}|".format("|".join("---:" for _ in range(1 + 2 * len(SERIES))))]
     for date_str in sorted(days, reverse=True)[:30]:
         day = days[date_str]
-        claude = day.get("claude") or {"total": 0, "costUSD": 0.0}
-        codex = day.get("codex") or {"total": 0, "costUSD": 0.0}
         mark = " *" if day.get("partial") else ""
-        lines.append("| {}{} | {:,} | {:,} | ${:,.2f} | ${:,.2f} |".format(
-            date_str, mark, claude["total"], codex["total"], claude["costUSD"], codex["costUSD"]))
+        cells = [date_str + mark]
+        for s, _ in SERIES:
+            src = day.get(s) or {"total": 0, "costUSD": 0.0}
+            cells += ["{:,}".format(src["total"]), "${:,.2f}".format(src["costUSD"])]
+        lines.append("| {} |".format(" | ".join(cells)))
     lines += ["", "Full day-by-day history lives in `data/<host>/<date>.json`.", ""]
     with open(path, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines))

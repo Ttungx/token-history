@@ -22,7 +22,7 @@
 
 - **Snapshots your usage into git, daily.** AI coding tools keep usage data only on your disk and quietly expire it — history you don't persist is history you lose. Every number lands in git before that happens, permanently yours.
 - **Renders a whole gallery of SVG charts and badges** — self-updating, and embeddable in a GitHub profile README, a blog, or anywhere an `<img>` tag works.
-- **Merges every machine and every source.** Multiple hosts combine into one history; Claude Code and Codex are the first two sources (riding on ccusage), with more models and feeds on the roadmap.
+- **Merges every machine and every source.** Multiple hosts combine into one history; Claude Code, Codex, opencode, and pi are wired into the collector (riding on ccusage), with more models and feeds on the roadmap.
 - **Sets itself up through your agent.** Hand Claude Code or Codex [one link](#-for-agents-recommended) and say *"set this up"* — it walks itself from fork to first push.
 
 The repo keeps a day-by-day history; the headline chart shows the last 30 days, and every render also produces [an entire gallery of other styles](#chart-gallery) across daily, weekly, and monthly granularity.

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="880" height="236" viewBox="0 0 880 236" role="img" aria-label="AI coding usage — last 30 days">
 <style>
-svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old Style",serif;--fm:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--surface:#faf9f5; --primary:#141413; --secondary:#53524b; --muted:#8a887f; --grid:#e8e6dc; --axis:#cbc8bc; --claude:#d06a41; --codex:#4382c9; --ramp0:#edeae0; --ramp1:#f2cdb9; --ramp2:#e59a70; --ramp3:#d06a41; --ramp4:#9c4a26; --ink3:#141413; --ink4:#ffffff;}
-@media (prefers-color-scheme: dark){svg{--surface:#141413; --primary:#faf9f5; --secondary:#b0aea5; --muted:#85837a; --grid:#292824; --axis:#383630; --claude:#db7448; --codex:#5b95d6; --ramp0:#232221; --ramp1:#4b2b1b; --ramp2:#8a4526; --ramp3:#cf6a3e; --ramp4:#f0a37a; --ink3:#141413; --ink4:#141413;}}
+svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old Style",serif;--fm:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--surface:#faf9f5; --primary:#141413; --secondary:#53524b; --muted:#8a887f; --grid:#e8e6dc; --axis:#cbc8bc; --claude:#d06a41; --codex:#4382c9; --opencode:#7c5cd6; --pi:#2e9e6b; --ramp0:#edeae0; --ramp1:#f2cdb9; --ramp2:#e59a70; --ramp3:#d06a41; --ramp4:#9c4a26; --ink3:#141413; --ink4:#ffffff;}
+@media (prefers-color-scheme: dark){svg{--surface:#141413; --primary:#faf9f5; --secondary:#b0aea5; --muted:#85837a; --grid:#292824; --axis:#383630; --claude:#db7448; --codex:#5b95d6; --opencode:#8f74e0; --pi:#3daf7a; --ramp0:#232221; --ramp1:#4b2b1b; --ramp2:#8a4526; --ramp3:#cf6a3e; --ramp4:#f0a37a; --ink3:#141413; --ink4:#141413;}}
 .bg{fill:var(--surface)}
 .grid{stroke:var(--grid);stroke-width:1;shape-rendering:crispEdges}
 .axis{stroke:var(--axis);stroke-width:1;shape-rendering:crispEdges}
@@ -10,7 +10,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 .tm{font-family:var(--f);fill:var(--muted);font-variant-numeric:tabular-nums}
 .ts{font-family:var(--fs);fill:var(--primary)}
 .tn{font-family:var(--fm);fill:var(--primary);font-variant-numeric:tabular-nums}
-.s-claude{fill:var(--claude)}.s-codex{fill:var(--codex)}
+.s-claude{fill:var(--claude)}.s-codex{fill:var(--codex)}.s-opencode{fill:var(--opencode)}.s-pi{fill:var(--pi)}
 .r0{fill:var(--ramp0)}.r1{fill:var(--ramp1)}.r2{fill:var(--ramp2)}.r3{fill:var(--ramp3)}.r4{fill:var(--ramp4)}
 .on3{fill:var(--ink3)}.on4{fill:var(--ink4)}
 .wip{opacity:.5}
@@ -20,18 +20,18 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="bg" width="880" height="236"/>
 <g class="b">
 <text class="tm" x="48" y="58" font-size="10.5" letter-spacing="2.5">LAST 30 DAYS · TOKENS</text>
-<text class="ts" x="46" y="122" font-size="58" font-weight="700">5.87B</text>
-<text class="t2" x="48" y="150" font-size="13">≈ $6,152 API-equivalent</text>
+<text class="ts" x="46" y="122" font-size="58" font-weight="700">6.47B</text>
+<text class="t2" x="48" y="150" font-size="13">≈ $6,260 API-equivalent</text>
 </g>
 <line class="axis" x1="400" y1="46" x2="400" y2="150"/>
 <g class="b" style="animation-delay:120ms">
 <text class="tm" x="440" y="64" font-size="10" letter-spacing="1.8">PEAK DAY</text>
-<text class="ts" x="440" y="100" font-size="26" font-weight="700">484M</text>
-<text class="tm" x="440" y="122" font-size="11">Aug 06</text>
+<text class="ts" x="440" y="100" font-size="26" font-weight="700">602M</text>
+<text class="tm" x="440" y="122" font-size="11">Aug 05</text>
 </g>
 <g class="b" style="animation-delay:210ms">
 <text class="tm" x="590" y="64" font-size="10" letter-spacing="1.8">DAILY AVG</text>
-<text class="ts" x="590" y="100" font-size="26" font-weight="700">196M</text>
+<text class="ts" x="590" y="100" font-size="26" font-weight="700">216M</text>
 <text class="tm" x="590" y="122" font-size="11">per active day</text>
 </g>
 <g class="b" style="animation-delay:300ms">
@@ -40,12 +40,18 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <text class="tm" x="740" y="122" font-size="11">days with usage</text>
 </g>
 <g class="b" style="animation-delay:320ms">
-<path class="s-claude" d="M52.5,176.0 H400.2 V185.0 H52.5 A4.5,4.5 0 0 1 48.0,180.5 V180.5 A4.5,4.5 0 0 1 52.5,176.0 Z"/>
-<path class="s-codex" d="M402.2,176.0 H827.5 A4.5,4.5 0 0 1 832.0,180.5 V180.5 A4.5,4.5 0 0 1 827.5,185.0 H402.2 V176.0 Z"/>
-<circle class="s-claude" cx="53" cy="203" r="4"/>
-<text class="t2" x="63" y="207" font-size="12">Claude Code 45% · 2.6B</text>
-<circle class="s-codex" cx="667" cy="203" r="4"/>
-<text class="t2" x="677" y="207" font-size="12">Codex 55% · 3.2B</text>
+<path class="s-claude" d="M52.5,176.0 H393.3 V185.0 H52.5 A4.5,4.5 0 0 1 48.0,180.5 V180.5 A4.5,4.5 0 0 1 52.5,176.0 Z"/>
+<path class="s-codex" d="M395.3,176.0 H808.7 V185.0 H395.3 V176.0 Z"/>
+<path class="s-opencode" d="M810.7,176.0 H832.0 V185.0 H810.7 V176.0 Z"/>
+<path class="s-pi" d="M834.0,176.0 H834.0 A0.0,0.0 0 0 1 834.0,176.0 V185.0 A0.0,0.0 0 0 1 834.0,185.0 H834.0 V176.0 Z"/>
+<circle class="s-claude" cx="132.0" cy="203" r="4"/>
+<text class="t2" x="150.0" y="207" font-size="11" text-anchor="middle">Claude Code 44%</text>
+<circle class="s-codex" cx="328.0" cy="203" r="4"/>
+<text class="t2" x="346.0" y="207" font-size="11" text-anchor="middle">Codex 53%</text>
+<circle class="s-opencode" cx="524.0" cy="203" r="4"/>
+<text class="t2" x="542.0" y="207" font-size="11" text-anchor="middle">opencode 3%</text>
+<circle class="s-pi" cx="720.0" cy="203" r="4"/>
+<text class="t2" x="738.0" y="207" font-size="11" text-anchor="middle">pi 0%</text>
 </g>
-<text class="tm" x="48" y="226" font-size="10">Generated 2026-08-08 04:10 UTC</text>
+<text class="tm" x="48" y="226" font-size="10">Generated 2026-08-08 12:11 UTC</text>
 </svg>

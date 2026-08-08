@@ -220,7 +220,15 @@ def normalize_codex(rec):
     return out
 
 
-NORMALIZERS = {"claude": normalize_claude, "codex": normalize_codex}
+# ccusage `daily` emits the same record shape for claude/opencode/pi
+# (modelBreakdowns list, per-model cost, top-level totalCost); codex differs
+# (models dict, no per-model cost). Verified against ccusage v20.0.19.
+NORMALIZERS = {
+    "claude": normalize_claude,
+    "codex": normalize_codex,
+    "opencode": normalize_claude,
+    "pi": normalize_claude,
+}
 
 
 # ------------------------------------------------------------------------ merge

@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="412" viewBox="0 0 880 412" role="img" aria-label="Daily token usage by source and model, 8-bit pixel chart, JUL 09 - AUG 07, 2026">
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="448" viewBox="0 0 880 448" role="img" aria-label="Daily token usage by source and model, 8-bit pixel chart, JUL 10 - AUG 08, 2026">
 <style>
-svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old Style",serif;--fm:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--surface:#faf9f5; --primary:#141413; --secondary:#53524b; --muted:#8a887f; --grid:#e8e6dc; --axis:#cbc8bc; --claude:#d06a41; --codex:#4382c9; --ramp0:#edeae0; --ramp1:#f2cdb9; --ramp2:#e59a70; --ramp3:#d06a41; --ramp4:#9c4a26; --ink3:#141413; --ink4:#ffffff;}
-@media (prefers-color-scheme: dark){svg{--surface:#141413; --primary:#faf9f5; --secondary:#b0aea5; --muted:#85837a; --grid:#292824; --axis:#383630; --claude:#db7448; --codex:#5b95d6; --ramp0:#232221; --ramp1:#4b2b1b; --ramp2:#8a4526; --ramp3:#cf6a3e; --ramp4:#f0a37a; --ink3:#141413; --ink4:#141413;}}
+svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old Style",serif;--fm:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--surface:#faf9f5; --primary:#141413; --secondary:#53524b; --muted:#8a887f; --grid:#e8e6dc; --axis:#cbc8bc; --claude:#d06a41; --codex:#4382c9; --opencode:#7c5cd6; --pi:#2e9e6b; --ramp0:#edeae0; --ramp1:#f2cdb9; --ramp2:#e59a70; --ramp3:#d06a41; --ramp4:#9c4a26; --ink3:#141413; --ink4:#ffffff;}
+@media (prefers-color-scheme: dark){svg{--surface:#141413; --primary:#faf9f5; --secondary:#b0aea5; --muted:#85837a; --grid:#292824; --axis:#383630; --claude:#db7448; --codex:#5b95d6; --opencode:#8f74e0; --pi:#3daf7a; --ramp0:#232221; --ramp1:#4b2b1b; --ramp2:#8a4526; --ramp3:#cf6a3e; --ramp4:#f0a37a; --ink3:#141413; --ink4:#141413;}}
 .bg{fill:var(--surface)}
 .grid{stroke:var(--grid);stroke-width:1;shape-rendering:crispEdges}
 .axis{stroke:var(--axis);stroke-width:1;shape-rendering:crispEdges}
@@ -10,16 +10,16 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 .tm{font-family:var(--f);fill:var(--muted);font-variant-numeric:tabular-nums}
 .ts{font-family:var(--fs);fill:var(--primary)}
 .tn{font-family:var(--fm);fill:var(--primary);font-variant-numeric:tabular-nums}
-.s-claude{fill:var(--claude)}.s-codex{fill:var(--codex)}
+.s-claude{fill:var(--claude)}.s-codex{fill:var(--codex)}.s-opencode{fill:var(--opencode)}.s-pi{fill:var(--pi)}
 .r0{fill:var(--ramp0)}.r1{fill:var(--ramp1)}.r2{fill:var(--ramp2)}.r3{fill:var(--ramp3)}.r4{fill:var(--ramp4)}
 .on3{fill:var(--ink3)}.on4{fill:var(--ink4)}
 .wip{opacity:.5}
-.px{shape-rendering:crispEdges}.tt{font-family:var(--fm);fill:var(--primary);font-weight:700;letter-spacing:3px}.sub{font-family:var(--fm);fill:var(--secondary);letter-spacing:1px}.ink{fill:var(--primary)}.gridp{stroke:var(--grid);stroke-width:1;shape-rendering:crispEdges;stroke-dasharray:4 4}.axp{stroke:var(--axis);stroke-width:2;shape-rendering:crispEdges}.col{animation:rise .5s steps(4,end) both}@keyframes rise{from{opacity:0;transform:translateY(14px)}}.blink{animation:blink 1.3s step-end infinite}@keyframes blink{0%,54%{opacity:1}55%,100%{opacity:.2}}svg{--claude-fable:#9c4a26;--claude-opus:#d06a41;--claude-sonnet:#e59a70;--codex-core:#245f9f;--codex-terra:#4382c9;--codex-luna:#78a9dc}@media (prefers-color-scheme:dark){svg{--claude-fable:#a84c2b;--claude-opus:#db7448;--claude-sonnet:#f2aa84;--codex-core:#2f70b1;--codex-terra:#5b95d6;--codex-luna:#8ab9e8}}.m-claude-fable{fill:var(--claude-fable)}.m-claude-sonnet{fill:var(--claude-sonnet)}.m-claude-opus{fill:var(--claude-opus)}.m-codex-core{fill:var(--codex-core)}.m-codex-terra{fill:var(--codex-terra)}.m-codex-luna{fill:var(--codex-luna)}
+.px{shape-rendering:crispEdges}.tt{font-family:var(--fm);fill:var(--primary);font-weight:700;letter-spacing:3px}.sub{font-family:var(--fm);fill:var(--secondary);letter-spacing:1px}.ink{fill:var(--primary)}.gridp{stroke:var(--grid);stroke-width:1;shape-rendering:crispEdges;stroke-dasharray:4 4}.axp{stroke:var(--axis);stroke-width:2;shape-rendering:crispEdges}.col{animation:rise .5s steps(4,end) both}@keyframes rise{from{opacity:0;transform:translateY(14px)}}.blink{animation:blink 1.3s step-end infinite}@keyframes blink{0%,54%{opacity:1}55%,100%{opacity:.2}}svg{--claude-fable:#9c4a26;--claude-opus:#d06a41;--claude-sonnet:#e59a70;--codex-core:#245f9f;--codex-terra:#4382c9;--codex-luna:#78a9dc;--opencode-flash:#5d46b8;--opencode-other:#a890f5;--pi-flash:#1e7d54;--pi-other:#59be8d}@media (prefers-color-scheme:dark){svg{--claude-fable:#a84c2b;--claude-opus:#db7448;--claude-sonnet:#f2aa84;--codex-core:#2f70b1;--codex-terra:#5b95d6;--codex-luna:#8ab9e8;--opencode-flash:#a890f5;--opencode-other:#5d46b8;--pi-flash:#5bc78f;--pi-other:#1e6e4c}}.m-claude-fable{fill:var(--claude-fable)}.m-claude-sonnet{fill:var(--claude-sonnet)}.m-claude-opus{fill:var(--claude-opus)}.m-codex-core{fill:var(--codex-core)}.m-codex-terra{fill:var(--codex-terra)}.m-codex-luna{fill:var(--codex-luna)}.m-opencode-flash{fill:var(--opencode-flash)}.m-opencode-other{fill:var(--opencode-other)}.m-opencode{fill:var(--opencode)}.m-pi-flash{fill:var(--pi-flash)}.m-pi-other{fill:var(--pi-other)}.m-pi{fill:var(--pi)}
 @media (prefers-reduced-motion: reduce){*{animation:none !important}}
 </style>
-<rect class="bg" width="880" height="412"/>
+<rect class="bg" width="880" height="448"/>
 <text class="tt" x="28" y="36" font-size="17">DAILY TOKENS BY MODEL</text>
-<text class="sub" x="28" y="57" font-size="11">JUL 09 - AUG 07, 2026 / 5.9B TOKENS OVER 30 DAYS / 1PX = 20M / SOLID TO HOLLOW = TOP TIER DOWN</text>
+<text class="sub" x="28" y="57" font-size="11">JUL 10 - AUG 08, 2026 / 6.5B TOKENS OVER 30 DAYS / 1PX = 20M / SOLID TO HOLLOW = TOP TIER DOWN</text>
 <text class="tm" x="28" y="76" font-size="9.5" font-family="var(--fm)" letter-spacing="1">CLAUDE</text>
 <rect class="px m-claude-fable" x="90" y="68" width="8" height="8"></rect>
 <text class="t2" x="103" y="76" font-size="10" font-family="var(--fm)">FABLE</text>
@@ -38,6 +38,18 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px m-codex-luna" x="220" y="85" width="8" height="8"></rect>
 <rect class="px bg" x="222" y="87" width="4" height="4"/>
 <text class="t2" x="233" y="93" font-size="10" font-family="var(--fm)">LUNA</text>
+<text class="tm" x="28" y="110" font-size="9.5" font-family="var(--fm)" letter-spacing="1">OPENCODE</text>
+<rect class="px m-opencode-flash" x="90" y="102" width="8" height="8"></rect>
+<text class="t2" x="103" y="110" font-size="10" font-family="var(--fm)">FLASH</text>
+<rect class="px m-opencode-other" x="143" y="102" width="8" height="8"></rect>
+<rect class="px bg" x="146" y="105" width="2" height="2"/>
+<text class="t2" x="156" y="110" font-size="10" font-family="var(--fm)">OTHER</text>
+<text class="tm" x="28" y="127" font-size="9.5" font-family="var(--fm)" letter-spacing="1">PI</text>
+<rect class="px m-pi-flash" x="90" y="119" width="8" height="8"></rect>
+<text class="t2" x="103" y="127" font-size="10" font-family="var(--fm)">FLASH</text>
+<rect class="px m-pi-other" x="143" y="119" width="8" height="8"></rect>
+<rect class="px bg" x="146" y="122" width="2" height="2"/>
+<text class="t2" x="156" y="127" font-size="10" font-family="var(--fm)">OTHER</text>
 <g class="ink px">
 <rect x="823" y="24" width="4" height="4"/>
 <rect x="828" y="24" width="4" height="4"/>
@@ -67,535 +79,596 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect x="838" y="44" width="4" height="4"/>
 <rect x="833" y="49" width="4" height="4"/>
 </g>
-<text class="tm" x="66" y="360" font-size="10.5" text-anchor="end">0</text>
-<line class="gridp" x1="76" y1="306" x2="852" y2="306"/>
-<text class="tm" x="66" y="310" font-size="10.5" text-anchor="end">200M</text>
-<line class="gridp" x1="76" y1="256" x2="852" y2="256"/>
-<text class="tm" x="66" y="260" font-size="10.5" text-anchor="end">400M</text>
-<line class="gridp" x1="76" y1="206" x2="852" y2="206"/>
-<text class="tm" x="66" y="210" font-size="10.5" text-anchor="end">600M</text>
-<line class="gridp" x1="76" y1="156" x2="852" y2="156"/>
-<text class="tm" x="66" y="160" font-size="10.5" text-anchor="end">800M</text>
-<line class="axp" x1="76" y1="357" x2="852" y2="357"/>
+<text class="tm" x="66" y="396" font-size="10.5" text-anchor="end">0</text>
+<line class="gridp" x1="76" y1="342" x2="852" y2="342"/>
+<text class="tm" x="66" y="346" font-size="10.5" text-anchor="end">200M</text>
+<line class="gridp" x1="76" y1="292" x2="852" y2="292"/>
+<text class="tm" x="66" y="296" font-size="10.5" text-anchor="end">400M</text>
+<line class="gridp" x1="76" y1="242" x2="852" y2="242"/>
+<text class="tm" x="66" y="246" font-size="10.5" text-anchor="end">600M</text>
+<line class="gridp" x1="76" y1="192" x2="852" y2="192"/>
+<text class="tm" x="66" y="196" font-size="10.5" text-anchor="end">800M</text>
+<line class="axp" x1="76" y1="393" x2="852" y2="393"/>
 <g class="col" style="animation-delay:0ms">
-<rect class="px m-claude-fable" x="80" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="90" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-codex-core" x="80" y="338" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="90" y="338" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-fable" x="80" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="90" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="93" y="387" width="2" height="2"/>
+<rect class="px m-codex-core" x="80" y="374" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="90" y="374" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="80" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="90" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="80" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="90" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="80" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="90" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-terra" x="80" y="334" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="83" y="337" width="2" height="2"/>
+<rect class="px m-opencode-flash" x="90" y="334" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:18ms">
-<rect class="px m-claude-fable" x="106" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="116" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="119" y="351" width="2" height="2"/>
-<rect class="px m-codex-core" x="106" y="338" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="116" y="338" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="106" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="116" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="106" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="116" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="106" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="116" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-terra" x="106" y="298" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="109" y="301" width="2" height="2"/>
+<rect class="px m-claude-fable" x="106" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-sonnet" x="116" y="384" width="8" height="8"><title>SONNET / HAIKU</title></rect>
+<rect class="px bg" x="118" y="386" width="4" height="4"/>
+<rect class="px m-codex-core" x="106" y="374" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="116" y="374" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="106" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="116" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="106" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="116" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="106" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="116" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="106" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="116" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-opencode" x="106" y="324" width="8" height="8"><title>OPENCODE</title></rect>
 </g>
-<text class="tm" x="115" y="375" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/10</text>
+<text class="tm" x="115" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/11</text>
 <g class="col" style="animation-delay:36ms">
-<rect class="px m-claude-fable" x="132" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-sonnet" x="142" y="348" width="8" height="8"><title>SONNET / HAIKU</title></rect>
-<rect class="px bg" x="144" y="350" width="4" height="4"/>
-<rect class="px m-codex-core" x="132" y="338" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="142" y="338" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="132" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="142" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="132" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="142" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="132" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="142" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="132" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="142" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-fable" x="132" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="142" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="132" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="135" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="142" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="145" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="132" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="135" y="367" width="2" height="2"/>
+<rect class="px m-codex-core" x="142" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="132" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="142" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="132" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="142" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="132" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="142" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-opencode-flash" x="132" y="324" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:54ms">
-<rect class="px m-claude-fable" x="158" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="168" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="158" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="161" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="168" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="171" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="158" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="161" y="331" width="2" height="2"/>
-<rect class="px m-codex-core" x="168" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="158" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="168" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="158" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="168" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="158" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="168" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-fable" x="158" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="168" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="171" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="158" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="161" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="168" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="171" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="158" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="161" y="367" width="2" height="2"/>
+<rect class="px s-claude" x="168" y="364" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px m-codex-core" x="158" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="168" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="158" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="168" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="158" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-opencode-flash" x="168" y="334" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:72ms">
-<rect class="px m-claude-fable" x="183" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="193" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="196" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="183" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="186" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="193" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="196" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="183" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="186" y="331" width="2" height="2"/>
-<rect class="px m-codex-core" x="193" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="183" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="193" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="183" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="193" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px s-claude" x="183" y="384" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px m-codex-core" x="193" y="384" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="183" y="374" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="193" y="374" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="183" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="193" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="183" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="193" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="183" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="193" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="183" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-opencode-flash" x="193" y="334" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:90ms">
-<rect class="px m-claude-opus" x="209" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="212" y="351" width="2" height="2"/>
-<rect class="px m-codex-core" x="219" y="348" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="209" y="338" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="219" y="338" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="209" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="219" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="209" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="219" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="209" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="219" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="209" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-fable" x="209" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="219" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="222" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="209" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="212" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="219" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="222" y="377" width="2" height="2"/>
+<rect class="px m-codex-core" x="209" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="219" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="209" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="219" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="209" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="219" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="209" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="219" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="209" y="324" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="219" y="324" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="209" y="314" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-opencode-flash" x="219" y="314" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="209" y="304" width="8" height="8"><title>FLASH</title></rect>
 </g>
-<text class="tm" x="218" y="375" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/14</text>
+<text class="tm" x="218" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/15</text>
 <g class="col" style="animation-delay:108ms">
-<rect class="px m-claude-fable" x="235" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="245" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="248" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="235" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="238" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="245" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="248" y="341" width="2" height="2"/>
-<rect class="px m-codex-core" x="235" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="245" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="235" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="245" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="235" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="245" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="235" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="245" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="235" y="288" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="245" y="288" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="235" y="278" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-fable" x="235" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="245" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="235" y="374" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="245" y="374" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="235" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="238" y="367" width="2" height="2"/>
+<rect class="px m-claude-opus" x="245" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="248" y="367" width="2" height="2"/>
+<rect class="px m-claude-opus" x="235" y="354" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="238" y="357" width="2" height="2"/>
+<rect class="px m-claude-opus" x="245" y="354" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="248" y="357" width="2" height="2"/>
+<rect class="px m-claude-sonnet" x="235" y="344" width="8" height="8"><title>SONNET / HAIKU</title></rect>
+<rect class="px bg" x="237" y="346" width="4" height="4"/>
+<rect class="px m-codex-core" x="245" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="235" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="245" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="235" y="324" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="245" y="324" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="235" y="314" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="245" y="314" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="235" y="304" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="245" y="304" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="235" y="294" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="245" y="294" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="235" y="284" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="245" y="284" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="235" y="274" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="245" y="274" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-opencode" x="235" y="264" width="8" height="8"><title>OPENCODE</title></rect>
 </g>
 <g class="col" style="animation-delay:126ms">
-<rect class="px m-claude-fable" x="261" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="271" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="261" y="338" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="271" y="338" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="261" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="264" y="331" width="2" height="2"/>
-<rect class="px m-claude-opus" x="271" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="274" y="331" width="2" height="2"/>
-<rect class="px m-claude-opus" x="261" y="318" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="264" y="321" width="2" height="2"/>
-<rect class="px m-claude-opus" x="271" y="318" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="274" y="321" width="2" height="2"/>
-<rect class="px m-codex-core" x="261" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="271" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="261" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="271" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="261" y="288" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="271" y="288" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="261" y="278" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="271" y="278" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="261" y="268" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="271" y="268" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="261" y="258" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="271" y="258" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="261" y="248" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="271" y="248" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="261" y="238" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-fable" x="261" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="271" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="261" y="374" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="271" y="374" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="261" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="264" y="367" width="2" height="2"/>
+<rect class="px m-claude-opus" x="271" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="274" y="367" width="2" height="2"/>
+<rect class="px m-codex-core" x="261" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="271" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="261" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="271" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="261" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="271" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="261" y="324" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="271" y="324" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-opencode-flash" x="261" y="314" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:144ms">
-<rect class="px m-claude-fable" x="287" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="297" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="287" y="338" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="297" y="338" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="287" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="290" y="331" width="2" height="2"/>
-<rect class="px m-claude-opus" x="297" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="300" y="331" width="2" height="2"/>
-<rect class="px m-codex-core" x="287" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="297" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="287" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="297" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="287" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="297" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="287" y="288" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="297" y="288" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-fable" x="287" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="297" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="287" y="374" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="297" y="374" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="287" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="290" y="367" width="2" height="2"/>
+<rect class="px m-claude-opus" x="297" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="300" y="367" width="2" height="2"/>
+<rect class="px m-claude-opus" x="287" y="354" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="290" y="357" width="2" height="2"/>
+<rect class="px m-codex-core" x="297" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="287" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="297" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="287" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="297" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="287" y="324" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="297" y="324" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="287" y="314" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="297" y="314" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="287" y="304" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="297" y="304" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="287" y="294" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="297" y="294" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="287" y="284" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="297" y="284" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-terra" x="287" y="274" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="290" y="277" width="2" height="2"/>
 </g>
 <g class="col" style="animation-delay:162ms">
-<rect class="px m-claude-fable" x="313" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="323" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="313" y="338" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="323" y="338" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="313" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="316" y="331" width="2" height="2"/>
-<rect class="px m-claude-opus" x="323" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="326" y="331" width="2" height="2"/>
-<rect class="px m-claude-opus" x="313" y="318" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="316" y="321" width="2" height="2"/>
-<rect class="px m-codex-core" x="323" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="313" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="323" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="313" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="323" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="313" y="288" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="323" y="288" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="313" y="278" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="323" y="278" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="313" y="268" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="323" y="268" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="313" y="258" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="323" y="258" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="313" y="248" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="323" y="248" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-terra" x="313" y="238" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="316" y="241" width="2" height="2"/>
+<rect class="px m-claude-fable" x="313" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="323" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="313" y="374" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="323" y="374" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="313" y="364" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="323" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="326" y="367" width="2" height="2"/>
+<rect class="px m-claude-opus" x="313" y="354" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="316" y="357" width="2" height="2"/>
+<rect class="px m-claude-opus" x="323" y="354" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="326" y="357" width="2" height="2"/>
+<rect class="px m-claude-opus" x="313" y="344" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="316" y="347" width="2" height="2"/>
+<rect class="px m-claude-opus" x="323" y="344" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="326" y="347" width="2" height="2"/>
+<rect class="px m-codex-core" x="313" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="323" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="313" y="324" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="323" y="324" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-opencode-flash" x="313" y="314" width="8" height="8"><title>FLASH</title></rect>
 </g>
-<text class="tm" x="322" y="375" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/18</text>
+<text class="tm" x="322" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/19</text>
 <g class="col" style="animation-delay:180ms">
-<rect class="px m-claude-fable" x="339" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="349" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="339" y="338" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="349" y="338" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="339" y="328" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="349" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="352" y="331" width="2" height="2"/>
-<rect class="px m-claude-opus" x="339" y="318" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="342" y="321" width="2" height="2"/>
-<rect class="px m-claude-opus" x="349" y="318" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="352" y="321" width="2" height="2"/>
-<rect class="px m-claude-opus" x="339" y="308" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="342" y="311" width="2" height="2"/>
-<rect class="px m-claude-opus" x="349" y="308" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="352" y="311" width="2" height="2"/>
-<rect class="px m-codex-core" x="339" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="349" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="339" y="288" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="349" y="288" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-fable" x="339" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="349" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="352" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="339" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="342" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="349" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="352" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="339" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="342" y="367" width="2" height="2"/>
+<rect class="px m-codex-core" x="349" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="339" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="349" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="339" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="349" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="339" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-terra" x="349" y="334" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="352" y="337" width="2" height="2"/>
+<rect class="px m-codex-terra" x="339" y="324" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="342" y="327" width="2" height="2"/>
+<rect class="px m-codex-terra" x="349" y="324" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="352" y="327" width="2" height="2"/>
+<rect class="px m-opencode-flash" x="339" y="314" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:198ms">
-<rect class="px m-claude-fable" x="364" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="374" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="377" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="364" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="367" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="374" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="377" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="364" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="367" y="331" width="2" height="2"/>
-<rect class="px m-codex-core" x="374" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="364" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="374" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="364" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="374" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="364" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-terra" x="374" y="298" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="377" y="301" width="2" height="2"/>
-<rect class="px m-codex-terra" x="364" y="288" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="367" y="291" width="2" height="2"/>
-<rect class="px m-codex-terra" x="374" y="288" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="377" y="291" width="2" height="2"/>
+<rect class="px m-claude-fable" x="364" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="374" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="377" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="364" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="367" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="374" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="377" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="364" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="367" y="367" width="2" height="2"/>
+<rect class="px m-claude-opus" x="374" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="377" y="367" width="2" height="2"/>
+<rect class="px m-claude-opus" x="364" y="354" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="367" y="357" width="2" height="2"/>
+<rect class="px m-claude-opus" x="374" y="354" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="377" y="357" width="2" height="2"/>
+<rect class="px m-claude-opus" x="364" y="344" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="367" y="347" width="2" height="2"/>
+<rect class="px m-claude-opus" x="374" y="344" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="377" y="347" width="2" height="2"/>
+<rect class="px s-claude" x="364" y="334" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="374" y="334" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px m-codex-core" x="364" y="324" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="374" y="324" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="364" y="314" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-terra" x="374" y="314" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="377" y="317" width="2" height="2"/>
+<rect class="px m-codex-terra" x="364" y="304" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="367" y="307" width="2" height="2"/>
+<rect class="px m-opencode-flash" x="374" y="304" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:216ms">
-<rect class="px m-claude-fable" x="390" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="400" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="403" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="390" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="393" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="400" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="403" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="390" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="393" y="331" width="2" height="2"/>
-<rect class="px m-claude-opus" x="400" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="403" y="331" width="2" height="2"/>
-<rect class="px m-claude-opus" x="390" y="318" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="393" y="321" width="2" height="2"/>
-<rect class="px m-claude-opus" x="400" y="318" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="403" y="321" width="2" height="2"/>
-<rect class="px m-claude-opus" x="390" y="308" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="393" y="311" width="2" height="2"/>
-<rect class="px m-codex-core" x="400" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="390" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="400" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-terra" x="390" y="288" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="393" y="291" width="2" height="2"/>
-<rect class="px m-codex-terra" x="400" y="288" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="403" y="291" width="2" height="2"/>
+<rect class="px m-claude-fable" x="390" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="400" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="403" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="390" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="393" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="400" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="403" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="390" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="393" y="367" width="2" height="2"/>
+<rect class="px m-claude-opus" x="400" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="403" y="367" width="2" height="2"/>
+<rect class="px m-codex-core" x="390" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-terra" x="400" y="354" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="403" y="357" width="2" height="2"/>
+<rect class="px m-codex-terra" x="390" y="344" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="393" y="347" width="2" height="2"/>
+<rect class="px m-codex-terra" x="400" y="344" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="403" y="347" width="2" height="2"/>
+<rect class="px m-codex-terra" x="390" y="334" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="393" y="337" width="2" height="2"/>
+<rect class="px m-codex-terra" x="400" y="334" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="403" y="337" width="2" height="2"/>
+<rect class="px m-codex-terra" x="390" y="324" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="393" y="327" width="2" height="2"/>
+<rect class="px m-opencode-flash" x="400" y="324" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="390" y="314" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:234ms">
-<rect class="px m-claude-fable" x="416" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="426" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="429" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="416" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="419" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="426" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="429" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="416" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="419" y="331" width="2" height="2"/>
-<rect class="px m-claude-opus" x="426" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="429" y="331" width="2" height="2"/>
-<rect class="px m-codex-core" x="416" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-terra" x="426" y="318" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="429" y="321" width="2" height="2"/>
-<rect class="px m-codex-terra" x="416" y="308" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="419" y="311" width="2" height="2"/>
-<rect class="px m-codex-terra" x="426" y="308" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="429" y="311" width="2" height="2"/>
-<rect class="px m-codex-terra" x="416" y="298" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="419" y="301" width="2" height="2"/>
-<rect class="px m-codex-terra" x="426" y="298" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="429" y="301" width="2" height="2"/>
-<rect class="px m-codex-terra" x="416" y="288" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="419" y="291" width="2" height="2"/>
+<rect class="px m-claude-fable" x="416" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="426" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="416" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="419" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="426" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="429" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="416" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="419" y="367" width="2" height="2"/>
+<rect class="px m-claude-opus" x="426" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="429" y="367" width="2" height="2"/>
+<rect class="px m-claude-opus" x="416" y="354" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="419" y="357" width="2" height="2"/>
+<rect class="px s-claude" x="426" y="354" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px m-codex-core" x="416" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="426" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-terra" x="416" y="334" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="419" y="337" width="2" height="2"/>
+<rect class="px m-opencode-flash" x="426" y="334" width="8" height="8"><title>FLASH</title></rect>
 </g>
-<text class="tm" x="425" y="375" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/22</text>
+<text class="tm" x="425" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/23</text>
 <g class="col" style="animation-delay:252ms">
-<rect class="px m-claude-fable" x="442" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="452" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="442" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="445" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="452" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="455" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="442" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="445" y="331" width="2" height="2"/>
-<rect class="px m-claude-opus" x="452" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="455" y="331" width="2" height="2"/>
-<rect class="px m-claude-opus" x="442" y="318" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="445" y="321" width="2" height="2"/>
-<rect class="px m-codex-core" x="452" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="442" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-terra" x="452" y="308" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="455" y="311" width="2" height="2"/>
+<rect class="px m-claude-fable" x="442" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="452" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="455" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="442" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="445" y="377" width="2" height="2"/>
+<rect class="px s-claude" x="452" y="374" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="442" y="364" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px m-codex-core" x="452" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="442" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="452" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="442" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-opencode-flash" x="452" y="344" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:270ms">
-<rect class="px m-claude-fable" x="468" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="478" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="481" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="468" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="471" y="341" width="2" height="2"/>
-<rect class="px m-codex-core" x="478" y="338" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="468" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="478" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="468" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-fable" x="468" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px s-claude" x="478" y="384" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px m-codex-core" x="468" y="374" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="478" y="374" width="8" height="8"><title>5.5 / SOL</title></rect>
 </g>
 <g class="col" style="animation-delay:288ms">
-<rect class="px m-claude-fable" x="494" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-codex-core" x="504" y="348" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="494" y="338" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-fable" x="494" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="504" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="494" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="497" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="504" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="507" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="494" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="497" y="367" width="2" height="2"/>
+<rect class="px m-codex-core" x="504" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="494" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-opencode" x="504" y="354" width="8" height="8"><title>OPENCODE</title></rect>
 </g>
 <g class="col" style="animation-delay:306ms">
-<rect class="px m-claude-fable" x="520" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="530" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="520" y="338" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="530" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="533" y="341" width="2" height="2"/>
-<rect class="px m-codex-core" x="520" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="530" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-opus" x="520" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="523" y="387" width="2" height="2"/>
+<rect class="px m-codex-core" x="530" y="384" width="8" height="8"><title>5.5 / SOL</title></rect>
 </g>
-<text class="tm" x="529" y="375" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/26</text>
+<text class="tm" x="529" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/27</text>
 <g class="col" style="animation-delay:324ms">
-<rect class="px m-claude-fable" x="546" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-codex-core" x="556" y="348" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-opus" x="546" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="549" y="387" width="2" height="2"/>
+<rect class="px m-codex-terra" x="556" y="384" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="559" y="387" width="2" height="2"/>
+<rect class="px m-pi-flash" x="546" y="374" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:342ms">
-<rect class="px m-claude-opus" x="571" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="574" y="351" width="2" height="2"/>
-<rect class="px m-codex-terra" x="581" y="348" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="584" y="351" width="2" height="2"/>
+<rect class="px m-claude-opus" x="571" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="574" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="581" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="584" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="571" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="574" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="581" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="584" y="377" width="2" height="2"/>
+<rect class="px m-codex-core" x="571" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="581" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
 </g>
 <g class="col" style="animation-delay:360ms">
-<rect class="px m-claude-opus" x="597" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="600" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="607" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="610" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="597" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="600" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="607" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="610" y="341" width="2" height="2"/>
-<rect class="px m-codex-core" x="597" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="607" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-opus" x="597" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="600" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="607" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="610" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="597" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="600" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="607" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="610" y="377" width="2" height="2"/>
+<rect class="px s-claude" x="597" y="364" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px m-codex-core" x="607" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="597" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
 </g>
 <g class="col" style="animation-delay:378ms">
-<rect class="px m-claude-opus" x="623" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="626" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="633" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="636" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="623" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="626" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="633" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="636" y="341" width="2" height="2"/>
-<rect class="px m-codex-core" x="623" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="633" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-fable" x="623" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="633" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="636" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="623" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="626" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="633" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="636" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="623" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="626" y="367" width="2" height="2"/>
+<rect class="px m-claude-sonnet" x="633" y="364" width="8" height="8"><title>SONNET / HAIKU</title></rect>
+<rect class="px bg" x="635" y="366" width="4" height="4"/>
+<rect class="px s-claude" x="623" y="354" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="633" y="354" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="623" y="344" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px m-codex-core" x="633" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-terra" x="623" y="334" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="626" y="337" width="2" height="2"/>
 </g>
-<text class="tm" x="632" y="375" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/30</text>
+<text class="tm" x="632" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">07/31</text>
 <g class="col" style="animation-delay:396ms">
-<rect class="px m-claude-fable" x="649" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="659" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="662" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="649" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="652" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="659" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="662" y="341" width="2" height="2"/>
-<rect class="px m-claude-sonnet" x="649" y="328" width="8" height="8"><title>SONNET / HAIKU</title></rect>
-<rect class="px bg" x="651" y="330" width="4" height="4"/>
-<rect class="px m-codex-core" x="659" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-terra" x="649" y="318" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="652" y="321" width="2" height="2"/>
+<rect class="px m-codex-core" x="649" y="384" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-luna" x="659" y="384" width="8" height="8"><title>LUNA</title></rect>
+<rect class="px bg" x="661" y="386" width="4" height="4"/>
+<rect class="px m-codex-luna" x="649" y="374" width="8" height="8"><title>LUNA</title></rect>
+<rect class="px bg" x="651" y="376" width="4" height="4"/>
+<rect class="px m-opencode-flash" x="659" y="374" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="649" y="364" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:414ms">
-<rect class="px m-codex-core" x="675" y="348" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-fable" x="675" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-sonnet" x="685" y="384" width="8" height="8"><title>SONNET / HAIKU</title></rect>
+<rect class="px bg" x="687" y="386" width="4" height="4"/>
+<rect class="px m-codex-core" x="675" y="374" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="685" y="374" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="675" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="685" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="675" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="685" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="675" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="685" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-terra" x="675" y="334" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="678" y="337" width="2" height="2"/>
+<rect class="px m-opencode-flash" x="685" y="334" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:432ms">
-<rect class="px m-claude-fable" x="701" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-sonnet" x="711" y="348" width="8" height="8"><title>SONNET / HAIKU</title></rect>
-<rect class="px bg" x="713" y="350" width="4" height="4"/>
-<rect class="px m-codex-core" x="701" y="338" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="711" y="338" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="701" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="711" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="701" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="711" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="701" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="711" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-terra" x="701" y="298" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="704" y="301" width="2" height="2"/>
+<rect class="px m-claude-fable" x="701" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="711" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="714" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="701" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="704" y="377" width="2" height="2"/>
+<rect class="px m-codex-core" x="711" y="374" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="701" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-opencode-flash" x="711" y="364" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:450ms">
-<rect class="px m-claude-fable" x="727" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="737" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="740" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="727" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="730" y="341" width="2" height="2"/>
-<rect class="px m-codex-core" x="737" y="338" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="727" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-fable" x="727" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="737" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="740" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="727" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="730" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="737" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="740" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="727" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="730" y="367" width="2" height="2"/>
+<rect class="px m-codex-core" x="737" y="364" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="727" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="737" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="727" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="737" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="727" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="737" y="334" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="727" y="324" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="737" y="324" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-opencode-flash" x="727" y="314" width="8" height="8"><title>FLASH</title></rect>
 </g>
-<text class="tm" x="736" y="375" font-size="10.5" text-anchor="middle" font-family="var(--fm)">08/03</text>
+<text class="tm" x="736" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">08/04</text>
 <g class="col" style="animation-delay:468ms">
-<rect class="px m-claude-fable" x="752" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="762" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="765" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="752" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="755" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="762" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="765" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="752" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="755" y="331" width="2" height="2"/>
-<rect class="px m-codex-core" x="762" y="328" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="752" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="762" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="752" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="762" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="752" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="762" y="298" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-claude-fable" x="752" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="762" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-fable" x="752" y="374" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="762" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="765" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="752" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="755" y="367" width="2" height="2"/>
+<rect class="px m-claude-opus" x="762" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="765" y="367" width="2" height="2"/>
+<rect class="px m-claude-opus" x="752" y="354" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="755" y="357" width="2" height="2"/>
+<rect class="px m-claude-opus" x="762" y="354" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="765" y="357" width="2" height="2"/>
+<rect class="px m-claude-opus" x="752" y="344" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="755" y="347" width="2" height="2"/>
+<rect class="px m-claude-opus" x="762" y="344" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="765" y="347" width="2" height="2"/>
+<rect class="px m-claude-opus" x="752" y="334" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="755" y="337" width="2" height="2"/>
+<rect class="px m-claude-opus" x="762" y="334" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="765" y="337" width="2" height="2"/>
+<rect class="px m-claude-sonnet" x="752" y="324" width="8" height="8"><title>SONNET / HAIKU</title></rect>
+<rect class="px bg" x="754" y="326" width="4" height="4"/>
+<rect class="px m-codex-core" x="762" y="324" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="752" y="314" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="762" y="314" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="752" y="304" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="762" y="304" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="752" y="294" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="762" y="294" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="752" y="284" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="762" y="284" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="752" y="274" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="762" y="274" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="752" y="264" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-terra" x="762" y="264" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="765" y="267" width="2" height="2"/>
+<rect class="px m-codex-terra" x="752" y="254" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="755" y="257" width="2" height="2"/>
+<rect class="px m-codex-terra" x="762" y="254" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="765" y="257" width="2" height="2"/>
+<rect class="px s-codex" x="752" y="244" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px m-opencode-flash" x="762" y="244" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="752" y="234" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="762" y="234" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="752" y="224" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:486ms">
-<rect class="px m-claude-fable" x="778" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="788" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-fable" x="778" y="338" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="788" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="791" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="778" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="781" y="331" width="2" height="2"/>
-<rect class="px m-claude-opus" x="788" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="791" y="331" width="2" height="2"/>
-<rect class="px m-claude-opus" x="778" y="318" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="781" y="321" width="2" height="2"/>
-<rect class="px m-claude-opus" x="788" y="318" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="791" y="321" width="2" height="2"/>
-<rect class="px m-claude-opus" x="778" y="308" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="781" y="311" width="2" height="2"/>
-<rect class="px m-claude-opus" x="788" y="308" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="791" y="311" width="2" height="2"/>
-<rect class="px m-claude-opus" x="778" y="298" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="781" y="301" width="2" height="2"/>
-<rect class="px m-claude-opus" x="788" y="298" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="791" y="301" width="2" height="2"/>
-<rect class="px m-claude-sonnet" x="778" y="288" width="8" height="8"><title>SONNET / HAIKU</title></rect>
-<rect class="px bg" x="780" y="290" width="4" height="4"/>
-<rect class="px m-codex-core" x="788" y="288" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="778" y="278" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="788" y="278" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="778" y="268" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="788" y="268" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="778" y="258" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="788" y="258" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="778" y="248" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-luna" x="788" y="248" width="8" height="8"><title>LUNA</title></rect>
-<rect class="px bg" x="790" y="250" width="4" height="4"/>
+<rect class="px m-claude-fable" x="778" y="384" width="8" height="8"><title>FABLE</title></rect>
+<rect class="px m-claude-opus" x="788" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="791" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="778" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="781" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="788" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="791" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="778" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="781" y="367" width="2" height="2"/>
+<rect class="px m-claude-opus" x="788" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="791" y="367" width="2" height="2"/>
+<rect class="px m-claude-opus" x="778" y="354" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="781" y="357" width="2" height="2"/>
+<rect class="px m-claude-opus" x="788" y="354" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="791" y="357" width="2" height="2"/>
+<rect class="px m-claude-opus" x="778" y="344" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="781" y="347" width="2" height="2"/>
+<rect class="px m-claude-opus" x="788" y="344" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="791" y="347" width="2" height="2"/>
+<rect class="px m-claude-opus" x="778" y="334" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="781" y="337" width="2" height="2"/>
+<rect class="px m-claude-opus" x="788" y="334" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="791" y="337" width="2" height="2"/>
+<rect class="px m-claude-opus" x="778" y="324" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="781" y="327" width="2" height="2"/>
+<rect class="px m-claude-opus" x="788" y="324" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="791" y="327" width="2" height="2"/>
+<rect class="px m-claude-opus" x="778" y="314" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="781" y="317" width="2" height="2"/>
+<rect class="px m-claude-opus" x="788" y="314" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="791" y="317" width="2" height="2"/>
+<rect class="px m-claude-opus" x="778" y="304" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="781" y="307" width="2" height="2"/>
+<rect class="px m-codex-core" x="788" y="304" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="778" y="294" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="788" y="294" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="778" y="284" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="788" y="284" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="778" y="274" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="788" y="274" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-terra" x="778" y="264" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="781" y="267" width="2" height="2"/>
 </g>
 <g class="col" style="animation-delay:504ms">
-<rect class="px m-claude-fable" x="804" y="348" width="8" height="8"><title>FABLE</title></rect>
-<rect class="px m-claude-opus" x="814" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="817" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="804" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="807" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="814" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="817" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="804" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="807" y="331" width="2" height="2"/>
-<rect class="px m-claude-opus" x="814" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="817" y="331" width="2" height="2"/>
-<rect class="px m-claude-opus" x="804" y="318" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="807" y="321" width="2" height="2"/>
-<rect class="px m-claude-opus" x="814" y="318" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="817" y="321" width="2" height="2"/>
-<rect class="px m-claude-opus" x="804" y="308" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="807" y="311" width="2" height="2"/>
-<rect class="px m-claude-opus" x="814" y="308" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="817" y="311" width="2" height="2"/>
-<rect class="px m-claude-opus" x="804" y="298" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="807" y="301" width="2" height="2"/>
-<rect class="px m-claude-opus" x="814" y="298" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="817" y="301" width="2" height="2"/>
-<rect class="px m-claude-opus" x="804" y="288" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="807" y="291" width="2" height="2"/>
-<rect class="px m-claude-opus" x="814" y="288" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="817" y="291" width="2" height="2"/>
-<rect class="px m-claude-opus" x="804" y="278" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="807" y="281" width="2" height="2"/>
-<rect class="px m-claude-opus" x="814" y="278" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="817" y="281" width="2" height="2"/>
-<rect class="px m-claude-opus" x="804" y="268" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="807" y="271" width="2" height="2"/>
-<rect class="px m-codex-core" x="814" y="268" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="804" y="258" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="814" y="258" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="804" y="248" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="814" y="248" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="804" y="238" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="814" y="238" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-terra" x="804" y="228" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="807" y="231" width="2" height="2"/>
+<rect class="px m-claude-opus" x="804" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="807" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="814" y="384" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="817" y="387" width="2" height="2"/>
+<rect class="px m-claude-opus" x="804" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="807" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="814" y="374" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="817" y="377" width="2" height="2"/>
+<rect class="px m-claude-opus" x="804" y="364" width="8" height="8"><title>OPUS</title></rect>
+<rect class="px bg" x="807" y="367" width="2" height="2"/>
+<rect class="px m-claude-sonnet" x="814" y="364" width="8" height="8"><title>SONNET / HAIKU</title></rect>
+<rect class="px bg" x="816" y="366" width="4" height="4"/>
+<rect class="px m-codex-core" x="804" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="814" y="354" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-core" x="804" y="344" width="8" height="8"><title>5.5 / SOL</title></rect>
+<rect class="px m-codex-terra" x="814" y="344" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="817" y="347" width="2" height="2"/>
+<rect class="px m-codex-terra" x="804" y="334" width="8" height="8"><title>TERRA</title></rect>
+<rect class="px bg" x="807" y="337" width="2" height="2"/>
+<rect class="px m-opencode-flash" x="814" y="334" width="8" height="8"><title>FLASH</title></rect>
 </g>
-<g class="col" style="animation-delay:522ms">
-<rect class="px m-claude-opus" x="830" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="833" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="840" y="348" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="843" y="351" width="2" height="2"/>
-<rect class="px m-claude-opus" x="830" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="833" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="840" y="338" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="843" y="341" width="2" height="2"/>
-<rect class="px m-claude-opus" x="830" y="328" width="8" height="8"><title>OPUS</title></rect>
-<rect class="px bg" x="833" y="331" width="2" height="2"/>
-<rect class="px m-claude-sonnet" x="840" y="328" width="8" height="8"><title>SONNET / HAIKU</title></rect>
-<rect class="px bg" x="842" y="330" width="4" height="4"/>
-<rect class="px m-codex-core" x="830" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="840" y="318" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-core" x="830" y="308" width="8" height="8"><title>5.5 / SOL</title></rect>
-<rect class="px m-codex-terra" x="840" y="308" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="843" y="311" width="2" height="2"/>
-<rect class="px m-codex-terra" x="830" y="298" width="8" height="8"><title>TERRA</title></rect>
-<rect class="px bg" x="833" y="301" width="2" height="2"/>
+<g class="col wip" style="animation-delay:522ms">
+<rect class="px m-opencode-flash blink" x="830" y="384" width="8" height="8"><title>FLASH</title></rect>
 </g>
-<text class="tm" x="839" y="375" font-size="10.5" text-anchor="middle" font-family="var(--fm)">08/07</text>
-<text class="tn" x="813" y="220" font-size="11" font-weight="700" text-anchor="middle">484M</text>
-<text class="tm" x="28" y="398" font-size="10.5">Generated 2026-08-08 04:10 UTC</text>
+<text class="tm" x="839" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">08/08</text>
+<text class="tn" x="761" y="216" font-size="11" font-weight="700" text-anchor="middle">602M</text>
+<text class="tn" x="839" y="326" font-size="11" font-weight="700" text-anchor="middle">1.8M</text>
+<text class="tm" x="28" y="434" font-size="10.5">Generated 2026-08-08 12:11 UTC</text>
 </svg>
