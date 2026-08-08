@@ -1,0 +1,28 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-03-08",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 12366,
+      "cacheRead": 12713,
+      "costUSD": 0.0,
+      "input": 182,
+      "models": {
+        "minimax-m2.5-free": {
+          "cacheCreation": 12366,
+          "cacheRead": 12713,
+          "costUSD": 0.0,
+          "input": 182,
+          "output": 301,
+          "total": 25562
+        }
+      },
+      "output": 301,
+      "total": 25562
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

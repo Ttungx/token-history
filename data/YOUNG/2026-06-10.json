@@ -1,0 +1,36 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-06-10",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 11840512,
+      "costUSD": 0.0,
+      "input": 716758,
+      "models": {
+        "deepseek-v4-flash-free": {
+          "cacheCreation": 0,
+          "cacheRead": 11840512,
+          "costUSD": 0.0,
+          "input": 534115,
+          "output": 45782,
+          "total": 12420409
+        },
+        "nemotron-3-ultra-free": {
+          "cacheCreation": 0,
+          "cacheRead": 0,
+          "costUSD": 0.0,
+          "input": 182643,
+          "output": 552,
+          "total": 183195
+        }
+      },
+      "output": 46334,
+      "total": 12636956
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

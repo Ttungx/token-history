@@ -1,0 +1,54 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-07-26",
+  "host": "YOUNG",
+  "sources": {
+    "claude": {
+      "cacheCreation": 215344,
+      "cacheRead": 20833137,
+      "costUSD": 0.0,
+      "input": 354997,
+      "models": {
+        "claude-opus-5": {
+          "cacheCreation": 215344,
+          "cacheRead": 20833137,
+          "costUSD": 0.0,
+          "input": 354997,
+          "output": 59899,
+          "total": 21463377
+        }
+      },
+      "output": 59899,
+      "total": 21463377
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 446656,
+      "costUSD": 0.01545,
+      "input": 97056,
+      "models": {
+        "step-3.7-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 148352,
+          "costUSD": 0.01545,
+          "input": 47644,
+          "output": 1033,
+          "total": 197029
+        },
+        "step-router-v1": {
+          "cacheCreation": 0,
+          "cacheRead": 298304,
+          "costUSD": 0.0,
+          "input": 49412,
+          "output": 4190,
+          "total": 351906
+        }
+      },
+      "output": 5223,
+      "total": 548935
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

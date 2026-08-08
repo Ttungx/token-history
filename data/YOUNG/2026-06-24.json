@@ -1,0 +1,44 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-06-24",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 17928448,
+      "costUSD": 0.041285,
+      "input": 1392475,
+      "models": {
+        "deepseek-v4-flash-free": {
+          "cacheCreation": 0,
+          "cacheRead": 466816,
+          "costUSD": 0.0,
+          "input": 105594,
+          "output": 1675,
+          "total": 574085
+        },
+        "deepseek-v4-pro": {
+          "cacheCreation": 0,
+          "cacheRead": 1254656,
+          "costUSD": 0.041285,
+          "input": 60128,
+          "output": 4208,
+          "total": 1318992
+        },
+        "step-3.7-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 16206976,
+          "costUSD": 0.0,
+          "input": 1226753,
+          "output": 95624,
+          "total": 17529353
+        }
+      },
+      "output": 101507,
+      "total": 19433026
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

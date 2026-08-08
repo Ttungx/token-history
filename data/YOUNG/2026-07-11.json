@@ -1,0 +1,28 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-07-11",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 1792,
+      "costUSD": 0.0,
+      "input": 40537,
+      "models": {
+        "big-pickle": {
+          "cacheCreation": 0,
+          "cacheRead": 1792,
+          "costUSD": 0.0,
+          "input": 40537,
+          "output": 12,
+          "total": 42341
+        }
+      },
+      "output": 12,
+      "total": 42382
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

@@ -1,0 +1,28 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-03-29",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 57792,
+      "costUSD": 0.0,
+      "input": 33038,
+      "models": {
+        "mimo-v2-pro-free": {
+          "cacheCreation": 0,
+          "cacheRead": 57792,
+          "costUSD": 0.0,
+          "input": 33038,
+          "output": 1122,
+          "total": 91952
+        }
+      },
+      "output": 1122,
+      "total": 91952
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

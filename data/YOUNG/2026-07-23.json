@@ -1,0 +1,46 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-07-23",
+  "host": "YOUNG",
+  "sources": {
+    "claude": {
+      "cacheCreation": 0,
+      "cacheRead": 14960384,
+      "costUSD": 0.0,
+      "input": 436222,
+      "models": {
+        "grok-4.5": {
+          "cacheCreation": 0,
+          "cacheRead": 14960384,
+          "costUSD": 0.0,
+          "input": 436222,
+          "output": 101373,
+          "total": 15497979
+        }
+      },
+      "output": 101373,
+      "total": 15497979
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 1496832,
+      "costUSD": 0.106919,
+      "input": 240571,
+      "models": {
+        "step-3.7-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 1496832,
+          "costUSD": 0.106919,
+          "input": 240571,
+          "output": 6334,
+          "total": 1743737
+        }
+      },
+      "output": 6334,
+      "total": 1743737
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

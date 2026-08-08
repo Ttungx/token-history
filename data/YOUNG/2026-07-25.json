@@ -1,0 +1,28 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-07-25",
+  "host": "YOUNG",
+  "sources": {
+    "claude": {
+      "cacheCreation": 0,
+      "cacheRead": 5081152,
+      "costUSD": 0.0,
+      "input": 568864,
+      "models": {
+        "grok-4.5": {
+          "cacheCreation": 0,
+          "cacheRead": 5081152,
+          "costUSD": 0.0,
+          "input": 568864,
+          "output": 30201,
+          "total": 5680217
+        }
+      },
+      "output": 30201,
+      "total": 5680217
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

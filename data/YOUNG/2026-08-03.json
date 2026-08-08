@@ -1,0 +1,89 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-08-03",
+  "host": "YOUNG",
+  "sources": {
+    "claude": {
+      "cacheCreation": 0,
+      "cacheRead": 17984,
+      "costUSD": 0.0,
+      "input": 35313,
+      "models": {
+        "deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 17792,
+          "costUSD": 0.0,
+          "input": 230,
+          "output": 97,
+          "total": 18119
+        },
+        "grok-4.5": {
+          "cacheCreation": 0,
+          "cacheRead": 192,
+          "costUSD": 0.0,
+          "input": 35083,
+          "output": 481,
+          "total": 35756
+        }
+      },
+      "output": 578,
+      "total": 53875
+    },
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 3712,
+      "costUSD": 0.017689,
+      "input": 17246,
+      "models": {
+        "future-gpt/gpt-5.6-luna": {
+          "cacheCreation": 0,
+          "cacheRead": 3712,
+          "input": 17246,
+          "output": 12,
+          "reasoningOutput": 0,
+          "total": 20970
+        }
+      },
+      "output": 12,
+      "reasoningOutput": 0,
+      "total": 20970
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 10055040,
+      "costUSD": 0.033102,
+      "input": 1850132,
+      "models": {
+        "deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 363776,
+          "costUSD": 0.013982,
+          "input": 87772,
+          "output": 1385,
+          "total": 452933
+        },
+        "deepseek-v4-flash-free": {
+          "cacheCreation": 0,
+          "cacheRead": 9545088,
+          "costUSD": 0.0,
+          "input": 1690522,
+          "output": 111825,
+          "total": 11347435
+        },
+        "step-3.7-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 146176,
+          "costUSD": 0.019119,
+          "input": 71838,
+          "output": 379,
+          "total": 218393
+        }
+      },
+      "output": 113589,
+      "total": 12029496
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

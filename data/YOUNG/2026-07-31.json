@@ -1,0 +1,60 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-07-31",
+  "host": "YOUNG",
+  "sources": {
+    "claude": {
+      "cacheCreation": 0,
+      "cacheRead": 53112328,
+      "costUSD": 33.36373,
+      "input": 9644697,
+      "models": {
+        "claude-opus-5": {
+          "cacheCreation": 0,
+          "cacheRead": 2386816,
+          "costUSD": 0.0,
+          "input": 827737,
+          "output": 37173,
+          "total": 3251726
+        },
+        "gpt-5.4-mini": {
+          "cacheCreation": 0,
+          "cacheRead": 5853824,
+          "costUSD": 1.279587,
+          "input": 965394,
+          "output": 25890,
+          "total": 6845108
+        },
+        "gpt-5.6-luna": {
+          "cacheCreation": 0,
+          "cacheRead": 16444032,
+          "costUSD": 5.566378,
+          "input": 3431253,
+          "output": 81787,
+          "total": 19957072
+        },
+        "gpt-5.6-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 10244894,
+          "costUSD": 11.815737,
+          "input": 1017142,
+          "output": 53586,
+          "total": 11315622
+        },
+        "gpt-5.6-terra": {
+          "cacheCreation": 0,
+          "cacheRead": 18182762,
+          "costUSD": 14.702028,
+          "input": 3403171,
+          "output": 109894,
+          "total": 21695827
+        }
+      },
+      "output": 308330,
+      "total": 63065355
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

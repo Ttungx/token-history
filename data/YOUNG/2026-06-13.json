@@ -1,0 +1,28 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-06-13",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 1862784,
+      "costUSD": 0.0,
+      "input": 173251,
+      "models": {
+        "deepseek-v4-flash-free": {
+          "cacheCreation": 0,
+          "cacheRead": 1862784,
+          "costUSD": 0.0,
+          "input": 173251,
+          "output": 10105,
+          "total": 2046140
+        }
+      },
+      "output": 10105,
+      "total": 2059492
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

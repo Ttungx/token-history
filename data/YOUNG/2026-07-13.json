@@ -1,0 +1,62 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-07-13",
+  "host": "YOUNG",
+  "sources": {
+    "claude": {
+      "cacheCreation": 0,
+      "cacheRead": 6874624,
+      "costUSD": 7.822417,
+      "input": 8284332,
+      "models": {
+        "gpt-5.6-terra": {
+          "cacheCreation": 0,
+          "cacheRead": 1637888,
+          "costUSD": 7.822417,
+          "input": 2886914,
+          "output": 13044,
+          "total": 4537846
+        },
+        "grok-4.5-build": {
+          "cacheCreation": 0,
+          "cacheRead": 5236736,
+          "costUSD": 0.0,
+          "input": 5397418,
+          "output": 40664,
+          "total": 10674818
+        }
+      },
+      "output": 53708,
+      "total": 15212664
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 2059328,
+      "costUSD": 0.701492,
+      "input": 579497,
+      "models": {
+        "gpt-5.6-terra": {
+          "cacheCreation": 0,
+          "cacheRead": 529920,
+          "costUSD": 0.543728,
+          "input": 143025,
+          "output": 2606,
+          "total": 675551
+        },
+        "step-3.7-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 1529408,
+          "costUSD": 0.157764,
+          "input": 436472,
+          "output": 13900,
+          "total": 1979780
+        }
+      },
+      "output": 16506,
+      "total": 2656304
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

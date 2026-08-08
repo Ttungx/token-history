@@ -1,0 +1,87 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-08-04",
+  "host": "YOUNG",
+  "sources": {
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 33654272,
+      "costUSD": 27.735581,
+      "input": 756011,
+      "models": {
+        "gpt-5.6-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 33654272,
+          "input": 756011,
+          "output": 149423,
+          "reasoningOutput": 37063,
+          "total": 34559706
+        }
+      },
+      "output": 149423,
+      "reasoningOutput": 37063,
+      "total": 34559706
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 7256832,
+      "costUSD": 0.109,
+      "input": 489998,
+      "models": {
+        "deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 6902528,
+          "costUSD": 0.081781,
+          "input": 378383,
+          "output": 22062,
+          "total": 7302973
+        },
+        "hy3": {
+          "cacheCreation": 0,
+          "cacheRead": 1792,
+          "costUSD": 0.002141,
+          "input": 14662,
+          "output": 7,
+          "total": 16461
+        },
+        "laguna-s-2.1-free": {
+          "cacheCreation": 0,
+          "cacheRead": 1856,
+          "costUSD": 0.0,
+          "input": 14994,
+          "output": 10,
+          "total": 16860
+        },
+        "ling-3.0-flash-free": {
+          "cacheCreation": 0,
+          "cacheRead": 1856,
+          "costUSD": 0.0,
+          "input": 15574,
+          "output": 8,
+          "total": 17438
+        },
+        "north-mini-code-free": {
+          "cacheCreation": 0,
+          "cacheRead": 0,
+          "costUSD": 0.0,
+          "input": 14860,
+          "output": 79,
+          "total": 14939
+        },
+        "step-3.7-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 348800,
+          "costUSD": 0.025078,
+          "input": 51525,
+          "output": 2379,
+          "total": 402704
+        }
+      },
+      "output": 24545,
+      "total": 7783233
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

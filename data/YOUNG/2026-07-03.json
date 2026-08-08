@@ -1,0 +1,54 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-07-03",
+  "host": "YOUNG",
+  "sources": {
+    "claude": {
+      "cacheCreation": 0,
+      "cacheRead": 15360,
+      "costUSD": 0.038907,
+      "input": 42325,
+      "models": {
+        "gpt-5.4": {
+          "cacheCreation": 0,
+          "cacheRead": 15360,
+          "costUSD": 0.0079,
+          "input": 1240,
+          "output": 64,
+          "total": 16664
+        },
+        "gpt-5.4-mini-openai-compact": {
+          "cacheCreation": 0,
+          "cacheRead": 0,
+          "costUSD": 0.031007,
+          "input": 41085,
+          "output": 43,
+          "total": 41128
+        }
+      },
+      "output": 107,
+      "total": 57792
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 13258560,
+      "costUSD": 0.730982,
+      "input": 631426,
+      "models": {
+        "step-3.7-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 13258560,
+          "costUSD": 0.730982,
+          "input": 631426,
+          "output": 64656,
+          "total": 13954642
+        }
+      },
+      "output": 64656,
+      "total": 13954642
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

@@ -1,0 +1,47 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-08-01",
+  "host": "YOUNG",
+  "sources": {
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 33520384,
+      "costUSD": 5.020322,
+      "input": 773936,
+      "models": {
+        "gpt-5.6-luna": {
+          "cacheCreation": 0,
+          "cacheRead": 33520384,
+          "input": 773936,
+          "output": 68868,
+          "reasoningOutput": 33793,
+          "total": 34363188
+        }
+      },
+      "output": 68868,
+      "reasoningOutput": 33793,
+      "total": 34363188
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 25318016,
+      "costUSD": 0.0,
+      "input": 682012,
+      "models": {
+        "deepseek-v4-flash-free": {
+          "cacheCreation": 0,
+          "cacheRead": 25318016,
+          "costUSD": 0.0,
+          "input": 682012,
+          "output": 66978,
+          "total": 26067006
+        }
+      },
+      "output": 66978,
+      "total": 26123043
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

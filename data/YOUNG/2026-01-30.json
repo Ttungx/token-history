@@ -1,0 +1,28 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-08T12:18:48Z",
+  "date": "2026-01-30",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 134989,
+      "costUSD": 0.046118,
+      "input": 21060,
+      "models": {
+        "kimi-k2.5-free": {
+          "cacheCreation": 0,
+          "cacheRead": 134989,
+          "costUSD": 0.046118,
+          "input": 21060,
+          "output": 1322,
+          "total": 157371
+        }
+      },
+      "output": 1322,
+      "total": 157371
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}
