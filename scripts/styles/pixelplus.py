@@ -187,9 +187,8 @@ def _stats(days):
     tokens = [sum(r[s]["total"] for s, _ in render.SERIES) for r in rows]
     total = sum(tokens)
     cost = sum(sum(r[s]["costUSD"] for s, _ in render.SERIES) for r in rows)
-    ct = sum(r["claude"]["total"] for r in rows)
-    xt = sum(r["codex"]["total"] for r in rows)
-    share = ct / float(ct + xt) if (ct + xt) else 0.0
+    src_vals = [sum(r[s]["total"] for r in rows) for s, _ in render.SERIES]
+    denom = sum(src_vals)
     active = sum(1 for t in tokens if t > 0)
     peak = max(tokens + [0])
     peak_day = rows[tokens.index(peak)]["start"] if peak else None
@@ -202,7 +201,7 @@ def _stats(days):
             cur -= dt.timedelta(days=1)
     return {
         "rows": rows, "tokens": tokens, "total": total, "cost": cost,
-        "ct": ct, "xt": xt, "share": share, "active": active,
+        "src_vals": src_vals, "denom": denom, "active": active,
         "peak": peak, "peak_day": peak_day, "avg": avg, "streak": streak,
         "today": tokens[-1] if tokens else 0,
         "partial": bool(rows and rows[-1]["partial"]),
@@ -211,7 +210,7 @@ def _stats(days):
 
 # ------------------------------------------------------------------- the card
 
-CARD_W, CARD_H = 880, 256
+CARD_W, CARD_H = 880, 284
 
 CARD_CSS = (
     ".px{shape-rendering:crispEdges}"
@@ -244,14 +243,23 @@ def _build_card(days, generated):
     peak_s = render.compact_tokens(st["peak"])
     peak_d = st["peak_day"].strftime("%b %d").upper() if st["peak_day"] else "-"
     avg_s = render.compact_tokens(st["avg"])
-    pct_c = int(round(st["share"] * 100))
-    pct_x = 100 - pct_c if (st["ct"] + st["xt"]) else 0
 
+    denom = st["denom"]
+    pcts, rem = [], 100
+    for i, v in enumerate(st["src_vals"]):
+        if i == len(st["src_vals"]) - 1:
+            pcts.append(rem if denom else 0)
+        else:
+            p = int(round(100.0 * v / denom)) if denom else 0
+            pcts.append(p)
+            rem -= p
+
+    share_line = ", ".join("{} {} percent".format(label, p)
+                           for (_, label), p in zip(render.SERIES, pcts))
     aria = ("AI coding usage, retro game HUD, last 30 days: {} tokens total, "
-            "about {} API-equivalent, Claude Code {} percent versus Codex {} "
-            "percent, best day {} on {}, {} of {} days active".format(
-                hero, render.compact_cost(st["cost"]), pct_c, pct_x,
-                peak_s, peak_d.title(), st["active"], len(st["rows"])))
+            "about {} API-equivalent, {}, best day {} on {}, {} of {} days "
+            "active".format(hero, render.compact_cost(st["cost"]), share_line,
+                            peak_s, peak_d.title(), st["active"], len(st["rows"])))
 
     out = render.svg_start(w, h, aria, CARD_CSS)
     out.insert(1, "<title>{}</title>".format(render.esc(aria)))
@@ -282,28 +290,33 @@ def _build_card(days, generated):
         '<tspan class="val">{}</tspan> / {}</text>'.format(
             render.esc(peak_s), render.esc(peak_d)))
 
-    # ---- right: two player HP bars = share of combined tokens
+    # ---- right: one segmented HP bar per source = share of combined tokens
     bx, bxe = 470, 836
-    cells, cell_w, cell_h = 20, 16, 16
-    filled_c = int(round(cells * st["share"])) if (st["ct"] + st["xt"]) else 0
-    filled_x = cells - filled_c if (st["ct"] + st["xt"]) else 0
-    for y_lbl, y_bar, series, name, filled, tok, pct in (
-            (44, 62, "claude", "P1 CLAUDE", filled_c, st["ct"], pct_c),
-            (104, 122, "codex", "P2 CODEX", filled_x, st["xt"], pct_x)):
-        _ptext(add, bx, y_lbl, name, 2, cls="ink")
+    cells, cell_w, cell_h = 20, 16, 12
+    fills = []
+    if denom:
+        fills = [round(cells * v / denom) for v in st["src_vals"]]
+        while sum(fills) > cells:
+            fills[fills.index(max(fills))] -= 1
+    else:
+        fills = [0] * len(st["src_vals"])
+    for i, ((source, label), filled, tok, pct) in enumerate(
+            zip(render.SERIES, fills, st["src_vals"], pcts)):
+        y_lbl, y_bar = 40 + i * 44, 58 + i * 44
+        _ptext(add, bx, y_lbl, "P{} {}".format(i + 1, label.upper()), 2, cls="ink")
         add('<text class="val" x="{}" y="{}" font-size="12" text-anchor="end">'
             '{} / {}%</text>'.format(bxe, y_lbl + 12, render.esc(
                 render.compact_tokens(tok)), pct))
-        _hp_bar(add, bx, y_bar, cells, filled, cell_w, cell_h, series)
+        _hp_bar(add, bx, y_bar, cells, filled, cell_w, cell_h, source)
 
     # daily average, right column
-    _sprite(add, BARS, bx, 162, 2, cls="mut")
-    add('<text class="sub" x="{}" y="172" font-size="11">AVG '
+    _sprite(add, BARS, bx, 216, 2, cls="mut")
+    add('<text class="sub" x="{}" y="226" font-size="11">AVG '
         '<tspan class="val">{}</tspan> / ACTIVE DAY</text>'.format(
             bx + 16, render.esc(avg_s)))
 
     # ---- bottom band: one heart per day (filled = active), streak, PRESS START
-    hx, hy, pitch = 44, 206, 18
+    hx, hy, pitch = 44, 244, 18
     n = len(st["rows"])
     for i, t in enumerate(st["tokens"]):
         pat = HEART if t > 0 else HEART_HOLLOW
@@ -313,16 +326,16 @@ def _build_card(days, generated):
         add('<g class="px {}{}">{}</g>'.format(
             cls, extra, _rects_svg(_sprite_rects(pat, hx + i * pitch, hy, 2))))
     lx = hx + n * pitch + 8
-    add('<text class="sub" x="{}" y="218" font-size="11">'
+    add('<text class="sub" x="{}" y="256" font-size="11">'
         '<tspan class="val">{}/{}</tspan> DAY STREAK</text>'.format(
             lx, st["streak"], n))
-    add('<text class="lbl blink" x="{}" y="218" font-size="11" '
+    add('<text class="lbl blink" x="{}" y="256" font-size="11" '
         'text-anchor="end">&#9654; PRESS START</text>'.format(bxe))
 
     # bottom carries only the generated stamp (repo-wide policy)
     add('<text class="lbl" x="44" y="{}" font-size="9" '
         'style="letter-spacing:1px">GEN {}</text>'.format(
-            h - 20, render.esc(generated.upper())))
+            h - 16, render.esc(generated.upper())))
     add("</svg>")
     return "\n".join(out)
 

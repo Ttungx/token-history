@@ -27,7 +27,7 @@
 
 The repo keeps a day-by-day history; the headline chart shows the last 30 days, and every render also produces [an entire gallery of other styles](#chart-gallery) across daily, weekly, and monthly granularity.
 
-<img src="./charts/day/pixel-tokens.svg" width="880" alt="Daily token usage as pixel-art bars: one square per 10M tokens, Claude orange stacked under Codex blue">
+<img src="./charts/day/pixel-tokens.svg" width="880" alt="Daily token usage as pixel-art bars: one square per 10M tokens, one hue per source">
 
 ## Contents
 
@@ -116,7 +116,7 @@ Every run renders **every** style below — the same data, over a dozen ways. Th
 ![usage](https://raw.githubusercontent.com/<your-username>/token-history/master/charts/day/card.svg)
 ```
 
-`charts/tokens.svg` and `charts/cost.svg` remain stable aliases of the daily bars, so existing embeds never break. Colors and type follow Anthropic's palette (orange = Claude Code, blue = Codex), tuned per mode to pass a color-vision-deficiency check.
+`charts/tokens.svg` and `charts/cost.svg` remain stable aliases of the daily bars, so existing embeds never break. Colors follow the Anthropic palette, tuned per mode to pass a color-vision-deficiency check — one hue per source (orange = Claude Code, blue = Codex, violet = opencode, green = pi).
 
 ### Badges
 
@@ -134,9 +134,9 @@ Every run renders **every** style below — the same data, over a dozen ways. Th
 
 ### Daily
 
-**`charts/day/pixel-card.svg`** — the last 30 days as an 8-bit game HUD: a bitmap-font HI-SCORE, Claude vs Codex as player HP bars, cost as a coin counter, one pixel heart per active day
+**`charts/day/pixel-card.svg`** — the last 30 days as an 8-bit game HUD: a bitmap-font HI-SCORE, one player HP bar per source, cost as a coin counter, one pixel heart per active day
 
-<img src="./charts/day/pixel-card.svg" width="880" alt="Pixel game-HUD stat card: HI-SCORE token total, P1/P2 HP bars for Claude and Codex, coin counter, heart streak">
+<img src="./charts/day/pixel-card.svg" width="880" alt="Pixel game-HUD stat card: HI-SCORE token total, P1-P4 HP bars for Claude Code, Codex, opencode and pi, coin counter, heart streak">
 
 **`charts/day/bar-tokens.svg`** — flat daily bars (also published as `charts/tokens.svg`, the stable legacy URL)
 
@@ -162,9 +162,9 @@ Every run renders **every** style below — the same data, over a dozen ways. Th
 
 <img src="./charts/day/pixel-tokens.svg" width="880" alt="Pixel-art daily token bars: stacks of squares, one square per 10M tokens">
 
-**`charts/day/pixel-models.svg`** — the same columns, split by model. Each source keeps its own hue and encodes the tier twice, in lightness *and* in how much of the square is filled — solid, notched, hollow — so the top tier reads even in greyscale (Claude fable › opus › sonnet, Codex 5.5/Sol › Terra › Luna)
+**`charts/day/pixel-models.svg`** — the same columns, split by model. Each source keeps its own hue and encodes the tier twice, in lightness *and* in how much of the square is filled — solid, notched, hollow — so the top tier reads even in greyscale (Claude fable › opus › sonnet, Codex 5.5/Sol › Terra › Luna, opencode and pi FLASH › OTHER)
 
-<img src="./charts/day/pixel-models.svg" width="880" alt="Pixel-art daily token bars split by model: three orange steps for Claude and three blue steps for Codex, each tier also marked solid, notched or hollow">
+<img src="./charts/day/pixel-models.svg" width="880" alt="Pixel-art daily token bars split by model: each source in its own hue, tiers marked solid, notched or hollow">
 
 **`charts/day/terminal-tokens.svg`** — the last 30 days as a terminal session: an htop-style bar per day, a CLI-style `TOTAL` sign-off, and a blinking cursor
 
