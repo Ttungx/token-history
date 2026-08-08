@@ -210,7 +210,7 @@ def _stats(days):
 
 # ------------------------------------------------------------------- the card
 
-CARD_W, CARD_H = 880, 284
+CARD_W, CARD_H = 880, 236
 
 CARD_CSS = (
     ".px{shape-rendering:crispEdges}"
@@ -291,8 +291,8 @@ def _build_card(days, generated):
             render.esc(peak_s), render.esc(peak_d)))
 
     # ---- right: one segmented HP bar per source = share of combined tokens
-    bx, bxe = 470, 836
-    cells, cell_w, cell_h = 20, 16, 12
+    bx, bxe = 454, 836
+    cells, cell_w, cell_h = 32, 10, 8
     fills = []
     if denom:
         fills = [round(cells * v / denom) for v in st["src_vals"]]
@@ -302,21 +302,21 @@ def _build_card(days, generated):
         fills = [0] * len(st["src_vals"])
     for i, ((source, label), filled, tok, pct) in enumerate(
             zip(render.SERIES, fills, st["src_vals"], pcts)):
-        y_lbl, y_bar = 40 + i * 44, 58 + i * 44
-        _ptext(add, bx, y_lbl, "P{} {}".format(i + 1, label.upper()), 2, cls="ink")
+        y_lbl, y_bar = 40 + i * 32, 56 + i * 32
+        _ptext(add, bx, y_lbl + 2, "P{} {}".format(i + 1, label.upper()), 1, cls="ink")
         add('<text class="val" x="{}" y="{}" font-size="12" text-anchor="end">'
             '{} / {}%</text>'.format(bxe, y_lbl + 12, render.esc(
                 render.compact_tokens(tok)), pct))
         _hp_bar(add, bx, y_bar, cells, filled, cell_w, cell_h, source)
 
     # daily average, right column
-    _sprite(add, BARS, bx, 216, 2, cls="mut")
-    add('<text class="sub" x="{}" y="226" font-size="11">AVG '
+    _sprite(add, BARS, bx, 172, 2, cls="mut")
+    add('<text class="sub" x="{}" y="182" font-size="11">AVG '
         '<tspan class="val">{}</tspan> / ACTIVE DAY</text>'.format(
             bx + 16, render.esc(avg_s)))
 
     # ---- bottom band: one heart per day (filled = active), streak, PRESS START
-    hx, hy, pitch = 44, 244, 18
+    hx, hy, pitch = 44, 196, 18
     n = len(st["rows"])
     for i, t in enumerate(st["tokens"]):
         pat = HEART if t > 0 else HEART_HOLLOW
@@ -326,10 +326,10 @@ def _build_card(days, generated):
         add('<g class="px {}{}">{}</g>'.format(
             cls, extra, _rects_svg(_sprite_rects(pat, hx + i * pitch, hy, 2))))
     lx = hx + n * pitch + 8
-    add('<text class="sub" x="{}" y="256" font-size="11">'
+    add('<text class="sub" x="{}" y="208" font-size="11">'
         '<tspan class="val">{}/{}</tspan> DAY STREAK</text>'.format(
             lx, st["streak"], n))
-    add('<text class="lbl blink" x="{}" y="256" font-size="11" '
+    add('<text class="lbl blink" x="{}" y="208" font-size="11" '
         'text-anchor="end">&#9654; PRESS START</text>'.format(bxe))
 
     # bottom carries only the generated stamp (repo-wide policy)
