@@ -1,53 +1,53 @@
 {
   "ccusageVersion": "20.0.19",
-  "collectedAt": "2026-08-09T12:03:09Z",
+  "collectedAt": "2026-08-09T16:03:30Z",
   "date": "2026-08-09",
   "host": "YOUNG",
   "sources": {
     "codex": {
       "cacheCreation": 0,
-      "cacheRead": 63663744,
-      "costUSD": 51.419242,
-      "input": 3522336,
+      "cacheRead": 160118784,
+      "costUSD": 117.484233,
+      "input": 6440239,
       "models": {
         "gpt-5.6-sol": {
           "cacheCreation": 0,
-          "cacheRead": 44194432,
-          "input": 1595441,
-          "output": 142293,
-          "reasoningOutput": 50835,
-          "total": 45932166
+          "cacheRead": 124455680,
+          "input": 3416966,
+          "output": 437877,
+          "reasoningOutput": 142105,
+          "total": 128310523
         },
         "opencode-go/deepseek-v4-flash": {
           "cacheCreation": 0,
-          "cacheRead": 19469312,
-          "input": 1926895,
-          "output": 493978,
-          "reasoningOutput": 339703,
-          "total": 21890185
+          "cacheRead": 35663104,
+          "input": 3023273,
+          "output": 867385,
+          "reasoningOutput": 580212,
+          "total": 39553762
         }
       },
-      "output": 636271,
-      "reasoningOutput": 390538,
-      "total": 67822351
+      "output": 1305262,
+      "reasoningOutput": 722317,
+      "total": 167864285
     },
     "opencode": {
       "cacheCreation": 0,
-      "cacheRead": 17753216,
-      "costUSD": 0.064236,
-      "input": 171894,
+      "cacheRead": 20453376,
+      "costUSD": 0.080681,
+      "input": 275335,
       "models": {
         "deepseek-v4-flash": {
           "cacheCreation": 0,
-          "cacheRead": 17753216,
-          "costUSD": 0.064236,
-          "input": 171894,
-          "output": 62233,
-          "total": 17987343
+          "cacheRead": 20453376,
+          "costUSD": 0.080681,
+          "input": 275335,
+          "output": 70740,
+          "total": 20799451
         }
       },
-      "output": 62233,
-      "total": 18120462
+      "output": 70740,
+      "total": 20962806
     }
   },
   "status": "partial",
