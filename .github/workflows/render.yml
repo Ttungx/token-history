@@ -1,5 +1,6 @@
 name: Render charts
 
+# Trigger test 2026-08-09
 # Push-triggered, deliberately not cron. GitHub's own docs say scheduled
 # workflows "can be delayed during periods of high loads" and that "some queued
 # jobs may be dropped" — and scheduled workflows are auto-disabled after 60 days
