@@ -6,6 +6,9 @@ config.json
 # Local run logs
 *.log
 
+# Windows scheduled-task entry (machine-specific)
+th-collect.bat
+
 .DS_Store
 __pycache__/
 *.pyc

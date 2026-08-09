@@ -254,8 +254,22 @@ def _build_card(days, generated):
             pcts.append(p)
             rem -= p
 
+    cells, cell_w, cell_h = 32, 10, 8
+    fills = []
+    if denom:
+        fills = [round(cells * v / denom) for v in st["src_vals"]]
+        while sum(fills) > cells:
+            fills[fills.index(max(fills))] -= 1
+    else:
+        fills = [0] * len(st["src_vals"])
+
+    # players are ranked by tokens so the HP panel reads as a leaderboard
+    # (stable sort: ties keep render.SERIES order, Claude before Codex)
+    ordered = sorted(zip(render.SERIES, st["src_vals"], fills, pcts),
+                     key=lambda t: t[1], reverse=True)
+
     share_line = ", ".join("{} {} percent".format(label, p)
-                           for (_, label), p in zip(render.SERIES, pcts))
+                           for (_, label), _, _, p in ordered)
     aria = ("AI coding usage, retro game HUD, last 30 days: {} tokens total, "
             "about {} API-equivalent, {}, best day {} on {}, {} of {} days "
             "active".format(hero, render.compact_cost(st["cost"]), share_line,
@@ -290,18 +304,10 @@ def _build_card(days, generated):
         '<tspan class="val">{}</tspan> / {}</text>'.format(
             render.esc(peak_s), render.esc(peak_d)))
 
-    # ---- right: one segmented HP bar per source = share of combined tokens
+    # ---- right: one segmented HP bar per source = share of combined tokens,
+    # ranked P1..P4 by tokens so the panel reads as a leaderboard
     bx, bxe = 454, 836
-    cells, cell_w, cell_h = 32, 10, 8
-    fills = []
-    if denom:
-        fills = [round(cells * v / denom) for v in st["src_vals"]]
-        while sum(fills) > cells:
-            fills[fills.index(max(fills))] -= 1
-    else:
-        fills = [0] * len(st["src_vals"])
-    for i, ((source, label), filled, tok, pct) in enumerate(
-            zip(render.SERIES, fills, st["src_vals"], pcts)):
+    for i, ((source, label), tok, filled, pct) in enumerate(ordered):
         y_lbl, y_bar = 40 + i * 32, 56 + i * 32
         _ptext(add, bx, y_lbl + 2, "P{} {}".format(i + 1, label.upper()), 1, cls="ink")
         add('<text class="val" x="{}" y="{}" font-size="12" text-anchor="end">'
