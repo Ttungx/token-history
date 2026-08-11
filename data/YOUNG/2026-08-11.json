@@ -1,0 +1,63 @@
+{
+  "ccusageVersion": "20.0.19",
+  "collectedAt": "2026-08-11T12:01:11Z",
+  "date": "2026-08-11",
+  "host": "YOUNG",
+  "sources": {
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 25678976,
+      "costUSD": 19.244633,
+      "input": 4899856,
+      "models": {
+        "future-gpt/gpt-5.6-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 2272768,
+          "input": 377997,
+          "output": 12691,
+          "reasoningOutput": 6052,
+          "total": 2663456
+        },
+        "future-gpt/gpt-5.6-terra": {
+          "cacheCreation": 0,
+          "cacheRead": 18106624,
+          "input": 3910479,
+          "output": 102312,
+          "reasoningOutput": 41141,
+          "total": 22119415
+        },
+        "opencode-go/deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 5299584,
+          "input": 611380,
+          "output": 37172,
+          "reasoningOutput": 21310,
+          "total": 5948136
+        }
+      },
+      "output": 152175,
+      "reasoningOutput": 68503,
+      "total": 30731007
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 1420800,
+      "costUSD": 0.011557,
+      "input": 100043,
+      "models": {
+        "deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 1420800,
+          "costUSD": 0.011557,
+          "input": 100043,
+          "output": 7262,
+          "total": 1528105
+        }
+      },
+      "output": 7262,
+      "total": 1539163
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
