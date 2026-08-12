@@ -1,14 +1,14 @@
 {
   "ccusageVersion": "20.0.19",
-  "collectedAt": "2026-08-11T12:01:11Z",
+  "collectedAt": "2026-08-12T12:02:38Z",
   "date": "2026-08-11",
   "host": "YOUNG",
   "sources": {
     "codex": {
       "cacheCreation": 0,
-      "cacheRead": 25678976,
-      "costUSD": 19.244633,
-      "input": 4899856,
+      "cacheRead": 205685376,
+      "costUSD": 59.66742,
+      "input": 9284712,
       "models": {
         "future-gpt/gpt-5.6-sol": {
           "cacheCreation": 0,
@@ -20,44 +20,60 @@
         },
         "future-gpt/gpt-5.6-terra": {
           "cacheCreation": 0,
-          "cacheRead": 18106624,
-          "input": 3910479,
-          "output": 102312,
-          "reasoningOutput": 41141,
-          "total": 22119415
+          "cacheRead": 20354432,
+          "input": 4763985,
+          "output": 146139,
+          "reasoningOutput": 61411,
+          "total": 25264556
+        },
+        "gpt-5.6-luna": {
+          "cacheCreation": 0,
+          "cacheRead": 2011136,
+          "input": 47332,
+          "output": 41302,
+          "reasoningOutput": 30005,
+          "total": 2099770
+        },
+        "gpt-5.6-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 43741952,
+          "input": 1039570,
+          "output": 161079,
+          "reasoningOutput": 57061,
+          "total": 44942601
         },
         "opencode-go/deepseek-v4-flash": {
           "cacheCreation": 0,
-          "cacheRead": 5299584,
-          "input": 611380,
-          "output": 37172,
-          "reasoningOutput": 21310,
-          "total": 5948136
+          "cacheRead": 137305088,
+          "input": 3055828,
+          "output": 597650,
+          "reasoningOutput": 329797,
+          "total": 140958566
         }
       },
-      "output": 152175,
-      "reasoningOutput": 68503,
-      "total": 30731007
+      "output": 958861,
+      "reasoningOutput": 484326,
+      "total": 215928949
     },
     "opencode": {
       "cacheCreation": 0,
-      "cacheRead": 1420800,
-      "costUSD": 0.011557,
-      "input": 100043,
+      "cacheRead": 8506240,
+      "costUSD": 0.050166,
+      "input": 393706,
       "models": {
         "deepseek-v4-flash": {
           "cacheCreation": 0,
-          "cacheRead": 1420800,
-          "costUSD": 0.011557,
-          "input": 100043,
-          "output": 7262,
-          "total": 1528105
+          "cacheRead": 8506240,
+          "costUSD": 0.050166,
+          "input": 393706,
+          "output": 37280,
+          "total": 8937226
         }
       },
-      "output": 7262,
-      "total": 1539163
+      "output": 37280,
+      "total": 8976360
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
