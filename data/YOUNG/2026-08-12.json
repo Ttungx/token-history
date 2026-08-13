@@ -1,14 +1,14 @@
 {
   "ccusageVersion": "20.0.19",
-  "collectedAt": "2026-08-12T12:02:38Z",
+  "collectedAt": "2026-08-13T12:02:05Z",
   "date": "2026-08-12",
   "host": "YOUNG",
   "sources": {
     "codex": {
       "cacheCreation": 0,
-      "cacheRead": 203384532,
-      "costUSD": 18.883171,
-      "input": 6311801,
+      "cacheRead": 251852116,
+      "costUSD": 45.273845,
+      "input": 7323443,
       "models": {
         "future-gpt/gpt-5.6-terra": {
           "cacheCreation": 0,
@@ -18,24 +18,32 @@
           "reasoningOutput": 77106,
           "total": 29847514
         },
+        "gpt-5.6-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 29270016,
+          "input": 674905,
+          "output": 117667,
+          "reasoningOutput": 31595,
+          "total": 30062588
+        },
         "opencode-go/deepseek-v4-flash": {
           "cacheCreation": 0,
-          "cacheRead": 177633920,
-          "input": 2391160,
-          "output": 792421,
-          "reasoningOutput": 423535,
-          "total": 180817501
+          "cacheRead": 196831488,
+          "input": 2727897,
+          "output": 913313,
+          "reasoningOutput": 489537,
+          "total": 200472698
         }
       },
-      "output": 968682,
-      "reasoningOutput": 500641,
-      "total": 210665015
+      "output": 1207241,
+      "reasoningOutput": 598238,
+      "total": 260382800
     },
     "opencode": {
       "cacheCreation": 0,
-      "cacheRead": 75713152,
-      "costUSD": 0.389698,
-      "input": 5662228,
+      "cacheRead": 80215936,
+      "costUSD": 0.417583,
+      "input": 5887894,
       "models": {
         "big-pickle": {
           "cacheCreation": 0,
@@ -47,11 +55,11 @@
         },
         "deepseek-v4-flash": {
           "cacheCreation": 0,
-          "cacheRead": 57997184,
-          "costUSD": 0.389698,
-          "input": 3718634,
-          "output": 155410,
-          "total": 61871228
+          "cacheRead": 62499968,
+          "costUSD": 0.417583,
+          "input": 3944300,
+          "output": 174480,
+          "total": 66618748
         },
         "grok-4.5": {
           "cacheCreation": 0,
@@ -62,10 +70,10 @@
           "total": 19288431
         }
       },
-      "output": 210234,
-      "total": 81801314
+      "output": 229304,
+      "total": 86571082
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
