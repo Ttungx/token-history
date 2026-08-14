@@ -1,6 +1,6 @@
 {
   "ccusageVersion": "20.0.19",
-  "collectedAt": "2026-08-13T12:02:05Z",
+  "collectedAt": "2026-08-14T12:02:28Z",
   "date": "2026-08-13",
   "host": "YOUNG",
   "sources": {
@@ -24,9 +24,9 @@
     },
     "codex": {
       "cacheCreation": 0,
-      "cacheRead": 152930688,
-      "costUSD": 108.597329,
-      "input": 3779506,
+      "cacheRead": 157478528,
+      "costUSD": 111.723877,
+      "input": 3930618,
       "models": {
         "gpt-5.6-luna": {
           "cacheCreation": 0,
@@ -38,44 +38,52 @@
         },
         "gpt-5.6-sol": {
           "cacheCreation": 0,
-          "cacheRead": 127114752,
-          "input": 2449894,
-          "output": 412877,
-          "reasoningOutput": 138959,
-          "total": 129977523
+          "cacheRead": 130990848,
+          "input": 2581430,
+          "output": 430571,
+          "reasoningOutput": 141965,
+          "total": 134002849
         },
         "opencode-go/deepseek-v4-flash": {
           "cacheCreation": 0,
-          "cacheRead": 22288000,
-          "input": 1178901,
-          "output": 344214,
-          "reasoningOutput": 225930,
-          "total": 23811115
+          "cacheRead": 22959744,
+          "input": 1198477,
+          "output": 362253,
+          "reasoningOutput": 236661,
+          "total": 24520474
         }
       },
-      "output": 789585,
-      "reasoningOutput": 388495,
-      "total": 157499779
+      "output": 825318,
+      "reasoningOutput": 402232,
+      "total": 162234464
     },
     "opencode": {
       "cacheCreation": 0,
-      "cacheRead": 108651136,
-      "costUSD": 0.352166,
-      "input": 2110749,
+      "cacheRead": 262483840,
+      "costUSD": 0.427797,
+      "input": 6396308,
       "models": {
         "deepseek-v4-flash": {
           "cacheCreation": 0,
-          "cacheRead": 108651136,
-          "costUSD": 0.352166,
-          "input": 2110749,
-          "output": 204087,
-          "total": 110965972
+          "cacheRead": 116163840,
+          "costUSD": 0.427797,
+          "input": 2822656,
+          "output": 256591,
+          "total": 119243087
+        },
+        "grok-4.6": {
+          "cacheCreation": 0,
+          "cacheRead": 146320000,
+          "costUSD": 0.0,
+          "input": 3573652,
+          "output": 269290,
+          "total": 150162942
         }
       },
-      "output": 204087,
-      "total": 111135468
+      "output": 525881,
+      "total": 269832506
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }

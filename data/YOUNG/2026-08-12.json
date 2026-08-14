@@ -1,6 +1,6 @@
 {
   "ccusageVersion": "20.0.19",
-  "collectedAt": "2026-08-13T12:02:05Z",
+  "collectedAt": "2026-08-14T12:02:28Z",
   "date": "2026-08-12",
   "host": "YOUNG",
   "sources": {
@@ -42,7 +42,7 @@
     "opencode": {
       "cacheCreation": 0,
       "cacheRead": 80215936,
-      "costUSD": 0.417583,
+      "costUSD": 9.967581,
       "input": 5887894,
       "models": {
         "big-pickle": {
@@ -64,7 +64,7 @@
         "grok-4.5": {
           "cacheCreation": 0,
           "cacheRead": 17334400,
-          "costUSD": 0.0,
+          "costUSD": 9.549998,
           "input": 1903412,
           "output": 50619,
           "total": 19288431
