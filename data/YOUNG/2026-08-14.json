@@ -1,13 +1,13 @@
 {
-  "ccusageVersion": "20.0.19",
-  "collectedAt": "2026-08-15T12:02:27Z",
+  "ccusageVersion": "20.0.20",
+  "collectedAt": "2026-08-16T12:01:29Z",
   "date": "2026-08-14",
   "host": "YOUNG",
   "sources": {
     "codex": {
       "cacheCreation": 0,
       "cacheRead": 119517056,
-      "costUSD": 78.425901,
+      "costUSD": 78.763881,
       "input": 2856706,
       "models": {
         "gpt-5.6-sol": {
@@ -34,7 +34,7 @@
     "opencode": {
       "cacheCreation": 0,
       "cacheRead": 151533568,
-      "costUSD": 7.661564,
+      "costUSD": 35.146388,
       "input": 8148244,
       "models": {
         "deepseek-v4-flash": {
@@ -56,7 +56,7 @@
         "grok-4.6": {
           "cacheCreation": 0,
           "cacheRead": 26479872,
-          "costUSD": 0.0,
+          "costUSD": 27.484824,
           "input": 2085940,
           "output": 87738,
           "total": 28653550
