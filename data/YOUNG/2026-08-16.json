@@ -1,36 +1,55 @@
 {
   "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-08-16T12:01:29Z",
+  "collectedAt": "2026-08-17T12:03:54Z",
   "date": "2026-08-16",
   "host": "YOUNG",
   "sources": {
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 15835264,
+      "costUSD": 35.235342,
+      "input": 3784167,
+      "models": {
+        "future-gpt/gpt-5.6-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 15835264,
+          "input": 3784167,
+          "output": 143828,
+          "reasoningOutput": 55621,
+          "total": 19763259
+        }
+      },
+      "output": 143828,
+      "reasoningOutput": 55621,
+      "total": 19763259
+    },
     "opencode": {
       "cacheCreation": 0,
-      "cacheRead": 44314944,
-      "costUSD": 48.232579,
-      "input": 2513536,
+      "cacheRead": 49362624,
+      "costUSD": 39.924484,
+      "input": 4031595,
       "models": {
         "deepseek-v4-flash": {
           "cacheCreation": 0,
-          "cacheRead": 1016960,
-          "costUSD": 0.051167,
-          "input": 668554,
-          "output": 9071,
-          "total": 1694585
+          "cacheRead": 2925184,
+          "costUSD": 0.084516,
+          "input": 828254,
+          "output": 19442,
+          "total": 3772880
         },
         "grok-4.6": {
           "cacheCreation": 0,
-          "cacheRead": 43297984,
-          "costUSD": 48.181412,
-          "input": 1844982,
-          "output": 58604,
-          "total": 45201570
+          "cacheRead": 46437440,
+          "costUSD": 39.839968,
+          "input": 3203341,
+          "output": 59811,
+          "total": 49700592
         }
       },
-      "output": 67675,
-      "total": 46946648
+      "output": 79253,
+      "total": 53536506
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
