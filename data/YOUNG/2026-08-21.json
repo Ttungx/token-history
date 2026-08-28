@@ -1,0 +1,28 @@
+{
+  "ccusageVersion": "20.0.20",
+  "collectedAt": "2026-08-28T12:00:24Z",
+  "date": "2026-08-21",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 183552,
+      "costUSD": 0.001294,
+      "input": 23199,
+      "models": {
+        "hy3": {
+          "cacheCreation": 0,
+          "cacheRead": 183552,
+          "costUSD": 0.001294,
+          "input": 23199,
+          "output": 997,
+          "total": 207748
+        }
+      },
+      "output": 997,
+      "total": 207926
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

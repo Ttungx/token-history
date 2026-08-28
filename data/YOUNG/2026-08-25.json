@@ -1,0 +1,62 @@
+{
+  "ccusageVersion": "20.0.20",
+  "collectedAt": "2026-08-28T12:00:24Z",
+  "date": "2026-08-25",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 6447360,
+      "costUSD": 1.068946,
+      "input": 1225174,
+      "models": {
+        "deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 3724288,
+          "costUSD": 0.222553,
+          "input": 731768,
+          "output": 42439,
+          "total": 4498495
+        },
+        "grok-4.6": {
+          "cacheCreation": 0,
+          "cacheRead": 622592,
+          "costUSD": 0.846393,
+          "input": 182291,
+          "output": 3439,
+          "total": 808322
+        },
+        "ox-alpha-free": {
+          "cacheCreation": 0,
+          "cacheRead": 2100480,
+          "costUSD": 0.0,
+          "input": 311115,
+          "output": 16618,
+          "total": 2428213
+        }
+      },
+      "output": 62496,
+      "total": 7762715
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 91712,
+      "costUSD": 0.0,
+      "input": 11454,
+      "models": {
+        "[pi] ox-alpha-free": {
+          "cacheCreation": 0,
+          "cacheRead": 91712,
+          "costUSD": 0.0,
+          "input": 11454,
+          "output": 3044,
+          "total": 106210
+        }
+      },
+      "output": 3044,
+      "total": 106210
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

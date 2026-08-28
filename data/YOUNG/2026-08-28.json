@@ -1,0 +1,44 @@
+{
+  "ccusageVersion": "20.0.20",
+  "collectedAt": "2026-08-28T12:00:24Z",
+  "date": "2026-08-28",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 10393088,
+      "costUSD": 0.325519,
+      "input": 1092048,
+      "models": {
+        "deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 320896,
+          "costUSD": 0.06164,
+          "input": 153043,
+          "output": 34706,
+          "total": 508645
+        },
+        "glm-5.3-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 6801920,
+          "costUSD": 0.160751,
+          "input": 532393,
+          "output": 31470,
+          "total": 7365783
+        },
+        "mimo-v2.5": {
+          "cacheCreation": 0,
+          "cacheRead": 3270272,
+          "costUSD": 0.103128,
+          "input": 406612,
+          "output": 132306,
+          "total": 3809190
+        }
+      },
+      "output": 198482,
+      "total": 11731590
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}

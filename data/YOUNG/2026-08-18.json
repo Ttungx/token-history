@@ -1,6 +1,6 @@
 {
   "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-08-19T12:00:42Z",
+  "collectedAt": "2026-08-28T12:00:24Z",
   "date": "2026-08-18",
   "host": "YOUNG",
   "sources": {
@@ -42,7 +42,7 @@
     "opencode": {
       "cacheCreation": 0,
       "cacheRead": 13563072,
-      "costUSD": 0.570077,
+      "costUSD": 0.588766,
       "input": 1061726,
       "models": {
         "deepseek-v4-flash": {
@@ -56,7 +56,7 @@
         "grok-4.6": {
           "cacheCreation": 0,
           "cacheRead": 128064,
-          "costUSD": 0.186888,
+          "costUSD": 0.205577,
           "input": 59034,
           "output": 335,
           "total": 187433
