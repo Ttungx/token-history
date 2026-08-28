@@ -19,7 +19,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 </style>
 <rect class="bg" width="880" height="608"/>
 <text class="ts" x="36" y="54" font-size="30">August 2026</text>
-<text class="t2" x="36" y="78" font-size="12.5">2.3B tokens · $908 API-equivalent so far</text>
+<text class="t2" x="36" y="78" font-size="12.5">2.4B tokens · $914 API-equivalent so far</text>
 <text class="tm" x="46.0" y="120" font-size="10" letter-spacing="1.5">MON</text>
 <text class="tm" x="162.6" y="120" font-size="10" letter-spacing="1.5">TUE</text>
 <text class="tm" x="279.1" y="120" font-size="10" letter-spacing="1.5">WED</text>
@@ -28,17 +28,17 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <text class="tm" x="628.9" y="120" font-size="10" letter-spacing="1.5">SAT</text>
 <text class="tm" x="745.4" y="120" font-size="10" letter-spacing="1.5">SUN</text>
 <g class="pop" style="animation-delay:70ms">
-<rect class="r2" x="618.9" y="132" width="108.6" height="64" rx="10"/>
-<text class="t2" x="628.9" y="152" font-size="12" font-weight="600" font-family="var(--f)">1</text>
-<text class="t2" x="717.4" y="186" font-size="11" text-anchor="end" font-family="var(--fm)">60M</text>
+<rect class="r3" x="618.9" y="132" width="108.6" height="64" rx="10"/>
+<text class="on3" x="628.9" y="152" font-size="12" font-weight="600" font-family="var(--f)">1</text>
+<text class="on3" x="717.4" y="186" font-size="11" text-anchor="end" font-family="var(--fm)">60M</text>
 </g>
 <g class="pop" style="animation-delay:84ms">
-<rect class="r1" x="735.4" y="132" width="108.6" height="64" rx="10"/>
+<rect class="r2" x="735.4" y="132" width="108.6" height="64" rx="10"/>
 <text class="t2" x="745.4" y="152" font-size="12" font-weight="600" font-family="var(--f)">2</text>
 <text class="t2" x="834.0" y="186" font-size="11" text-anchor="end" font-family="var(--fm)">24M</text>
 </g>
 <g class="pop" style="animation-delay:98ms">
-<rect class="r1" x="36.0" y="204" width="108.6" height="64" rx="10"/>
+<rect class="r2" x="36.0" y="204" width="108.6" height="64" rx="10"/>
 <text class="t2" x="46.0" y="224" font-size="12" font-weight="600" font-family="var(--f)">3</text>
 <text class="t2" x="134.6" y="258" font-size="11" text-anchor="end" font-family="var(--fm)">12M</text>
 </g>
@@ -48,9 +48,9 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <text class="t2" x="251.1" y="258" font-size="11" text-anchor="end" font-family="var(--fm)">42M</text>
 </g>
 <g class="pop" style="animation-delay:126ms">
-<rect class="r3" x="269.1" y="204" width="108.6" height="64" rx="10"/>
-<text class="on3" x="279.1" y="224" font-size="12" font-weight="600" font-family="var(--f)">5</text>
-<text class="on3" x="367.7" y="258" font-size="11" text-anchor="end" font-family="var(--fm)">196M</text>
+<rect class="r4" x="269.1" y="204" width="108.6" height="64" rx="10"/>
+<text class="on4" x="279.1" y="224" font-size="12" font-weight="600" font-family="var(--f)">5</text>
+<text class="on4" x="367.7" y="258" font-size="11" text-anchor="end" font-family="var(--fm)">196M</text>
 </g>
 <g class="pop" style="animation-delay:140ms">
 <rect class="r0" x="385.7" y="204" width="108.6" height="64" rx="10"/>
@@ -112,51 +112,57 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <text class="t2" x="134.6" y="402" font-size="11" text-anchor="end" font-family="var(--fm)">4.8M</text>
 </g>
 <g class="pop" style="animation-delay:308ms">
-<rect class="r2" x="152.6" y="348" width="108.6" height="64" rx="10"/>
-<text class="t2" x="162.6" y="368" font-size="12" font-weight="600" font-family="var(--f)">18</text>
-<text class="t2" x="251.1" y="402" font-size="11" text-anchor="end" font-family="var(--fm)">66M</text>
+<rect class="r3" x="152.6" y="348" width="108.6" height="64" rx="10"/>
+<text class="on3" x="162.6" y="368" font-size="12" font-weight="600" font-family="var(--f)">18</text>
+<text class="on3" x="251.1" y="402" font-size="11" text-anchor="end" font-family="var(--fm)">66M</text>
 </g>
 <g class="pop" style="animation-delay:322ms">
-<rect class="r1 wip" x="269.1" y="348" width="108.6" height="64" rx="10"/>
+<rect class="r2 wip" x="269.1" y="348" width="108.6" height="64" rx="10"/>
 <text class="t2" x="279.1" y="368" font-size="12" font-weight="600" font-family="var(--f)">19</text>
-<text class="t2" x="367.7" y="402" font-size="11" text-anchor="end" font-family="var(--fm)">30M</text>
+<text class="t2" x="367.7" y="402" font-size="11" text-anchor="end" font-family="var(--fm)">31M</text>
 <rect class="ring" x="269.9" y="348.75" width="107.1" height="62.5" rx="10"/>
 </g>
 <g class="pop" style="animation-delay:336ms">
-<rect class="future" x="385.7" y="348" width="108.6" height="64" rx="10"/>
-<text class="tm" x="395.7" y="368" font-size="12">20</text>
+<rect class="r0" x="385.7" y="348" width="108.6" height="64" rx="10"/>
+<text class="t2" x="395.7" y="368" font-size="12" font-weight="600" font-family="var(--f)">20</text>
 </g>
 <g class="pop" style="animation-delay:350ms">
-<rect class="future" x="502.3" y="348" width="108.6" height="64" rx="10"/>
-<text class="tm" x="512.3" y="368" font-size="12">21</text>
+<rect class="r1" x="502.3" y="348" width="108.6" height="64" rx="10"/>
+<text class="t2" x="512.3" y="368" font-size="12" font-weight="600" font-family="var(--f)">21</text>
+<text class="t2" x="600.9" y="402" font-size="11" text-anchor="end" font-family="var(--fm)">208K</text>
 </g>
 <g class="pop" style="animation-delay:364ms">
-<rect class="future" x="618.9" y="348" width="108.6" height="64" rx="10"/>
-<text class="tm" x="628.9" y="368" font-size="12">22</text>
+<rect class="r0" x="618.9" y="348" width="108.6" height="64" rx="10"/>
+<text class="t2" x="628.9" y="368" font-size="12" font-weight="600" font-family="var(--f)">22</text>
 </g>
 <g class="pop" style="animation-delay:378ms">
-<rect class="future" x="735.4" y="348" width="108.6" height="64" rx="10"/>
-<text class="tm" x="745.4" y="368" font-size="12">23</text>
+<rect class="r0" x="735.4" y="348" width="108.6" height="64" rx="10"/>
+<text class="t2" x="745.4" y="368" font-size="12" font-weight="600" font-family="var(--f)">23</text>
 </g>
 <g class="pop" style="animation-delay:392ms">
-<rect class="future" x="36.0" y="420" width="108.6" height="64" rx="10"/>
-<text class="tm" x="46.0" y="440" font-size="12">24</text>
+<rect class="r2" x="36.0" y="420" width="108.6" height="64" rx="10"/>
+<text class="t2" x="46.0" y="440" font-size="12" font-weight="600" font-family="var(--f)">24</text>
+<text class="t2" x="134.6" y="474" font-size="11" text-anchor="end" font-family="var(--fm)">25M</text>
 </g>
 <g class="pop" style="animation-delay:406ms">
-<rect class="future" x="152.6" y="420" width="108.6" height="64" rx="10"/>
-<text class="tm" x="162.6" y="440" font-size="12">25</text>
+<rect class="r1" x="152.6" y="420" width="108.6" height="64" rx="10"/>
+<text class="t2" x="162.6" y="440" font-size="12" font-weight="600" font-family="var(--f)">25</text>
+<text class="t2" x="251.1" y="474" font-size="11" text-anchor="end" font-family="var(--fm)">7.9M</text>
 </g>
 <g class="pop" style="animation-delay:420ms">
-<rect class="future" x="269.1" y="420" width="108.6" height="64" rx="10"/>
-<text class="tm" x="279.1" y="440" font-size="12">26</text>
+<rect class="r0" x="269.1" y="420" width="108.6" height="64" rx="10"/>
+<text class="t2" x="279.1" y="440" font-size="12" font-weight="600" font-family="var(--f)">26</text>
 </g>
 <g class="pop" style="animation-delay:434ms">
-<rect class="future" x="385.7" y="420" width="108.6" height="64" rx="10"/>
-<text class="tm" x="395.7" y="440" font-size="12">27</text>
+<rect class="r1" x="385.7" y="420" width="108.6" height="64" rx="10"/>
+<text class="t2" x="395.7" y="440" font-size="12" font-weight="600" font-family="var(--f)">27</text>
+<text class="t2" x="484.3" y="474" font-size="11" text-anchor="end" font-family="var(--fm)">8.0M</text>
 </g>
 <g class="pop" style="animation-delay:448ms">
-<rect class="future" x="502.3" y="420" width="108.6" height="64" rx="10"/>
-<text class="tm" x="512.3" y="440" font-size="12">28</text>
+<rect class="r1 wip" x="502.3" y="420" width="108.6" height="64" rx="10"/>
+<text class="t2" x="512.3" y="440" font-size="12" font-weight="600" font-family="var(--f)">28</text>
+<text class="t2" x="600.9" y="474" font-size="11" text-anchor="end" font-family="var(--fm)">12M</text>
+<rect class="ring" x="503.0" y="420.75" width="107.1" height="62.5" rx="10"/>
 </g>
 <g class="pop" style="animation-delay:462ms">
 <rect class="future" x="618.9" y="420" width="108.6" height="64" rx="10"/>
@@ -177,5 +183,5 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="r3" x="746" y="578" width="13" height="13" rx="3"/>
 <rect class="r4" x="762" y="578" width="13" height="13" rx="3"/>
 <text class="tm" x="782" y="588" font-size="10.5">More</text>
-<text class="tm" x="36" y="592" font-size="10.5">Generated 2026-08-19 12:01 UTC</text>
+<text class="tm" x="36" y="592" font-size="10.5">Generated 2026-08-28 12:00 UTC</text>
 </svg>
