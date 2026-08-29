@@ -1,0 +1,63 @@
+{
+  "ccusageVersion": "20.0.20",
+  "collectedAt": "2026-08-29T12:00:20Z",
+  "date": "2026-08-29",
+  "host": "YOUNG",
+  "sources": {
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 26537984,
+      "costUSD": 0.989013,
+      "input": 1483537,
+      "models": {
+        "gpt-5.6-luna": {
+          "cacheCreation": 0,
+          "cacheRead": 26537984,
+          "input": 1483537,
+          "output": 134622,
+          "reasoningOutput": 59075,
+          "total": 28156143
+        }
+      },
+      "output": 134622,
+      "reasoningOutput": 59075,
+      "total": 28156143
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 8117312,
+      "costUSD": 0.166217,
+      "input": 2742820,
+      "models": {
+        "deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 2953216,
+          "costUSD": 0.086761,
+          "input": 226973,
+          "output": 24477,
+          "total": 3204666
+        },
+        "hy3": {
+          "cacheCreation": 0,
+          "cacheRead": 4092864,
+          "costUSD": 0.063844,
+          "input": 2436672,
+          "output": 17176,
+          "total": 6546712
+        },
+        "mimo-v2.5": {
+          "cacheCreation": 0,
+          "cacheRead": 1071232,
+          "costUSD": 0.015612,
+          "input": 79175,
+          "output": 5456,
+          "total": 1155863
+        }
+      },
+      "output": 47109,
+      "total": 10935525
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
