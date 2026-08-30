@@ -1,13 +1,13 @@
 {
   "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-08-29T12:00:20Z",
+  "collectedAt": "2026-08-30T12:00:16Z",
   "date": "2026-08-28",
   "host": "YOUNG",
   "sources": {
     "opencode": {
       "cacheCreation": 0,
       "cacheRead": 10393088,
-      "costUSD": 0.325519,
+      "costUSD": 0.486271,
       "input": 1092048,
       "models": {
         "deepseek-v4-flash": {
@@ -21,7 +21,7 @@
         "glm-5.3-flash": {
           "cacheCreation": 0,
           "cacheRead": 6801920,
-          "costUSD": 0.160751,
+          "costUSD": 0.321503,
           "input": 532393,
           "output": 31470,
           "total": 7365783
