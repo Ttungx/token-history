@@ -18,7 +18,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 </style>
 <rect class="bg" width="880" height="368"/>
 <text class="t" x="28" y="30" font-size="17" font-weight="600">Weekly API-equivalent value</text>
-<text class="t2" x="28" y="50" font-size="12">May 11, 2026 – Aug 30, 2026 · $992 over 16 weeks</text>
+<text class="t2" x="28" y="50" font-size="12">May 18, 2026 – Sep 06, 2026 · $994 over 16 weeks</text>
 <rect class="s-claude" x="28" y="62" width="10" height="10" rx="2"/>
 <text class="t2" x="44" y="71" font-size="12">Claude Code</text>
 <rect class="s-codex" x="127" y="62" width="10" height="10" rx="2"/>
@@ -41,34 +41,35 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <line class="grid" x1="76" y1="92.0" x2="852" y2="92.0"/>
 <text class="tm" x="66" y="96.0" font-size="11" text-anchor="end">$600</text>
 <line class="axis" x1="76" y1="316.0" x2="852" y2="316.0"/>
-<text class="tm" x="148.8" y="336" font-size="10.5" text-anchor="middle">05/18</text>
-<text class="tm" x="245.8" y="336" font-size="10.5" text-anchor="middle">06/01</text>
-<text class="tm" x="342.8" y="336" font-size="10.5" text-anchor="middle">06/15</text>
-<path class="s-opencode" d="M376.2,316.0 V316.0 a1.2,1.2 0 0 1 1.2,-1.2 h27.7 a1.2,1.2 0 0 1 1.2,1.2 V316.0 Z"/>
-<path class="s-claude" d="M424.7,316.0 h30.1 v0.0 h-30.1 Z"/>
-<path class="s-opencode" d="M424.7,316.0 V316.0 a1.0,1.0 0 0 1 1.0,-1.0 h28.0 a1.0,1.0 0 0 1 1.0,1.0 V316.0 Z"/>
-<text class="tm" x="439.8" y="336" font-size="10.5" text-anchor="middle">06/29</text>
-<path class="s-opencode" d="M473.2,316.0 V316.0 a0.2,0.2 0 0 1 0.2,-0.2 h29.6 a0.2,0.2 0 0 1 0.2,0.2 V316.0 Z"/>
-<path class="s-claude" d="M521.7,315.1 h30.1 v0.9 h-30.1 Z"/>
-<path class="s-opencode" d="M521.7,313.1 V313.1 a1.0,1.0 0 0 1 1.0,-1.0 h28.0 a1.0,1.0 0 0 1 1.0,1.0 V313.1 Z"/>
-<text class="tm" x="536.8" y="336" font-size="10.5" text-anchor="middle">07/13</text>
-<path class="s-claude" d="M570.2,315.5 h30.1 v0.5 h-30.1 Z"/>
-<path class="s-opencode" d="M570.2,313.5 V313.5 a0.6,0.6 0 0 1 0.6,-0.6 h28.8 a0.6,0.6 0 0 1 0.6,0.6 V313.5 Z"/>
-<path class="s-claude" d="M618.7,300.7 h30.1 v15.3 h-30.1 Z"/>
-<path class="s-codex" d="M618.7,298.7 V298.7 a2.5,2.5 0 0 1 2.5,-2.5 h25.0 a2.5,2.5 0 0 1 2.5,2.5 V298.7 Z"/>
-<text class="tm" x="633.8" y="336" font-size="10.5" text-anchor="middle">07/27</text>
-<path class="s-codex" d="M667.2,213.9 h30.1 v102.1 h-30.1 Z"/>
-<path class="s-opencode" d="M667.2,211.9 h30.1 v0.0 h-30.1 Z"/>
-<path class="s-pi" d="M667.2,211.7 V211.7 a0.0,0.0 0 0 1 0.0,-0.0 h30.1 a0.0,0.0 0 0 1 0.0,0.0 V211.7 Z"/>
-<path class="s-codex" d="M715.7,166.0 h30.1 v150.0 h-30.1 Z"/>
-<path class="s-opencode" d="M715.7,164.0 V123.4 a4.0,4.0 0 0 1 4.0,-4.0 h22.1 a4.0,4.0 0 0 1 4.0,4.0 V164.0 Z"/>
-<text class="tm" x="730.8" y="336" font-size="10.5" text-anchor="middle">08/10</text>
-<path class="s-codex wip" d="M764.2,281.4 h30.1 v34.6 h-30.1 Z"/>
-<path class="s-opencode wip" d="M764.2,279.4 V279.4 a0.4,0.4 0 0 1 0.4,-0.4 h29.2 a0.4,0.4 0 0 1 0.4,0.4 V279.4 Z"/>
-<path class="s-codex wip" d="M812.7,316.0 h30.1 v0.0 h-30.1 Z"/>
-<path class="s-opencode wip" d="M812.7,315.6 V315.6 a2.6,2.6 0 0 1 2.6,-2.6 h24.8 a2.6,2.6 0 0 1 2.6,2.6 V315.6 Z"/>
-<text class="tm" x="827.8" y="336" font-size="10.5" text-anchor="middle">08/24</text>
-<text class="t" x="730.8" y="111.4" font-size="11.5" font-weight="600" text-anchor="middle">$527</text>
-<text class="t" x="827.8" y="305.0" font-size="11.5" font-weight="600" text-anchor="middle">$8.0</text>
-<text class="tm" x="28" y="354" font-size="10.5">Generated 2026-08-30 12:00 UTC</text>
+<text class="tm" x="148.8" y="336" font-size="10.5" text-anchor="middle">05/25</text>
+<text class="tm" x="245.8" y="336" font-size="10.5" text-anchor="middle">06/08</text>
+<path class="s-opencode" d="M327.7,316.0 V316.0 a1.2,1.2 0 0 1 1.2,-1.2 h27.7 a1.2,1.2 0 0 1 1.2,1.2 V316.0 Z"/>
+<text class="tm" x="342.8" y="336" font-size="10.5" text-anchor="middle">06/22</text>
+<path class="s-claude" d="M376.2,316.0 h30.1 v0.0 h-30.1 Z"/>
+<path class="s-opencode" d="M376.2,316.0 V316.0 a1.0,1.0 0 0 1 1.0,-1.0 h28.0 a1.0,1.0 0 0 1 1.0,1.0 V316.0 Z"/>
+<path class="s-opencode" d="M424.7,316.0 V316.0 a0.2,0.2 0 0 1 0.2,-0.2 h29.6 a0.2,0.2 0 0 1 0.2,0.2 V316.0 Z"/>
+<text class="tm" x="439.8" y="336" font-size="10.5" text-anchor="middle">07/06</text>
+<path class="s-claude" d="M473.2,315.1 h30.1 v0.9 h-30.1 Z"/>
+<path class="s-opencode" d="M473.2,313.1 V313.1 a1.0,1.0 0 0 1 1.0,-1.0 h28.0 a1.0,1.0 0 0 1 1.0,1.0 V313.1 Z"/>
+<path class="s-claude" d="M521.7,315.5 h30.1 v0.5 h-30.1 Z"/>
+<path class="s-opencode" d="M521.7,313.5 V313.5 a0.6,0.6 0 0 1 0.6,-0.6 h28.8 a0.6,0.6 0 0 1 0.6,0.6 V313.5 Z"/>
+<text class="tm" x="536.8" y="336" font-size="10.5" text-anchor="middle">07/20</text>
+<path class="s-claude" d="M570.2,300.7 h30.1 v15.3 h-30.1 Z"/>
+<path class="s-codex" d="M570.2,298.7 V298.7 a2.5,2.5 0 0 1 2.5,-2.5 h25.0 a2.5,2.5 0 0 1 2.5,2.5 V298.7 Z"/>
+<path class="s-codex" d="M618.7,213.9 h30.1 v102.1 h-30.1 Z"/>
+<path class="s-opencode" d="M618.7,211.9 h30.1 v0.0 h-30.1 Z"/>
+<path class="s-pi" d="M618.7,211.7 V211.7 a0.0,0.0 0 0 1 0.0,-0.0 h30.1 a0.0,0.0 0 0 1 0.0,0.0 V211.7 Z"/>
+<text class="tm" x="633.8" y="336" font-size="10.5" text-anchor="middle">08/03</text>
+<path class="s-codex" d="M667.2,166.0 h30.1 v150.0 h-30.1 Z"/>
+<path class="s-opencode" d="M667.2,164.0 V123.4 a4.0,4.0 0 0 1 4.0,-4.0 h22.1 a4.0,4.0 0 0 1 4.0,4.0 V164.0 Z"/>
+<path class="s-codex wip" d="M715.7,281.4 h30.1 v34.6 h-30.1 Z"/>
+<path class="s-opencode wip" d="M715.7,279.4 V279.4 a0.4,0.4 0 0 1 0.4,-0.4 h29.2 a0.4,0.4 0 0 1 0.4,0.4 V279.4 Z"/>
+<text class="tm" x="730.8" y="336" font-size="10.5" text-anchor="middle">08/17</text>
+<path class="s-codex" d="M764.2,316.0 h30.1 v0.0 h-30.1 Z"/>
+<path class="s-opencode" d="M764.2,315.6 V315.6 a3.0,3.0 0 0 1 3.0,-3.0 h24.1 a3.0,3.0 0 0 1 3.0,3.0 V315.6 Z"/>
+<path class="s-opencode wip" d="M812.7,316.0 V316.0 a0.2,0.2 0 0 1 0.2,-0.2 h29.6 a0.2,0.2 0 0 1 0.2,0.2 V316.0 Z"/>
+<text class="tm" x="827.8" y="336" font-size="10.5" text-anchor="middle">08/31</text>
+<text class="t" x="682.2" y="111.4" font-size="11.5" font-weight="600" text-anchor="middle">$527</text>
+<text class="t" x="827.8" y="307.8" font-size="11.5" font-weight="600" text-anchor="middle">$0.6</text>
+<text class="tm" x="28" y="354" font-size="10.5">Generated 2026-09-01 12:00 UTC</text>
 </svg>
