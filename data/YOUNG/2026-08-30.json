@@ -1,28 +1,44 @@
 {
   "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-08-30T12:00:16Z",
+  "collectedAt": "2026-09-01T12:00:26Z",
   "date": "2026-08-30",
   "host": "YOUNG",
   "sources": {
     "opencode": {
       "cacheCreation": 0,
-      "cacheRead": 175582464,
-      "costUSD": 3.546235,
-      "input": 5851629,
+      "cacheRead": 188684093,
+      "costUSD": 4.579098,
+      "input": 6724095,
       "models": {
+        "MiniMaxAI/MiniMax-M3": {
+          "cacheCreation": 0,
+          "cacheRead": 12008317,
+          "costUSD": 0.970174,
+          "input": 688998,
+          "output": 35813,
+          "total": 12733128
+        },
         "deepseek-v4-flash": {
           "cacheCreation": 0,
-          "cacheRead": 175582464,
-          "costUSD": 3.546235,
-          "input": 5851629,
-          "output": 1560302,
-          "total": 182994395
+          "cacheRead": 176400128,
+          "costUSD": 3.601263,
+          "input": 5993689,
+          "output": 1587653,
+          "total": 183981470
+        },
+        "mimo-v2.5": {
+          "cacheCreation": 0,
+          "cacheRead": 275648,
+          "costUSD": 0.007661,
+          "input": 41408,
+          "output": 3899,
+          "total": 320955
         }
       },
-      "output": 1560302,
-      "total": 182994395
+      "output": 1627365,
+      "total": 197035553
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
