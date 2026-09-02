@@ -1,14 +1,14 @@
 {
   "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-09-01T12:00:26Z",
+  "collectedAt": "2026-09-02T12:00:27Z",
   "date": "2026-09-01",
   "host": "YOUNG",
   "sources": {
     "opencode": {
       "cacheCreation": 0,
-      "cacheRead": 6666304,
-      "costUSD": 0.600217,
-      "input": 1970613,
+      "cacheRead": 13099392,
+      "costUSD": 0.810626,
+      "input": 2458030,
       "models": {
         "deepseek-v4-flash": {
           "cacheCreation": 0,
@@ -28,17 +28,43 @@
         },
         "qwen3.8-flash": {
           "cacheCreation": 0,
-          "cacheRead": 262784,
-          "costUSD": 0.022564,
-          "input": 108977,
-          "output": 1070,
-          "total": 372831
+          "cacheRead": 6549504,
+          "costUSD": 0.221629,
+          "input": 575715,
+          "output": 22741,
+          "total": 7147960
+        },
+        "step-3.7-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 146368,
+          "costUSD": 0.011344,
+          "input": 20679,
+          "output": 1894,
+          "total": 168941
         }
       },
-      "output": 52819,
-      "total": 8856227
+      "output": 76384,
+      "total": 15839195
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 1477632,
+      "costUSD": 0.0,
+      "input": 53131,
+      "models": {
+        "[pi] deepseek/deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 1477632,
+          "costUSD": 0.0,
+          "input": 53131,
+          "output": 29403,
+          "total": 1560166
+        }
+      },
+      "output": 29403,
+      "total": 1560166
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }

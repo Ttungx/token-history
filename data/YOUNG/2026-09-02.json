@@ -1,0 +1,70 @@
+{
+  "ccusageVersion": "20.0.20",
+  "collectedAt": "2026-09-02T12:00:27Z",
+  "date": "2026-09-02",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 39373312,
+      "costUSD": 14.586179,
+      "input": 2150043,
+      "models": {
+        "deepseek/deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 21572864,
+          "costUSD": 0.962467,
+          "input": 565895,
+          "output": 83553,
+          "total": 22222312
+        },
+        "glm-5.3-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 18816,
+          "costUSD": 0.009719,
+          "input": 58292,
+          "output": 509,
+          "total": 77617
+        },
+        "grok-4.6": {
+          "cacheCreation": 0,
+          "cacheRead": 17758336,
+          "costUSD": 13.608538,
+          "input": 1494358,
+          "output": 39384,
+          "total": 19292078
+        },
+        "qwen3.8-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 23296,
+          "costUSD": 0.005456,
+          "input": 31498,
+          "output": 249,
+          "total": 55043
+        }
+      },
+      "output": 123695,
+      "total": 41920564
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 5583360,
+      "costUSD": 0.0,
+      "input": 204713,
+      "models": {
+        "[pi] deepseek/deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 5583360,
+          "costUSD": 0.0,
+          "input": 204713,
+          "output": 58359,
+          "total": 5846432
+        }
+      },
+      "output": 58359,
+      "total": 5846432
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
