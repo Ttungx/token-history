@@ -20,8 +20,8 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="bg" width="880" height="236"/>
 <g class="b">
 <text class="tm" x="48" y="58" font-size="10.5" letter-spacing="2.5">LAST 30 DAYS · TOKENS</text>
-<text class="ts" x="46" y="122" font-size="58" font-weight="700">2.62B</text>
-<text class="t2" x="48" y="150" font-size="13">≈ $930 API-equivalent</text>
+<text class="ts" x="46" y="122" font-size="58" font-weight="700">2.61B</text>
+<text class="t2" x="48" y="150" font-size="13">≈ $915 API-equivalent</text>
 </g>
 <line class="axis" x1="400" y1="46" x2="400" y2="150"/>
 <g class="b" style="animation-delay:120ms">
@@ -41,17 +41,17 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 </g>
 <g class="b" style="animation-delay:320ms">
 <path class="s-claude" d="M48.0,176.0 H48.1 V185.0 H48.0 A0.0,0.0 0 0 1 48.0,185.0 V176.0 A0.0,0.0 0 0 1 48.0,176.0 Z"/>
-<path class="s-codex" d="M50.1,176.0 H488.1 V185.0 H50.1 V176.0 Z"/>
-<path class="s-opencode" d="M490.1,176.0 H829.7 V185.0 H490.1 V176.0 Z"/>
-<path class="s-pi" d="M831.7,176.0 H832.8 A1.2,1.2 0 0 1 834.0,177.2 V183.8 A1.2,1.2 0 0 1 832.8,185.0 H831.7 V176.0 Z"/>
+<path class="s-codex" d="M50.1,176.0 H479.0 V185.0 H50.1 V176.0 Z"/>
+<path class="s-opencode" d="M481.0,176.0 H829.1 V185.0 H481.0 V176.0 Z"/>
+<path class="s-pi" d="M831.1,176.0 H832.5 A1.5,1.5 0 0 1 834.0,177.5 V183.5 A1.5,1.5 0 0 1 832.5,185.0 H831.1 V176.0 Z"/>
 <circle class="s-claude" cx="132.0" cy="203" r="4"/>
 <text class="t2" x="150.0" y="207" font-size="11" text-anchor="middle">Claude Code 0%</text>
 <circle class="s-codex" cx="328.0" cy="203" r="4"/>
-<text class="t2" x="346.0" y="207" font-size="11" text-anchor="middle">Codex 56%</text>
+<text class="t2" x="346.0" y="207" font-size="11" text-anchor="middle">Codex 55%</text>
 <circle class="s-opencode" cx="524.0" cy="203" r="4"/>
-<text class="t2" x="542.0" y="207" font-size="11" text-anchor="middle">opencode 44%</text>
+<text class="t2" x="542.0" y="207" font-size="11" text-anchor="middle">opencode 45%</text>
 <circle class="s-pi" cx="720.0" cy="203" r="4"/>
 <text class="t2" x="738.0" y="207" font-size="11" text-anchor="middle">pi 0%</text>
 </g>
-<text class="tm" x="48" y="226" font-size="10">Generated 2026-09-02 12:00 UTC</text>
+<text class="tm" x="48" y="226" font-size="10">Generated 2026-09-03 12:00 UTC</text>
 </svg>
