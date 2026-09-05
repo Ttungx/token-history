@@ -1,0 +1,72 @@
+{
+  "ccusageVersion": "20.0.20",
+  "collectedAt": "2026-09-05T12:00:28Z",
+  "date": "2026-09-05",
+  "host": "YOUNG",
+  "sources": {
+    "claude": {
+      "cacheCreation": 0,
+      "cacheRead": 41135,
+      "costUSD": 0.131105,
+      "input": 1251860,
+      "models": {
+        "meta/muse-spark-1.3-contributor": {
+          "cacheCreation": 0,
+          "cacheRead": 41135,
+          "costUSD": 0.131105,
+          "input": 1251860,
+          "output": 29185,
+          "total": 1322180
+        }
+      },
+      "output": 29185,
+      "total": 1322180
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 14023308,
+      "costUSD": 0.33434,
+      "input": 2979960,
+      "models": {
+        "muse-spark-1.3-contributor-free": {
+          "cacheCreation": 0,
+          "cacheRead": 14023308,
+          "costUSD": 0.33434,
+          "input": 2979960,
+          "output": 25198,
+          "total": 17028466
+        }
+      },
+      "output": 25198,
+      "total": 17044757
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 24973662,
+      "costUSD": 0.0,
+      "input": 1087828,
+      "models": {
+        "[pi] gpt-6-astra": {
+          "cacheCreation": 0,
+          "cacheRead": 125997,
+          "costUSD": 0.0,
+          "input": 32763,
+          "output": 1178,
+          "total": 159938
+        },
+        "[pi] muse-spark-1.3-contributor-free": {
+          "cacheCreation": 0,
+          "cacheRead": 24847665,
+          "costUSD": 0.0,
+          "input": 1055065,
+          "output": 130700,
+          "total": 26033430
+        }
+      },
+      "output": 131878,
+      "total": 26193368
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}

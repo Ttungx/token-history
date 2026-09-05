@@ -1,0 +1,62 @@
+{
+  "ccusageVersion": "20.0.20",
+  "collectedAt": "2026-09-05T12:00:28Z",
+  "date": "2026-09-04",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 66581789,
+      "costUSD": 0.469953,
+      "input": 2919334,
+      "models": {
+        "muse-spark-1.3-contributor-free": {
+          "cacheCreation": 0,
+          "cacheRead": 66581789,
+          "costUSD": 0.469953,
+          "input": 2919334,
+          "output": 115108,
+          "total": 69616231
+        }
+      },
+      "output": 115108,
+      "total": 69725403
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 1625536,
+      "costUSD": 0.0,
+      "input": 231567,
+      "models": {
+        "[pi] deepseek/deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 899968,
+          "costUSD": 0.0,
+          "input": 28135,
+          "output": 12365,
+          "total": 940468
+        },
+        "[pi] meta/muse-spark-1.3-contributor": {
+          "cacheCreation": 0,
+          "cacheRead": 277362,
+          "costUSD": 0.0,
+          "input": 85124,
+          "output": 11163,
+          "total": 373649
+        },
+        "[pi] muse-spark-1.3-contributor-free": {
+          "cacheCreation": 0,
+          "cacheRead": 448206,
+          "costUSD": 0.0,
+          "input": 118308,
+          "output": 15090,
+          "total": 581604
+        }
+      },
+      "output": 38618,
+      "total": 1895721
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}
