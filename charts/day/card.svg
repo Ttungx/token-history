@@ -20,8 +20,8 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="bg" width="880" height="236"/>
 <g class="b">
 <text class="tm" x="48" y="58" font-size="10.5" letter-spacing="2.5">LAST 30 DAYS · TOKENS</text>
-<text class="ts" x="46" y="122" font-size="58" font-weight="700">2.61B</text>
-<text class="t2" x="48" y="150" font-size="13">≈ $915 API-equivalent</text>
+<text class="ts" x="46" y="122" font-size="58" font-weight="700">2.55B</text>
+<text class="t2" x="48" y="150" font-size="13">≈ $794 API-equivalent</text>
 </g>
 <line class="axis" x1="400" y1="46" x2="400" y2="150"/>
 <g class="b" style="animation-delay:120ms">
@@ -31,27 +31,27 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 </g>
 <g class="b" style="animation-delay:210ms">
 <text class="tm" x="590" y="64" font-size="10" letter-spacing="1.8">DAILY AVG</text>
-<text class="ts" x="590" y="100" font-size="26" font-weight="700">109M</text>
+<text class="ts" x="590" y="100" font-size="26" font-weight="700">102M</text>
 <text class="tm" x="590" y="122" font-size="11">per active day</text>
 </g>
 <g class="b" style="animation-delay:300ms">
 <text class="tm" x="740" y="64" font-size="10" letter-spacing="1.8">ACTIVE DAYS</text>
-<text class="ts" x="740" y="100" font-size="26" font-weight="700">24 / 30</text>
+<text class="ts" x="740" y="100" font-size="26" font-weight="700">25 / 30</text>
 <text class="tm" x="740" y="122" font-size="11">days with usage</text>
 </g>
 <g class="b" style="animation-delay:320ms">
-<path class="s-claude" d="M48.0,176.0 H48.1 V185.0 H48.0 A0.0,0.0 0 0 1 48.0,185.0 V176.0 A0.0,0.0 0 0 1 48.0,176.0 Z"/>
-<path class="s-codex" d="M50.1,176.0 H479.0 V185.0 H50.1 V176.0 Z"/>
-<path class="s-opencode" d="M481.0,176.0 H829.1 V185.0 H481.0 V176.0 Z"/>
-<path class="s-pi" d="M831.1,176.0 H832.5 A1.5,1.5 0 0 1 834.0,177.5 V183.5 A1.5,1.5 0 0 1 832.5,185.0 H831.1 V176.0 Z"/>
+<path class="s-claude" d="M48.2,176.0 H48.5 V185.0 H48.2 A0.2,0.2 0 0 1 48.0,184.8 V176.2 A0.2,0.2 0 0 1 48.2,176.0 Z"/>
+<path class="s-codex" d="M50.5,176.0 H442.4 V185.0 H50.5 V176.0 Z"/>
+<path class="s-opencode" d="M444.4,176.0 H820.4 V185.0 H444.4 V176.0 Z"/>
+<path class="s-pi" d="M822.4,176.0 H829.5 A4.5,4.5 0 0 1 834.0,180.5 V180.5 A4.5,4.5 0 0 1 829.5,185.0 H822.4 V176.0 Z"/>
 <circle class="s-claude" cx="132.0" cy="203" r="4"/>
 <text class="t2" x="150.0" y="207" font-size="11" text-anchor="middle">Claude Code 0%</text>
 <circle class="s-codex" cx="328.0" cy="203" r="4"/>
-<text class="t2" x="346.0" y="207" font-size="11" text-anchor="middle">Codex 55%</text>
+<text class="t2" x="346.0" y="207" font-size="11" text-anchor="middle">Codex 50%</text>
 <circle class="s-opencode" cx="524.0" cy="203" r="4"/>
-<text class="t2" x="542.0" y="207" font-size="11" text-anchor="middle">opencode 45%</text>
+<text class="t2" x="542.0" y="207" font-size="11" text-anchor="middle">opencode 48%</text>
 <circle class="s-pi" cx="720.0" cy="203" r="4"/>
-<text class="t2" x="738.0" y="207" font-size="11" text-anchor="middle">pi 0%</text>
+<text class="t2" x="738.0" y="207" font-size="11" text-anchor="middle">pi 1%</text>
 </g>
-<text class="tm" x="48" y="226" font-size="10">Generated 2026-09-03 12:00 UTC</text>
+<text class="tm" x="48" y="226" font-size="10">Generated 2026-09-05 12:00 UTC</text>
 </svg>
