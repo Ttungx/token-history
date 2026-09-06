@@ -1,26 +1,26 @@
 {
   "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-09-05T12:00:28Z",
+  "collectedAt": "2026-09-06T12:00:22Z",
   "date": "2026-09-05",
   "host": "YOUNG",
   "sources": {
     "claude": {
       "cacheCreation": 0,
-      "cacheRead": 41135,
-      "costUSD": 0.131105,
-      "input": 1251860,
+      "cacheRead": 729799,
+      "costUSD": 1.496176,
+      "input": 14414280,
       "models": {
         "meta/muse-spark-1.3-contributor": {
           "cacheCreation": 0,
-          "cacheRead": 41135,
-          "costUSD": 0.131105,
-          "input": 1251860,
-          "output": 29185,
-          "total": 1322180
+          "cacheRead": 729799,
+          "costUSD": 1.496176,
+          "input": 14414280,
+          "output": 266440,
+          "total": 15410519
         }
       },
-      "output": 29185,
-      "total": 1322180
+      "output": 266440,
+      "total": 15410519
     },
     "opencode": {
       "cacheCreation": 0,
@@ -42,9 +42,9 @@
     },
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 24973662,
+      "cacheRead": 26650691,
       "costUSD": 0.0,
-      "input": 1087828,
+      "input": 1502051,
       "models": {
         "[pi] gpt-6-astra": {
           "cacheCreation": 0,
@@ -54,19 +54,27 @@
           "output": 1178,
           "total": 159938
         },
+        "[pi] meta/muse-spark-1.3-contributor": {
+          "cacheCreation": 0,
+          "cacheRead": 331717,
+          "costUSD": 0.0,
+          "input": 100870,
+          "output": 17263,
+          "total": 449850
+        },
         "[pi] muse-spark-1.3-contributor-free": {
           "cacheCreation": 0,
-          "cacheRead": 24847665,
+          "cacheRead": 26192977,
           "costUSD": 0.0,
-          "input": 1055065,
-          "output": 130700,
-          "total": 26033430
+          "input": 1368418,
+          "output": 140622,
+          "total": 27702017
         }
       },
-      "output": 131878,
-      "total": 26193368
+      "output": 159063,
+      "total": 28311805
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
