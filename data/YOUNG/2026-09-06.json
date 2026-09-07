@@ -1,0 +1,99 @@
+{
+  "ccusageVersion": "20.0.20",
+  "collectedAt": "2026-09-07T12:00:31Z",
+  "date": "2026-09-06",
+  "host": "YOUNG",
+  "sources": {
+    "claude": {
+      "cacheCreation": 0,
+      "cacheRead": 3087752,
+      "costUSD": 2.276796,
+      "input": 22027596,
+      "models": {
+        "claude-ocx-opencode-zen--muse-spark-1.3-contributor-free": {
+          "cacheCreation": 0,
+          "cacheRead": 2259472,
+          "costUSD": 1.455257,
+          "input": 14248305,
+          "output": 129538,
+          "total": 16637315
+        },
+        "meta/muse-spark-1.3-contributor": {
+          "cacheCreation": 0,
+          "cacheRead": 828280,
+          "costUSD": 0.821539,
+          "input": 7779291,
+          "output": 209767,
+          "total": 8817338
+        }
+      },
+      "output": 339305,
+      "total": 25454653
+    },
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 4337,
+      "costUSD": 0.015872,
+      "input": 62843,
+      "models": {
+        "commandcode/deepseek-deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 4224,
+          "input": 27671,
+          "output": 27,
+          "reasoningOutput": 25,
+          "total": 31922
+        },
+        "commandcode/meta-muse-spark-1.3-contributor": {
+          "cacheCreation": 0,
+          "cacheRead": 113,
+          "input": 35172,
+          "output": 421,
+          "reasoningOutput": 392,
+          "total": 35706
+        }
+      },
+      "output": 448,
+      "reasoningOutput": 417,
+      "total": 67628
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 113,
+      "costUSD": 0.0019,
+      "input": 18963,
+      "models": {
+        "muse-spark-1.3-contributor-free": {
+          "cacheCreation": 0,
+          "cacheRead": 113,
+          "costUSD": 0.0019,
+          "input": 18963,
+          "output": 11,
+          "total": 19087
+        }
+      },
+      "output": 11,
+      "total": 19092
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 4304128,
+      "costUSD": 0.0,
+      "input": 73481,
+      "models": {
+        "[pi] deepseek/deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 4304128,
+          "costUSD": 0.0,
+          "input": 73481,
+          "output": 34634,
+          "total": 4412243
+        }
+      },
+      "output": 34634,
+      "total": 4412243
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}

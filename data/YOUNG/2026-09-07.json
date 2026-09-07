@@ -1,0 +1,79 @@
+{
+  "ccusageVersion": "20.0.20",
+  "collectedAt": "2026-09-07T12:00:31Z",
+  "date": "2026-09-07",
+  "host": "YOUNG",
+  "sources": {
+    "claude": {
+      "cacheCreation": 0,
+      "cacheRead": 2173506,
+      "costUSD": 4.077185,
+      "input": 11043285,
+      "models": {
+        "claude-ocx-blue-grok--grok-4.6": {
+          "cacheCreation": 0,
+          "cacheRead": 1792,
+          "costUSD": 2.533154,
+          "input": 1231821,
+          "output": 11436,
+          "total": 1245049
+        },
+        "claude-ocx-future-gpt--gpt-5.6-terra": {
+          "cacheCreation": 0,
+          "cacheRead": 0,
+          "costUSD": 0.039714,
+          "input": 19827,
+          "output": 5,
+          "total": 19832
+        },
+        "claude-ocx-future-grok--grok-4.6": {
+          "cacheCreation": 0,
+          "cacheRead": 888064,
+          "costUSD": 0.828364,
+          "input": 186676,
+          "output": 1830,
+          "total": 1076570
+        },
+        "claude-ocx-opencode-zen--muse-spark-1.3-contributor-free": {
+          "cacheCreation": 0,
+          "cacheRead": 1227239,
+          "costUSD": 0.675953,
+          "input": 6556978,
+          "output": 89006,
+          "total": 7873223
+        },
+        "claude-ocx2-commandcode--meta~smuse-spark-1.3-contributor": {
+          "cacheCreation": 0,
+          "cacheRead": 56411,
+          "costUSD": 0.0,
+          "input": 3047983,
+          "output": 7686,
+          "total": 3112080
+        }
+      },
+      "output": 109963,
+      "total": 13326754
+    },
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 17603776,
+      "costUSD": 11.120802,
+      "input": 877712,
+      "models": {
+        "blue-grok/grok-4.6": {
+          "cacheCreation": 0,
+          "cacheRead": 17603776,
+          "input": 877712,
+          "output": 93915,
+          "reasoningOutput": 199160,
+          "total": 18575403
+        }
+      },
+      "output": 93915,
+      "reasoningOutput": 199160,
+      "total": 18575403
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
