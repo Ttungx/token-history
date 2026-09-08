@@ -1,6 +1,6 @@
 {
   "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-09-07T12:00:31Z",
+  "collectedAt": "2026-09-08T12:00:40Z",
   "date": "2026-09-07",
   "host": "YOUNG",
   "sources": {
@@ -72,8 +72,34 @@
       "output": 93915,
       "reasoningOutput": 199160,
       "total": 18575403
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 227253,
+      "costUSD": 0.0,
+      "input": 29867,
+      "models": {
+        "[pi] deepseek/deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 196864,
+          "costUSD": 0.0,
+          "input": 21019,
+          "output": 13936,
+          "total": 231819
+        },
+        "[pi] muse-spark-1.3-contributor-free": {
+          "cacheCreation": 0,
+          "cacheRead": 30389,
+          "costUSD": 0.0,
+          "input": 8848,
+          "output": 1927,
+          "total": 41164
+        }
+      },
+      "output": 15863,
+      "total": 272983
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
