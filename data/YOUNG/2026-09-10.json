@@ -1,48 +1,48 @@
 {
   "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-09-10T12:04:03Z",
+  "collectedAt": "2026-09-11T12:00:21Z",
   "date": "2026-09-10",
   "host": "YOUNG",
   "sources": {
     "claude": {
       "cacheCreation": 0,
-      "cacheRead": 173568,
-      "costUSD": 0.011725,
-      "input": 31657,
+      "cacheRead": 15865472,
+      "costUSD": 0.451839,
+      "input": 606933,
       "models": {
         "deepseek/deepseek-v4.1-flash": {
           "cacheCreation": 0,
-          "cacheRead": 173568,
-          "costUSD": 0.011725,
-          "input": 31657,
-          "output": 2074,
-          "total": 207299
+          "cacheRead": 15865472,
+          "costUSD": 0.451839,
+          "input": 606933,
+          "output": 187309,
+          "total": 16659714
         }
       },
-      "output": 2074,
-      "total": 207299
+      "output": 187309,
+      "total": 16659714
     },
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 32384163,
+      "cacheRead": 36219624,
       "costUSD": 0.0,
-      "input": 1513934,
+      "input": 2049171,
       "models": {
         "[pi] deepseek/deepseek-v4.1-flash": {
           "cacheCreation": 0,
-          "cacheRead": 7574784,
+          "cacheRead": 10509696,
           "costUSD": 0.0,
-          "input": 317635,
-          "output": 78897,
-          "total": 7971316
+          "input": 473191,
+          "output": 100266,
+          "total": 11083153
         },
         "[pi] gemini-3.8-flash-high": {
           "cacheCreation": 0,
-          "cacheRead": 19564626,
+          "cacheRead": 20465175,
           "costUSD": 0.0,
-          "input": 696559,
-          "output": 13798,
-          "total": 20274983
+          "input": 1076240,
+          "output": 17175,
+          "total": 21558590
         },
         "[pi] muse-spark-1.3-contributor-free": {
           "cacheCreation": 0,
@@ -53,10 +53,10 @@
           "total": 5788376
         }
       },
-      "output": 136578,
-      "total": 34034675
+      "output": 161324,
+      "total": 38430119
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
