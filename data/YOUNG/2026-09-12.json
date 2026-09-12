@@ -1,0 +1,89 @@
+{
+  "ccusageVersion": "20.0.20",
+  "collectedAt": "2026-09-12T12:00:22Z",
+  "date": "2026-09-12",
+  "host": "YOUNG",
+  "sources": {
+    "claude": {
+      "cacheCreation": 0,
+      "cacheRead": 4432512,
+      "costUSD": 0.037468,
+      "input": 7460,
+      "models": {
+        "deepseek/deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 4432512,
+          "costUSD": 0.037468,
+          "input": 7460,
+          "output": 10665,
+          "total": 4450637
+        }
+      },
+      "output": 10665,
+      "total": 4450637
+    },
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 141033472,
+      "costUSD": 278.147726,
+      "input": 8918895,
+      "models": {
+        "CPA/gpt-5.6-luna": {
+          "cacheCreation": 0,
+          "cacheRead": 0,
+          "input": 117677,
+          "output": 22,
+          "reasoningOutput": 0,
+          "total": 117699
+        },
+        "CPA/gpt-6-astra": {
+          "cacheCreation": 0,
+          "cacheRead": 140780672,
+          "input": 8748583,
+          "output": 996903,
+          "reasoningOutput": 253942,
+          "total": 150526158
+        },
+        "commandcode/deepseek-deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 252800,
+          "input": 52635,
+          "output": 5759,
+          "reasoningOutput": 1708,
+          "total": 311194
+        }
+      },
+      "output": 1002684,
+      "reasoningOutput": 255650,
+      "total": 150955051
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 77148774,
+      "costUSD": 0.0,
+      "input": 1552436,
+      "models": {
+        "[pi] deepseek/deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 70922496,
+          "costUSD": 0.0,
+          "input": 867891,
+          "output": 448631,
+          "total": 72239018
+        },
+        "[pi] gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 6226278,
+          "costUSD": 0.0,
+          "input": 684545,
+          "output": 135987,
+          "total": 7046810
+        }
+      },
+      "output": 584618,
+      "total": 79285828
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}

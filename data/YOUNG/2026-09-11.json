@@ -1,22 +1,22 @@
 {
   "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-09-11T12:00:21Z",
+  "collectedAt": "2026-09-12T12:00:22Z",
   "date": "2026-09-11",
   "host": "YOUNG",
   "sources": {
     "claude": {
       "cacheCreation": 0,
-      "cacheRead": 76963736,
-      "costUSD": 5.960776,
-      "input": 7672136,
+      "cacheRead": 97646360,
+      "costUSD": 6.313959,
+      "input": 7983890,
       "models": {
         "deepseek/deepseek-v4.1-flash": {
           "cacheCreation": 0,
-          "cacheRead": 57975040,
-          "costUSD": 1.821685,
-          "input": 4129262,
-          "output": 364555,
-          "total": 62468857
+          "cacheRead": 78657664,
+          "costUSD": 2.174868,
+          "input": 4441016,
+          "output": 510224,
+          "total": 83608904
         },
         "gemini-3.8-flash": {
           "cacheCreation": 0,
@@ -35,14 +35,14 @@
           "total": 690337
         }
       },
-      "output": 464796,
-      "total": 85100668
+      "output": 610465,
+      "total": 106240715
     },
     "codex": {
       "cacheCreation": 0,
-      "cacheRead": 21416541,
-      "costUSD": 33.646984,
-      "input": 849115,
+      "cacheRead": 84334301,
+      "costUSD": 151.860564,
+      "input": 4258017,
       "models": {
         "CPA/gemini-3.8-flash-high": {
           "cacheCreation": 0,
@@ -62,30 +62,30 @@
         },
         "CPA/gpt-6-astra": {
           "cacheCreation": 0,
-          "cacheRead": 19987968,
-          "input": 561607,
-          "output": 155409,
-          "reasoningOutput": 17041,
-          "total": 20704984
+          "cacheRead": 82905728,
+          "input": 3970509,
+          "output": 579545,
+          "reasoningOutput": 111432,
+          "total": 87455782
         }
       },
-      "output": 159012,
-      "reasoningOutput": 25791,
-      "total": 22424668
+      "output": 583148,
+      "reasoningOutput": 120182,
+      "total": 89175466
     },
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 38907603,
+      "cacheRead": 74923603,
       "costUSD": 0.0,
-      "input": 1962351,
+      "input": 2258896,
       "models": {
         "[pi] deepseek/deepseek-v4.1-flash": {
           "cacheCreation": 0,
-          "cacheRead": 8752768,
+          "cacheRead": 44768768,
           "costUSD": 0.0,
-          "input": 221302,
-          "output": 75606,
-          "total": 9049676
+          "input": 517847,
+          "output": 142760,
+          "total": 45429375
         },
         "[pi] gemini-3.8-flash-high": {
           "cacheCreation": 0,
@@ -96,10 +96,10 @@
           "total": 31954056
         }
       },
-      "output": 133778,
-      "total": 41003732
+      "output": 200932,
+      "total": 77383431
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
