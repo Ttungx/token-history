@@ -1,19 +1,19 @@
 {
   "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-09-12T12:00:22Z",
+  "collectedAt": "2026-09-14T12:00:25Z",
   "date": "2026-09-12",
   "host": "YOUNG",
   "sources": {
     "claude": {
       "cacheCreation": 0,
       "cacheRead": 4432512,
-      "costUSD": 0.037468,
+      "costUSD": 0.020816,
       "input": 7460,
       "models": {
         "deepseek/deepseek-v4.1-flash": {
           "cacheCreation": 0,
           "cacheRead": 4432512,
-          "costUSD": 0.037468,
+          "costUSD": 0.020816,
           "input": 7460,
           "output": 10665,
           "total": 4450637
@@ -24,9 +24,9 @@
     },
     "codex": {
       "cacheCreation": 0,
-      "cacheRead": 141033472,
-      "costUSD": 278.147726,
-      "input": 8918895,
+      "cacheRead": 209789177,
+      "costUSD": 375.179369,
+      "input": 12030301,
       "models": {
         "CPA/gpt-5.6-luna": {
           "cacheCreation": 0,
@@ -38,52 +38,52 @@
         },
         "CPA/gpt-6-astra": {
           "cacheCreation": 0,
-          "cacheRead": 140780672,
-          "input": 8748583,
-          "output": 996903,
-          "reasoningOutput": 253942,
-          "total": 150526158
+          "cacheRead": 187003648,
+          "input": 11326856,
+          "output": 1489829,
+          "reasoningOutput": 440149,
+          "total": 199820333
         },
         "commandcode/deepseek-deepseek-v4.1-flash": {
           "cacheCreation": 0,
-          "cacheRead": 252800,
-          "input": 52635,
-          "output": 5759,
-          "reasoningOutput": 1708,
-          "total": 311194
+          "cacheRead": 22785529,
+          "input": 585768,
+          "output": 372129,
+          "reasoningOutput": 280861,
+          "total": 23743426
         }
       },
-      "output": 1002684,
-      "reasoningOutput": 255650,
-      "total": 150955051
+      "output": 1861980,
+      "reasoningOutput": 721010,
+      "total": 223681458
     },
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 77148774,
+      "cacheRead": 95892015,
       "costUSD": 0.0,
-      "input": 1552436,
+      "input": 2817647,
       "models": {
         "[pi] deepseek/deepseek-v4.1-flash": {
           "cacheCreation": 0,
-          "cacheRead": 70922496,
+          "cacheRead": 88017408,
           "costUSD": 0.0,
-          "input": 867891,
-          "output": 448631,
-          "total": 72239018
+          "input": 960904,
+          "output": 507406,
+          "total": 89485718
         },
         "[pi] gemini-3.8-flash-high": {
           "cacheCreation": 0,
-          "cacheRead": 6226278,
+          "cacheRead": 7874607,
           "costUSD": 0.0,
-          "input": 684545,
-          "output": 135987,
-          "total": 7046810
+          "input": 1856743,
+          "output": 179805,
+          "total": 9911155
         }
       },
-      "output": 584618,
-      "total": 79285828
+      "output": 687211,
+      "total": 99396873
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
