@@ -1,13 +1,13 @@
 {
-  "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-09-17T12:00:34Z",
+  "ccusageVersion": "20.0.22",
+  "collectedAt": "2026-09-18T12:00:34Z",
   "date": "2026-09-17",
   "host": "YOUNG",
   "sources": {
     "opencode": {
       "cacheCreation": 0,
       "cacheRead": 8547929,
-      "costUSD": 0.166715,
+      "costUSD": 2.831475,
       "input": 1311199,
       "models": {
         "deepseek/deepseek-v4.1-flash": {
@@ -21,7 +21,7 @@
         "muse-spark-1.3-contributor-free": {
           "cacheCreation": 0,
           "cacheRead": 7447589,
-          "costUSD": 0.13762,
+          "costUSD": 2.802381,
           "input": 1054478,
           "output": 47195,
           "total": 8549262
@@ -39,6 +39,6 @@
       "total": 9963660
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
