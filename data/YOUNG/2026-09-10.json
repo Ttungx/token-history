@@ -1,26 +1,26 @@
 {
-  "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-09-12T12:00:22Z",
+  "ccusageVersion": "20.0.23",
+  "collectedAt": "2026-09-20T11:18:22Z",
   "date": "2026-09-10",
   "host": "YOUNG",
   "sources": {
     "claude": {
       "cacheCreation": 0,
-      "cacheRead": 15865472,
-      "costUSD": 0.451839,
-      "input": 606933,
+      "cacheRead": 20073216,
+      "costUSD": 0.641839,
+      "input": 940342,
       "models": {
         "deepseek/deepseek-v4.1-flash": {
           "cacheCreation": 0,
-          "cacheRead": 15865472,
-          "costUSD": 0.451839,
-          "input": 606933,
-          "output": 187309,
-          "total": 16659714
+          "cacheRead": 20073216,
+          "costUSD": 0.641839,
+          "input": 940342,
+          "output": 258844,
+          "total": 21272402
         }
       },
-      "output": 187309,
-      "total": 16659714
+      "output": 258844,
+      "total": 21272402
     },
     "pi": {
       "cacheCreation": 0,
@@ -55,6 +55,24 @@
       },
       "output": 161324,
       "total": 38430119
+    },
+    "workbuddy": {
+      "cacheCreation": 0,
+      "cacheRead": 4305536,
+      "costUSD": 0.0,
+      "input": 320139,
+      "models": {
+        "hy4-preview": {
+          "cacheCreation": 0,
+          "cacheRead": 4305536,
+          "costUSD": 0.0,
+          "input": 320139,
+          "output": 64861,
+          "total": 4690536
+        }
+      },
+      "output": 64861,
+      "total": 4690536
     }
   },
   "status": "final",

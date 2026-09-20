@@ -1,26 +1,26 @@
 {
-  "ccusageVersion": "20.0.19",
-  "collectedAt": "2026-08-08T12:18:48Z",
+  "ccusageVersion": "20.0.23",
+  "collectedAt": "2026-09-20T11:18:22Z",
   "date": "2026-02-24",
   "host": "YOUNG",
   "sources": {
     "opencode": {
       "cacheCreation": 0,
       "cacheRead": 0,
-      "costUSD": 0.254995,
+      "costUSD": 0.260341,
       "input": 401587,
       "models": {
         "kimi-k2.5": {
           "cacheCreation": 0,
           "cacheRead": 0,
-          "costUSD": 0.254995,
+          "costUSD": 0.260341,
           "input": 401587,
           "output": 4681,
           "total": 406268
         }
       },
       "output": 4681,
-      "total": 406268
+      "total": 408050
     }
   },
   "status": "final",

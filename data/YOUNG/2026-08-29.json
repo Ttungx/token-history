@@ -1,6 +1,6 @@
 {
-  "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-09-01T12:00:26Z",
+  "ccusageVersion": "20.0.23",
+  "collectedAt": "2026-09-20T11:18:22Z",
   "date": "2026-08-29",
   "host": "YOUNG",
   "sources": {
@@ -56,6 +56,42 @@
       },
       "output": 722582,
       "total": 62769219
+    },
+    "workbuddy": {
+      "cacheCreation": 0,
+      "cacheRead": 1331520,
+      "costUSD": 0.0,
+      "input": 7075,
+      "models": {
+        "glm-5.3-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 1331520,
+          "costUSD": 0.0,
+          "input": 7075,
+          "output": 2956,
+          "total": 1341551
+        }
+      },
+      "output": 2956,
+      "total": 1341551
+    },
+    "zcode": {
+      "cacheCreation": 0,
+      "cacheRead": 36503104,
+      "costUSD": 0.0,
+      "input": 1189554,
+      "models": {
+        "GLM-5.3-Flash": {
+          "cacheCreation": 0,
+          "cacheRead": 36503104,
+          "costUSD": 0.0,
+          "input": 1189554,
+          "output": 214595,
+          "total": 37907253
+        }
+      },
+      "output": 214595,
+      "total": 37907253
     }
   },
   "status": "final",

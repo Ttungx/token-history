@@ -1,26 +1,26 @@
 {
   "ccusageVersion": "20.0.23",
   "collectedAt": "2026-09-20T11:18:22Z",
-  "date": "2026-09-14",
+  "date": "2026-06-19",
   "host": "YOUNG",
   "sources": {
-    "pi": {
+    "workbuddy": {
       "cacheCreation": 0,
-      "cacheRead": 26513024,
+      "cacheRead": 696832,
       "costUSD": 0.0,
-      "input": 407692,
+      "input": 48594,
       "models": {
-        "[pi] deepseek/deepseek-v4.1-flash": {
+        "deepseek-v4-pro": {
           "cacheCreation": 0,
-          "cacheRead": 26513024,
+          "cacheRead": 696832,
           "costUSD": 0.0,
-          "input": 407692,
-          "output": 282821,
-          "total": 27203537
+          "input": 48594,
+          "output": 13309,
+          "total": 758735
         }
       },
-      "output": 282821,
-      "total": 27203537
+      "output": 13309,
+      "total": 758735
     }
   },
   "status": "final",

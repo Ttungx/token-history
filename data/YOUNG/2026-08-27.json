@@ -1,13 +1,31 @@
 {
-  "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-08-29T12:00:20Z",
+  "ccusageVersion": "20.0.23",
+  "collectedAt": "2026-09-20T11:18:22Z",
   "date": "2026-08-27",
   "host": "YOUNG",
   "sources": {
+    "cline": {
+      "cacheCreation": 0,
+      "cacheRead": 0,
+      "costUSD": 0.0,
+      "input": 5313,
+      "models": {
+        "z-ai/glm-5.3-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 0,
+          "costUSD": 0.0,
+          "input": 5313,
+          "output": 130,
+          "total": 5443
+        }
+      },
+      "output": 130,
+      "total": 5443
+    },
     "opencode": {
       "cacheCreation": 0,
       "cacheRead": 7062464,
-      "costUSD": 0.211094,
+      "costUSD": 0.382285,
       "input": 854934,
       "models": {
         "deepseek-v4-flash": {
@@ -21,7 +39,7 @@
         "glm-5.3-flash": {
           "cacheCreation": 0,
           "cacheRead": 6223168,
-          "costUSD": 0.17119,
+          "costUSD": 0.342381,
           "input": 727573,
           "output": 27405,
           "total": 6978146

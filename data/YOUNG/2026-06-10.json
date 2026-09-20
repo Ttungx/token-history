@@ -1,19 +1,19 @@
 {
-  "ccusageVersion": "20.0.19",
-  "collectedAt": "2026-08-08T12:18:48Z",
+  "ccusageVersion": "20.0.23",
+  "collectedAt": "2026-09-20T11:18:22Z",
   "date": "2026-06-10",
   "host": "YOUNG",
   "sources": {
     "opencode": {
       "cacheCreation": 0,
       "cacheRead": 11840512,
-      "costUSD": 0.0,
+      "costUSD": 0.183822,
       "input": 716758,
       "models": {
         "deepseek-v4-flash-free": {
           "cacheCreation": 0,
           "cacheRead": 11840512,
-          "costUSD": 0.0,
+          "costUSD": 0.162924,
           "input": 534115,
           "output": 45782,
           "total": 12420409
@@ -21,7 +21,7 @@
         "nemotron-3-ultra-free": {
           "cacheCreation": 0,
           "cacheRead": 0,
-          "costUSD": 0.0,
+          "costUSD": 0.020898,
           "input": 182643,
           "output": 552,
           "total": 183195
@@ -29,6 +29,24 @@
       },
       "output": 46334,
       "total": 12636956
+    },
+    "workbuddy": {
+      "cacheCreation": 0,
+      "cacheRead": 2974464,
+      "costUSD": 0.0,
+      "input": 175586,
+      "models": {
+        "deepseek-v4-pro": {
+          "cacheCreation": 0,
+          "cacheRead": 2974464,
+          "costUSD": 0.0,
+          "input": 175586,
+          "output": 19917,
+          "total": 3169967
+        }
+      },
+      "output": 19917,
+      "total": 3169967
     }
   },
   "status": "final",

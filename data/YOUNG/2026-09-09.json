@@ -1,6 +1,6 @@
 {
-  "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-09-11T12:00:21Z",
+  "ccusageVersion": "20.0.23",
+  "collectedAt": "2026-09-20T11:18:22Z",
   "date": "2026-09-09",
   "host": "YOUNG",
   "sources": {
@@ -29,6 +29,40 @@
       },
       "output": 87801,
       "total": 50701692
+    },
+    "workbuddy": {
+      "cacheCreation": 0,
+      "cacheRead": 45751040,
+      "costUSD": 0.0,
+      "input": 3229108,
+      "models": {
+        "glm-5.3-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 24808576,
+          "costUSD": 0.0,
+          "input": 2471983,
+          "output": 49570,
+          "total": 27330129
+        },
+        "hy3": {
+          "cacheCreation": 0,
+          "cacheRead": 1308288,
+          "costUSD": 0.0,
+          "input": 291896,
+          "output": 34424,
+          "total": 1634608
+        },
+        "hy4-preview": {
+          "cacheCreation": 0,
+          "cacheRead": 19634176,
+          "costUSD": 0.0,
+          "input": 465229,
+          "output": 87812,
+          "total": 20187217
+        }
+      },
+      "output": 171806,
+      "total": 49151954
     }
   },
   "status": "final",

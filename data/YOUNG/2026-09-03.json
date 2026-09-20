@@ -1,19 +1,19 @@
 {
-  "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-09-05T12:00:28Z",
+  "ccusageVersion": "20.0.23",
+  "collectedAt": "2026-09-20T11:18:22Z",
   "date": "2026-09-03",
   "host": "YOUNG",
   "sources": {
     "opencode": {
       "cacheCreation": 0,
       "cacheRead": 11060794,
-      "costUSD": 0.635167,
+      "costUSD": 8.743222,
       "input": 5464967,
       "models": {
         "commandcode/meta-muse-spark-1.3-contributor": {
           "cacheCreation": 0,
           "cacheRead": 226,
-          "costUSD": 0.00324,
+          "costUSD": 0.040716,
           "input": 32172,
           "output": 22,
           "total": 32420
@@ -29,7 +29,7 @@
         "muse-spark-1.3-contributor-free": {
           "cacheCreation": 0,
           "cacheRead": 10433496,
-          "costUSD": 0.575548,
+          "costUSD": 8.670975,
           "input": 5349738,
           "output": 50728,
           "total": 15833962

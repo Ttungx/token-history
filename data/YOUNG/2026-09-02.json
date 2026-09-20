@@ -1,13 +1,39 @@
 {
-  "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-09-05T12:00:28Z",
+  "ccusageVersion": "20.0.23",
+  "collectedAt": "2026-09-20T11:18:22Z",
   "date": "2026-09-02",
   "host": "YOUNG",
   "sources": {
+    "cline": {
+      "cacheCreation": 0,
+      "cacheRead": 12472640,
+      "costUSD": 0.0,
+      "input": 13411329,
+      "models": {
+        "deepseek/deepseek-v4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 1056512,
+          "costUSD": 0.0,
+          "input": 1452421,
+          "output": 12269,
+          "total": 2521202
+        },
+        "z-ai/glm-5.3-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 11416128,
+          "costUSD": 0.0,
+          "input": 11958908,
+          "output": 76379,
+          "total": 23451415
+        }
+      },
+      "output": 88648,
+      "total": 25972617
+    },
     "opencode": {
       "cacheCreation": 0,
       "cacheRead": 68616719,
-      "costUSD": 27.558016,
+      "costUSD": 42.610016,
       "input": 5406642,
       "models": {
         "deepseek/deepseek-v4-flash": {
@@ -29,7 +55,7 @@
         "grok-4.6": {
           "cacheCreation": 0,
           "cacheRead": 31100672,
-          "costUSD": 25.786167,
+          "costUSD": 41.153054,
           "input": 3628822,
           "output": 51395,
           "total": 34780889
@@ -63,6 +89,24 @@
       },
       "output": 83498,
       "total": 7803500
+    },
+    "zcode": {
+      "cacheCreation": 0,
+      "cacheRead": 467008,
+      "costUSD": 0.0,
+      "input": 4299,
+      "models": {
+        "GLM-5.3-Flash": {
+          "cacheCreation": 0,
+          "cacheRead": 467008,
+          "costUSD": 0.0,
+          "input": 4299,
+          "output": 2162,
+          "total": 473469
+        }
+      },
+      "output": 2162,
+      "total": 473469
     }
   },
   "status": "final",

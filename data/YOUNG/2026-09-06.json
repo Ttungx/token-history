@@ -1,39 +1,39 @@
 {
-  "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-09-08T12:00:40Z",
+  "ccusageVersion": "20.0.23",
+  "collectedAt": "2026-09-20T11:18:22Z",
   "date": "2026-09-06",
   "host": "YOUNG",
   "sources": {
     "claude": {
       "cacheCreation": 0,
-      "cacheRead": 3087752,
-      "costUSD": 2.276796,
-      "input": 22027596,
+      "cacheRead": 4702991,
+      "costUSD": 30.028694,
+      "input": 30760779,
       "models": {
         "claude-ocx-opencode-zen--muse-spark-1.3-contributor-free": {
           "cacheCreation": 0,
-          "cacheRead": 2259472,
-          "costUSD": 1.455257,
-          "input": 14248305,
-          "output": 129538,
-          "total": 16637315
+          "cacheRead": 3642307,
+          "costUSD": 29.05613,
+          "input": 21572852,
+          "output": 363228,
+          "total": 25578387
         },
         "meta/muse-spark-1.3-contributor": {
           "cacheCreation": 0,
-          "cacheRead": 828280,
-          "costUSD": 0.821539,
-          "input": 7779291,
-          "output": 209767,
-          "total": 8817338
+          "cacheRead": 1060684,
+          "costUSD": 0.972563,
+          "input": 9187927,
+          "output": 258247,
+          "total": 10506858
         }
       },
-      "output": 339305,
-      "total": 25454653
+      "output": 621475,
+      "total": 36085245
     },
     "codex": {
       "cacheCreation": 0,
       "cacheRead": 4337,
-      "costUSD": 0.015872,
+      "costUSD": 0.049951,
       "input": 62843,
       "models": {
         "commandcode/deepseek-deepseek-v4-flash": {
@@ -60,13 +60,13 @@
     "opencode": {
       "cacheCreation": 0,
       "cacheRead": 113,
-      "costUSD": 0.0019,
+      "costUSD": 0.023789,
       "input": 18963,
       "models": {
         "muse-spark-1.3-contributor-free": {
           "cacheCreation": 0,
           "cacheRead": 113,
-          "costUSD": 0.0019,
+          "costUSD": 0.023789,
           "input": 18963,
           "output": 11,
           "total": 19087
@@ -92,6 +92,24 @@
       },
       "output": 34634,
       "total": 4412243
+    },
+    "zcode": {
+      "cacheCreation": 0,
+      "cacheRead": 106945728,
+      "costUSD": 0.0,
+      "input": 7614497,
+      "models": {
+        "GLM-5.3-Flash": {
+          "cacheCreation": 0,
+          "cacheRead": 106945728,
+          "costUSD": 0.0,
+          "input": 7614497,
+          "output": 403655,
+          "total": 114963880
+        }
+      },
+      "output": 403655,
+      "total": 114963880
     }
   },
   "status": "final",

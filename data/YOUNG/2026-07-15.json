@@ -1,6 +1,6 @@
 {
-  "ccusageVersion": "20.0.19",
-  "collectedAt": "2026-08-08T12:18:48Z",
+  "ccusageVersion": "20.0.23",
+  "collectedAt": "2026-09-20T11:18:22Z",
   "date": "2026-07-15",
   "host": "YOUNG",
   "sources": {
@@ -47,6 +47,24 @@
       },
       "output": 123,
       "total": 2054
+    },
+    "workbuddy": {
+      "cacheCreation": 0,
+      "cacheRead": 36448,
+      "costUSD": 0.0,
+      "input": 35609,
+      "models": {
+        "hy3": {
+          "cacheCreation": 0,
+          "cacheRead": 36448,
+          "costUSD": 0.0,
+          "input": 35609,
+          "output": 726,
+          "total": 72783
+        }
+      },
+      "output": 726,
+      "total": 72783
     }
   },
   "status": "final",

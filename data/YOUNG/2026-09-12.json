@@ -1,19 +1,19 @@
 {
-  "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-09-14T12:00:25Z",
+  "ccusageVersion": "20.0.23",
+  "collectedAt": "2026-09-20T11:18:22Z",
   "date": "2026-09-12",
   "host": "YOUNG",
   "sources": {
     "claude": {
       "cacheCreation": 0,
       "cacheRead": 4432512,
-      "costUSD": 0.020816,
+      "costUSD": 0.037468,
       "input": 7460,
       "models": {
         "deepseek/deepseek-v4.1-flash": {
           "cacheCreation": 0,
           "cacheRead": 4432512,
-          "costUSD": 0.020816,
+          "costUSD": 0.037468,
           "input": 7460,
           "output": 10665,
           "total": 4450637
@@ -25,7 +25,7 @@
     "codex": {
       "cacheCreation": 0,
       "cacheRead": 209789177,
-      "costUSD": 375.179369,
+      "costUSD": 450.471397,
       "input": 12030301,
       "models": {
         "CPA/gpt-5.6-luna": {
@@ -82,6 +82,24 @@
       },
       "output": 687211,
       "total": 99396873
+    },
+    "zcode": {
+      "cacheCreation": 0,
+      "cacheRead": 93537920,
+      "costUSD": 0.0,
+      "input": 2583928,
+      "models": {
+        "GLM-5.3-Flash": {
+          "cacheCreation": 0,
+          "cacheRead": 93537920,
+          "costUSD": 0.0,
+          "input": 2583928,
+          "output": 231494,
+          "total": 96353342
+        }
+      },
+      "output": 231494,
+      "total": 96353342
     }
   },
   "status": "final",

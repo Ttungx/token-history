@@ -1,6 +1,6 @@
 {
-  "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-08-30T12:00:16Z",
+  "ccusageVersion": "20.0.23",
+  "collectedAt": "2026-09-20T11:18:22Z",
   "date": "2026-08-28",
   "host": "YOUNG",
   "sources": {
@@ -37,6 +37,58 @@
       },
       "output": 198482,
       "total": 11731590
+    },
+    "workbuddy": {
+      "cacheCreation": 0,
+      "cacheRead": 21075184,
+      "costUSD": 0.0,
+      "input": 1824160,
+      "models": {
+        "glm-5.3-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 17588736,
+          "costUSD": 0.0,
+          "input": 1112548,
+          "output": 130815,
+          "total": 18832099
+        },
+        "hy3": {
+          "cacheCreation": 0,
+          "cacheRead": 2309360,
+          "costUSD": 0.0,
+          "input": 297093,
+          "output": 44945,
+          "total": 2651398
+        },
+        "hy4-preview": {
+          "cacheCreation": 0,
+          "cacheRead": 1177088,
+          "costUSD": 0.0,
+          "input": 414519,
+          "output": 19553,
+          "total": 1611160
+        }
+      },
+      "output": 195313,
+      "total": 23094657
+    },
+    "zcode": {
+      "cacheCreation": 0,
+      "cacheRead": 3801408,
+      "costUSD": 0.0,
+      "input": 186114,
+      "models": {
+        "GLM-5.3-Flash": {
+          "cacheCreation": 0,
+          "cacheRead": 3801408,
+          "costUSD": 0.0,
+          "input": 186114,
+          "output": 9625,
+          "total": 3997147
+        }
+      },
+      "output": 9625,
+      "total": 3997147
     }
   },
   "status": "final",

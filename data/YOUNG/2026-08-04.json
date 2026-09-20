@@ -1,6 +1,6 @@
 {
-  "ccusageVersion": "20.0.19",
-  "collectedAt": "2026-08-08T12:18:48Z",
+  "ccusageVersion": "20.0.23",
+  "collectedAt": "2026-09-20T11:18:22Z",
   "date": "2026-08-04",
   "host": "YOUNG",
   "sources": {
@@ -26,7 +26,7 @@
     "opencode": {
       "cacheCreation": 0,
       "cacheRead": 7256832,
-      "costUSD": 0.109,
+      "costUSD": 0.109963,
       "input": 489998,
       "models": {
         "deepseek-v4-flash": {
@@ -56,7 +56,7 @@
         "ling-3.0-flash-free": {
           "cacheCreation": 0,
           "cacheRead": 1856,
-          "costUSD": 0.0,
+          "costUSD": 0.000963,
           "input": 15574,
           "output": 8,
           "total": 17438
@@ -79,7 +79,7 @@
         }
       },
       "output": 24545,
-      "total": 7783233
+      "total": 7783241
     }
   },
   "status": "final",

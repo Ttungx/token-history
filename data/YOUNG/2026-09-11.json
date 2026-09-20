@@ -1,47 +1,47 @@
 {
-  "ccusageVersion": "20.0.20",
-  "collectedAt": "2026-09-14T12:00:25Z",
+  "ccusageVersion": "20.0.23",
+  "collectedAt": "2026-09-20T11:18:22Z",
   "date": "2026-09-11",
   "host": "YOUNG",
   "sources": {
     "claude": {
       "cacheCreation": 0,
-      "cacheRead": 97646360,
-      "costUSD": 5.347351,
-      "input": 7983890,
+      "cacheRead": 130720193,
+      "costUSD": 11.509477,
+      "input": 13049385,
       "models": {
         "deepseek/deepseek-v4.1-flash": {
           "cacheCreation": 0,
-          "cacheRead": 78657664,
-          "costUSD": 1.20826,
-          "input": 4441016,
-          "output": 510224,
-          "total": 83608904
+          "cacheRead": 90306432,
+          "costUSD": 2.741551,
+          "input": 5866463,
+          "output": 620325,
+          "total": 96793220
         },
         "gemini-3.8-flash": {
           "cacheCreation": 0,
-          "cacheRead": 18721303,
-          "costUSD": 4.095445,
-          "input": 3128098,
-          "output": 92073,
-          "total": 21941474
+          "cacheRead": 40146255,
+          "costUSD": 8.707947,
+          "input": 6604916,
+          "output": 198211,
+          "total": 46949382
         },
         "meta/muse-spark-1.3-contributor": {
           "cacheCreation": 0,
-          "cacheRead": 267393,
-          "costUSD": 0.043646,
-          "input": 414776,
-          "output": 8168,
-          "total": 690337
+          "cacheRead": 267506,
+          "costUSD": 0.059979,
+          "input": 578006,
+          "output": 8215,
+          "total": 853727
         }
       },
-      "output": 610465,
-      "total": 106240715
+      "output": 826751,
+      "total": 144596329
     },
     "codex": {
       "cacheCreation": 0,
       "cacheRead": 84334301,
-      "costUSD": 151.860564,
+      "costUSD": 172.672863,
       "input": 4258017,
       "models": {
         "CPA/gemini-3.8-flash-high": {
