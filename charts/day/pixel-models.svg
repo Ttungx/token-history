@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="448" viewBox="0 0 880 448" role="img" aria-label="Daily token usage by source and model, 8-bit pixel chart, AUG 20 - SEP 18, 2026">
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="498" viewBox="0 0 880 498" role="img" aria-label="Daily token usage by source and model, 8-bit pixel chart, AUG 22 - SEP 20, 2026">
 <style>
-svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old Style",serif;--fm:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--surface:#faf9f5; --primary:#141413; --secondary:#53524b; --muted:#8a887f; --grid:#e8e6dc; --axis:#cbc8bc; --claude:#d06a41; --codex:#4382c9; --opencode:#7c5cd6; --pi:#2e9e6b; --ramp0:#edeae0; --ramp1:#f2cdb9; --ramp2:#e59a70; --ramp3:#d06a41; --ramp4:#9c4a26; --ink3:#141413; --ink4:#ffffff;}
-@media (prefers-color-scheme: dark){svg{--surface:#141413; --primary:#faf9f5; --secondary:#b0aea5; --muted:#85837a; --grid:#292824; --axis:#383630; --claude:#db7448; --codex:#5b95d6; --opencode:#8f74e0; --pi:#3daf7a; --ramp0:#232221; --ramp1:#4b2b1b; --ramp2:#8a4526; --ramp3:#cf6a3e; --ramp4:#f0a37a; --ink3:#141413; --ink4:#141413;}}
+svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old Style",serif;--fm:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--surface:#faf9f5; --primary:#141413; --secondary:#53524b; --muted:#8a887f; --grid:#e8e6dc; --axis:#cbc8bc; --claude:#d06a41; --codex:#4382c9; --opencode:#7c5cd6; --pi:#2e9e6b; --zcode:#0d7d8c; --cline:#a8385c; --workbuddy:#a97f16; --ramp0:#edeae0; --ramp1:#f2cdb9; --ramp2:#e59a70; --ramp3:#d06a41; --ramp4:#9c4a26; --ink3:#141413; --ink4:#ffffff;}
+@media (prefers-color-scheme: dark){svg{--surface:#141413; --primary:#faf9f5; --secondary:#b0aea5; --muted:#85837a; --grid:#292824; --axis:#383630; --claude:#db7448; --codex:#5b95d6; --opencode:#8f74e0; --pi:#3daf7a; --zcode:#9ce4ef; --cline:#ea9dbb; --workbuddy:#d3ac45; --ramp0:#232221; --ramp1:#4b2b1b; --ramp2:#8a4526; --ramp3:#cf6a3e; --ramp4:#f0a37a; --ink3:#141413; --ink4:#141413;}}
 .bg{fill:var(--surface)}
 .grid{stroke:var(--grid);stroke-width:1;shape-rendering:crispEdges}
 .axis{stroke:var(--axis);stroke-width:1;shape-rendering:crispEdges}
@@ -10,16 +10,16 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 .tm{font-family:var(--f);fill:var(--muted);font-variant-numeric:tabular-nums}
 .ts{font-family:var(--fs);fill:var(--primary)}
 .tn{font-family:var(--fm);fill:var(--primary);font-variant-numeric:tabular-nums}
-.s-claude{fill:var(--claude)}.s-codex{fill:var(--codex)}.s-opencode{fill:var(--opencode)}.s-pi{fill:var(--pi)}
+.s-claude{fill:var(--claude)}.s-codex{fill:var(--codex)}.s-opencode{fill:var(--opencode)}.s-pi{fill:var(--pi)}.s-zcode{fill:var(--zcode)}.s-cline{fill:var(--cline)}.s-workbuddy{fill:var(--workbuddy)}
 .r0{fill:var(--ramp0)}.r1{fill:var(--ramp1)}.r2{fill:var(--ramp2)}.r3{fill:var(--ramp3)}.r4{fill:var(--ramp4)}
 .on3{fill:var(--ink3)}.on4{fill:var(--ink4)}
 .wip{opacity:.5}
-.px{shape-rendering:crispEdges}.tt{font-family:var(--fm);fill:var(--primary);font-weight:700;letter-spacing:3px}.sub{font-family:var(--fm);fill:var(--secondary);letter-spacing:1px}.ink{fill:var(--primary)}.gridp{stroke:var(--grid);stroke-width:1;shape-rendering:crispEdges;stroke-dasharray:4 4}.axp{stroke:var(--axis);stroke-width:2;shape-rendering:crispEdges}.col{animation:rise .5s steps(4,end) both}@keyframes rise{from{opacity:0;transform:translateY(14px)}}.blink{animation:blink 1.3s step-end infinite}@keyframes blink{0%,54%{opacity:1}55%,100%{opacity:.2}}svg{--claude-fable:#9c4a26;--claude-opus:#d06a41;--claude-sonnet:#e59a70;--codex-core:#245f9f;--codex-terra:#4382c9;--codex-luna:#78a9dc;--opencode-flash:#5d46b8;--opencode-other:#a890f5;--pi-flash:#1e7d54;--pi-other:#59be8d}@media (prefers-color-scheme:dark){svg{--claude-fable:#a84c2b;--claude-opus:#db7448;--claude-sonnet:#f2aa84;--codex-core:#2f70b1;--codex-terra:#5b95d6;--codex-luna:#8ab9e8;--opencode-flash:#a890f5;--opencode-other:#5d46b8;--pi-flash:#5bc78f;--pi-other:#1e6e4c}}.m-claude-fable{fill:var(--claude-fable)}.m-claude-sonnet{fill:var(--claude-sonnet)}.m-claude-opus{fill:var(--claude-opus)}.m-codex-core{fill:var(--codex-core)}.m-codex-terra{fill:var(--codex-terra)}.m-codex-luna{fill:var(--codex-luna)}.m-opencode-flash{fill:var(--opencode-flash)}.m-opencode-other{fill:var(--opencode-other)}.m-opencode{fill:var(--opencode)}.m-pi-flash{fill:var(--pi-flash)}.m-pi-other{fill:var(--pi-other)}.m-pi{fill:var(--pi)}
+.px{shape-rendering:crispEdges}.tt{font-family:var(--fm);fill:var(--primary);font-weight:700;letter-spacing:3px}.sub{font-family:var(--fm);fill:var(--secondary);letter-spacing:1px}.ink{fill:var(--primary)}.gridp{stroke:var(--grid);stroke-width:1;shape-rendering:crispEdges;stroke-dasharray:4 4}.axp{stroke:var(--axis);stroke-width:2;shape-rendering:crispEdges}.col{animation:rise .5s steps(4,end) both}@keyframes rise{from{opacity:0;transform:translateY(14px)}}.blink{animation:blink 1.3s step-end infinite}@keyframes blink{0%,54%{opacity:1}55%,100%{opacity:.2}}svg{--claude-fable:#9c4a26;--claude-opus:#d06a41;--claude-sonnet:#e59a70;--codex-core:#245f9f;--codex-terra:#4382c9;--codex-luna:#78a9dc;--opencode-flash:#5d46b8;--opencode-other:#a890f5;--pi-flash:#1e7d54;--pi-other:#59be8d}@media (prefers-color-scheme:dark){svg{--claude-fable:#a84c2b;--claude-opus:#db7448;--claude-sonnet:#f2aa84;--codex-core:#2f70b1;--codex-terra:#5b95d6;--codex-luna:#8ab9e8;--opencode-flash:#a890f5;--opencode-other:#5d46b8;--pi-flash:#5bc78f;--pi-other:#1e6e4c}}.m-claude-fable{fill:var(--claude-fable)}.m-claude-sonnet{fill:var(--claude-sonnet)}.m-claude-opus{fill:var(--claude-opus)}.m-codex-core{fill:var(--codex-core)}.m-codex-terra{fill:var(--codex-terra)}.m-codex-luna{fill:var(--codex-luna)}.m-opencode-flash{fill:var(--opencode-flash)}.m-opencode-other{fill:var(--opencode-other)}.m-pi-flash{fill:var(--pi-flash)}.m-pi-other{fill:var(--pi-other)}
 @media (prefers-reduced-motion: reduce){*{animation:none !important}}
 </style>
-<rect class="bg" width="880" height="448"/>
+<rect class="bg" width="880" height="498"/>
 <text class="tt" x="28" y="36" font-size="17">DAILY TOKENS BY MODEL</text>
-<text class="sub" x="28" y="57" font-size="11">AUG 20 - SEP 18, 2026 / 1.9B TOKENS OVER 30 DAYS / 1PX = 10M / SOLID TO HOLLOW = TOP TIER DOWN</text>
+<text class="sub" x="28" y="57" font-size="11">AUG 22 - SEP 20, 2026 / 3.0B TOKENS OVER 30 DAYS / 1PX = 10M / SOLID TO HOLLOW = TOP TIER DOWN</text>
 <text class="tm" x="28" y="76" font-size="9.5" font-family="var(--fm)" letter-spacing="1">CLAUDE</text>
 <rect class="px m-claude-fable" x="90" y="68" width="8" height="8"></rect>
 <text class="t2" x="103" y="76" font-size="10" font-family="var(--fm)">FABLE</text>
@@ -50,6 +50,15 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px m-pi-other" x="143" y="119" width="8" height="8"></rect>
 <rect class="px bg" x="146" y="122" width="2" height="2"/>
 <text class="t2" x="156" y="127" font-size="10" font-family="var(--fm)">OTHER</text>
+<text class="tm" x="28" y="144" font-size="9.5" font-family="var(--fm)" letter-spacing="1">ZCODE</text>
+<rect class="px s-zcode" x="90" y="136" width="8" height="8"></rect>
+<text class="t2" x="103" y="144" font-size="10" font-family="var(--fm)">ALL</text>
+<text class="tm" x="28" y="161" font-size="9.5" font-family="var(--fm)" letter-spacing="1">CLINE</text>
+<rect class="px s-cline" x="90" y="153" width="8" height="8"></rect>
+<text class="t2" x="103" y="161" font-size="10" font-family="var(--fm)">ALL</text>
+<text class="tm" x="28" y="178" font-size="9.5" font-family="var(--fm)" letter-spacing="1">WORKBUDDY</text>
+<rect class="px s-workbuddy" x="90" y="170" width="8" height="8"></rect>
+<text class="t2" x="103" y="178" font-size="10" font-family="var(--fm)">ALL</text>
 <g class="ink px">
 <rect x="823" y="24" width="4" height="4"/>
 <rect x="828" y="24" width="4" height="4"/>
@@ -79,290 +88,414 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect x="838" y="44" width="4" height="4"/>
 <rect x="833" y="49" width="4" height="4"/>
 </g>
-<text class="tm" x="66" y="396" font-size="10.5" text-anchor="end">0</text>
+<text class="tm" x="66" y="446" font-size="10.5" text-anchor="end">0</text>
+<line class="gridp" x1="76" y1="392" x2="852" y2="392"/>
+<text class="tm" x="66" y="396" font-size="10.5" text-anchor="end">100M</text>
 <line class="gridp" x1="76" y1="342" x2="852" y2="342"/>
-<text class="tm" x="66" y="346" font-size="10.5" text-anchor="end">100M</text>
+<text class="tm" x="66" y="346" font-size="10.5" text-anchor="end">200M</text>
 <line class="gridp" x1="76" y1="292" x2="852" y2="292"/>
-<text class="tm" x="66" y="296" font-size="10.5" text-anchor="end">200M</text>
+<text class="tm" x="66" y="296" font-size="10.5" text-anchor="end">300M</text>
 <line class="gridp" x1="76" y1="242" x2="852" y2="242"/>
-<text class="tm" x="66" y="246" font-size="10.5" text-anchor="end">300M</text>
-<line class="gridp" x1="76" y1="192" x2="852" y2="192"/>
-<text class="tm" x="66" y="196" font-size="10.5" text-anchor="end">400M</text>
-<line class="axp" x1="76" y1="393" x2="852" y2="393"/>
-<g class="col" style="animation-delay:18ms">
-<rect class="px m-opencode" x="106" y="384" width="8" height="8"><title>OPENCODE</title></rect>
+<text class="tm" x="66" y="246" font-size="10.5" text-anchor="end">400M</text>
+<line class="axp" x1="76" y1="443" x2="852" y2="443"/>
+<text class="tm" x="115" y="461" font-size="10.5" text-anchor="middle" font-family="var(--fm)">08/23</text>
+<g class="col" style="animation-delay:36ms">
+<rect class="px s-opencode" x="132" y="434" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="142" y="434" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="132" y="424" width="8" height="8"><title>OPENCODE</title></rect>
 </g>
-<text class="tm" x="115" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">08/21</text>
-<g class="col" style="animation-delay:72ms">
-<rect class="px m-opencode" x="183" y="384" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-opencode" x="193" y="384" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-opencode" x="183" y="374" width="8" height="8"><title>OPENCODE</title></rect>
+<g class="col" style="animation-delay:54ms">
+<rect class="px m-opencode-flash" x="158" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-pi" x="168" y="434" width="8" height="8"><title>PI</title></rect>
 </g>
 <g class="col" style="animation-delay:90ms">
-<rect class="px m-opencode-flash" x="209" y="384" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi" x="219" y="384" width="8" height="8"><title>PI</title></rect>
+<rect class="px m-opencode-flash" x="209" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-cline" x="219" y="434" width="8" height="8"><title>CLINE</title></rect>
 </g>
-<text class="tm" x="218" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">08/25</text>
+<text class="tm" x="218" y="461" font-size="10.5" text-anchor="middle" font-family="var(--fm)">08/27</text>
+<g class="col" style="animation-delay:108ms">
+<rect class="px m-opencode-flash" x="235" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-opencode" x="245" y="434" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-zcode" x="235" y="424" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-workbuddy" x="245" y="424" width="8" height="8"><title>WORKBUDDY</title></rect>
+<rect class="px s-workbuddy" x="235" y="414" width="8" height="8"><title>WORKBUDDY</title></rect>
+<rect class="px s-workbuddy" x="245" y="414" width="8" height="8"><title>WORKBUDDY</title></rect>
+</g>
 <g class="col" style="animation-delay:126ms">
-<rect class="px m-opencode-flash" x="261" y="384" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-codex-luna" x="261" y="434" width="8" height="8"><title>LUNA</title></rect>
+<rect class="px bg" x="263" y="436" width="4" height="4"/>
+<rect class="px m-codex-luna" x="271" y="434" width="8" height="8"><title>LUNA</title></rect>
+<rect class="px bg" x="273" y="436" width="4" height="4"/>
+<rect class="px m-codex-luna" x="261" y="424" width="8" height="8"><title>LUNA</title></rect>
+<rect class="px bg" x="263" y="426" width="4" height="4"/>
+<rect class="px m-opencode-flash" x="271" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="261" y="414" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="271" y="414" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="261" y="404" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="271" y="404" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="261" y="394" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-opencode" x="271" y="394" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-zcode" x="261" y="384" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="271" y="384" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="261" y="374" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="271" y="374" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-workbuddy" x="261" y="364" width="8" height="8"><title>WORKBUDDY</title></rect>
 </g>
 <g class="col" style="animation-delay:144ms">
+<rect class="px m-opencode-flash" x="287" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="297" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="287" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="297" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="287" y="414" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="297" y="414" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="287" y="404" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="297" y="404" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="287" y="394" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="297" y="394" width="8" height="8"><title>FLASH</title></rect>
 <rect class="px m-opencode-flash" x="287" y="384" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode" x="297" y="384" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px m-opencode-flash" x="297" y="384" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="287" y="374" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="297" y="374" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="287" y="364" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="297" y="364" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="287" y="354" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="297" y="354" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="287" y="344" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-opencode" x="297" y="344" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-zcode" x="287" y="334" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="297" y="334" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="287" y="324" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="297" y="324" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="287" y="314" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="297" y="314" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="287" y="304" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="297" y="304" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="287" y="294" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="297" y="294" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="287" y="284" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="297" y="284" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="287" y="274" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="297" y="274" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="287" y="264" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="297" y="264" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="287" y="254" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="297" y="254" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="287" y="244" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="297" y="244" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="287" y="234" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="297" y="234" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="287" y="224" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="297" y="224" width="8" height="8"><title>ZCODE</title></rect>
 </g>
 <g class="col" style="animation-delay:162ms">
-<rect class="px m-codex-luna" x="313" y="384" width="8" height="8"><title>LUNA</title></rect>
-<rect class="px bg" x="315" y="386" width="4" height="4"/>
-<rect class="px m-codex-luna" x="323" y="384" width="8" height="8"><title>LUNA</title></rect>
-<rect class="px bg" x="325" y="386" width="4" height="4"/>
-<rect class="px m-codex-luna" x="313" y="374" width="8" height="8"><title>LUNA</title></rect>
-<rect class="px bg" x="315" y="376" width="4" height="4"/>
-<rect class="px m-opencode-flash" x="323" y="374" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="313" y="364" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="323" y="364" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="313" y="354" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="323" y="354" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="313" y="344" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode" x="323" y="344" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-zcode" x="313" y="434" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="323" y="434" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="313" y="424" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="323" y="424" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="313" y="414" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="323" y="414" width="8" height="8"><title>ZCODE</title></rect>
 </g>
-<text class="tm" x="322" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">08/29</text>
+<text class="tm" x="322" y="461" font-size="10.5" text-anchor="middle" font-family="var(--fm)">08/31</text>
 <g class="col" style="animation-delay:180ms">
-<rect class="px m-opencode-flash" x="339" y="384" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="349" y="384" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="339" y="374" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="349" y="374" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="339" y="364" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="349" y="364" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="339" y="354" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="349" y="354" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="339" y="344" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="349" y="344" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="339" y="334" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="349" y="334" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="339" y="324" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="349" y="324" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="339" y="314" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="349" y="314" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="339" y="304" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="349" y="304" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="339" y="294" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode" x="349" y="294" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px m-opencode-flash" x="339" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="349" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="339" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-zcode" x="349" y="424" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="339" y="414" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="349" y="414" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="339" y="404" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="349" y="404" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="339" y="394" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-cline" x="349" y="394" width="8" height="8"><title>CLINE</title></rect>
+<rect class="px s-workbuddy" x="339" y="384" width="8" height="8"><title>WORKBUDDY</title></rect>
+</g>
+<g class="col" style="animation-delay:198ms">
+<rect class="px m-opencode-flash" x="364" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="374" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="364" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="374" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-opencode" x="364" y="414" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="374" y="414" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="364" y="404" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="374" y="404" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px m-pi-flash" x="364" y="394" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-zcode" x="374" y="394" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-cline" x="364" y="384" width="8" height="8"><title>CLINE</title></rect>
+<rect class="px s-cline" x="374" y="384" width="8" height="8"><title>CLINE</title></rect>
+<rect class="px s-cline" x="364" y="374" width="8" height="8"><title>CLINE</title></rect>
 </g>
 <g class="col" style="animation-delay:216ms">
-<rect class="px m-opencode-flash" x="390" y="384" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="400" y="384" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="390" y="374" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-opencode" x="390" y="434" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="400" y="434" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-pi" x="390" y="424" width="8" height="8"><title>PI</title></rect>
 </g>
 <g class="col" style="animation-delay:234ms">
-<rect class="px m-opencode-flash" x="416" y="384" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="426" y="384" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="416" y="374" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="426" y="374" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode" x="416" y="364" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-opencode" x="426" y="364" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-opencode" x="416" y="354" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-opencode" x="426" y="354" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-pi-flash" x="416" y="344" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-opencode" x="416" y="434" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="426" y="434" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="416" y="424" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="426" y="424" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="416" y="414" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="426" y="414" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="416" y="404" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-pi" x="426" y="404" width="8" height="8"><title>PI</title></rect>
 </g>
-<text class="tm" x="425" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">09/02</text>
+<text class="tm" x="425" y="461" font-size="10.5" text-anchor="middle" font-family="var(--fm)">09/04</text>
 <g class="col" style="animation-delay:252ms">
-<rect class="px m-opencode" x="442" y="384" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-opencode" x="452" y="384" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-pi" x="442" y="374" width="8" height="8"><title>PI</title></rect>
+<rect class="px s-claude" x="442" y="434" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="452" y="434" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-opencode" x="442" y="424" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="452" y="424" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-pi" x="442" y="414" width="8" height="8"><title>PI</title></rect>
+<rect class="px s-pi" x="452" y="414" width="8" height="8"><title>PI</title></rect>
+<rect class="px s-pi" x="442" y="404" width="8" height="8"><title>PI</title></rect>
+<rect class="px s-zcode" x="452" y="404" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="442" y="394" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="452" y="394" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="442" y="384" width="8" height="8"><title>ZCODE</title></rect>
 </g>
 <g class="col" style="animation-delay:270ms">
-<rect class="px m-opencode" x="468" y="384" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-opencode" x="478" y="384" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-opencode" x="468" y="374" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-opencode" x="478" y="374" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-opencode" x="468" y="364" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-opencode" x="478" y="364" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-opencode" x="468" y="354" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-pi" x="478" y="354" width="8" height="8"><title>PI</title></rect>
+<rect class="px s-claude" x="468" y="434" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="478" y="434" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="468" y="424" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="478" y="424" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-codex" x="468" y="414" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-opencode" x="478" y="414" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px m-pi-flash" x="468" y="404" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-zcode" x="478" y="404" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="468" y="394" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="478" y="394" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="468" y="384" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="478" y="384" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="468" y="374" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="478" y="374" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="468" y="364" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="478" y="364" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="468" y="354" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="478" y="354" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="468" y="344" width="8" height="8"><title>ZCODE</title></rect>
 </g>
 <g class="col" style="animation-delay:288ms">
-<rect class="px s-claude" x="494" y="384" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-claude" x="504" y="384" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px m-opencode" x="494" y="374" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-opencode" x="504" y="374" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-pi" x="494" y="364" width="8" height="8"><title>PI</title></rect>
-<rect class="px m-pi" x="504" y="364" width="8" height="8"><title>PI</title></rect>
-<rect class="px m-pi" x="494" y="354" width="8" height="8"><title>PI</title></rect>
+<rect class="px s-claude" x="494" y="434" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="504" y="434" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="494" y="424" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-codex" x="504" y="424" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="494" y="414" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px m-pi-flash" x="504" y="414" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:306ms">
-<rect class="px s-claude" x="520" y="384" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-claude" x="530" y="384" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-claude" x="520" y="374" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-codex" x="530" y="374" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px m-opencode" x="520" y="364" width="8" height="8"><title>OPENCODE</title></rect>
-<rect class="px m-pi-flash" x="530" y="364" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="520" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-workbuddy" x="530" y="434" width="8" height="8"><title>WORKBUDDY</title></rect>
 </g>
-<text class="tm" x="529" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">09/06</text>
+<text class="tm" x="529" y="461" font-size="10.5" text-anchor="middle" font-family="var(--fm)">09/08</text>
 <g class="col" style="animation-delay:324ms">
-<rect class="px s-claude" x="546" y="384" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-claude" x="556" y="384" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-codex" x="546" y="374" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="556" y="374" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px m-pi-flash" x="546" y="364" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="546" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="556" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="546" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="556" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="546" y="414" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="556" y="414" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-workbuddy" x="546" y="404" width="8" height="8"><title>WORKBUDDY</title></rect>
+<rect class="px s-workbuddy" x="556" y="404" width="8" height="8"><title>WORKBUDDY</title></rect>
+<rect class="px s-workbuddy" x="546" y="394" width="8" height="8"><title>WORKBUDDY</title></rect>
+<rect class="px s-workbuddy" x="556" y="394" width="8" height="8"><title>WORKBUDDY</title></rect>
+<rect class="px s-workbuddy" x="546" y="384" width="8" height="8"><title>WORKBUDDY</title></rect>
 </g>
 <g class="col" style="animation-delay:342ms">
-<rect class="px m-pi-flash" x="571" y="384" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-claude" x="571" y="434" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="581" y="434" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="571" y="424" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px m-pi-flash" x="581" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="571" y="414" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="581" y="414" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-pi" x="571" y="404" width="8" height="8"><title>PI</title></rect>
+<rect class="px s-workbuddy" x="581" y="404" width="8" height="8"><title>WORKBUDDY</title></rect>
 </g>
 <g class="col" style="animation-delay:360ms">
-<rect class="px m-pi-flash" x="597" y="384" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="607" y="384" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="597" y="374" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="607" y="374" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="597" y="364" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="607" y="364" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-claude" x="597" y="434" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="607" y="434" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="597" y="424" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="607" y="424" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="597" y="414" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="607" y="414" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="597" y="404" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="607" y="404" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="597" y="394" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="607" y="394" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="597" y="384" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="607" y="384" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="597" y="374" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="607" y="374" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-claude" x="597" y="364" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-codex" x="607" y="364" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="597" y="354" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="607" y="354" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="597" y="344" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="607" y="344" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="597" y="334" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="607" y="334" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="597" y="324" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="607" y="324" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px m-pi-flash" x="597" y="314" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="607" y="314" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="597" y="304" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="607" y="304" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="597" y="294" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="607" y="294" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="597" y="284" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="607" y="284" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:378ms">
-<rect class="px s-claude" x="623" y="384" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-claude" x="633" y="384" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px m-pi-flash" x="623" y="374" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="633" y="374" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="623" y="364" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi" x="633" y="364" width="8" height="8"><title>PI</title></rect>
+<rect class="px s-claude" x="623" y="434" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px s-codex" x="633" y="434" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="623" y="424" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="633" y="424" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="623" y="414" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="633" y="414" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="623" y="404" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="633" y="404" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="623" y="394" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="633" y="394" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="623" y="384" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="633" y="384" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="623" y="374" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="633" y="374" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="623" y="364" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="633" y="364" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="623" y="354" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="633" y="354" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="623" y="344" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="633" y="344" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="623" y="334" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="633" y="334" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="623" y="324" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="633" y="324" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px m-pi-flash" x="623" y="314" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="633" y="314" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="623" y="304" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="633" y="304" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="623" y="294" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="633" y="294" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="623" y="284" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="633" y="284" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="623" y="274" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="633" y="274" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-zcode" x="623" y="264" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="633" y="264" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="623" y="254" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="633" y="254" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="623" y="244" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="633" y="244" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="623" y="234" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="633" y="234" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="623" y="224" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="633" y="224" width="8" height="8"><title>ZCODE</title></rect>
 </g>
-<text class="tm" x="632" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">09/10</text>
+<text class="tm" x="632" y="461" font-size="10.5" text-anchor="middle" font-family="var(--fm)">09/12</text>
 <g class="col" style="animation-delay:396ms">
-<rect class="px s-claude" x="649" y="384" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-claude" x="659" y="384" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-claude" x="649" y="374" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-claude" x="659" y="374" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-claude" x="649" y="364" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-claude" x="659" y="364" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-claude" x="649" y="354" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-claude" x="659" y="354" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-claude" x="649" y="344" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-claude" x="659" y="344" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-claude" x="649" y="334" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-codex" x="659" y="334" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="649" y="324" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="659" y="324" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="649" y="314" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="659" y="314" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="649" y="304" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="659" y="304" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="649" y="294" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="659" y="294" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px m-pi-flash" x="649" y="284" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="659" y="284" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="649" y="274" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="659" y="274" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="649" y="264" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="659" y="264" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="649" y="254" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="659" y="254" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-codex" x="649" y="434" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="659" y="434" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="649" y="424" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="659" y="424" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="649" y="414" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="659" y="414" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="649" y="404" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="659" y="404" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="649" y="394" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="659" y="394" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="649" y="384" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px s-codex" x="659" y="384" width="8" height="8"><title>CODEX</title></rect>
+<rect class="px m-pi-flash" x="649" y="374" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="659" y="374" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="649" y="364" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="659" y="364" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="649" y="354" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="659" y="354" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="649" y="344" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="659" y="344" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="649" y="334" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="659" y="334" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="649" y="324" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="659" y="324" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="649" y="314" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="659" y="314" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="649" y="304" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="659" y="304" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="649" y="294" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-pi" x="659" y="294" width="8" height="8"><title>PI</title></rect>
+<rect class="px s-zcode" x="649" y="284" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="659" y="284" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="649" y="274" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="659" y="274" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="649" y="264" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="659" y="264" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="649" y="254" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="659" y="254" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="649" y="244" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="659" y="244" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="649" y="234" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="659" y="234" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="649" y="224" width="8" height="8"><title>ZCODE</title></rect>
+<rect class="px s-zcode" x="659" y="224" width="8" height="8"><title>ZCODE</title></rect>
 </g>
 <g class="col" style="animation-delay:414ms">
-<rect class="px s-claude" x="675" y="384" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px s-codex" x="685" y="384" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="675" y="374" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="685" y="374" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="675" y="364" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="685" y="364" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="675" y="354" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="685" y="354" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="675" y="344" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="685" y="344" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="675" y="334" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="685" y="334" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="675" y="324" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="685" y="324" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="675" y="314" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="685" y="314" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="675" y="304" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="685" y="304" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="675" y="294" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="685" y="294" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="675" y="284" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="685" y="284" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="675" y="274" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="685" y="274" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px m-pi-flash" x="675" y="264" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="685" y="264" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="675" y="254" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="685" y="254" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="675" y="244" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="685" y="244" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="675" y="234" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="685" y="234" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="675" y="224" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="685" y="224" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="675" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="685" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="675" y="424" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:432ms">
-<rect class="px s-codex" x="701" y="384" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="711" y="384" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="701" y="374" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="711" y="374" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="701" y="364" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="711" y="364" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="701" y="354" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="711" y="354" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="701" y="344" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="711" y="344" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="701" y="334" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px s-codex" x="711" y="334" width="8" height="8"><title>CODEX</title></rect>
-<rect class="px m-pi-flash" x="701" y="324" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="324" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="314" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="314" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="304" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="304" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="294" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="294" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="284" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="284" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="274" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="274" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="264" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="264" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="254" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="254" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="244" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="244" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="234" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="234" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="224" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="224" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="214" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="214" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="204" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="204" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="194" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="194" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="184" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="184" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="174" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="711" y="174" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="701" y="164" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi" x="711" y="164" width="8" height="8"><title>PI</title></rect>
-<rect class="px m-pi" x="701" y="154" width="8" height="8"><title>PI</title></rect>
+<rect class="px m-opencode-flash" x="701" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="711" y="434" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <g class="col" style="animation-delay:450ms">
-<rect class="px m-pi-flash" x="727" y="384" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="737" y="384" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="727" y="374" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="727" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="737" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="727" y="424" width="8" height="8"><title>FLASH</title></rect>
 </g>
-<text class="tm" x="736" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">09/14</text>
+<text class="tm" x="736" y="461" font-size="10.5" text-anchor="middle" font-family="var(--fm)">09/16</text>
 <g class="col" style="animation-delay:468ms">
-<rect class="px m-opencode-flash" x="752" y="384" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash" x="762" y="384" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-opencode" x="752" y="434" width="8" height="8"><title>OPENCODE</title></rect>
 </g>
 <g class="col" style="animation-delay:486ms">
-<rect class="px m-opencode-flash" x="778" y="384" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash" x="788" y="384" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-claude" x="778" y="434" width="8" height="8"><title>CLAUDE</title></rect>
+<rect class="px m-opencode-flash" x="788" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="778" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="788" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="778" y="414" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="788" y="414" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="778" y="404" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-opencode" x="788" y="404" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="778" y="394" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="788" y="394" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="778" y="384" width="8" height="8"><title>OPENCODE</title></rect>
 </g>
 <g class="col" style="animation-delay:504ms">
-<rect class="px m-opencode" x="804" y="384" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px m-opencode-flash" x="804" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="814" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="804" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="814" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="804" y="414" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="814" y="414" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-opencode" x="804" y="404" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="814" y="404" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="804" y="394" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-opencode" x="814" y="394" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px m-pi-flash" x="804" y="384" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash" x="814" y="384" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-cline" x="804" y="374" width="8" height="8"><title>CLINE</title></rect>
+<rect class="px s-cline" x="814" y="374" width="8" height="8"><title>CLINE</title></rect>
+<rect class="px s-cline" x="804" y="364" width="8" height="8"><title>CLINE</title></rect>
+<rect class="px s-cline" x="814" y="364" width="8" height="8"><title>CLINE</title></rect>
 </g>
 <g class="col wip" style="animation-delay:522ms">
-<rect class="px s-claude" x="830" y="384" width="8" height="8"><title>CLAUDE</title></rect>
-<rect class="px m-opencode-flash blink" x="840" y="384" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="830" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="840" y="434" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="830" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="840" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="830" y="414" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash blink" x="840" y="414" width="8" height="8"><title>FLASH</title></rect>
 </g>
-<text class="tm" x="839" y="411" font-size="10.5" text-anchor="middle" font-family="var(--fm)">09/18</text>
-<text class="tn" x="710" y="146" font-size="11" font-weight="700" text-anchor="middle">464M</text>
-<text class="tn" x="839" y="376" font-size="11" font-weight="700" text-anchor="middle">4.8M</text>
-<text class="tm" x="28" y="434" font-size="10.5">Generated 2026-09-18 12:00 UTC</text>
+<text class="tm" x="839" y="461" font-size="10.5" text-anchor="middle" font-family="var(--fm)">09/20</text>
+<text class="tn" x="296" y="216" font-size="11" font-weight="700" text-anchor="middle">433M</text>
+<text class="tn" x="839" y="356" font-size="11" font-weight="700" text-anchor="middle">44M</text>
+<text class="tm" x="28" y="484" font-size="10.5">Generated 2026-09-20 11:44 UTC</text>
 </svg>
