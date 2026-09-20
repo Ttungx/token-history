@@ -492,10 +492,11 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px m-opencode-flash" x="830" y="424" width="8" height="8"><title>FLASH</title></rect>
 <rect class="px m-opencode-flash" x="840" y="424" width="8" height="8"><title>FLASH</title></rect>
 <rect class="px m-opencode-flash" x="830" y="414" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-pi-flash blink" x="840" y="414" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="840" y="414" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-pi-flash blink" x="830" y="404" width="8" height="8"><title>FLASH</title></rect>
 </g>
 <text class="tm" x="839" y="461" font-size="10.5" text-anchor="middle" font-family="var(--fm)">09/20</text>
 <text class="tn" x="296" y="216" font-size="11" font-weight="700" text-anchor="middle">433M</text>
-<text class="tn" x="839" y="356" font-size="11" font-weight="700" text-anchor="middle">44M</text>
-<text class="tm" x="28" y="484" font-size="10.5">Generated 2026-09-20 11:44 UTC</text>
+<text class="tn" x="839" y="356" font-size="11" font-weight="700" text-anchor="middle">51M</text>
+<text class="tm" x="28" y="484" font-size="10.5">Generated 2026-09-20 12:01 UTC</text>
 </svg>
