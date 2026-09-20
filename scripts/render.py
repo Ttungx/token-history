@@ -52,12 +52,15 @@ GAP = 2               # the surface gap that separates stacked segments
 CAP_R = 4             # rounded data-end; square at the baseline
 
 # Anthropic-derived palette. Surfaces and neutrals are the brand values
-# (#faf9f5 / #141413 / #b0aea5 / #e8e6dc); the two categorical slots keep the
+# (#faf9f5 / #141413 / #b0aea5 / #e8e6dc); the categorical slots keep the
 # brand accent hues (orange #d97757 for Claude, blue #6a9bcc for Codex) but are
 # tuned per mode until scripts/validate_palette.js passes — the official hexes
 # fail its chroma floor and dark-mode lightness band. Validated 2026-08-05:
 #   light #d06a41,#4382c9 --surface #faf9f5 → ALL PASS (worst CVD dE 20.0)
 #   dark  #db7448,#5b95d6 --surface #141413 → ALL PASS (worst CVD dE 18.5)
+# zcode/cline/workbuddy were added 2026-09-20 from the same method: every
+# cross-source pair clears the CVD dE 8 target (protan/deutan/tritan, CIE76)
+# in both modes, with 3:1+ contrast on the surface.
 # Do not substitute without re-validating.
 # ramp0..4 are the sequential steps (brand-orange hue) for the calendar views:
 # one hue, monotonic lightness (light darkens with magnitude, dark brightens).
@@ -68,6 +71,7 @@ THEME = {
         "muted": "#8a887f", "grid": "#e8e6dc", "axis": "#cbc8bc",
         "claude": "#d06a41", "codex": "#4382c9",
         "opencode": "#7c5cd6", "pi": "#2e9e6b",
+        "zcode": "#0d7d8c", "cline": "#a8385c", "workbuddy": "#a97f16",
         "ramp0": "#edeae0", "ramp1": "#f2cdb9", "ramp2": "#e59a70",
         "ramp3": "#d06a41", "ramp4": "#9c4a26",
         "ink3": "#141413", "ink4": "#ffffff",
@@ -77,13 +81,15 @@ THEME = {
         "muted": "#85837a", "grid": "#292824", "axis": "#383630",
         "claude": "#db7448", "codex": "#5b95d6",
         "opencode": "#8f74e0", "pi": "#3daf7a",
+        "zcode": "#9ce4ef", "cline": "#ea9dbb", "workbuddy": "#d3ac45",
         "ramp0": "#232221", "ramp1": "#4b2b1b", "ramp2": "#8a4526",
         "ramp3": "#cf6a3e", "ramp4": "#f0a37a",
         "ink3": "#141413", "ink4": "#141413",
     },
 }
 SERIES = [("claude", "Claude Code"), ("codex", "Codex"),
-          ("opencode", "opencode"), ("pi", "pi")]
+          ("opencode", "opencode"), ("pi", "pi"),
+          ("zcode", "ZCode"), ("cline", "Cline"), ("workbuddy", "WorkBuddy")]
 # Anthropic typography: Poppins for headings, Lora for body — with the brand's
 # own Arial/Georgia fallbacks, since <img>-embedded SVG cannot load webfonts.
 FONT = 'Poppins,Arial,"Helvetica Neue",sans-serif'

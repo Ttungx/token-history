@@ -1,4 +1,4 @@
-# Data Sources: Local Token Usage for Claude Code and Codex CLI
+# Data Sources: Local Token Usage for Coding CLIs
 
 > Status: research complete, with 1 unresolved item. Date 2026-08-05.
 > All numbers are measured on keli-wen's local machine (macOS 15.6, Darwin 24.6.0).
@@ -289,7 +289,73 @@ ccusage's day count matches live+archived (indicating it reads the archive), but
 
 ---
 
-## 5. Not Yet Answered
+## 5. Sources Without a ccusage Adapter (added 2026-09-20)
+
+ZCode is covered natively by ccusage (`ccusage zcode daily`, ccusage v20.0.23);
+it reads the `model_usage` table of `~/.zcode/cli/db/db.sqlite` and emits the
+same daily JSON shape as `claude daily`, so it reuses `normalize_claude`. Local
+GLM rows carry `missingPricing: true`, so cost is 0 until a pricing entry
+exists.
+
+Cline and WorkBuddy have no ccusage adapter — upstream closed the requests
+(ccusage issues #243, #1212/#1213, #1645) — so `collect.py` reads their local
+transcripts directly (see `LOCAL_SOURCES`) and normalizes into the same
+per-day schema. Both are subscription products: only the token counts are
+comparable, so `costUSD` is 0 and no billing fields are collected.
+
+### 5.1 Cline
+
+```
+~/.cline/data/sessions/<session-id>/<session-id>.messages.json     # CLINE_DIR override
+```
+
+- Standalone-app layout. (The VS Code extension instead keeps per-task
+  `ui_messages.json` under globalStorage with `tokensIn/tokensOut/cacheReads/
+  cacheWrites` — not read here.)
+- Each assistant message carries `metrics.{inputTokens, outputTokens,
+  cacheReadTokens, cacheWriteTokens}`, `modelInfo.id` and `ts` (epoch ms).
+  There is no cost field anywhere.
+- `cacheWriteTokens` maps to `cacheCreation`, `cacheReadTokens` to `cacheRead`.
+- Measured on the local corpus: 8 sessions, 4 day-buckets (Asia/Shanghai),
+  59,033,518 tokens total; models `z-ai/glm-5.3-flash`,
+  `deepseek/deepseek-v4-flash`, `cline-free/kimi-k3`,
+  `cline-free/muse-spark-1.3-contributor`.
+
+### 5.2 WorkBuddy
+
+```
+~/.workbuddy/projects/<slug>/<session>.jsonl                     # WORKBUDDY_DIR override
+~/.workbuddy/projects/<slug>/<session>/subagents/*.jsonl
+```
+
+- Tencent Cloud WorkBuddy desktop agent (Work and Coding modes; token-quota
+  billing).
+- Usage sits on `function_call` lines under `providerData.rawUsage`, in
+  OpenAI style: `prompt_tokens` (inclusive of cache hits) and
+  `completion_tokens`, plus `prompt_cache_hit_tokens` /
+  `prompt_cache_miss_tokens`. Billing fields (`credit`,
+  `completion_tokens_details`) are ignored — this collector is token-only.
+  Model: `providerData.model` (e.g. `deepseek-v4-pro`, `hy3`, `glm-5.2`,
+  `glm-5.3-flash`), falling back to `requestModelId`.
+- To keep the buckets additive and comparable with Claude's schema, `input`
+  uses the **miss** side and `cacheRead` the **hit** side; verified on all
+  1,162 usage lines that `miss + hit == prompt_tokens`, so
+  `input + output + cacheCreation + cacheRead == total_tokens` exactly.
+- Dedup by line `id` is kept as a snapshot-rewrite guard; on the local corpus
+  all 1,162 usage-line ids are already unique.
+
+### 5.3 Qoder CN (evaluated, deliberately not added)
+
+`~/.qoder-cn/projects/<slug>/<session>.jsonl` is Claude-shaped, but every
+`message.usage` record in the local corpus has all token counts zero (992
+usage records) — Qoder keeps usage server-side and writes only `credits` plus
+internal model aliases (`qfmodel`, `qmodel`). No token series is possible from
+local data, so the source is not wired in. (ccusage issue #1645 reached the
+same conclusion.)
+
+---
+
+## 6. Not Yet Answered
 
 1. **The Codex-side 31% discrepancy** (4.6) — requires reading ccusage v20's Rust Codex adapter source code
 2. Whether v20 still has the network-failure silent cost=0 problem from 4.7

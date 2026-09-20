@@ -14,7 +14,7 @@ Durable context index for `token-history` (formerly `daily_tokens`). Register ne
 | File | Topic | Status |
 |---|---|---|
 | [`decisions.md`](./decisions.md) | **User-decided directional decisions** — product positioning, repo visibility and sanitization, chart delivery, metrics, Codex scope, detail granularity, Anthropic color scheme, README catalog and uv-first | Complete |
-| [`data-sources.md`](./data-sources.md) | Location, schema, dedup rules, retention period and recall window for Claude Code / Codex CLI local data, ccusage version status | Complete, with 1 unresolved item |
+| [`data-sources.md`](./data-sources.md) | Location, schema, dedup rules, retention period and recall window for Claude Code / Codex CLI local data, plus the post-2026-09 sources (ZCode via ccusage, Cline / WorkBuddy local readers, Qoder excluded) and ccusage version status | Complete, with 1 unresolved item |
 | [`pipeline-and-scheduling.md`](./pipeline-and-scheduling.md) | File layout, idempotency rules, git conflict handling, GitHub Actions positioning, macOS launchd scheduling, README chart rendering constraints, survey of existing solutions | Complete |
 
 ## Project Goal (one sentence)

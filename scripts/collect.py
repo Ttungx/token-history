@@ -7,7 +7,9 @@ are gone the numbers are gone too. This script snapshots ccusage's output into
 git before that happens.
 
 Design notes:
-  - ccusage is the ONLY source of truth. We never parse the raw JSONL ourselves.
+  - ccusage is the source of truth for every agent it supports. Agents it does
+    not support (Cline, WorkBuddy) are read from their local transcripts by the
+    small readers in LOCAL_SOURCES, and still land in the same schema.
   - Idempotent: re-running for the same day overwrites that day's file.
   - Self-healing: each run re-collects a recall window, so a missed run (laptop
     was off) is backfilled automatically. No scheduler catch-up needed.
@@ -20,6 +22,7 @@ Targets Python 3.9 (macOS system python3). Standard library only.
 
 import argparse
 import datetime as dt
+import glob
 import json
 import os
 import shutil
@@ -108,12 +111,16 @@ def daterange(start, end):
 def run_ccusage(spec, args, timeout=300):
     npx = shutil.which("npx")
     if not npx:
-        die("npx not found on PATH. Under launchd, PATH is minimal — set "
+        raise RuntimeError(
+            "npx not found on PATH. Under launchd, PATH is minimal — set "
             "EnvironmentVariables.PATH in the plist to include your node bin dir.")
     cmd = [npx, "-y", spec] + args
-    proc = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout)
+    try:
+        proc = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        raise RuntimeError("ccusage timed out after {}s: {}".format(timeout, " ".join(args)))
     if proc.returncode != 0:
-        die("ccusage failed ({}): {}\n{}".format(
+        raise RuntimeError("ccusage failed ({}): {}\n{}".format(
             proc.returncode, " ".join(args), proc.stderr.decode(errors="replace")[:2000]))
     return proc.stdout.decode(errors="replace")
 
@@ -137,7 +144,7 @@ def fetch_source(spec, source, since, until, tz_name):
     try:
         payload = json.loads(raw)
     except ValueError:
-        die("ccusage {} returned non-JSON output".format(source))
+        raise RuntimeError("ccusage {} returned non-JSON output".format(source))
     rows = payload.get("daily") or []
     return {r["date"]: r for r in rows if r.get("date")}
 
@@ -220,15 +227,150 @@ def normalize_codex(rec):
     return out
 
 
-# ccusage `daily` emits the same record shape for claude/opencode/pi
+# ccusage `daily` emits the same record shape for claude/opencode/pi/zcode
 # (modelBreakdowns list, per-model cost, top-level totalCost); codex differs
-# (models dict, no per-model cost). Verified against ccusage v20.0.19.
+# (models dict, no per-model cost). Verified against ccusage v20.0.23.
 NORMALIZERS = {
     "claude": normalize_claude,
     "codex": normalize_codex,
     "opencode": normalize_claude,
     "pi": normalize_claude,
+    "zcode": normalize_claude,
 }
+
+
+# ---------------------------------------------------------------- local readers
+# Cline and WorkBuddy have no ccusage adapter (upstream closed both requests),
+# so their transcripts are read directly. Both are subscription products: only
+# the token counts are comparable, so `costUSD` stays 0.
+
+HOME = os.path.expanduser("~")
+
+
+def epoch_day(ts_ms, tz_name):
+    """Epoch milliseconds -> calendar date in the configured timezone.
+
+    Without a usable tz database (Windows without tzdata) it falls back to
+    system-local time, which is the same wall clock the agent ran on.
+    """
+    try:
+        from zoneinfo import ZoneInfo
+
+        tz = ZoneInfo(tz_name)
+    except Exception:
+        tz = None
+    return dt.datetime.fromtimestamp(ts_ms / 1000.0, tz).date()
+
+
+def _blank_day():
+    return {"input": 0, "output": 0, "cacheCreation": 0, "cacheRead": 0,
+            "total": 0, "costUSD": 0.0, "models": {}}
+
+
+def _blank_model():
+    return {"input": 0, "output": 0, "cacheCreation": 0, "cacheRead": 0,
+            "total": 0, "costUSD": 0.0}
+
+
+def _add(day, model, values):
+    """Accumulate `values` into the day and its per-model entry."""
+    entry = day["models"].setdefault(model, _blank_model())
+    for key, value in values.items():
+        day[key] = day.get(key, 0) + value
+        entry[key] = entry.get(key, 0) + value
+
+
+def fetch_cline(since, until, tz_name):
+    """{date: record} from Cline's per-session message files.
+
+    A session's transcript lives at `<root>/data/sessions/<id>/<id>.messages.json`
+    (standalone app layout); assistant messages carry `metrics` (tokens, no cost)
+    and `modelInfo`. Override the root with CLINE_DIR.
+    """
+    root = os.environ.get("CLINE_DIR") or os.path.join(HOME, ".cline")
+    paths = glob.glob(os.path.join(root, "data", "sessions", "*", "*.messages.json"))
+    if not paths:
+        log("  cline: no transcripts under {}".format(root))
+        return {}
+    days = {}
+    for path in paths:
+        for msg in (read_json(path, default={}) or {}).get("messages") or []:
+            metrics = msg.get("metrics") or {}
+            ts = msg.get("ts")
+            if not metrics or not isinstance(ts, (int, float)):
+                continue
+            day = epoch_day(ts, tz_name)
+            if not since <= day <= until:
+                continue
+            model = (msg.get("modelInfo") or {}).get("id") or "unknown"
+            tokens_in = _num(metrics.get("inputTokens"))
+            tokens_out = _num(metrics.get("outputTokens"))
+            cache_creation = _num(metrics.get("cacheWriteTokens"))
+            cache_read = _num(metrics.get("cacheReadTokens"))
+            _add(days.setdefault(day.isoformat(), _blank_day()), model, {
+                "input": tokens_in, "output": tokens_out,
+                "cacheCreation": cache_creation, "cacheRead": cache_read,
+                "total": tokens_in + tokens_out + cache_creation + cache_read,
+            })
+    return days
+
+
+def fetch_workbuddy(since, until, tz_name):
+    """{date: record} from WorkBuddy's session JSONL.
+
+    Main transcripts: `<root>/projects/<slug>/<session>.jsonl`; subagent
+    transcripts: `<session>/subagents/*.jsonl`. Usage sits on `function_call`
+    lines in `providerData.rawUsage`; `prompt_tokens` already includes cache
+    hits, so input uses the miss side to keep the buckets additive. Override the
+    root with WORKBUDDY_DIR.
+    """
+    root = os.environ.get("WORKBUDDY_DIR") or os.path.join(HOME, ".workbuddy")
+    projects = os.path.join(root, "projects")
+    paths = (glob.glob(os.path.join(projects, "*", "*.jsonl")) +
+             glob.glob(os.path.join(projects, "*", "*", "subagents", "*.jsonl")))
+    if not paths:
+        log("  workbuddy: no transcripts under {}".format(root))
+        return {}
+    seen = set()
+    days = {}
+    for path in paths:
+        with open(path, "r", encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                try:
+                    rec = json.loads(line)
+                except ValueError:
+                    continue
+                provider = rec.get("providerData") or {}
+                usage = provider.get("rawUsage")
+                ts = rec.get("timestamp")
+                if not usage or not isinstance(ts, (int, float)):
+                    continue
+                day = epoch_day(ts, tz_name)
+                if not since <= day <= until:
+                    continue
+                line_id = rec.get("id")
+                if line_id:
+                    if line_id in seen:
+                        continue
+                    seen.add(line_id)
+                model = provider.get("model") or provider.get("requestModelId") or "unknown"
+                prompt = _num(usage.get("prompt_tokens"))
+                cache_read = _num(usage.get("prompt_cache_hit_tokens")) or \
+                    _num(usage.get("cache_read_input_tokens"))
+                cache_creation = _num(usage.get("cache_creation_input_tokens"))
+                tokens_in = _num(usage.get("prompt_cache_miss_tokens")) or \
+                    max(0, prompt - cache_read)
+                tokens_out = _num(usage.get("completion_tokens"))
+                values = {
+                    "input": tokens_in, "output": tokens_out,
+                    "cacheCreation": cache_creation, "cacheRead": cache_read,
+                    "total": tokens_in + tokens_out + cache_creation + cache_read,
+                }
+                _add(days.setdefault(day.isoformat(), _blank_day()), model, values)
+    return days
+
+
+LOCAL_SOURCES = {"cline": fetch_cline, "workbuddy": fetch_workbuddy}
 
 
 # ------------------------------------------------------------------------ merge
@@ -348,12 +490,21 @@ def main():
     meta_path = os.path.join(host_dir, "_meta.json")
     meta = read_json(meta_path, default={}) or {}
 
+    known = sorted(list(NORMALIZERS) + list(LOCAL_SOURCES))
+    unknown = [s for s in cfg["sources"] if s not in NORMALIZERS and s not in LOCAL_SOURCES]
+    if unknown:
+        die("unsupported source(s) {} (known: {})".format(", ".join(unknown), ", ".join(known)))
+
     if args.all:
         start, end = None, today
     else:
         start, end = decide_window(cfg, meta, today, args)
 
-    version = ccusage_version(spec)
+    version = "unknown"
+    try:
+        version = ccusage_version(spec)
+    except RuntimeError as exc:
+        log("WARNING: {}".format(str(exc).splitlines()[0]))
     log("ccusage {} | host={} | tz={} | window={}..{}".format(
         version, host, tz_name, start.isoformat() if start else "(all)", end.isoformat()))
 
@@ -361,12 +512,26 @@ def main():
     fetch_start = start or dt.date(2000, 1, 1)
 
     per_source = {}
+    failed = []
     for source in cfg["sources"]:
-        if source not in NORMALIZERS:
-            die("unsupported source {!r} (known: {})".format(source, ", ".join(sorted(NORMALIZERS))))
-        rows = fetch_source(spec, source, fetch_start, end, tz_name)
+        rows = {}
+        try:
+            if source in LOCAL_SOURCES:
+                rows = LOCAL_SOURCES[source](fetch_start, end, tz_name)
+            else:
+                rows = {date: NORMALIZERS[source](rec) for date, rec in
+                        fetch_source(spec, source, fetch_start, end, tz_name).items()}
+        except RuntimeError as exc:
+            # One broken source must not lose the other sources' data; the
+            # recall window re-fetches it on the next run.
+            failed.append(source)
+            log("  {}: FAILED ({})".format(source, str(exc).splitlines()[0]))
+            continue
         per_source[source] = rows
         log("  {}: {} day(s) returned".format(source, len(rows)))
+
+    if not per_source:
+        die("no source produced data (failed: {})".format(", ".join(failed) or "none"))
 
     all_dates = sorted({d for rows in per_source.values() for d in rows})
     if start is not None:
@@ -379,10 +544,8 @@ def main():
     written = skipped = 0
 
     for date_str in all_dates:
-        sources = {}
-        for source, rows in per_source.items():
-            if date_str in rows:
-                sources[source] = NORMALIZERS[source](rows[date_str])
+        sources = {source: rows[date_str] for source, rows in per_source.items()
+                   if date_str in rows}
         if not sources:
             continue
 

@@ -44,7 +44,7 @@ Edit `config.json` and set `"host"` to a **neutral alias** like `mac-a`.
 
 Privacy rules (the repo is typically public):
 - The alias must NOT be the real hostname. `config.json` is gitignored — keep it so.
-- Never sync `~/.claude` or `~/.codex` between machines (iCloud/Dropbox/Syncthing);
+- Never sync `~/.claude`, `~/.codex`, `~/.zcode`, `~/.cline` or `~/.workbuddy` between machines (iCloud/Dropbox/Syncthing);
   each machine must read only its own logs or totals will double-count.
 
 **Verify:** `git check-ignore config.json` prints the path.

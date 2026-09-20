@@ -24,7 +24,7 @@
 
 - **Snapshots your usage into git, daily.** AI coding tools keep usage data only on your disk and quietly expire it — history you don't persist is history you lose. Every number lands in git before that happens, permanently yours.
 - **Renders a whole gallery of SVG charts and badges** — self-updating, and embeddable in a GitHub profile README, a blog, or anywhere an `<img>` tag works.
-- **Merges every machine and every source.** Multiple hosts combine into one history; Claude Code, Codex, opencode, and pi are wired into the collector (riding on ccusage), with more models and feeds on the roadmap.
+- **Merges every machine and every source.** Multiple hosts combine into one history; Claude Code, Codex, opencode, pi and ZCode ride on ccusage, while Cline and WorkBuddy are read from their local transcripts — with more models and feeds on the roadmap.
 - **Sets itself up through your agent.** Hand Claude Code or Codex [one link](#-for-agents-recommended) and say *"set this up"* — it walks itself from fork to first push.
 
 The repo keeps a day-by-day history; the headline chart shows the last 30 days, and every render also produces [an entire gallery of other styles](#chart-gallery) across daily, weekly, and monthly granularity.
@@ -84,7 +84,7 @@ cp config.example.json config.json     # set "host" to a neutral alias like mac-
 
 # 2. Backfill, render, publish
 uv sync                                # one-time: provisions the pinned Python + .venv
-./scripts/run.sh collect --all         # grab everything ccusage still has
+./scripts/run.sh collect --all         # grab everything the sources still have
 ./scripts/run.sh render                # build every chart locally
 git add -A && git commit -m "first snapshot" && git push
 
@@ -118,7 +118,7 @@ Every run renders **every** style below — the same data, over a dozen ways. Th
 ![usage](https://raw.githubusercontent.com/<your-username>/token-history/master/charts/day/card.svg)
 ```
 
-`charts/tokens.svg` and `charts/cost.svg` remain stable aliases of the daily bars, so existing embeds never break. Colors follow the Anthropic palette, tuned per mode to pass a color-vision-deficiency check — one hue per source (orange = Claude Code, blue = Codex, violet = opencode, green = pi).
+`charts/tokens.svg` and `charts/cost.svg` remain stable aliases of the daily bars, so existing embeds never break. Colors follow the Anthropic palette, tuned per mode to pass a color-vision-deficiency check — one hue per source (orange = Claude Code, blue = Codex, violet = opencode, green = pi, teal = ZCode, crimson = Cline, amber = WorkBuddy).
 
 ### Badges
 
@@ -136,9 +136,9 @@ Every run renders **every** style below — the same data, over a dozen ways. Th
 
 ### Daily
 
-**`charts/day/pixel-card.svg`** — the last 30 days as an 8-bit game HUD: a bitmap-font HI-SCORE, one player HP bar per source, cost as a coin counter, one pixel heart per active day
+**`charts/day/pixel-card.svg`** — the last 30 days as an 8-bit game HUD: a bitmap-font HI-SCORE, one player HP bar per source (top four by tokens), cost as a coin counter, one pixel heart per active day
 
-<img src="./charts/day/pixel-card.svg" width="880" alt="Pixel game-HUD stat card: HI-SCORE token total, P1-P4 HP bars for Claude Code, Codex, opencode and pi, coin counter, heart streak">
+<img src="./charts/day/pixel-card.svg" width="880" alt="Pixel game-HUD stat card: HI-SCORE token total, P1-P4 HP bars for the top four sources by tokens, coin counter, heart streak">
 
 **`charts/day/bar-tokens.svg`** — flat daily bars (also published as `charts/tokens.svg`, the stable legacy URL)
 
@@ -164,7 +164,7 @@ Every run renders **every** style below — the same data, over a dozen ways. Th
 
 <img src="./charts/day/pixel-tokens.svg" width="880" alt="Pixel-art daily token bars: stacks of squares, one square per 10M tokens">
 
-**`charts/day/pixel-models.svg`** — the same columns, split by model. Each source keeps its own hue and encodes the tier twice, in lightness *and* in how much of the square is filled — solid, notched, hollow — so the top tier reads even in greyscale (Claude fable › opus › sonnet, Codex 5.5/Sol › Terra › Luna, opencode and pi FLASH › OTHER)
+**`charts/day/pixel-models.svg`** — the same columns, split by model. Each source keeps its own hue and encodes the tier twice, in lightness *and* in how much of the square is filled — solid, notched, hollow — so the top tier reads even in greyscale (Claude fable › opus › sonnet, Codex 5.5/Sol › Terra › Luna, opencode and pi FLASH › OTHER; sources without a ladder — ZCode, Cline, WorkBuddy — show a single ALL tier)
 
 <img src="./charts/day/pixel-models.svg" width="880" alt="Pixel-art daily token bars split by model: each source in its own hue, tiers marked solid, notched or hollow">
 
@@ -216,7 +216,7 @@ data/mac-b/2026-08-04.json     ← machine B only ever writes here
 Two machines never write the same path, so there is no merge conflict to resolve and no cross-machine deduplication to get wrong. Merging is just addition at render time.
 
 > [!IMPORTANT]
-> This relies on the machines' log directories being **disjoint**. Do not sync `~/.claude` or `~/.codex` between machines via iCloud, Dropbox, Syncthing, or a restored backup — both machines would then see the same sessions and the totals would double. Because ccusage reports daily aggregates rather than session IDs, this repo cannot detect that from the data.
+> This relies on the machines' log directories being **disjoint**. Do not sync `~/.claude`, `~/.codex`, `~/.zcode`, `~/.cline` or `~/.workbuddy` between machines via iCloud, Dropbox, Syncthing, or a restored backup — both machines would then see the same sessions and the totals would double. Because ccusage reports daily aggregates rather than session IDs, this repo cannot detect that from the data.
 
 ## How it stays correct
 
@@ -236,8 +236,9 @@ pyproject.toml, uv.lock      uv project: zero dependencies, locked anyway
 .python-version              interpreter pin (3.12, provisioned by uv)
 scripts/
   run.sh                     entry point: uv if present, python3 otherwise
-  collect.py                 ccusage → data/<host>/<date>.json
+  collect.py                 ccusage + local readers → data/<host>/<date>.json
   render.py                  data/ → charts (every style) + SUMMARY.md
+  test_collect.py            self-check for the local readers (python scripts/test_collect.py)
   install-launchd.sh         macOS scheduling (--uninstall to remove)
 data/<host>/<date>.json      one file per host per day
 charts/tokens.svg, cost.svg  the two headline charts (stable URLs)
@@ -257,7 +258,7 @@ Everything non-obvious in here has a written reason — measured on real data, n
 
 ## Thanks
 
-All parsing credit goes to [**ccusage**](https://github.com/ccusage/ccusage) — the de-facto standard for reading local AI-CLI usage logs, supporting ~15 coding CLIs. This repo deliberately does not second-guess it; it adds the persistence, merging, and charts on top.
+All parsing credit goes to [**ccusage**](https://github.com/ccusage/ccusage) — the de-facto standard for reading local AI-CLI usage logs, supporting ~15 coding CLIs. For the CLIs it does not cover, `collect.py` carries two small direct readers (Cline, WorkBuddy) that feed the same schema; everything else rides on ccusage without second-guessing it. The repo adds the persistence, merging, and charts on top.
 
 **Contributions welcome** — new data sources and new chart styles alike. A style is a single drop-in module in [`scripts/styles/`](./scripts/styles) exposing `build_all(days, generated)`; see the existing ones for the contract.
 

@@ -264,12 +264,15 @@ def _build_card(days, generated):
         fills = [0] * len(st["src_vals"])
 
     # players are ranked by tokens so the HP panel reads as a leaderboard
-    # (stable sort: ties keep render.SERIES order, Claude before Codex)
-    ordered = sorted(zip(render.SERIES, st["src_vals"], fills, pcts),
-                     key=lambda t: t[1], reverse=True)
+    # (stable sort: ties keep render.SERIES order, Claude before Codex).
+    # The panel has room for four bars: zero-token sources are not players,
+    # and more than four would overflow the fixed-height card.
+    ranked = sorted(zip(render.SERIES, st["src_vals"], fills, pcts),
+                    key=lambda t: t[1], reverse=True)
+    ordered = [t for t in ranked if t[1] > 0][:4]
 
     share_line = ", ".join("{} {} percent".format(label, p)
-                           for (_, label), _, _, p in ordered)
+                           for (_, label), tok, _, p in ranked if tok > 0)
     aria = ("AI coding usage, retro game HUD, last 30 days: {} tokens total, "
             "about {} API-equivalent, {}, best day {} on {}, {} of {} days "
             "active".format(hero, render.compact_cost(st["cost"]), share_line,

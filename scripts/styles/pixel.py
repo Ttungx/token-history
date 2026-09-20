@@ -42,10 +42,13 @@ MAX_ROWS = 24         # tallest column the grid allows
 TICK_ROWS = 5         # one y tick every 5 rows = 10 quanta
 
 PAD_L, PAD_R = 76, 28
-PAD_T_PLAIN = 100     # one legend row: the two sources
-PAD_T_SPLIT = 152     # four legend rows: model tiers per source
+PAD_T_PLAIN = 100     # one legend row, sources side by side
+LEGEND_ROW_H = 17     # _model_legend row pitch
+PAD_T_SPLIT = 83 + LEGEND_ROW_H * len(render.SERIES)   # one legend row per source
 PLOT_H = MAX_ROWS * PITCH                    # 240
 W = render.W                                 # 880
+
+SOURCE_KEYS = {s for s, _ in render.SERIES}
 
 # Model tiers are an ORDINAL scale, so each source keeps its one brand hue and
 # spends only lightness on the tier: deepest = most capable. The middle step of
@@ -76,10 +79,8 @@ MODEL_CSS = (
     ".m-codex-luna{fill:var(--codex-luna)}"
     ".m-opencode-flash{fill:var(--opencode-flash)}"
     ".m-opencode-other{fill:var(--opencode-other)}"
-    ".m-opencode{fill:var(--opencode)}"
     ".m-pi-flash{fill:var(--pi-flash)}"
     ".m-pi-other{fill:var(--pi-other)}"
-    ".m-pi{fill:var(--pi)}"
 )
 
 PIXEL_CSS = (
@@ -137,6 +138,13 @@ MODEL_GROUPS = {
 TIER_INDEX = {key: i for groups in MODEL_GROUPS.values()
               for i, (key, _, _) in enumerate(groups)}
 
+
+def _groups(source):
+    """Tier ladder for a source; sources without one get a single ALL tier, so
+    the split chart stays total for every source render.SERIES knows."""
+    return MODEL_GROUPS.get(source) or ((source, "ALL", ()),)
+
+
 # 7x6 pixel heart, drawn as tiny rects in primary ink (decorative, never a series hue)
 HEART = (
     ".XX.XX.",
@@ -158,7 +166,7 @@ def _tier_cell(add, key, x, y, size, blink="", label=None):
     The hole is painted rather than cut out, so the dashed gridline behind a
     column can never show through the middle of a pixel.
     """
-    cls = "s-" + key if key in ("claude", "codex") else "m-" + key
+    cls = "s-" + key if key in SOURCE_KEYS else "m-" + key
     title = "<title>{}</title>".format(render.esc(label)) if label else ""
     add('<rect class="px {}{}" x="{}" y="{}" width="{}" height="{}">{}</rect>'.format(
         cls, blink, x, y, size, size, title))
@@ -171,7 +179,7 @@ def _tier_cell(add, key, x, y, size, blink="", label=None):
 
 def _model_group(source, model):
     lowered = model.lower()
-    for key, label, needles in MODEL_GROUPS[source]:
+    for key, label, needles in _groups(source):
         if any(needle in lowered for needle in needles):
             return key, label
     return source, source.upper()
@@ -189,8 +197,8 @@ def _source_pixels(source, payload, quantum):
     if not count:
         return []
 
-    grouped = {key: 0 for key, _, _ in MODEL_GROUPS[source]}
-    labels = {key: label for key, label, _ in MODEL_GROUPS[source]}
+    grouped = {key: 0 for key, _, _ in _groups(source)}
+    labels = {key: label for key, label, _ in _groups(source)}
     unknown = 0
     for model, model_payload in payload.get("models", {}).items():
         key, label = _model_group(source, model)
@@ -203,7 +211,7 @@ def _source_pixels(source, payload, quantum):
 
     known = sum(grouped.values()) + unknown
     unknown += max(0, total - known)
-    weighted = [(key, labels[key], grouped[key]) for key, _, _ in MODEL_GROUPS[source]
+    weighted = [(key, labels[key], grouped[key]) for key, _, _ in _groups(source)
                 if grouped[key] > 0]
     if unknown > 0:
         weighted.append((source, source.upper(), unknown))
@@ -280,7 +288,7 @@ def _model_legend(add, x, y):
         add('<text class="tm" x="{}" y="{}" font-size="9.5" '
             'font-family="var(--fm)" letter-spacing="1">{}</text>'.format(x, cy + 9, source.upper()))
         cursor = x + 62
-        for key, model_label, _ in MODEL_GROUPS[source]:
+        for key, model_label, _ in _groups(source):
             # the swatch wears the texture too — that is what teaches it
             _tier_cell(add, key, cursor, cy + 1, 8)
             add('<text class="t2" x="{}" y="{}" font-size="10" '
