@@ -1,0 +1,28 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-09-22T12:00:37Z",
+  "date": "2026-09-21",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 117527,
+      "costUSD": 0.061094,
+      "input": 24303,
+      "models": {
+        "muse-spark-1.3-contributor-free": {
+          "cacheCreation": 0,
+          "cacheRead": 117527,
+          "costUSD": 0.061094,
+          "input": 24303,
+          "output": 2079,
+          "total": 143909
+        }
+      },
+      "output": 2079,
+      "total": 144909
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}
