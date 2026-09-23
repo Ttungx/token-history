@@ -1,13 +1,13 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-09-22T12:00:37Z",
+  "collectedAt": "2026-09-23T12:00:19Z",
   "date": "2026-09-22",
   "host": "YOUNG",
   "sources": {
     "opencode": {
       "cacheCreation": 0,
       "cacheRead": 19937472,
-      "costUSD": 1.545788,
+      "costUSD": 1.494989,
       "input": 500649,
       "models": {
         "mimo-v2.6-flash-free": {
@@ -21,7 +21,7 @@
         "step-5-preview": {
           "cacheCreation": 0,
           "cacheRead": 18890496,
-          "costUSD": 1.51652,
+          "costUSD": 1.465721,
           "input": 386295,
           "output": 68778,
           "total": 19345569
@@ -31,6 +31,6 @@
       "total": 20543780
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
