@@ -1,0 +1,54 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-09-26T12:00:30Z",
+  "date": "2026-09-26",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 982758,
+      "costUSD": 0.107317,
+      "input": 166493,
+      "models": {
+        "space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 656614,
+          "costUSD": 0.0,
+          "input": 90436,
+          "output": 5790,
+          "total": 752840
+        },
+        "step-5-preview": {
+          "cacheCreation": 0,
+          "cacheRead": 326144,
+          "costUSD": 0.107317,
+          "input": 76057,
+          "output": 6831,
+          "total": 409032
+        }
+      },
+      "output": 12621,
+      "total": 1168006
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 150272,
+      "costUSD": 0.0,
+      "input": 46190,
+      "models": {
+        "[pi] deepseek/deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 150272,
+          "costUSD": 0.0,
+          "input": 46190,
+          "output": 5794,
+          "total": 202256
+        }
+      },
+      "output": 5794,
+      "total": 202256
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}

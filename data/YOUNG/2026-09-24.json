@@ -1,0 +1,79 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-09-26T12:00:30Z",
+  "date": "2026-09-24",
+  "host": "YOUNG",
+  "sources": {
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 26000768,
+      "costUSD": 6.794968,
+      "input": 770538,
+      "models": {
+        "CPA/gpt-6-astra": {
+          "cacheCreation": 0,
+          "cacheRead": 1295360,
+          "input": 144620,
+          "output": 7297,
+          "reasoningOutput": 2170,
+          "total": 1447277
+        },
+        "commandcode/deepseek-deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 13611136,
+          "input": 407313,
+          "output": 156561,
+          "reasoningOutput": 94927,
+          "total": 14175010
+        },
+        "gpt-6-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 11094272,
+          "input": 218605,
+          "output": 81704,
+          "reasoningOutput": 47379,
+          "total": 11394581
+        }
+      },
+      "output": 245562,
+      "reasoningOutput": 144476,
+      "total": 27016868
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 18450280,
+      "costUSD": 1.382637,
+      "input": 1528788,
+      "models": {
+        "deepseek/deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 10135808,
+          "costUSD": 0.124273,
+          "input": 414166,
+          "output": 22166,
+          "total": 10572140
+        },
+        "space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 2554728,
+          "costUSD": 0.0,
+          "input": 204849,
+          "output": 8356,
+          "total": 2767933
+        },
+        "step-5-preview": {
+          "cacheCreation": 0,
+          "cacheRead": 5759744,
+          "costUSD": 1.258363,
+          "input": 909773,
+          "output": 39921,
+          "total": 6709438
+        }
+      },
+      "output": 70443,
+      "total": 20172650
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}
