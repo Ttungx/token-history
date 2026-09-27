@@ -40,13 +40,13 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <text class="tm" x="740" y="122" font-size="11">days with usage</text>
 </g>
 <g class="b" style="animation-delay:320ms">
-<path class="s-claude" d="M52.5,176.0 H154.6 V185.0 H52.5 A4.5,4.5 0 0 1 48.0,180.5 V180.5 A4.5,4.5 0 0 1 52.5,176.0 Z"/>
-<path class="s-codex" d="M156.6,176.0 H272.4 V185.0 H156.6 V176.0 Z"/>
-<path class="s-opencode" d="M274.4,176.0 H531.1 V185.0 H274.4 V176.0 Z"/>
-<path class="s-pi" d="M533.1,176.0 H640.6 V185.0 H533.1 V176.0 Z"/>
-<path class="s-zcode" d="M642.6,176.0 H800.4 V185.0 H642.6 V176.0 Z"/>
-<path class="s-cline" d="M802.4,176.0 H819.6 V185.0 H802.4 V176.0 Z"/>
-<path class="s-workbuddy" d="M821.6,176.0 H829.5 A4.5,4.5 0 0 1 834.0,180.5 V180.5 A4.5,4.5 0 0 1 829.5,185.0 H821.6 V176.0 Z"/>
+<path class="s-claude" d="M52.5,176.0 H154.4 V185.0 H52.5 A4.5,4.5 0 0 1 48.0,180.5 V180.5 A4.5,4.5 0 0 1 52.5,176.0 Z"/>
+<path class="s-codex" d="M156.4,176.0 H271.9 V185.0 H156.4 V176.0 Z"/>
+<path class="s-opencode" d="M273.9,176.0 H531.7 V185.0 H273.9 V176.0 Z"/>
+<path class="s-pi" d="M533.7,176.0 H641.0 V185.0 H533.7 V176.0 Z"/>
+<path class="s-zcode" d="M643.0,176.0 H800.5 V185.0 H643.0 V176.0 Z"/>
+<path class="s-cline" d="M802.5,176.0 H819.7 V185.0 H802.5 V176.0 Z"/>
+<path class="s-workbuddy" d="M821.7,176.0 H829.5 A4.5,4.5 0 0 1 834.0,180.5 V180.5 A4.5,4.5 0 0 1 829.5,185.0 H821.7 V176.0 Z"/>
 <circle class="s-claude" cx="90.0" cy="203" r="4"/>
 <text class="t2" x="108.0" y="207" font-size="11" text-anchor="middle">Claude Code 14%</text>
 <circle class="s-codex" cx="202.0" cy="203" r="4"/>
@@ -62,5 +62,5 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <circle class="s-workbuddy" cx="762.0" cy="203" r="4"/>
 <text class="t2" x="780.0" y="207" font-size="11" text-anchor="middle">WorkBuddy 2%</text>
 </g>
-<text class="tm" x="48" y="226" font-size="10">Generated 2026-09-27 12:51 UTC</text>
+<text class="tm" x="48" y="226" font-size="10">Generated 2026-09-27 13:13 UTC</text>
 </svg>
