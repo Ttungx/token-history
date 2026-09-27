@@ -16,6 +16,12 @@ git --version
 gh auth status          # optional but makes forking easier
 ```
 
+Then, inside the clone: `npm ci` — it installs the pinned ccusage (~4.6MB into
+`node_modules/`, gitignored) and cuts about 13s off every collect, because the
+six `npx` invocations otherwise pay ~2.4s of npm startup each. Skip it if you
+like: without `node_modules/` the collector falls back to `npx -y ccusage@latest`
+on its own.
+
 ## 1. Fork and clone
 
 The user needs their **own fork** — this repo holds someone else's data, so

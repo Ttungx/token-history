@@ -108,13 +108,29 @@ def daterange(start, end):
 # ---------------------------------------------------------------------- ccusage
 
 
-def run_ccusage(spec, args, timeout=300):
+def ccusage_cmd(spec, args):
+    """Pick the command that runs ccusage.
+
+    `npx -y ccusage@latest` costs ~2.4s of npm startup per call (measured:
+    21.9s vs 8.5s across the six calls of a collect), so when `npm ci` has been
+    run in this repo we execute the installed entry point directly. The npx
+    path stays as the fallback so a fresh fork works with no npm install.
+    """
+    local = os.path.join(REPO_ROOT, "node_modules", "ccusage", "src", "cli.js")
+    node = shutil.which("node")
+    if os.path.exists(local) and node:
+        return [node, local] + args
     npx = shutil.which("npx")
     if not npx:
         raise RuntimeError(
-            "npx not found on PATH. Under launchd, PATH is minimal — set "
-            "EnvironmentVariables.PATH in the plist to include your node bin dir.")
-    cmd = [npx, "-y", spec] + args
+            "found neither node_modules/ccusage nor npx. Run `npm ci` in the "
+            "repo, or put node on PATH — under launchd PATH is minimal, so "
+            "set EnvironmentVariables.PATH in the plist to your node bin dir.")
+    return [npx, "-y", spec] + args
+
+
+def run_ccusage(spec, args, timeout=300):
+    cmd = ccusage_cmd(spec, args)
     try:
         proc = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout)
     except subprocess.TimeoutExpired:

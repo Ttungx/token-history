@@ -78,7 +78,29 @@ def test_workbuddy():
         shutil.rmtree(root, ignore_errors=True)
 
 
+def test_ccusage_cmd():
+    """The fast path is the only one this machine ever exercises, so pin the
+    fallback too: a fresh fork (or the mac) must still resolve to npx."""
+    spec, args = "ccusage@latest", ["--version"]
+    real = collect.REPO_ROOT
+    try:
+        if os.path.exists(os.path.join(real, "node_modules", "ccusage", "src", "cli.js")):
+            fast = collect.ccusage_cmd(spec, args)
+            assert "npx" not in " ".join(fast), fast
+            assert fast[0] == shutil.which("node"), fast
+            assert fast[1].endswith(os.path.join("node_modules", "ccusage", "src", "cli.js")), fast
+        collect.REPO_ROOT = tempfile.mkdtemp()  # no node_modules here
+        if shutil.which("npx"):
+            slow = collect.ccusage_cmd(spec, args)
+            assert "npx" in os.path.basename(slow[0]).lower(), slow
+            assert slow[1:] == ["-y", spec, "--version"], slow
+    finally:
+        shutil.rmtree(collect.REPO_ROOT, ignore_errors=True)
+        collect.REPO_ROOT = real
+
+
 if __name__ == "__main__":
     test_cline()
     test_workbuddy()
+    test_ccusage_cmd()
     print("OK")
