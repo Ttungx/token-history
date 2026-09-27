@@ -1,14 +1,14 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-09-27T12:00:36Z",
+  "collectedAt": "2026-09-27T12:22:07Z",
   "date": "2026-09-27",
   "host": "YOUNG",
   "sources": {
     "opencode": {
       "cacheCreation": 0,
-      "cacheRead": 1092480,
+      "cacheRead": 1369742,
       "costUSD": 0.01803,
-      "input": 68694,
+      "input": 158430,
       "models": {
         "deepseek/deepseek-v4.1-flash": {
           "cacheCreation": 0,
@@ -20,15 +20,23 @@
         },
         "longcat-2.5-preview-free": {
           "cacheCreation": 0,
-          "cacheRead": 3200,
+          "cacheRead": 35328,
           "costUSD": 0.0,
-          "input": 40796,
-          "output": 4119,
-          "total": 48115
+          "input": 82950,
+          "output": 13853,
+          "total": 132131
+        },
+        "space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 245134,
+          "costUSD": 0.0,
+          "input": 47582,
+          "output": 1996,
+          "total": 294712
         }
       },
-      "output": 11715,
-      "total": 1214960
+      "output": 23445,
+      "total": 1597481
     }
   },
   "status": "partial",
