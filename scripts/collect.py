@@ -410,6 +410,25 @@ def merge_max(old, new):
     return new if new is not None else old
 
 
+# ------------------------------------------------------------------------ render
+
+
+def render_charts():
+    """Regenerate charts/ + SUMMARY.md, so one run publishes everything.
+
+    Rendering locally is what keeps this machine the only writer on the branch.
+    While the push-triggered Action also published charts, no push could ever
+    fast-forward: every run had to `pull --rebase` first, and losing that race
+    left the day's data queued locally until the next run.
+    """
+    proc = subprocess.run([sys.executable, os.path.join(REPO_ROOT, "scripts", "render.py")],
+                          stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    out = proc.stdout.decode(errors="replace")
+    if proc.returncode != 0:
+        die("render failed:\n{}".format(out))
+    return out.count("wrote ")
+
+
 # -------------------------------------------------------------------------- git
 
 
@@ -430,7 +449,7 @@ def git_sync(cfg, message):
         log("not a git repo yet, skipping commit/push")
         return
 
-    git(["add", "-A", "data"])
+    git(["add", "-A", "data", "charts", "SUMMARY.md"])
     rc, _ = git(["diff", "--cached", "--quiet"], check=False)
     if rc == 0:
         log("no data changes, nothing to commit")
@@ -610,8 +629,11 @@ def main():
     })
     write_json(meta_path, meta)
 
+    if not args.dry_run:
+        log("rendered {} file(s)".format(render_charts()))
+
     if not args.no_git:
-        git_sync(cfg, "data({}): {} .. {}".format(host, all_dates[0], all_dates[-1]))
+        git_sync(cfg, "data({}) + charts: {} .. {}".format(host, all_dates[0], all_dates[-1]))
 
 
 if __name__ == "__main__":

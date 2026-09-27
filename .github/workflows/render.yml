@@ -1,19 +1,11 @@
 name: Render charts
 
-# Push-triggered, deliberately not cron. GitHub's own docs say scheduled
-# workflows "can be delayed during periods of high loads" and that "some queued
-# jobs may be dropped" — and scheduled workflows are auto-disabled after 60 days
-# of repository inactivity. Rendering on push has none of those failure modes and
-# updates the charts the moment new data lands.
+# Manual escape hatch only. `run.sh collect` renders charts locally and commits
+# them alongside the data, which keeps master to a single writer: while this
+# workflow also pushed charts, no local push could ever fast-forward and every
+# run had to `pull --rebase` first. Dispatch it after editing render.py or a
+# style from the web UI — otherwise the next 20:00 collect re-renders anyway.
 on:
-  push:
-    paths:
-      - 'data/**'
-      - 'scripts/render.py'
-      - 'scripts/styles/**'
-      - 'pyproject.toml'
-      - 'uv.lock'
-      - '.github/workflows/render.yml'
   workflow_dispatch:
 
 permissions:

@@ -976,7 +976,7 @@ def write_summary(path, rows, days):
             cells += ["{:,}".format(src["total"]), "${:,.2f}".format(src["costUSD"])]
         lines.append("| {} |".format(" | ".join(cells)))
     lines += ["", "Full day-by-day history lives in `data/<host>/<date>.json`.", ""]
-    with open(path, "w", encoding="utf-8") as fh:
+    with open(path, "w", encoding="utf-8", newline="\n") as fh:
         fh.write("\n".join(lines))
 
 
@@ -1051,9 +1051,12 @@ def main():
     written = []
 
     def write(rel, content):
+        # newline="\n": the worktree is Windows, CI is Linux — without this the
+        # locally rendered files carry CRLF and every commit depends on
+        # core.autocrlf to normalise them back.
         path = os.path.join(args.out, rel)
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, "w", encoding="utf-8") as fh:
+        with open(path, "w", encoding="utf-8", newline="\n") as fh:
             fh.write(content + "\n")
         written.append(os.path.relpath(path, REPO_ROOT))
 

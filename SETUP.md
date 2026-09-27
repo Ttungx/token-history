@@ -80,11 +80,13 @@ git commit -m "first snapshot"
 git push
 ```
 
-GitHub Actions (`.github/workflows/render.yml`) re-renders charts automatically
-on every future data push — no further setup.
+`run.sh collect` renders the charts itself and commits them with the data, so
+pushing is the whole publish step — no further setup. (If you edit a style or
+`render.py` from the web UI instead, dispatch `.github/workflows/render.yml`, or
+just let the next collect re-render.)
 
-**Verify:** the fork's Actions tab shows a green "Render charts" run, and the
-fork's README displays charts with the user's data (CDN may lag a few minutes).
+**Verify:** the fork's README displays charts with the user's data (CDN may lag
+a few minutes).
 
 ## 5. Schedule
 

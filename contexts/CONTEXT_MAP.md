@@ -43,6 +43,6 @@ Two macOS machines collect local Claude Code + Codex token usage daily at 00:30 
 - watermark **per-host**
 - git goes over **SSH**, all executables in the script use absolute paths
 - Scheduling stays at 00:30/12:00/21:00 + `RunAtLoad=true`, catch-up logic is built into the script
-- Actions only generates derived views; source data integrity does not depend on it
+- Actions only generates derived views, and since 2026-09-27 it does not run on the daily path at all (rendering moved into `run.sh collect`); source data integrity never depended on it
 </content>
 </invoke>

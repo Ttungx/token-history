@@ -1,8 +1,8 @@
 #!/bin/sh
 # Single entry point for every task in this repo.
 #
-#   ./scripts/run.sh collect [args…]   snapshot ccusage output into data/
-#   ./scripts/run.sh render  [args…]   regenerate charts/
+#   ./scripts/run.sh collect [args…]   snapshot into data/, render charts/, commit
+#   ./scripts/run.sh render  [args…]   regenerate charts/ only
 #
 # Why a wrapper: the interpreter you get from an interactive shell and the one a
 # scheduler gets are often different builds. On the machine this was written on,

@@ -75,6 +75,8 @@ Even when all retries fail, the local commit remains fully intact — no data lo
 
 ## 5. Positioning of GitHub Actions
 
+> **Superseded 2026-09-27**: charts are rendered by the local collect and committed with the data, so this workflow no longer writes to `master` on push — it is kept as a manual dispatch. Reason, cost and the CRLF check: `decisions.md` D16.
+
 **Used only to generate derived views (aggregation / charts / README updates); source data integrity does not depend on it running on time at all.** Actions being late, dropping a run, or not running for several days in a row doesn't affect correctness — only chart freshness.
 
 Limitations officially acknowledged:
