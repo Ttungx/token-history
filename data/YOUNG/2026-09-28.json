@@ -1,28 +1,28 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-09-28T12:00:21Z",
+  "collectedAt": "2026-09-29T12:00:13Z",
   "date": "2026-09-28",
   "host": "YOUNG",
   "sources": {
     "opencode": {
       "cacheCreation": 0,
-      "cacheRead": 1949827,
+      "cacheRead": 3628777,
       "costUSD": 0.0,
-      "input": 50687,
+      "input": 71710,
       "models": {
         "space-bunny-free": {
           "cacheCreation": 0,
-          "cacheRead": 1949827,
+          "cacheRead": 3628777,
           "costUSD": 0.0,
-          "input": 50687,
-          "output": 7311,
-          "total": 2007825
+          "input": 71710,
+          "output": 16819,
+          "total": 3717306
         }
       },
-      "output": 7311,
-      "total": 2019369
+      "output": 16819,
+      "total": 3742601
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
