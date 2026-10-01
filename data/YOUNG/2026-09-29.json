@@ -1,0 +1,62 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-01T12:19:14Z",
+  "date": "2026-09-29",
+  "host": "YOUNG",
+  "sources": {
+    "claude": {
+      "cacheCreation": 0,
+      "cacheRead": 37888,
+      "costUSD": 0.029292,
+      "input": 27233,
+      "models": {
+        "step-5-preview": {
+          "cacheCreation": 0,
+          "cacheRead": 37888,
+          "costUSD": 0.029292,
+          "input": 27233,
+          "output": 495,
+          "total": 65616
+        }
+      },
+      "output": 495,
+      "total": 65616
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 26703630,
+      "costUSD": 0.405553,
+      "input": 1392964,
+      "models": {
+        "deepseek/deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 5941760,
+          "costUSD": 0.139525,
+          "input": 508519,
+          "output": 31612,
+          "total": 6481891
+        },
+        "gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 307730,
+          "costUSD": 0.266028,
+          "input": 292626,
+          "output": 3596,
+          "total": 603952
+        },
+        "space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 20454140,
+          "costUSD": 0.0,
+          "input": 591819,
+          "output": 128410,
+          "total": 21174369
+        }
+      },
+      "output": 163618,
+      "total": 28491379
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}
