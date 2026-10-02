@@ -360,13 +360,15 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <rect class="px s-opencode" x="788" y="434" width="8" height="8"><title>OPENCODE</title></rect>
 <rect class="px s-opencode" x="778" y="424" width="8" height="8"><title>OPENCODE</title></rect>
 </g>
-<g class="col wip" style="animation-delay:522ms">
+<g class="col" style="animation-delay:522ms">
 <rect class="px s-codex" x="830" y="434" width="8" height="8"><title>CODEX</title></rect>
 <rect class="px m-opencode-flash" x="840" y="434" width="8" height="8"><title>FLASH</title></rect>
-<rect class="px m-opencode-flash blink" x="830" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px m-opencode-flash" x="830" y="424" width="8" height="8"><title>FLASH</title></rect>
+<rect class="px s-opencode" x="840" y="424" width="8" height="8"><title>OPENCODE</title></rect>
+<rect class="px s-pi" x="830" y="414" width="8" height="8"><title>PI</title></rect>
 </g>
 <text class="tm" x="839" y="461" font-size="10.5" text-anchor="middle" font-family="var(--fm)">10/01</text>
 <text class="tn" x="684" y="296" font-size="11" font-weight="700" text-anchor="middle">509M</text>
-<text class="tn" x="839" y="416" font-size="11" font-weight="700" text-anchor="middle">38M</text>
-<text class="tm" x="28" y="484" font-size="10.5">Generated 2026-10-01 12:19 UTC</text>
+<text class="tn" x="839" y="406" font-size="11" font-weight="700" text-anchor="middle">55M</text>
+<text class="tm" x="28" y="484" font-size="10.5">Generated 2026-10-02 12:00 UTC</text>
 </svg>
