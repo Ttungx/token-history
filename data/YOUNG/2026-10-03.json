@@ -1,0 +1,81 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-03T12:00:15Z",
+  "date": "2026-10-03",
+  "host": "YOUNG",
+  "sources": {
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 6105047,
+      "costUSD": 1.87321,
+      "input": 953105,
+      "models": {
+        "CPA/gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 4252800,
+          "input": 544630,
+          "output": 35867,
+          "reasoningOutput": 20562,
+          "total": 4833297
+        },
+        "opencode-zen/space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 1852247,
+          "input": 408475,
+          "output": 43481,
+          "reasoningOutput": 23195,
+          "total": 2304203
+        }
+      },
+      "output": 79348,
+      "reasoningOutput": 43757,
+      "total": 7137500
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 14963649,
+      "costUSD": 0.0,
+      "input": 900968,
+      "models": {
+        "ling-3.1-flash-free": {
+          "cacheCreation": 0,
+          "cacheRead": 302016,
+          "costUSD": 0.0,
+          "input": 20318,
+          "output": 17871,
+          "total": 340205
+        },
+        "space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 14661633,
+          "costUSD": 0.0,
+          "input": 880650,
+          "output": 48324,
+          "total": 15590607
+        }
+      },
+      "output": 66195,
+      "total": 16016023
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 936960,
+      "costUSD": 0.0,
+      "input": 13004,
+      "models": {
+        "[pi] CPA/gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 936960,
+          "costUSD": 0.0,
+          "input": 13004,
+          "output": 5852,
+          "total": 955816
+        }
+      },
+      "output": 5852,
+      "total": 955816
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
