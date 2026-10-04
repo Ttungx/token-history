@@ -1,0 +1,47 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-04T12:00:11Z",
+  "date": "2026-10-04",
+  "host": "YOUNG",
+  "sources": {
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 3078784,
+      "costUSD": 0.477578,
+      "input": 45070,
+      "models": {
+        "CPA/gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 3078784,
+          "input": 45070,
+          "output": 7956,
+          "reasoningOutput": 4332,
+          "total": 3131810
+        }
+      },
+      "output": 7956,
+      "reasoningOutput": 4332,
+      "total": 3131810
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 1650203,
+      "costUSD": 0.0,
+      "input": 62101,
+      "models": {
+        "space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 1650203,
+          "costUSD": 0.0,
+          "input": 62101,
+          "output": 9029,
+          "total": 1721333
+        }
+      },
+      "output": 9029,
+      "total": 1731507
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}

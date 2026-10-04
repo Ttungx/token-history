@@ -1,22 +1,22 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-10-03T12:00:15Z",
+  "collectedAt": "2026-10-04T12:00:11Z",
   "date": "2026-10-03",
   "host": "YOUNG",
   "sources": {
     "codex": {
       "cacheCreation": 0,
-      "cacheRead": 6105047,
-      "costUSD": 1.87321,
-      "input": 953105,
+      "cacheRead": 25449431,
+      "costUSD": 7.089148,
+      "input": 1897355,
       "models": {
         "CPA/gpt-6.1-sol": {
           "cacheCreation": 0,
-          "cacheRead": 4252800,
-          "input": 544630,
-          "output": 35867,
-          "reasoningOutput": 20562,
-          "total": 4833297
+          "cacheRead": 23597184,
+          "input": 1488880,
+          "output": 175167,
+          "reasoningOutput": 64345,
+          "total": 25261231
         },
         "opencode-zen/space-bunny-free": {
           "cacheCreation": 0,
@@ -27,15 +27,15 @@
           "total": 2304203
         }
       },
-      "output": 79348,
-      "reasoningOutput": 43757,
-      "total": 7137500
+      "output": 218648,
+      "reasoningOutput": 87540,
+      "total": 27565434
     },
     "opencode": {
       "cacheCreation": 0,
-      "cacheRead": 14963649,
+      "cacheRead": 15076093,
       "costUSD": 0.0,
-      "input": 900968,
+      "input": 921114,
       "models": {
         "ling-3.1-flash-free": {
           "cacheCreation": 0,
@@ -47,15 +47,15 @@
         },
         "space-bunny-free": {
           "cacheCreation": 0,
-          "cacheRead": 14661633,
+          "cacheRead": 14774077,
           "costUSD": 0.0,
-          "input": 880650,
-          "output": 48324,
-          "total": 15590607
+          "input": 900796,
+          "output": 49616,
+          "total": 15724489
         }
       },
-      "output": 66195,
-      "total": 16016023
+      "output": 67487,
+      "total": 16150313
     },
     "pi": {
       "cacheCreation": 0,
@@ -76,6 +76,6 @@
       "total": 955816
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
