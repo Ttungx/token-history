@@ -1,0 +1,123 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-06T12:00:16Z",
+  "date": "2026-10-06",
+  "host": "YOUNG",
+  "sources": {
+    "claude": {
+      "cacheCreation": 5356511,
+      "cacheRead": 49212224,
+      "costUSD": 42.526173,
+      "input": 1025409,
+      "models": {
+        "claude-opus-4-6-thinking": {
+          "cacheCreation": 0,
+          "cacheRead": 298029,
+          "costUSD": 1.57311,
+          "input": 263064,
+          "output": 4351,
+          "total": 565444
+        },
+        "claude-opus-5-5": {
+          "cacheCreation": 5288142,
+          "cacheRead": 45180304,
+          "costUSD": 39.587415,
+          "input": 816,
+          "output": 205369,
+          "total": 50674631
+        },
+        "claude-sonnet-4-6": {
+          "cacheCreation": 68369,
+          "cacheRead": 109111,
+          "costUSD": 0.319276,
+          "input": 8818,
+          "output": 247,
+          "total": 186545
+        },
+        "gemini-3.8-flash-n": {
+          "cacheCreation": 0,
+          "cacheRead": 3624780,
+          "costUSD": 1.046373,
+          "input": 752711,
+          "output": 55995,
+          "total": 4433486
+        }
+      },
+      "output": 265962,
+      "total": 55860106
+    },
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 3328,
+      "costUSD": 0.00203,
+      "input": 16935,
+      "models": {
+        "blue/gpt-6-luna": {
+          "cacheCreation": 0,
+          "cacheRead": 3328,
+          "input": 16935,
+          "output": 607,
+          "reasoningOutput": 478,
+          "total": 20870
+        }
+      },
+      "output": 607,
+      "reasoningOutput": 478,
+      "total": 20870
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 29456128,
+      "costUSD": 0.689168,
+      "input": 2422633,
+      "models": {
+        "deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 29310912,
+          "costUSD": 0.689168,
+          "input": 2382876,
+          "output": 65761,
+          "total": 31759549
+        },
+        "ling-3.1-flash-free": {
+          "cacheCreation": 0,
+          "cacheRead": 145216,
+          "costUSD": 0.0,
+          "input": 39757,
+          "output": 1634,
+          "total": 186607
+        }
+      },
+      "output": 67395,
+      "total": 32291361
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 11515524,
+      "costUSD": 0.0,
+      "input": 511358,
+      "models": {
+        "[pi] gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 1807975,
+          "costUSD": 0.0,
+          "input": 357805,
+          "output": 19081,
+          "total": 2184861
+        },
+        "[pi] space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 9707549,
+          "costUSD": 0.0,
+          "input": 153553,
+          "output": 60198,
+          "total": 9921300
+        }
+      },
+      "output": 79279,
+      "total": 12106161
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}

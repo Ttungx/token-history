@@ -1,14 +1,32 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-10-05T13:19:56Z",
+  "collectedAt": "2026-10-06T12:00:16Z",
   "date": "2026-10-05",
   "host": "YOUNG",
   "sources": {
+    "claude": {
+      "cacheCreation": 0,
+      "cacheRead": 0,
+      "costUSD": 0.018204,
+      "input": 24162,
+      "models": {
+        "gemini-3.8-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 0,
+          "costUSD": 0.018204,
+          "input": 24162,
+          "output": 22,
+          "total": 24184
+        }
+      },
+      "output": 22,
+      "total": 24184
+    },
     "codex": {
       "cacheCreation": 0,
-      "cacheRead": 1418624,
-      "costUSD": 0.649664,
-      "input": 224211,
+      "cacheRead": 12513485,
+      "costUSD": 2.336161,
+      "input": 653200,
       "models": {
         "CPA/gpt-6.1-sol": {
           "cacheCreation": 0,
@@ -17,31 +35,63 @@
           "output": 5938,
           "reasoningOutput": 4160,
           "total": 1648773
+        },
+        "blue/gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 8056064,
+          "input": 265670,
+          "output": 34955,
+          "reasoningOutput": 19040,
+          "total": 8356689
+        },
+        "opencode-zen/space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 3038797,
+          "input": 163319,
+          "output": 28816,
+          "reasoningOutput": 12964,
+          "total": 3230932
         }
       },
-      "output": 5938,
-      "reasoningOutput": 4160,
-      "total": 1648773
+      "output": 69709,
+      "reasoningOutput": 36164,
+      "total": 13236394
     },
     "opencode": {
       "cacheCreation": 0,
-      "cacheRead": 11351040,
-      "costUSD": 0.127273,
-      "input": 333098,
+      "cacheRead": 13731644,
+      "costUSD": 0.19644,
+      "input": 721479,
       "models": {
         "deepseek-v4.1-flash": {
           "cacheCreation": 0,
-          "cacheRead": 11351040,
-          "costUSD": 0.127273,
-          "input": 333098,
-          "output": 14320,
-          "total": 11698458
+          "cacheRead": 12606848,
+          "costUSD": 0.185892,
+          "input": 656134,
+          "output": 17030,
+          "total": 13280012
+        },
+        "gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 0,
+          "costUSD": 0.010547,
+          "input": 12363,
+          "output": 0,
+          "total": 12363
+        },
+        "space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 1124796,
+          "costUSD": 0.0,
+          "input": 52982,
+          "output": 5668,
+          "total": 1183446
         }
       },
-      "output": 14320,
-      "total": 11756230
+      "output": 22698,
+      "total": 14548865
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
