@@ -1,0 +1,79 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-08T12:00:27Z",
+  "date": "2026-10-08",
+  "host": "YOUNG",
+  "sources": {
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 2317184,
+      "costUSD": 4.014612,
+      "input": 1799326,
+      "models": {
+        "blue/gpt-6-luna": {
+          "cacheCreation": 0,
+          "cacheRead": 3328,
+          "input": 20848,
+          "output": 5,
+          "reasoningOutput": 0,
+          "total": 24181
+        },
+        "blue/gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 2185856,
+          "input": 1728193,
+          "output": 33752,
+          "reasoningOutput": 14972,
+          "total": 3947801
+        },
+        "opencode-zen/space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 128000,
+          "input": 50285,
+          "output": 7348,
+          "reasoningOutput": 2342,
+          "total": 185633
+        }
+      },
+      "output": 41105,
+      "reasoningOutput": 17314,
+      "total": 4157615
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 28073093,
+      "costUSD": 0.135499,
+      "input": 4118397,
+      "models": {
+        "[pi] deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 3298048,
+          "costUSD": 0.135499,
+          "input": 662374,
+          "output": 43748,
+          "total": 4004170
+        },
+        "[pi] gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 23249488,
+          "costUSD": 0.0,
+          "input": 3288301,
+          "output": 108424,
+          "total": 26646213
+        },
+        "[pi] space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 1525557,
+          "costUSD": 0.0,
+          "input": 167722,
+          "output": 30105,
+          "total": 1723384
+        }
+      },
+      "output": 182277,
+      "total": 32373767
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
