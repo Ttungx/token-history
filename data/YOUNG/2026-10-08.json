@@ -1,15 +1,23 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-10-08T12:00:27Z",
+  "collectedAt": "2026-10-09T12:00:22Z",
   "date": "2026-10-08",
   "host": "YOUNG",
   "sources": {
     "codex": {
       "cacheCreation": 0,
-      "cacheRead": 2317184,
-      "costUSD": 4.014612,
-      "input": 1799326,
+      "cacheRead": 55510593,
+      "costUSD": 16.445956,
+      "input": 8307239,
       "models": {
+        "Google-CPA/gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 47280577,
+          "input": 4847020,
+          "output": 136663,
+          "reasoningOutput": 61393,
+          "total": 52264260
+        },
         "blue/gpt-6-luna": {
           "cacheCreation": 0,
           "cacheRead": 3328,
@@ -20,11 +28,19 @@
         },
         "blue/gpt-6.1-sol": {
           "cacheCreation": 0,
-          "cacheRead": 2185856,
-          "input": 1728193,
-          "output": 33752,
-          "reasoningOutput": 14972,
-          "total": 3947801
+          "cacheRead": 7917184,
+          "input": 3344561,
+          "output": 113634,
+          "reasoningOutput": 26864,
+          "total": 11375379
+        },
+        "future-gpt/gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 181504,
+          "input": 44525,
+          "output": 2566,
+          "reasoningOutput": 0,
+          "total": 228595
         },
         "opencode-zen/space-bunny-free": {
           "cacheCreation": 0,
@@ -35,15 +51,41 @@
           "total": 185633
         }
       },
-      "output": 41105,
-      "reasoningOutput": 17314,
-      "total": 4157615
+      "output": 260216,
+      "reasoningOutput": 90599,
+      "total": 64078048
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 9948737,
+      "costUSD": 0.306407,
+      "input": 598744,
+      "models": {
+        "deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 4156160,
+          "costUSD": 0.075294,
+          "input": 280876,
+          "output": 10644,
+          "total": 4447680
+        },
+        "space-bunny": {
+          "cacheCreation": 0,
+          "cacheRead": 5792577,
+          "costUSD": 0.231113,
+          "input": 317868,
+          "output": 6235,
+          "total": 6116680
+        }
+      },
+      "output": 16879,
+      "total": 10598064
     },
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 28073093,
+      "cacheRead": 63049855,
       "costUSD": 0.135499,
-      "input": 4118397,
+      "input": 7447052,
       "models": {
         "[pi] deepseek-v4.1-flash": {
           "cacheCreation": 0,
@@ -55,11 +97,11 @@
         },
         "[pi] gemini-3.8-flash-high": {
           "cacheCreation": 0,
-          "cacheRead": 23249488,
+          "cacheRead": 58226250,
           "costUSD": 0.0,
-          "input": 3288301,
-          "output": 108424,
-          "total": 26646213
+          "input": 6616956,
+          "output": 251917,
+          "total": 65095123
         },
         "[pi] space-bunny-free": {
           "cacheCreation": 0,
@@ -70,10 +112,10 @@
           "total": 1723384
         }
       },
-      "output": 182277,
-      "total": 32373767
+      "output": 325770,
+      "total": 70822677
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }

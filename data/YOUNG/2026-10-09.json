@@ -1,0 +1,47 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-09T12:00:22Z",
+  "date": "2026-10-09",
+  "host": "YOUNG",
+  "sources": {
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 9990336,
+      "costUSD": 0.768713,
+      "input": 180362,
+      "models": {
+        "opencode-go/step-5-preview-free": {
+          "cacheCreation": 0,
+          "cacheRead": 9990336,
+          "input": 180362,
+          "output": 42397,
+          "reasoningOutput": 23739,
+          "total": 10213095
+        }
+      },
+      "output": 42397,
+      "reasoningOutput": 23739,
+      "total": 10213095
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 0,
+      "costUSD": 0.0,
+      "input": 14067,
+      "models": {
+        "[pi] gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 0,
+          "costUSD": 0.0,
+          "input": 14067,
+          "output": 1,
+          "total": 14068
+        }
+      },
+      "output": 1,
+      "total": 14068
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
