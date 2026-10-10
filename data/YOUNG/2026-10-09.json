@@ -1,6 +1,6 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-10-09T12:00:22Z",
+  "collectedAt": "2026-10-10T12:00:17Z",
   "date": "2026-10-09",
   "host": "YOUNG",
   "sources": {
@@ -23,25 +23,51 @@
       "reasoningOutput": 23739,
       "total": 10213095
     },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 2831621,
+      "costUSD": 0.113038,
+      "input": 128573,
+      "models": {
+        "space-bunny": {
+          "cacheCreation": 0,
+          "cacheRead": 2831621,
+          "costUSD": 0.113038,
+          "input": 128573,
+          "output": 7710,
+          "total": 2967904
+        }
+      },
+      "output": 7710,
+      "total": 2974867
+    },
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 0,
+      "cacheRead": 10656018,
       "costUSD": 0.0,
-      "input": 14067,
+      "input": 1565186,
       "models": {
         "[pi] gemini-3.8-flash-high": {
           "cacheCreation": 0,
-          "cacheRead": 0,
+          "cacheRead": 9783063,
           "costUSD": 0.0,
-          "input": 14067,
-          "output": 1,
-          "total": 14068
+          "input": 1439067,
+          "output": 12227,
+          "total": 11234357
+        },
+        "[pi] space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 872955,
+          "costUSD": 0.0,
+          "input": 126119,
+          "output": 14494,
+          "total": 1013568
         }
       },
-      "output": 1,
-      "total": 14068
+      "output": 26721,
+      "total": 12247925
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }

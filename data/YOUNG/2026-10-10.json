@@ -1,0 +1,28 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-10T12:00:17Z",
+  "date": "2026-10-10",
+  "host": "YOUNG",
+  "sources": {
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 643470,
+      "costUSD": 0.0,
+      "input": 212644,
+      "models": {
+        "[pi] gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 643470,
+          "costUSD": 0.0,
+          "input": 212644,
+          "output": 5911,
+          "total": 862025
+        }
+      },
+      "output": 5911,
+      "total": 862025
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
