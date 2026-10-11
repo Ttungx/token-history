@@ -1,0 +1,86 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-11T14:29:43Z",
+  "date": "2026-10-11",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 17197811,
+      "costUSD": 1.68939,
+      "input": 960178,
+      "models": {
+        "deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 4593280,
+          "costUSD": 0.102745,
+          "input": 173920,
+          "output": 33491,
+          "total": 4800691
+        },
+        "muse-spark-1.3-contributor-free": {
+          "cacheCreation": 0,
+          "cacheRead": 2725673,
+          "costUSD": 0.719935,
+          "input": 86599,
+          "output": 17995,
+          "total": 2830267
+        },
+        "space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 3717322,
+          "costUSD": 0.0,
+          "input": 278408,
+          "output": 25960,
+          "total": 4021690
+        },
+        "step-5-preview-free": {
+          "cacheCreation": 0,
+          "cacheRead": 6161536,
+          "costUSD": 0.86671,
+          "input": 421251,
+          "output": 24599,
+          "total": 6607386
+        }
+      },
+      "output": 102045,
+      "total": 18447772
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 128926064,
+      "costUSD": 0.164712,
+      "input": 8630834,
+      "models": {
+        "[pi] deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 13376256,
+          "costUSD": 0.164712,
+          "input": 580042,
+          "output": 62628,
+          "total": 14018926
+        },
+        "[pi] gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 97039620,
+          "costUSD": 0.0,
+          "input": 7119275,
+          "output": 102622,
+          "total": 104261517
+        },
+        "[pi] space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 18510188,
+          "costUSD": 0.0,
+          "input": 931517,
+          "output": 71081,
+          "total": 19512786
+        }
+      },
+      "output": 236331,
+      "total": 137793229
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}

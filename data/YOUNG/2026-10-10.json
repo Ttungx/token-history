@@ -1,28 +1,52 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-10-10T12:00:17Z",
+  "collectedAt": "2026-10-11T14:29:43Z",
   "date": "2026-10-10",
   "host": "YOUNG",
   "sources": {
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 643470,
-      "costUSD": 0.0,
-      "input": 212644,
+      "cacheRead": 122248460,
+      "costUSD": 0.18019,
+      "input": 6439962,
       "models": {
+        "[pi] deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 9217408,
+          "costUSD": 0.18019,
+          "input": 431633,
+          "output": 146322,
+          "total": 9795363
+        },
         "[pi] gemini-3.8-flash-high": {
           "cacheCreation": 0,
-          "cacheRead": 643470,
+          "cacheRead": 112073765,
           "costUSD": 0.0,
-          "input": 212644,
-          "output": 5911,
-          "total": 862025
+          "input": 5906431,
+          "output": 142129,
+          "total": 118122325
+        },
+        "[pi] space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 843111,
+          "costUSD": 0.0,
+          "input": 79712,
+          "output": 14911,
+          "total": 937734
+        },
+        "[pi] step-5-preview-free": {
+          "cacheCreation": 0,
+          "cacheRead": 114176,
+          "costUSD": 0.0,
+          "input": 22186,
+          "output": 2123,
+          "total": 138485
         }
       },
-      "output": 5911,
-      "total": 862025
+      "output": 305485,
+      "total": 128993907
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
