@@ -40,12 +40,12 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <text class="tm" x="740" y="122" font-size="11">days with usage</text>
 </g>
 <g class="b" style="animation-delay:320ms">
-<path class="s-claude" d="M52.5,176.0 H176.1 V185.0 H52.5 A4.5,4.5 0 0 1 48.0,180.5 V180.5 A4.5,4.5 0 0 1 52.5,176.0 Z"/>
-<path class="s-codex" d="M178.1,176.0 H312.8 V185.0 H178.1 V176.0 Z"/>
-<path class="s-opencode" d="M314.8,176.0 H552.7 V185.0 H314.8 V176.0 Z"/>
-<path class="s-pi" d="M554.7,176.0 H763.2 V185.0 H554.7 V176.0 Z"/>
-<path class="s-zcode" d="M765.2,176.0 H816.8 V185.0 H765.2 V176.0 Z"/>
-<path class="s-cline" d="M818.8,176.0 H831.6 V185.0 H818.8 V176.0 Z"/>
+<path class="s-claude" d="M52.5,176.0 H176.0 V185.0 H52.5 A4.5,4.5 0 0 1 48.0,180.5 V180.5 A4.5,4.5 0 0 1 52.5,176.0 Z"/>
+<path class="s-codex" d="M178.0,176.0 H312.6 V185.0 H178.0 V176.0 Z"/>
+<path class="s-opencode" d="M314.6,176.0 H552.4 V185.0 H314.6 V176.0 Z"/>
+<path class="s-pi" d="M554.4,176.0 H763.3 V185.0 H554.4 V176.0 Z"/>
+<path class="s-zcode" d="M765.3,176.0 H816.9 V185.0 H765.3 V176.0 Z"/>
+<path class="s-cline" d="M818.9,176.0 H831.6 V185.0 H818.9 V176.0 Z"/>
 <path class="s-workbuddy" d="M833.6,176.0 H833.8 A0.2,0.2 0 0 1 834.0,176.2 V184.8 A0.2,0.2 0 0 1 833.8,185.0 H833.6 V176.0 Z"/>
 <circle class="s-claude" cx="90.0" cy="203" r="4"/>
 <text class="t2" x="108.0" y="207" font-size="11" text-anchor="middle">Claude Code 16%</text>
@@ -62,5 +62,5 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <circle class="s-workbuddy" cx="762.0" cy="203" r="4"/>
 <text class="t2" x="780.0" y="207" font-size="11" text-anchor="middle">WorkBuddy 0%</text>
 </g>
-<text class="tm" x="48" y="226" font-size="10">Generated 2026-10-11 14:29 UTC</text>
+<text class="tm" x="48" y="226" font-size="10">Generated 2026-10-12 12:44 UTC</text>
 </svg>

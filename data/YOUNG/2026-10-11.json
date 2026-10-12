@@ -1,14 +1,14 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-10-11T14:29:43Z",
+  "collectedAt": "2026-10-12T12:44:50Z",
   "date": "2026-10-11",
   "host": "YOUNG",
   "sources": {
     "opencode": {
       "cacheCreation": 0,
-      "cacheRead": 17197811,
+      "cacheRead": 17513983,
       "costUSD": 1.68939,
-      "input": 960178,
+      "input": 988786,
       "models": {
         "deepseek-v4.1-flash": {
           "cacheCreation": 0,
@@ -28,11 +28,11 @@
         },
         "space-bunny-free": {
           "cacheCreation": 0,
-          "cacheRead": 3717322,
+          "cacheRead": 4033494,
           "costUSD": 0.0,
-          "input": 278408,
-          "output": 25960,
-          "total": 4021690
+          "input": 307016,
+          "output": 29166,
+          "total": 4369676
         },
         "step-5-preview-free": {
           "cacheCreation": 0,
@@ -43,14 +43,14 @@
           "total": 6607386
         }
       },
-      "output": 102045,
-      "total": 18447772
+      "output": 105251,
+      "total": 18798410
     },
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 128926064,
+      "cacheRead": 130742569,
       "costUSD": 0.164712,
-      "input": 8630834,
+      "input": 8914908,
       "models": {
         "[pi] deepseek-v4.1-flash": {
           "cacheCreation": 0,
@@ -62,11 +62,11 @@
         },
         "[pi] gemini-3.8-flash-high": {
           "cacheCreation": 0,
-          "cacheRead": 97039620,
+          "cacheRead": 98856125,
           "costUSD": 0.0,
-          "input": 7119275,
-          "output": 102622,
-          "total": 104261517
+          "input": 7403349,
+          "output": 119104,
+          "total": 106378578
         },
         "[pi] space-bunny-free": {
           "cacheCreation": 0,
@@ -77,10 +77,10 @@
           "total": 19512786
         }
       },
-      "output": 236331,
-      "total": 137793229
+      "output": 252813,
+      "total": 139910290
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
