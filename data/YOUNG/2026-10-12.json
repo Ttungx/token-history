@@ -1,0 +1,28 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-13T12:00:22Z",
+  "date": "2026-10-12",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 3150307,
+      "costUSD": 0.0,
+      "input": 102789,
+      "models": {
+        "space-bunny-free": {
+          "cacheCreation": 0,
+          "cacheRead": 3150307,
+          "costUSD": 0.0,
+          "input": 102789,
+          "output": 19053,
+          "total": 3272149
+        }
+      },
+      "output": 19053,
+      "total": 3298439
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}
