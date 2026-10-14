@@ -1,6 +1,6 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-10-13T12:00:22Z",
+  "collectedAt": "2026-10-14T12:00:16Z",
   "date": "2026-10-13",
   "host": "YOUNG",
   "sources": {
@@ -32,17 +32,17 @@
     },
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 52365076,
+      "cacheRead": 52934869,
       "costUSD": 0.0,
-      "input": 9141378,
+      "input": 9379212,
       "models": {
         "[pi] gemini-3.8-flash-high": {
           "cacheCreation": 0,
-          "cacheRead": 44145428,
+          "cacheRead": 44715221,
           "costUSD": 0.0,
-          "input": 7751940,
-          "output": 369162,
-          "total": 52266530
+          "input": 7989774,
+          "output": 400754,
+          "total": 53105749
         },
         "[pi] step-5-preview": {
           "cacheCreation": 0,
@@ -53,10 +53,10 @@
           "total": 9715794
         }
       },
-      "output": 475870,
-      "total": 61982324
+      "output": 507462,
+      "total": 62821543
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
