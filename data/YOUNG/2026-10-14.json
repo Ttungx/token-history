@@ -1,28 +1,28 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-10-14T12:00:16Z",
+  "collectedAt": "2026-10-15T12:00:22Z",
   "date": "2026-10-14",
   "host": "YOUNG",
   "sources": {
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 303251,
+      "cacheRead": 8321878,
       "costUSD": 0.0,
-      "input": 90793,
+      "input": 970999,
       "models": {
         "[pi] gemini-3.8-flash-high": {
           "cacheCreation": 0,
-          "cacheRead": 303251,
+          "cacheRead": 8321878,
           "costUSD": 0.0,
-          "input": 90793,
-          "output": 6259,
-          "total": 400303
+          "input": 970999,
+          "output": 74269,
+          "total": 9367146
         }
       },
-      "output": 6259,
-      "total": 400303
+      "output": 74269,
+      "total": 9367146
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }

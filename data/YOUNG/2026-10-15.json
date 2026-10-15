@@ -1,0 +1,62 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-15T12:00:22Z",
+  "date": "2026-10-15",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 1833536,
+      "costUSD": 0.0,
+      "input": 138673,
+      "models": {
+        "cat-jam-free": {
+          "cacheCreation": 0,
+          "cacheRead": 1833536,
+          "costUSD": 0.0,
+          "input": 138673,
+          "output": 15323,
+          "total": 1987532
+        }
+      },
+      "output": 15323,
+      "total": 2007142
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 45719664,
+      "costUSD": 0.0,
+      "input": 3083164,
+      "models": {
+        "[pi] cat-jam-free": {
+          "cacheCreation": 0,
+          "cacheRead": 608128,
+          "costUSD": 0.0,
+          "input": 51734,
+          "output": 5672,
+          "total": 665534
+        },
+        "[pi] gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 35853168,
+          "costUSD": 0.0,
+          "input": 2006357,
+          "output": 118638,
+          "total": 37978163
+        },
+        "[pi] gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 9258368,
+          "costUSD": 0.0,
+          "input": 1025073,
+          "output": 100634,
+          "total": 10384075
+        }
+      },
+      "output": 224944,
+      "total": 49027772
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
