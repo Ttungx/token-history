@@ -1,6 +1,6 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-10-15T12:00:22Z",
+  "collectedAt": "2026-10-16T12:01:10Z",
   "date": "2026-10-15",
   "host": "YOUNG",
   "sources": {
@@ -23,10 +23,10 @@
       "total": 2007142
     },
     "pi": {
-      "cacheCreation": 0,
-      "cacheRead": 45719664,
-      "costUSD": 0.0,
-      "input": 3083164,
+      "cacheCreation": 57800,
+      "cacheRead": 152988368,
+      "costUSD": 0.365817,
+      "input": 6039378,
       "models": {
         "[pi] cat-jam-free": {
           "cacheCreation": 0,
@@ -35,6 +35,22 @@
           "input": 51734,
           "output": 5672,
           "total": 665534
+        },
+        "[pi] claude-haiku-5-5": {
+          "cacheCreation": 57800,
+          "cacheRead": 89312,
+          "costUSD": 0.023705,
+          "input": 52,
+          "output": 31163,
+          "total": 178327
+        },
+        "[pi] deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 34865536,
+          "costUSD": 0.342113,
+          "input": 478204,
+          "output": 276309,
+          "total": 35620049
         },
         "[pi] gemini-3.8-flash-high": {
           "cacheCreation": 0,
@@ -46,17 +62,17 @@
         },
         "[pi] gpt-6.1-sol": {
           "cacheCreation": 0,
-          "cacheRead": 9258368,
+          "cacheRead": 81572224,
           "costUSD": 0.0,
-          "input": 1025073,
-          "output": 100634,
-          "total": 10384075
+          "input": 3503031,
+          "output": 268256,
+          "total": 85343511
         }
       },
-      "output": 224944,
-      "total": 49027772
+      "output": 700038,
+      "total": 159785584
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
