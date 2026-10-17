@@ -1,30 +1,64 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-10-16T12:01:10Z",
+  "collectedAt": "2026-10-17T12:00:14Z",
   "date": "2026-10-16",
   "host": "YOUNG",
   "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 23314752,
+      "costUSD": 0.257101,
+      "input": 266831,
+      "models": {
+        "cat-jam-free": {
+          "cacheCreation": 0,
+          "cacheRead": 576,
+          "costUSD": 0.0,
+          "input": 10429,
+          "output": 2,
+          "total": 11007
+        },
+        "deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 22938624,
+          "costUSD": 0.178906,
+          "input": 205129,
+          "output": 63644,
+          "total": 23207397
+        },
+        "step-5-preview": {
+          "cacheCreation": 0,
+          "cacheRead": 375552,
+          "costUSD": 0.078194,
+          "input": 51273,
+          "output": 4012,
+          "total": 430837
+        }
+      },
+      "output": 67658,
+      "total": 23717818
+    },
     "pi": {
       "cacheCreation": 64544,
-      "cacheRead": 76183923,
-      "costUSD": 0.606317,
-      "input": 3968029,
+      "cacheRead": 90121754,
+      "costUSD": 0.617159,
+      "input": 4859613,
       "models": {
         "[pi] deepseek-v4.1-flash": {
           "cacheCreation": 0,
-          "cacheRead": 56802432,
-          "costUSD": 0.579449,
-          "input": 1664631,
-          "output": 265578,
-          "total": 58732641
+          "cacheRead": 57195264,
+          "costUSD": 0.590291,
+          "input": 1705750,
+          "output": 271405,
+          "total": 59172419
         },
         "[pi] gemini-3.8-flash-high": {
           "cacheCreation": 0,
-          "cacheRead": 14747268,
+          "cacheRead": 28292267,
           "costUSD": 0.0,
-          "input": 2256743,
-          "output": 98093,
-          "total": 17102104
+          "input": 3107208,
+          "output": 231430,
+          "total": 31630905
         },
         "[pi] gpt-6.1-sol": {
           "cacheCreation": 0,
@@ -43,10 +77,10 @@
           "total": 471180
         }
       },
-      "output": 401236,
-      "total": 80617732
+      "output": 540400,
+      "total": 95586311
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }

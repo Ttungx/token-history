@@ -1,0 +1,63 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-17T12:00:14Z",
+  "date": "2026-10-17",
+  "host": "YOUNG",
+  "sources": {
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 96896,
+      "costUSD": 0.088074,
+      "input": 35652,
+      "models": {
+        "blue/gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 96896,
+          "input": 35652,
+          "output": 708,
+          "reasoningOutput": 64,
+          "total": 133256
+        }
+      },
+      "output": 708,
+      "reasoningOutput": 64,
+      "total": 133256
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 127867008,
+      "costUSD": 1.016485,
+      "input": 2367751,
+      "models": {
+        "deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 126156672,
+          "costUSD": 0.958189,
+          "input": 2238253,
+          "output": 177550,
+          "total": 128572475
+        },
+        "deepseek-v4.1-flash-free": {
+          "cacheCreation": 0,
+          "cacheRead": 1692416,
+          "costUSD": 0.058296,
+          "input": 112579,
+          "output": 12468,
+          "total": 1817463
+        },
+        "glm-5.3-flash-free": {
+          "cacheCreation": 0,
+          "cacheRead": 17920,
+          "costUSD": 0.0,
+          "input": 16919,
+          "output": 126,
+          "total": 34965
+        }
+      },
+      "output": 190144,
+      "total": 130693386
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
