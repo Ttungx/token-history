@@ -1,0 +1,70 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-19T12:00:28Z",
+  "date": "2026-10-19",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 4128256,
+      "costUSD": 0.081132,
+      "input": 216507,
+      "models": {
+        "deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 1133568,
+          "costUSD": 0.020161,
+          "input": 78966,
+          "output": 2881,
+          "total": 1215415
+        },
+        "deepseek-v4.1-flash-free": {
+          "cacheCreation": 0,
+          "cacheRead": 2994688,
+          "costUSD": 0.060971,
+          "input": 137541,
+          "output": 20951,
+          "total": 3153180
+        }
+      },
+      "output": 23832,
+      "total": 4395977
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 95851388,
+      "costUSD": 13.751387,
+      "input": 4875846,
+      "models": {
+        "[pi] deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 712832,
+          "costUSD": 0.018426,
+          "input": 46638,
+          "output": 15486,
+          "total": 774956
+        },
+        "[pi] gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 32063228,
+          "costUSD": 0.0,
+          "input": 3451836,
+          "output": 265812,
+          "total": 35780876
+        },
+        "[pi] gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 63075328,
+          "costUSD": 13.732961,
+          "input": 1377372,
+          "output": 258061,
+          "total": 64710761
+        }
+      },
+      "output": 539359,
+      "total": 101266593
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
