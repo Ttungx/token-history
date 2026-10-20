@@ -1,0 +1,28 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-20T12:00:26Z",
+  "date": "2026-10-20",
+  "host": "YOUNG",
+  "sources": {
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 0,
+      "costUSD": 0.001242,
+      "input": 12397,
+      "models": {
+        "[pi] gpt-6-luna": {
+          "cacheCreation": 0,
+          "cacheRead": 0,
+          "costUSD": 0.001242,
+          "input": 12397,
+          "output": 5,
+          "total": 12402
+        }
+      },
+      "output": 5,
+      "total": 12402
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
