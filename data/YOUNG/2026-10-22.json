@@ -1,0 +1,36 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-22T12:00:49Z",
+  "date": "2026-10-22",
+  "host": "YOUNG",
+  "sources": {
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 10055424,
+      "costUSD": 1.482075,
+      "input": 341557,
+      "models": {
+        "[pi] deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 2988288,
+          "costUSD": 0.063157,
+          "input": 175520,
+          "output": 46441,
+          "total": 3210249
+        },
+        "[pi] gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 7067136,
+          "costUSD": 1.418918,
+          "input": 166037,
+          "output": 38013,
+          "total": 7271186
+        }
+      },
+      "output": 84454,
+      "total": 10481435
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
