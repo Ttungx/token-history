@@ -1,0 +1,62 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-23T12:00:24Z",
+  "date": "2026-10-23",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 21987694,
+      "costUSD": 3.78998,
+      "input": 2502887,
+      "models": {
+        "deepseek-v4.1-flash-free": {
+          "cacheCreation": 0,
+          "cacheRead": 2293888,
+          "costUSD": 0.068666,
+          "input": 94306,
+          "output": 11400,
+          "total": 2399594
+        },
+        "gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 19693806,
+          "costUSD": 3.721314,
+          "input": 2408581,
+          "output": 70104,
+          "total": 22172491
+        }
+      },
+      "output": 81504,
+      "total": 24629515
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 1058560,
+      "costUSD": 0.65016,
+      "input": 189395,
+      "models": {
+        "[pi] gpt-6-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 321536,
+          "costUSD": 0.244897,
+          "input": 70420,
+          "output": 3975,
+          "total": 395931
+        },
+        "[pi] gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 737024,
+          "costUSD": 0.405262,
+          "input": 118975,
+          "output": 9361,
+          "total": 865360
+        }
+      },
+      "output": 13336,
+      "total": 1261291
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
