@@ -1,6 +1,6 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-10-23T12:00:24Z",
+  "collectedAt": "2026-10-24T12:00:20Z",
   "date": "2026-10-23",
   "host": "YOUNG",
   "sources": {
@@ -32,10 +32,18 @@
     },
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 1058560,
-      "costUSD": 0.65016,
-      "input": 189395,
+      "cacheRead": 3441536,
+      "costUSD": 0.691196,
+      "input": 302582,
       "models": {
+        "[pi] deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 2382976,
+          "costUSD": 0.041037,
+          "input": 113187,
+          "output": 28183,
+          "total": 2524346
+        },
         "[pi] gpt-6-sol": {
           "cacheCreation": 0,
           "cacheRead": 321536,
@@ -53,10 +61,10 @@
           "total": 865360
         }
       },
-      "output": 13336,
-      "total": 1261291
+      "output": 41519,
+      "total": 3785637
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
