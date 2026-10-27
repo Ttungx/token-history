@@ -1,0 +1,36 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-10-27T12:00:21Z",
+  "date": "2026-10-27",
+  "host": "YOUNG",
+  "sources": {
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 19867797,
+      "costUSD": 5.846228,
+      "input": 1196070,
+      "models": {
+        "[pi] auto/gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 6738581,
+          "costUSD": 0.0,
+          "input": 664214,
+          "output": 45613,
+          "total": 7448408
+        },
+        "[pi] gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 13129216,
+          "costUSD": 5.846228,
+          "input": 531856,
+          "output": 122813,
+          "total": 13783885
+        }
+      },
+      "output": 168426,
+      "total": 21232293
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}

@@ -1,6 +1,6 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-10-26T12:00:15Z",
+  "collectedAt": "2026-10-27T12:00:21Z",
   "date": "2026-10-26",
   "host": "YOUNG",
   "sources": {
@@ -24,33 +24,49 @@
     },
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 75388315,
-      "costUSD": 9.537029,
-      "input": 5490032,
+      "cacheRead": 130558264,
+      "costUSD": 17.262811,
+      "input": 8268449,
       "models": {
+        "[pi] cpa/claude-opus-5-5-high": {
+          "cacheCreation": 0,
+          "cacheRead": 652664,
+          "costUSD": 0.0,
+          "input": 117135,
+          "output": 6677,
+          "total": 776476
+        },
         "[pi] cpa/gemini-3.8-flash-high": {
           "cacheCreation": 0,
-          "cacheRead": 41977499,
+          "cacheRead": 44687680,
           "costUSD": 0.0,
-          "input": 4232306,
-          "output": 258381,
-          "total": 46468186
+          "input": 4657784,
+          "output": 277080,
+          "total": 49622544
+        },
+        "[pi] gpt-6-luna": {
+          "cacheCreation": 0,
+          "cacheRead": 27264,
+          "costUSD": 0.005505,
+          "input": 40459,
+          "output": 2373,
+          "total": 70096
         },
         "[pi] gpt-6.1-sol": {
           "cacheCreation": 0,
-          "cacheRead": 27387776,
-          "costUSD": 8.688661,
-          "input": 770861,
-          "output": 312829,
-          "total": 28471466
+          "cacheRead": 49124480,
+          "costUSD": 16.051738,
+          "input": 2180793,
+          "output": 475474,
+          "total": 51780747
         },
         "[pi] opencode-go/deepseek-v4.1-flash": {
           "cacheCreation": 0,
-          "cacheRead": 4689280,
-          "costUSD": 0.091939,
-          "input": 216364,
-          "output": 75694,
-          "total": 4981338
+          "cacheRead": 34732416,
+          "costUSD": 0.449139,
+          "input": 1001777,
+          "output": 324458,
+          "total": 36058651
         },
         "[pi] zcode/GLM-5.3": {
           "cacheCreation": 0,
@@ -61,10 +77,10 @@
           "total": 1612538
         }
       },
-      "output": 655181,
-      "total": 81533528
+      "output": 1094339,
+      "total": 139921052
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
