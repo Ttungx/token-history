@@ -1,36 +1,78 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-10-27T12:00:21Z",
+  "collectedAt": "2026-10-28T12:00:54Z",
   "date": "2026-10-27",
   "host": "YOUNG",
   "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 1772160,
+      "costUSD": 0.169836,
+      "input": 183220,
+      "models": {
+        "deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 1448832,
+          "costUSD": 0.026354,
+          "input": 77750,
+          "output": 7359,
+          "total": 1533941
+        },
+        "gpt-6.1-terra": {
+          "cacheCreation": 0,
+          "cacheRead": 323328,
+          "costUSD": 0.143481,
+          "input": 105470,
+          "output": 4163,
+          "total": 432961
+        }
+      },
+      "output": 11522,
+      "total": 1976991
+    },
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 19867797,
-      "costUSD": 5.846228,
-      "input": 1196070,
+      "cacheRead": 58448198,
+      "costUSD": 14.405894,
+      "input": 3064928,
       "models": {
         "[pi] auto/gemini-3.8-flash-high": {
           "cacheCreation": 0,
-          "cacheRead": 6738581,
+          "cacheRead": 17789254,
           "costUSD": 0.0,
-          "input": 664214,
-          "output": 45613,
-          "total": 7448408
+          "input": 1286432,
+          "output": 83411,
+          "total": 19159097
         },
         "[pi] gpt-6.1-sol": {
           "cacheCreation": 0,
-          "cacheRead": 13129216,
-          "costUSD": 5.846228,
-          "input": 531856,
-          "output": 122813,
-          "total": 13783885
+          "cacheRead": 32913408,
+          "costUSD": 12.304285,
+          "input": 808671,
+          "output": 323822,
+          "total": 34045901
+        },
+        "[pi] imported/gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 2980736,
+          "costUSD": 2.030242,
+          "input": 759449,
+          "output": 21327,
+          "total": 3761512
+        },
+        "[pi] opencode-go/deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 4764800,
+          "costUSD": 0.071367,
+          "input": 210376,
+          "output": 42527,
+          "total": 5017703
         }
       },
-      "output": 168426,
-      "total": 21232293
+      "output": 471087,
+      "total": 61984213
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
