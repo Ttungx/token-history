@@ -1,36 +1,78 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-10-28T12:00:54Z",
+  "collectedAt": "2026-10-29T12:00:11Z",
   "date": "2026-10-28",
   "host": "YOUNG",
   "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 3188096,
+      "costUSD": 0.136507,
+      "input": 153519,
+      "models": {
+        "deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 2441600,
+          "costUSD": 0.047766,
+          "input": 118028,
+          "output": 14603,
+          "total": 2574231
+        },
+        "gpt-6.1-terra": {
+          "cacheCreation": 0,
+          "cacheRead": 746496,
+          "costUSD": 0.088741,
+          "input": 35491,
+          "output": 2644,
+          "total": 784631
+        }
+      },
+      "output": 17247,
+      "total": 3382695
+    },
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 3002622,
-      "costUSD": 0.458256,
-      "input": 331827,
+      "cacheRead": 110058874,
+      "costUSD": 13.350877,
+      "input": 5155400,
       "models": {
+        "[pi] cpa/gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 6071046,
+          "costUSD": 0.0,
+          "input": 1144088,
+          "output": 73116,
+          "total": 7288250
+        },
+        "[pi] gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 25102336,
+          "costUSD": 7.825097,
+          "input": 501756,
+          "output": 194644,
+          "total": 25798736
+        },
         "[pi] imported/gpt-6.1-sol": {
           "cacheCreation": 0,
-          "cacheRead": 273150,
-          "costUSD": 0.401965,
-          "input": 162680,
-          "output": 4929,
-          "total": 440759
+          "cacheRead": 4805876,
+          "costUSD": 4.86207,
+          "input": 1970186,
+          "output": 44111,
+          "total": 6820173
         },
         "[pi] opencode-go/deepseek-v4.1-flash": {
           "cacheCreation": 0,
-          "cacheRead": 2729472,
-          "costUSD": 0.056291,
-          "input": 169147,
-          "output": 37885,
-          "total": 2936504
+          "cacheRead": 74079616,
+          "costUSD": 0.663711,
+          "input": 1539370,
+          "output": 350944,
+          "total": 75969930
         }
       },
-      "output": 42814,
-      "total": 3377263
+      "output": 662815,
+      "total": 115877089
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
