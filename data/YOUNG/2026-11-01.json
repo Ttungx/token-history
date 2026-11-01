@@ -1,0 +1,55 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-11-01T12:00:15Z",
+  "date": "2026-11-01",
+  "host": "YOUNG",
+  "sources": {
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 21967744,
+      "costUSD": 4.116515,
+      "input": 433708,
+      "models": {
+        "gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 19374976,
+          "input": 299796,
+          "output": 147971,
+          "reasoningOutput": 78893,
+          "total": 19822743
+        },
+        "opencode-go/deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 2592768,
+          "input": 133912,
+          "output": 36654,
+          "reasoningOutput": 0,
+          "total": 2763334
+        }
+      },
+      "output": 184625,
+      "reasoningOutput": 78893,
+      "total": 22586077
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 1892224,
+      "costUSD": 0.034196,
+      "input": 83609,
+      "models": {
+        "[pi] opencode-go/deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 1892224,
+          "costUSD": 0.034196,
+          "input": 83609,
+          "output": 26630,
+          "total": 2002463
+        }
+      },
+      "output": 26630,
+      "total": 2002463
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}

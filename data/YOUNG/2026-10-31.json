@@ -1,28 +1,28 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-10-31T12:00:17Z",
+  "collectedAt": "2026-11-01T12:00:15Z",
   "date": "2026-10-31",
   "host": "YOUNG",
   "sources": {
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 1030016,
-      "costUSD": 0.03027,
-      "input": 91491,
+      "cacheRead": 16395904,
+      "costUSD": 0.282463,
+      "input": 741787,
       "models": {
         "[pi] opencode-go/deepseek-v4.1-flash": {
           "cacheCreation": 0,
-          "cacheRead": 1030016,
-          "costUSD": 0.03027,
-          "input": 91491,
-          "output": 22428,
-          "total": 1143935
+          "cacheRead": 16395904,
+          "costUSD": 0.282463,
+          "input": 741787,
+          "output": 203346,
+          "total": 17341037
         }
       },
-      "output": 22428,
-      "total": 1143935
+      "output": 203346,
+      "total": 17341037
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
