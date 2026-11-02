@@ -1,22 +1,30 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-11-01T12:00:15Z",
+  "collectedAt": "2026-11-02T12:00:21Z",
   "date": "2026-11-01",
   "host": "YOUNG",
   "sources": {
     "codex": {
       "cacheCreation": 0,
-      "cacheRead": 21967744,
-      "costUSD": 4.116515,
-      "input": 433708,
+      "cacheRead": 46255744,
+      "costUSD": 9.928211,
+      "input": 919696,
       "models": {
+        "blue/gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 229120,
+          "input": 186899,
+          "output": 2854,
+          "reasoningOutput": 765,
+          "total": 418873
+        },
         "gpt-6.1-sol": {
           "cacheCreation": 0,
-          "cacheRead": 19374976,
-          "input": 299796,
-          "output": 147971,
-          "reasoningOutput": 78893,
-          "total": 19822743
+          "cacheRead": 43433856,
+          "input": 598885,
+          "output": 386209,
+          "reasoningOutput": 207884,
+          "total": 44418950
         },
         "opencode-go/deepseek-v4.1-flash": {
           "cacheCreation": 0,
@@ -27,16 +35,24 @@
           "total": 2763334
         }
       },
-      "output": 184625,
-      "reasoningOutput": 78893,
-      "total": 22586077
+      "output": 425717,
+      "reasoningOutput": 208649,
+      "total": 47601157
     },
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 1892224,
+      "cacheRead": 2711354,
       "costUSD": 0.034196,
-      "input": 83609,
+      "input": 181214,
       "models": {
+        "[pi] cpa/gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 819130,
+          "costUSD": 0.0,
+          "input": 97605,
+          "output": 9328,
+          "total": 926063
+        },
         "[pi] opencode-go/deepseek-v4.1-flash": {
           "cacheCreation": 0,
           "cacheRead": 1892224,
@@ -46,10 +62,10 @@
           "total": 2002463
         }
       },
-      "output": 26630,
-      "total": 2002463
+      "output": 35958,
+      "total": 2928526
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
