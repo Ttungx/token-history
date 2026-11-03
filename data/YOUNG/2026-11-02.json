@@ -1,15 +1,31 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-11-02T12:00:21Z",
+  "collectedAt": "2026-11-03T12:00:19Z",
   "date": "2026-11-02",
   "host": "YOUNG",
   "sources": {
     "codex": {
       "cacheCreation": 0,
-      "cacheRead": 52025088,
-      "costUSD": 10.652011,
-      "input": 716386,
+      "cacheRead": 115696781,
+      "costUSD": 50.079611,
+      "input": 15583837,
       "models": {
+        "auto/gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 479492,
+          "input": 335164,
+          "output": 16179,
+          "reasoningOutput": 11165,
+          "total": 830835
+        },
+        "blue/gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 63192201,
+          "input": 14532287,
+          "output": 369580,
+          "reasoningOutput": 148779,
+          "total": 78094068
+        },
         "gpt-6.1-sol": {
           "cacheCreation": 0,
           "cacheRead": 52025088,
@@ -19,9 +35,9 @@
           "total": 53143147
         }
       },
-      "output": 401673,
-      "reasoningOutput": 231343,
-      "total": 53143147
+      "output": 787432,
+      "reasoningOutput": 391287,
+      "total": 132068050
     },
     "opencode": {
       "cacheCreation": 0,
@@ -43,23 +59,23 @@
     },
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 1719296,
-      "costUSD": 0.078963,
-      "input": 370773,
+      "cacheRead": 2461568,
+      "costUSD": 0.09757,
+      "input": 433477,
       "models": {
         "[pi] opencode-go/deepseek-v4.1-flash": {
           "cacheCreation": 0,
-          "cacheRead": 1719296,
-          "costUSD": 0.078963,
-          "input": 370773,
-          "output": 30316,
-          "total": 2120385
+          "cacheRead": 2461568,
+          "costUSD": 0.09757,
+          "input": 433477,
+          "output": 41940,
+          "total": 2936985
         }
       },
-      "output": 30316,
-      "total": 2120385
+      "output": 41940,
+      "total": 2936985
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
