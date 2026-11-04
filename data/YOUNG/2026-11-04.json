@@ -1,0 +1,54 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-11-04T12:00:33Z",
+  "date": "2026-11-04",
+  "host": "YOUNG",
+  "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 909440,
+      "costUSD": 0.0,
+      "input": 95465,
+      "models": {
+        "crouton-alpha-free": {
+          "cacheCreation": 0,
+          "cacheRead": 0,
+          "costUSD": 0.0,
+          "input": 6439,
+          "output": 2,
+          "total": 6441
+        },
+        "pulse-alpha-free": {
+          "cacheCreation": 0,
+          "cacheRead": 909440,
+          "costUSD": 0.0,
+          "input": 89026,
+          "output": 21065,
+          "total": 1019531
+        }
+      },
+      "output": 21067,
+      "total": 1067518
+    },
+    "workbuddy": {
+      "cacheCreation": 0,
+      "cacheRead": 39808,
+      "costUSD": 0.0,
+      "input": 25487,
+      "models": {
+        "hy3": {
+          "cacheCreation": 0,
+          "cacheRead": 39808,
+          "costUSD": 0.0,
+          "input": 25487,
+          "output": 928,
+          "total": 66223
+        }
+      },
+      "output": 928,
+      "total": 66223
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}

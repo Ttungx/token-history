@@ -1,6 +1,6 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-11-03T12:00:19Z",
+  "collectedAt": "2026-11-04T12:00:33Z",
   "date": "2026-11-03",
   "host": "YOUNG",
   "sources": {
@@ -22,8 +22,52 @@
       "output": 387124,
       "reasoningOutput": 180056,
       "total": 62706923
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 205440,
+      "costUSD": 0.02288,
+      "input": 51924,
+      "models": {
+        "deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 205440,
+          "costUSD": 0.02288,
+          "input": 51924,
+          "output": 1326,
+          "total": 258690
+        }
+      },
+      "output": 1326,
+      "total": 262250
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 7738496,
+      "costUSD": 1.684435,
+      "input": 493617,
+      "models": {
+        "[pi] auto/gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 4621952,
+          "costUSD": 1.611091,
+          "input": 218768,
+          "output": 71136,
+          "total": 4911856
+        },
+        "[pi] opencode-go/deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 3116544,
+          "costUSD": 0.073343,
+          "input": 274849,
+          "output": 37944,
+          "total": 3429337
+        }
+      },
+      "output": 109080,
+      "total": 8341193
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
