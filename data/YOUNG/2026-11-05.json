@@ -1,0 +1,55 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-11-05T12:00:22Z",
+  "date": "2026-11-05",
+  "host": "YOUNG",
+  "sources": {
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 23124352,
+      "costUSD": 4.893319,
+      "input": 255907,
+      "models": {
+        "gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 23124352,
+          "input": 255907,
+          "output": 206907,
+          "reasoningOutput": 121547,
+          "total": 23587166
+        }
+      },
+      "output": 206907,
+      "reasoningOutput": 121547,
+      "total": 23587166
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 7417600,
+      "costUSD": 0.0,
+      "input": 350872,
+      "models": {
+        "pulse-alpha-free": {
+          "cacheCreation": 0,
+          "cacheRead": 2697984,
+          "costUSD": 0.0,
+          "input": 176715,
+          "output": 20614,
+          "total": 2895313
+        },
+        "workbuddy/hy4free": {
+          "cacheCreation": 0,
+          "cacheRead": 4719616,
+          "costUSD": 0.0,
+          "input": 174157,
+          "output": 4509,
+          "total": 4898282
+        }
+      },
+      "output": 25123,
+      "total": 7846727
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
