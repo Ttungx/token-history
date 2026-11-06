@@ -1,0 +1,65 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-11-06T12:00:26Z",
+  "date": "2026-11-06",
+  "host": "YOUNG",
+  "sources": {
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 58194816,
+      "costUSD": 15.685618,
+      "input": 1525288,
+      "models": {
+        "gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 58194816,
+          "input": 1525288,
+          "output": 681556,
+          "reasoningOutput": 428617,
+          "total": 60401660
+        }
+      },
+      "output": 681556,
+      "reasoningOutput": 428617,
+      "total": 60401660
+    },
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 112128,
+      "costUSD": 0.0091,
+      "input": 18970,
+      "models": {
+        "auto/deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 112128,
+          "costUSD": 0.0091,
+          "input": 18970,
+          "output": 1275,
+          "total": 132373
+        }
+      },
+      "output": 1275,
+      "total": 133378
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 1485952,
+      "costUSD": 0.094051,
+      "input": 185370,
+      "models": {
+        "[pi] mistral/deepseek-v4-1-flash-1017": {
+          "cacheCreation": 0,
+          "cacheRead": 1485952,
+          "costUSD": 0.094051,
+          "input": 185370,
+          "output": 23365,
+          "total": 1694687
+        }
+      },
+      "output": 23365,
+      "total": 1694687
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}

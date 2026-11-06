@@ -1,34 +1,42 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-11-05T12:00:22Z",
+  "collectedAt": "2026-11-06T12:00:26Z",
   "date": "2026-11-05",
   "host": "YOUNG",
   "sources": {
     "codex": {
       "cacheCreation": 0,
-      "cacheRead": 23124352,
-      "costUSD": 4.893319,
-      "input": 255907,
+      "cacheRead": 54182528,
+      "costUSD": 12.138147,
+      "input": 872352,
       "models": {
         "gpt-6.1-sol": {
           "cacheCreation": 0,
-          "cacheRead": 23124352,
-          "input": 255907,
-          "output": 206907,
-          "reasoningOutput": 121547,
-          "total": 23587166
+          "cacheRead": 54182528,
+          "input": 872352,
+          "output": 497519,
+          "reasoningOutput": 260215,
+          "total": 55552399
         }
       },
-      "output": 206907,
-      "reasoningOutput": 121547,
-      "total": 23587166
+      "output": 497519,
+      "reasoningOutput": 260215,
+      "total": 55552399
     },
     "opencode": {
       "cacheCreation": 0,
-      "cacheRead": 7417600,
-      "costUSD": 0.0,
-      "input": 350872,
+      "cacheRead": 8982206,
+      "costUSD": 0.229817,
+      "input": 643829,
       "models": {
+        "auto/gemini-3.8-flash-high": {
+          "cacheCreation": 0,
+          "cacheRead": 855998,
+          "costUSD": 0.229817,
+          "input": 171458,
+          "output": 4577,
+          "total": 1032033
+        },
         "pulse-alpha-free": {
           "cacheCreation": 0,
           "cacheRead": 2697984,
@@ -39,17 +47,51 @@
         },
         "workbuddy/hy4free": {
           "cacheCreation": 0,
-          "cacheRead": 4719616,
+          "cacheRead": 5428224,
           "costUSD": 0.0,
-          "input": 174157,
-          "output": 4509,
-          "total": 4898282
+          "input": 295656,
+          "output": 9683,
+          "total": 5733563
         }
       },
-      "output": 25123,
-      "total": 7846727
+      "output": 34874,
+      "total": 9735694
+    },
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 13176256,
+      "costUSD": 0.156023,
+      "input": 583947,
+      "models": {
+        "[pi] auto/deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 46720,
+          "costUSD": 0.0,
+          "input": 12697,
+          "output": 736,
+          "total": 60153
+        },
+        "[pi] opencode-go/deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 12048256,
+          "costUSD": 0.156023,
+          "input": 441761,
+          "output": 89356,
+          "total": 12579373
+        },
+        "[pi] workbuddy/hy4free": {
+          "cacheCreation": 0,
+          "cacheRead": 1081280,
+          "costUSD": 0.0,
+          "input": 129489,
+          "output": 37809,
+          "total": 1248578
+        }
+      },
+      "output": 127901,
+      "total": 13888104
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
