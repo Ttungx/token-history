@@ -1,0 +1,45 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-11-08T12:00:18Z",
+  "date": "2026-11-08",
+  "host": "YOUNG",
+  "sources": {
+    "codex": {
+      "cacheCreation": 0,
+      "cacheRead": 2584789,
+      "costUSD": 1.961809,
+      "input": 756638,
+      "models": {
+        "blue/gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 2320597,
+          "input": 663036,
+          "output": 19836,
+          "reasoningOutput": 12560,
+          "total": 3003469
+        },
+        "gpt-6-luna": {
+          "cacheCreation": 0,
+          "cacheRead": 0,
+          "input": 24652,
+          "output": 5,
+          "reasoningOutput": 0,
+          "total": 24657
+        },
+        "gpt-6.1-sol": {
+          "cacheCreation": 0,
+          "cacheRead": 264192,
+          "input": 68950,
+          "output": 3853,
+          "reasoningOutput": 1268,
+          "total": 336995
+        }
+      },
+      "output": 23694,
+      "reasoningOutput": 13828,
+      "total": 3365121
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
