@@ -78,7 +78,7 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <text class="tn" x="750" y="227.0" font-size="12.5" font-weight="600">19M</text>
 <circle class="s-zcode dot" cx="740" cy="175.7" r="4"/>
 <text class="t2" x="750" y="179.7" font-size="12">ZCode</text>
-<text class="tn" x="750" y="196.7" font-size="12.5" font-weight="600">0</text>
+<text class="tn" x="750" y="196.7" font-size="12.5" font-weight="600">27K</text>
 <circle class="s-cline dot" cx="740" cy="145.4" r="4"/>
 <text class="t2" x="750" y="149.4" font-size="12">Cline</text>
 <text class="tn" x="750" y="166.4" font-size="12.5" font-weight="600">0</text>
@@ -88,5 +88,5 @@ svg{--f:Poppins,Arial,"Helvetica Neue",sans-serif;--fs:Lora,Georgia,"Iowan Old S
 <circle class="dot" cx="121.0" cy="96.1" r="3.5" fill="var(--primary)"/>
 <text class="t" x="121.0" y="86.1" font-size="11.5" font-weight="600" text-anchor="middle">197M</text>
 </g>
-<text class="tm" x="28" y="366" font-size="10.5">Generated 2026-11-13 12:00 UTC</text>
+<text class="tm" x="28" y="366" font-size="10.5">Generated 2026-11-14 12:00 UTC</text>
 </svg>
