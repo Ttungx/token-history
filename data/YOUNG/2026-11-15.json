@@ -1,0 +1,36 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-11-15T12:00:11Z",
+  "date": "2026-11-15",
+  "host": "YOUNG",
+  "sources": {
+    "zcode": {
+      "cacheCreation": 0,
+      "cacheRead": 35707392,
+      "costUSD": 0.0,
+      "input": 362969,
+      "models": {
+        "GLM-5.3-Flash": {
+          "cacheCreation": 0,
+          "cacheRead": 55424,
+          "costUSD": 0.0,
+          "input": 80174,
+          "output": 5594,
+          "total": 141192
+        },
+        "auto/deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 35651968,
+          "costUSD": 0.0,
+          "input": 282795,
+          "output": 118219,
+          "total": 36052982
+        }
+      },
+      "output": 123813,
+      "total": 36194174
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
