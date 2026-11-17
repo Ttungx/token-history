@@ -1,14 +1,32 @@
 {
   "ccusageVersion": "20.0.24",
-  "collectedAt": "2026-11-16T12:00:12Z",
+  "collectedAt": "2026-11-17T12:00:13Z",
   "date": "2026-11-16",
   "host": "YOUNG",
   "sources": {
+    "opencode": {
+      "cacheCreation": 0,
+      "cacheRead": 104320,
+      "costUSD": 0.0,
+      "input": 19652,
+      "models": {
+        "group/sage-s2.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 104320,
+          "costUSD": 0.0,
+          "input": 19652,
+          "output": 477,
+          "total": 124449
+        }
+      },
+      "output": 477,
+      "total": 126322
+    },
     "pi": {
       "cacheCreation": 0,
-      "cacheRead": 933696,
+      "cacheRead": 8305088,
       "costUSD": 0.010608,
-      "input": 118106,
+      "input": 598115,
       "models": {
         "[pi] auto/deepseek-v4.1-flash": {
           "cacheCreation": 0,
@@ -20,17 +38,25 @@
         },
         "[pi] group/hy4-flash": {
           "cacheCreation": 0,
-          "cacheRead": 710592,
+          "cacheRead": 7380608,
           "costUSD": 0.0,
-          "input": 84078,
-          "output": 9785,
-          "total": 804455
+          "input": 541972,
+          "output": 40078,
+          "total": 7962658
+        },
+        "[pi] group/sage-s2.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 701376,
+          "costUSD": 0.0,
+          "input": 22115,
+          "output": 39988,
+          "total": 763479
         }
       },
-      "output": 17842,
-      "total": 1069644
+      "output": 88123,
+      "total": 8991326
     }
   },
-  "status": "partial",
+  "status": "final",
   "timezone": "Asia/Shanghai"
 }
