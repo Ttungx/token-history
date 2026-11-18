@@ -1,0 +1,28 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-11-18T12:00:31Z",
+  "date": "2026-11-18",
+  "host": "YOUNG",
+  "sources": {
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 1162496,
+      "costUSD": 0.031042,
+      "input": 86600,
+      "models": {
+        "[pi] auto/deepseek-v4.1-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 1162496,
+          "costUSD": 0.031042,
+          "input": 86600,
+          "output": 24275,
+          "total": 1273371
+        }
+      },
+      "output": 24275,
+      "total": 1273371
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
