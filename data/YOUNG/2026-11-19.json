@@ -1,0 +1,36 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-11-20T12:00:10Z",
+  "date": "2026-11-19",
+  "host": "YOUNG",
+  "sources": {
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 1007232,
+      "costUSD": 0.022104,
+      "input": 187494,
+      "models": {
+        "[pi] group/hy4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 1007232,
+          "costUSD": 0.0,
+          "input": 176467,
+          "output": 27615,
+          "total": 1211314
+        },
+        "[pi] openai-next/gemini-4-carbon": {
+          "cacheCreation": 0,
+          "cacheRead": 0,
+          "costUSD": 0.022104,
+          "input": 11027,
+          "output": 5,
+          "total": 11032
+        }
+      },
+      "output": 27620,
+      "total": 1222346
+    }
+  },
+  "status": "final",
+  "timezone": "Asia/Shanghai"
+}
