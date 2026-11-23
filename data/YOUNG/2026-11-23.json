@@ -1,0 +1,28 @@
+{
+  "ccusageVersion": "20.0.24",
+  "collectedAt": "2026-11-23T12:00:14Z",
+  "date": "2026-11-23",
+  "host": "YOUNG",
+  "sources": {
+    "pi": {
+      "cacheCreation": 0,
+      "cacheRead": 71744,
+      "costUSD": 0.0,
+      "input": 17105,
+      "models": {
+        "[pi] group/hy4-flash": {
+          "cacheCreation": 0,
+          "cacheRead": 71744,
+          "costUSD": 0.0,
+          "input": 17105,
+          "output": 1940,
+          "total": 90789
+        }
+      },
+      "output": 1940,
+      "total": 90789
+    }
+  },
+  "status": "partial",
+  "timezone": "Asia/Shanghai"
+}
